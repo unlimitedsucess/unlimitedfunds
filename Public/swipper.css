@@ -124,6 +124,7 @@
   transform: scale(1.2);
 }
 
+
 /* Breakpoints */
 @media (max-width: 768px) {
   .swiper-slide {

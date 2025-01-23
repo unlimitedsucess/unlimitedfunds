@@ -330,7 +330,7 @@ a {
   opacity: 0; /* Initially hidden */
   transform: scale(0.9); /* Start slightly smaller */
   box-sizing: border-box;
-  transition: transform 1.5s ease-in, opacity 1.2s ease-in; /* Smooth transition */
+  transition: transform 0.5s ease-in, opacity 0.2s ease-in; /* Smooth transition */
 }
 /* Default state for all section elements */
 section {
@@ -1730,7 +1730,7 @@ footer {
 .ans4,
 .ans5 {
   bottom: 80px;
-  right: -30px !important;
+  right: -3gi0px !important;
   top: 100% !important;
 }
   .content-h {

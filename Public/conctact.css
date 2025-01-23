@@ -215,7 +215,7 @@ button {
 }
 section {
   /* background-position: center; */
-  animation: 3s 1s infinite alternate;
+  animation: 1s 1s infinite alternate;
   /* background-size: 100% 100%; */
   box-sizing: border-box;
   animation: fadeInScale 1.2s ease-in forwards; /* Add animation */
@@ -410,12 +410,6 @@ section {
     font-size: 18px;
     width: 100%;
     position: relative;
-  }
-  .mobile-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    background-color: red;
   }
 
   .nav-box {
