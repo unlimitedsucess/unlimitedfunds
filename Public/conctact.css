@@ -5,20 +5,19 @@ body {
   padding: 0;
   border: 0;
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  height: fit-content;
   background-image: url(image/contactus.svg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 * {
   margin: 0;
   padding: 0;
 }
 main {
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
+  height: fit-content;
+
 }
 section {
   width: 100%;
@@ -26,21 +25,26 @@ section {
   justify-content: center;
   align-items: center;
   margin: auto;
-  height: 120%;
+  height: 100%;
+  padding: 10px 50px;
+
 }
 #contact-div {
+  display: flex;
+  justify-content:  space-between;
+  /* gap: 350px; */
+  width: 100%;
+  align-content: center;
+  align-items: center;
   position: relative;
-  width: 90%;
-  height: 90%;
-  box-sizing: border-box;
 }
 .form-container {
   width: 90%;
   height: 90%;
 }
 .outerdiv {
-  width: 70%;
-  height: 680px;
+  width: 900px;
+  height: fit-content;
   gap: 0px;
   border-radius: 25px;
   border: 6px solid #ffffff;
@@ -56,10 +60,9 @@ section {
   /* top: 30px;
   right: 120px; */
   box-sizing: border-box;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  z-index: 99;
+  padding: 18px 10px;
+  
 }
 .overall {
   width: 100%;
@@ -68,22 +71,23 @@ section {
   display: flex;
   justify-content: center;
 }
-.globe {
-  position: absolute;
-  left: 80px;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 8%;
-}
+
 .globe img {
   width: 500px;
-  height: 480px;
+  height: 420px;
+  position: fixed;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .reachout-div {
   position: absolute;
-  bottom: 0px;
-  left: -370px;
-  bottom: -80px;
+  left: 20px;
+  bottom: 30px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 h1 {
   font-family: Inter;
@@ -121,7 +125,7 @@ span {
   margin: 0;
   width: 100%;
   height: fit-content !important;
-  padding-top: 10px;
+  padding-top: 6px;
 }
 label {
   padding: 0;
@@ -149,7 +153,7 @@ select {
   padding: 8px;
 }
 #message {
-  height: 109px;
+  height: 80px;
   border: 1px solid #00000080;
   margin-bottom: 6px;
   padding: 10px;
@@ -184,24 +188,30 @@ select {
   padding: 8px;
   cursor: pointer;
 }
+.mobile-header {
+  display: none;
+}
 .dropdown div:hover {
   background-color: #f0f0f0;
 }
 button {
-  width: 163px;
-  height: 44px;
+  width: 123px;
+  height: 35px;
   padding: 10px;
   gap: 10px;
   border-radius: 25px;
   opacity: 0px;
   background: #191919;
   font-family: Inter;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 300;
   line-height: 24.2px;
   text-align: center;
   color: #ffffff;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 section {
   /* background-position: center; */
@@ -232,10 +242,12 @@ section {
 }
 .reach-out p {
   font-family: Inter;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 400;
   text-align: left;
   color: #ffffff;
+  margin: 0;
+  padding: 0;
 }
 
 .mobile-img {
@@ -246,19 +258,22 @@ section {
   height: fit-content;
 }
 @media screen and (max-width: 1200px) {
+  body{
+    width: 100%;
+  }
   section {
+    width: calc(100% -20px);
     align-items: center;
-    height: 100vh;
-    overflow: scroll;
+    box-sizing: border-box;
+    height: fit-content;
+    position: relative;
   }
   .outerdiv {
-    width: 90%;
+    width: 100%;
     justify-content: center;
-    height: 800px;
-    right: 0;
-    left: 50%;
-    top: 28%;
-    transform: translateX(-50%);
+    height: fit-content;
+    align-items: center;
+    
   }
   .submit-btn {
     padding: 0;
@@ -278,21 +293,43 @@ section {
   }
   .mobile-img {
     display: block;
+    top: 0;
+    left: 0;
+  }
+  .globe{
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    left: 0;
+  }
+  .globe img {
+    width: 400px;
+    height: 320px;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .reachout-div {
-    width: 100%;
     position: relative;
+    width: fit-content;
     left: 0;
+    margin-top: 20px;
     padding: 0;
     bottom: 0;
     display: flex;
     flex-direction: column;
+    margin-left: -56%;
   }
   .reach-out {
     gap: 0px;
   }
   #contact-div {
+    width: 100%;
     height: 1200px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
   }
   .reach-out p {
     font-size: 16px;
@@ -335,6 +372,7 @@ section {
   }
   .second-img {
     display: block;
+    left: 0;
   }
   #phone-number {
     padding: 10px;
@@ -350,17 +388,19 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .static-header {
-    background-color: #ffffff;
+    margin-bottom: 20px;
   }
   .globe {
-    top: 5%;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;
   }
-  .desktop-header {
+  .header-container {
     display: none;
+  }
+  .mobile-view{
+    width: 100%;
+    display: block;
+    display: flex;
+    justify-content: space-between;
   }
   input,
   select {
@@ -372,32 +412,13 @@ section {
     position: relative;
   }
   .mobile-header {
-    padding: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
-    box-sizing: border-box;
-    height: 48px;
-  }
-  .mobile-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: transparent;
-    z-index: 1000;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+    background-color: red;
   }
 
-  .static-header {
-    background-color: #ffffff;
-  }
-
-  #nav-box {
+  .nav-box {
     display: flex;
     align-items: center;
   }
@@ -439,104 +460,75 @@ section {
   }
   header {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .signup,
+  .login {
+    color: #1c3f3a !important;
+    background: transparent !important;
+    padding: 0 !important;
+    text-align: left !important;
+    font-size: 18px !important;
+  }
+  .newlogin {
+    top: 40px;
   }
 }
 @media screen and (max-width: 720px) {
   body {
     overflow: scroll;
   }
-  section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-  }
-  .globe{
-    top: 10%;
-  }
   .globe img {
-    height: 250px;
-    width: 210px;
+   top: 7%;
   }
-  #contact-div {
-    height: 100vh;
-    position: relative;
-  }
-  .outerdiv {
-    top: 30%;
-  }
-  .reach-out p{
+  .reach-out p {
     font-size: 14px;
+
   }
-  .signup,
-  .login {
-    color: #1c3f3a;
-    background: transparent !important;
-    padding: 0 !important;
-    text-align: left !important;
+  .reachout-div{
+    margin-left: -45%;
   }
-  .newlogin{
-    top: 40px;
+  
+  .outerdiv{
+    width: 100%;
+  }
+  section{
+    padding: 10px 20px;
   }
 }
 
-/* @media screen and (max-width: 720px) {
-  body {
+@media screen and (max-width: 520px) {
+  body{
+    background-color: red;
+  }
+  .reachout-div{
+    margin-left: -20%;
+  }
+  .globe img {
+    width: 250px;
+   }
+   section{
+    padding: 10px 10px;
+  }
+} 
+@media screen and (max-width: 350px) {
+  body{
     width: 100%;
   }
-
-  header {
-    display: none;
+  .reachout-div{
+    margin-left: -10%;
   }
-  .mobile-header {
-    padding: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    box-sizing: border-box;
-    height: 48px;
-  }
-  #nav-box {
-    display: flex;
-    align-items: center;
-  }
-  #mobile-listnav {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    gap: 70px;
-    padding-left: 30px;
-    padding-top: 30px;
-  }
-  .navbar {
-    background-color: #1c3f3a;
-    width: 60%;
-    position: fixed;
-    top: 0;
-    right: 0;
-    display: none;
-  }
-  .navbar.active {
-    display: block;
-  }
-  .drop-logo {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #ffffff;
-    height: 40px;
-  }
-  .drop-logo img {
-    width: 150px;
-  }
-  .signup,
-  .login {
-    color: #1c3f3a;
-    background: transparent !important;
-    padding: 0 !important;
-    text-align: left !important;
-  }
-} */
+  .globe img {
+    width: 250px;
+    top: 5%;
+   }
+   .signup,
+   .login {
+     color: #1c3f3a !important;
+     background: transparent !important;
+     padding: 0 !important;
+     text-align: left !important;
+     font-size: 16px !important;
+   }
+} 
