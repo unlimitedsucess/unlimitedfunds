@@ -1729,7 +1729,9 @@ footer {
 .ans3,
 .ans4,
 .ans5 {
-  margin-bottom: 80px;
+  bottom: 80px;
+  right: -30px !important;
+  top: 100% !important;
 }
   .content-h {
     font-size: 18px;
