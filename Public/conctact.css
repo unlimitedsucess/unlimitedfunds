@@ -409,7 +409,6 @@ section {
   body {
     font-size: 18px;
     width: 100%;
-    position: relative;
   }
 
   .nav-box {
@@ -493,9 +492,9 @@ section {
 }
 
 @media screen and (max-width: 520px) {
-  body{
-    background-color: red;
-  }
+ body{
+  height: fit-content;
+ }
   .reachout-div{
     margin-left: -20%;
   }
