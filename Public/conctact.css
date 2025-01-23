@@ -10,6 +10,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  height: 100vh;
+  overflow-y: hidden;
+
 }
 * {
   margin: 0;
@@ -17,6 +20,8 @@ body {
 }
 main {
   height: fit-content;
+  height: 100%;
+  overflow-y: scroll;
 
 }
 section {
