@@ -1,0 +1,153 @@
+/* Import Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
+/* General Styles */
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+/* Swiper Container */
+.swiper-container {
+  width: 100%;
+  padding: 20px 10px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: red;
+  box-sizing: border-box;
+}
+
+/* Swiper Wrapper */
+.swiper-wrapper {
+  display: flex;
+  height: 400px;
+}
+
+/* Individual Slides */
+.swiper-slide {
+  text-align: left;
+  padding: 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  background: #e0eae8;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border-top-right-radius: 100px;
+  height: fit-content;
+}
+
+/* Slide Content */
+.swiper-slide img {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.myServices-h1 {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29.05px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.myServices-p {
+  font-family: PT Serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21.2px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+/* Navigation Buttons */
+.navigationbtn {
+  display: flex;
+  gap: 10px;
+  justify-content: right;
+  margin-top: 10px;
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+  z-index: 1000;
+}
+
+.custom-prev,
+.custom-next {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-prev i,
+.custom-next i {
+  font-size: 36px;
+  color: #ffd054;
+}
+
+.custom-prev:hover i,
+.custom-next:hover i {
+  color: #ffffff;
+}
+
+/* Pagination */
+.swiper-pagination {
+  position: absolute;
+  bottom: -30px;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+  background-color: #e0eae8;
+  opacity: 0.6;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #e0eae8;
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Breakpoints */
+@media (max-width: 768px) {
+  .swiper-slide {
+    padding: 15px;
+  }
+
+  .myServices-h1 {
+    font-size: 20px;
+  }
+
+  .myServices-p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .swiper-slide img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .navigationbtn {
+    bottom: 20px;
+  }
+
+  .custom-prev i,
+  .custom-next i {
+    font-size: 30px;
+  }
+}

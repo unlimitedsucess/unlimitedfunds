@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="adminlogin.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="login-div">
+        <div class="login-box">
+          <div class="title">
+            <h1>Welcome back, Admin</h1>
+            <p>Sign in with your email</p>
+          </div>
+          <form action="/submit" method="POST" id="login-form">
+            <div class="input-div">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" />
+              </div>
+              <div class="input-div">
+                <label for="password">Password</label>
+                <div class="password-container">
+                  <input
+                    type="password"
+                    name="password"
+                    class="password"
+                    id="password-input"
+                    required
+                    autocomplete="new-password"
+                  />
+                  <i class="fa fa-eye" id="eye-icon"></i>
+                  <div class="password-requirements"></div>
+                </div>
+              </div>
+             <div class="submit">
+                <button type="submit" id="login-button">
+                    <span class="button-text">Login</span>
+                    <div class="spinner"></div>
+                </button>
+             </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="animation.js"></script>
+    <script>
+      const passwordInput = document.getElementById("password-input");
+        const eyeIcon = document.getElementById("eye-icon");
+        const loginForm = document.getElementById("login-form");
+        const loginButton = document.getElementById("login-button");
+        const buttonText = loginButton.querySelector(".button-text");
+        const spinner = loginButton.querySelector(".spinner");
+
+        // Toggle password visibility
+        eyeIcon.addEventListener("click", () => {
+            const type = passwordInput.type === "password" ? "text" : "password";
+            passwordInput.type = type;
+
+            // Toggle the eye icon
+            eyeIcon.classList.toggle("fa-eye");
+            eyeIcon.classList.toggle("fa-eye-slash");
+        });
+
+        // Simulate loading state on form submit
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault(); // Prevent actual form submission for demo purposes
+
+            // Start loading state
+            loginButton.classList.add("loading");
+            spinner.style.display = "inline-block";
+            buttonText.textContent = "Logging in...";
+
+            // Simulate a delay (e.g., server response)
+            setTimeout(() => {
+                // Stop loading state (in real use, stop after server response)
+                loginButton.classList.remove("loading");
+                spinner.style.display = "none";
+                buttonText.textContent = "Login";
+
+                alert("Login successful (simulated)!");
+            }, 3000); // Adjust the timeout as needed
+        });
+    </script>
+  </body>
+</html>

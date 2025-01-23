@@ -1,0 +1,529 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Irish+Grover&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+body{
+  width: 100%;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  background-color: #e0eae8;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+
+}
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+main {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+.flex {
+  width: 100%;
+  height: 865px;
+  padding: 24px;
+  opacity: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 56px;
+  align-items: center;
+  box-sizing: border-box;
+}
+.img-container {
+  height: fit-content;
+  background-color: #3e8076;
+  width: 427px;
+  height: 732px;
+  padding: 24px;
+  gap: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.first-div {
+  width: 379px;
+  height: 226px;
+  opacity: 0px;
+  box-sizing: border-box;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.first-div h1 {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24.05px;
+  text-align: left;
+  color: #ffffff;
+}
+.first-div img {
+  display: none;
+}
+.first-div h3 {
+  font-family: Inter;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48.41px;
+  text-align: left;
+  color: #ffffff;
+}
+.first-div p {
+  font-family: PT Sans;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 23.29px;
+  text-align: left;
+  color: #ffffff;
+}
+.second-div {
+  width: 379px;
+  height: 200px;
+  padding: 24px;
+  gap: 12px;
+  border-radius: 25px;
+  opacity: 0px;
+  background-color: #1c3f3a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.second-div h4 {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24.2px;
+  text-align: left;
+  color: #ffffff;
+}
+.second-div span {
+  font-family: PT Sans;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 20.7px;
+  text-align: left;
+  color: #ffffff;
+}
+.form-container {
+  width: 748px;
+  height: 817px;
+  gap: 56px;
+  opacity: 0px;
+}
+.seconddiv-prof {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.seconddiv-prof h6 {
+  color: #ffffff;
+  font-family: PT Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 15.53px;
+  text-align: left;
+}
+.seconddiv-prof img {
+  width: 24px;
+  height: 24px;
+  gap: 0px;
+  border-radius: var(--sds-size-radius-full);
+  opacity: 0px;
+}
+.secondiv-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.line {
+  width: 100%;
+  height: 12px;
+  gap: 4px;
+  opacity: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0eae8;
+  padding-bottom: 56px;
+}
+.line1 {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: black;
+  border: 1px solid black;
+}
+.line2 {
+  width: 200px;
+  height: 0px;
+  gap: 0px;
+  border: 1px solid black;
+  background-color: black;
+  margin-right: 4px;
+}
+.title {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  padding-bottom: 24px;
+}
+.form-input {
+  width: 100%;
+  /* padding: 24px; */
+  box-sizing: border-box;
+}
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+input,
+select {
+  height: 48px;
+  padding: 10;
+  border: 1px solid black;
+}
+.password-div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.password-container{
+  position: relative;
+  width: 100%;
+}
+
+#eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.password-container2{
+  position: relative;
+  width: 100%;
+}
+#eye-icon2{
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.password-requirements {
+  font-size: 12px;
+  color: #666;
+}
+.input-div {
+  display: flex;
+  flex-direction: column;
+}
+.first-detail {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.first-detail .input-div {
+  width: 30%;
+}
+
+.residence .input-div {
+  width: 48%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.names{
+  width: calc(100% - 10px);
+  padding: 0px 4px;
+}
+.location{
+  width: calc(100% - 10px);
+  padding: 0px 4px;
+}
+.residence {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.phone-number-container {
+  display: flex;
+  gap: 0;
+  align-items: center;
+}
+.phone-number-container select {
+  border: 1px solid #191919;
+}
+.phone-number-container #country-code {
+  border-radius: 0;
+  border-right: 0;
+}
+.phone-number-container select {
+  width: 80px;
+  border-radius: 0;
+}
+#phone-number {
+  width: 100%;
+  border-left: 0;
+ padding: 0px 5px;
+}
+
+.date-flex {
+  display: flex;
+  justify-content: space-between;
+}
+label {
+  padding: 4px;
+}
+.password-div .input-div {
+  width: 48%;
+}
+.password{
+  width: calc(100% - 12px);
+  padding: 0px 4px;
+}
+
+.next-btn {
+  width: 130px;
+  height: 34px;
+  opacity: 0px;
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 25px;
+  background-color: #191919;
+  align-content: center;
+}
+.phone-number {
+  width: 100%;
+}
+.next-btn a {
+  width: 150px;
+  padding: 10px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  color: #ffffff;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+.next-btn {
+  box-sizing: border-box;
+}
+input {
+  padding: 0px 5px;
+}
+.mobile-view {
+  display: none;
+}
+@media screen and (max-width: 1280px) {
+  body {
+    width: 100%;
+  }
+  .flex {
+    flex-direction: column;
+    /* padding: 15px 15px; */
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    justify-content: center;
+    padding: 12px;
+  }
+  .first-div img {
+    display: block;
+    width: 100%;
+  }
+  .first-div h1 {
+    display: none;
+  }
+  .img-container {
+    width: 100%;
+    height: 450px;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .first-div,
+  .second-div {
+    width: 100%;
+    height: 150px;
+  }
+  .second-div {
+    width: 95%;
+  }
+  .form-container,
+  form,
+  input,
+  option,
+  select {
+    width: 100%;
+  }
+  h3.title {
+    padding-left: 24px;
+  }
+  .p2 {
+    padding-top: 6px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  form{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .first-detail{
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    padding: 0;
+  }
+  .input-div {
+    width: 95%;
+  }
+  .residence{
+    flex-direction: column;
+    gap: 0;
+  }
+  .first-detail .input-div {
+    width: 100%;
+    justify-content: center;
+
+  }
+ 
+  .residence .input-div{
+    width: 100%;
+  }
+  input{
+    width: 100%;
+  }
+  .img-container {
+    width: 100%;
+    height: 280px;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 6px;
+  }
+  .first-div,
+  .second-div {
+    width: 100%;
+    height: 130px;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+  .first-div img {
+    display: block;
+  }
+  .first-div h1 {
+    display: none;
+  }
+  .first-div h3 {
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 19.36px;
+    text-align: left;
+  }
+  .contact-no{
+    width: 100%;
+
+  }
+  .password-div{
+    flex-direction: column;
+  }
+  .password-div .input-div {
+    width: 100%;
+  }
+  .first-div p {
+    font-family: PT Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: left;
+  }
+  .second-div h4 {
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 19.36px;
+    text-align: left;
+  }
+  .second-div span {
+    font-family: PT Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 12.35px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+  .second-div img {
+    height: 16px;
+    width: 16px;
+  }
+  .second-div h6 {
+    font-family: PT Sans;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 7.76px;
+  }
+  .input-div input{
+    width: calc(100% - 10px);
+  }
+  .second-detail{
+    width: calc(100% - 2px);
+  }
+  .address{
+    width: 100%
+  }
+}
+.contact-no{
+  width: 100%;
+  padding: 0;
+}
+.phone-number-container{
+  width: 100%;
+  height: 50px;
+}
+#phone-number{
+  width: 100%;
+  overflow: scroll;
+}
+.contact-no .input-div{
+  width: 100%;
+}
+@media screen and (max-width: 380px) {
+  .first-div h3 {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 19.36px;
+    text-align: left;
+  }
+  .second-div h4 {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.36px;
+    text-align: left;
+  }
+  .next {
+    width: 120px;
+  }
+}

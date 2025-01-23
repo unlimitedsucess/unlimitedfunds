@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Irish+Grover&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+body {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+main {
+  width: 100%;
+  height: fit-content;
+  background-color: #e0eae8;
+}
+.login-cointainer {
+  width: 967px;
+  height: 600px;
+  padding: 8px;
+  padding-top: 57px;
+  gap: 36px;
+  opacity: 0px;
+  margin: auto;
+
+}
+
+.title {
+  width: 390px;
+  height: 177px;
+  gap: 0px;
+  opacity: 0px;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 10px;
+}
+.title h1 {
+  font-family: "Inter", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48.41px;
+  text-align: center;
+  padding-bottom: 36px;
+}
+.title p {
+  font-family: "PT Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31.8px;
+  text-align: center;
+  padding-bottom: 30px;
+  margin-bottom: 24px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+  padding-top: 40px;
+}
+.login-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.login-details label {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.login-details input {
+  height: 48px;
+  padding: 10px;
+  border: 1px solid #000000;
+}
+.checkbox-container label {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: black;
+}
+.forgot-pasword {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 2px;
+}
+.forgot-pasword a {
+  text-decoration: none;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: right;
+}
+.submit-btn {
+  padding-top: 36px;
+  width: 297px;
+  height: 76px;
+  gap: 12px;
+  opacity: 0px;
+  margin: auto;
+  text-align: center;
+}
+.signup {
+  display: flex;
+  flex-direction: row;
+  padding-top: 12px;
+}
+.signup p {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: left;
+  color: #000000;
+}
+.signup a {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: left;
+  color: #000000;
+  padding: 0 10px;
+}
+#login-btn {
+  width: 163px;
+  height: 44px;
+  padding: 10px;
+  gap: 10px;
+  border-radius: 25px;
+  opacity: 0px;
+  background: #191919;
+  color: #ffff;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24.2px;
+  text-align: center;
+  cursor: pointer;
+}
+.image-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 1300px) {
+  body {
+    width: 100%;
+  }
+  main {
+    width: 100%;
+    height: fit-content;
+  }
+  .login-cointainer {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    justify-content: center;
+    padding: 0;
+    height: fit-content;
+  }
+  .login-cointainer .title h1 {
+    font-size: 30px;
+    width: 100%;
+  }
+  .image-div {
+    width: 100%;
+    padding: 0;
+  }
+  .image-div img {
+    width: 550px;
+  }
+  .title {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  form {
+    width: 100%;
+    padding-top: 0;
+  }
+}
+@media screen and (max-width: 720px) {
+  .login-cointainer .title h1 {
+    font-size: 20px;
+    width: 100%;
+    padding: 0;
+  }
+  main{
+    height: 100vh;
+  }
+  .image-div {
+    width: 100%;
+    padding: 0;
+    height: 350px;
+    display: flex;
+    align-items: center;
+  }
+  .image-div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+  }
+  #login-btn {
+    width: 80px;
+    height: 24px;
+    padding: 4px;
+    gap: 10px;
+    border-radius: 25px;
+    opacity: 0px;
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+  input{
+    height: 18px !important;
+  }
+
+}

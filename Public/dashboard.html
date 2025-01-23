@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dash board</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+     <!-- mobile view -->
+     <main>
+      <div id="mobile-dashboard">
+        <div id="first-flex">
+          <div class="first-flex">
+            <div class="innerbox">
+              <div class="dashboard-flex">
+                <a href="index.html"><img src="image/Frame 151.svg" alt="" /></a>
+                <img id="cancel-sidebar" src="image/x-circle.svg" alt="">
+              </div>
+              <a href="dashboard.html"><img src="image/Frame 152.svg" alt="" /></a>
+              <a href="#table"><img src="image/Frame 153.svg" alt="" /></a>
+              <a href=""><button id="dashboard-btn" style="background-color: transparent; cursor: pointer;"><img src="image/Frame 154.svg" alt="" /><button></button></a>
+              <a href="contact.html"><img src="image/Frame 155.svg" alt=""/></a>
+            </div>
+            <div class="btn-div">
+              <button class="Sign-out-btn" type="reset">Sign out</button>
+            </div>
+          </div>
+        </div>
+        <header class="mobile-head">
+          <div class="mobile-nav">
+            <div class="mobile-img">
+              <img class="mobile-img" src="image/Frame 4578.svg" alt="bank logo">
+            </div>
+            <div class="mobile-nav2">
+              <img id="sidebarbtn" src="image/bellicon.svg" alt="dropdown box">
+              <div>
+                <img src="image/Alert-Bell-Notification-3--Streamline-Ultimate.svg" alt="">
+              </div>
+              <img src="image/Avatar.svg" alt="">
+            </div>
+          </div>
+          <div class="mobile-head2">
+            <h1>Hello, James</h1>
+            <p>This is your financial report</p>
+          </div>
+        </header>
+        <!-- <div class="mobile-section1">
+          <div class="newbox">
+            <div class="box1">
+              <p>My balance</p>
+              <h3>$282,626.36</h3>
+              <div class="account-num">
+                <h3>0082 2618 2783 1129</h3>
+                <img src="image/Frame 161.svg" alt="" />
+              </div>
+              <div class="transaction-btn">
+                <a class="msend-btn" href="">Send Money</a>
+              </div>
+            </div>
+            <div class="box2-div">
+              <div class="box2">
+                <div>
+                  <img src="image/Bill-1--Streamline-Core.svg.svg" alt="" />
+                  <p>Monthly Income</p>
+                </div>
+                <h3>$35.250.00</h3>
+              </div>
+              <div class="box2">
+                <div>
+                  <img src="image/Bill-2--Streamline-Core.svg" alt="" />
+                  <p>Savings Account</p>
+                </div>
+                <h3>$126,263.00</h3>
+              </div>
+            </div>
+          </div>
+          <div class="box-absolute">
+            <h1>Account info</h1>
+            <div class="box-relative">
+              <div class="box4">
+                  <div class="innerbox1">
+                      <p>UnlimitedSfunds Bank Premium</p>
+                      <img src="image/Chip--Streamline-Mynaui.svg.svg" alt="">
+                  </div>
+                  <p>0082 2618 2783 1129</p>
+                  <div class="innerbox1">
+                      <p>James Tyler</p>
+                      <img class="img2" src="image/Group 4495.svg" alt="">
+                  </div>
+              </div>
+              <div  class="box4 box5">
+                  <div class="innerbox1">
+                      <p>UnlimitedSfunds Bank Premium</p>
+                      <img src="image/Chip--Streamline-Mynaui.svg.svg" alt="">
+                  </div>
+                  <p>0082 2618 2783 1129</p>
+                  <div class="innerbox1">
+                      <p>James Tyler</p>
+                      <img class="img2" src="image/Group 4495.svg" alt="">
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="transfer-details-screen">
+            <div class="title">
+              <h1>Bank Transfer</h1>
+              <button id="cancel-transfer"><img src="image/x-circle.svg" alt="" /></button>
+            </div>
+            <div id="balance-box">
+              <div id="balance">
+                <p class="available">Available Balance:</p>
+                <p class="figures">$282,626.36</p>
+              </div>
+              <div id="title2">
+                <div id="send">
+                  <img src="image/arrow-up2.svg" alt="" />
+                  <p>Send money</p>
+                </div>
+                <p>23/08/2024</p>
+              </div>
+            </div>
+            <h3>Beneficiary's Bank Details</h3>
+            <div id="form-container">
+              <form action="" id="form-data">
+                <div class="form-div">
+                  <label for="bankName">Bank Name</label>
+                  <input type="text" name="bankName" id="bankName" required />
+                </div>
+                <div class="form-div">
+                  <label for="accountName">Account Name</label>
+                  <input type="text" name="accountName" id="accountName" required />
+                </div>
+                <div class="form-div">
+                  <label for="accountNumber">Account Number</label>
+                  <input type="number" name="accountNumber" id="accountNumber" required />
+                </div>
+                <div class="form-div">
+                  <label for="amount">Amount</label>
+                  <input type="number" name="" id="amount" placeholder="$" required />
+                </div>
+                <div class="form-div">
+                  <label for="serviceFee">Service Fee</label>
+                  <input
+                    type="number"
+                    name="serviceFee"
+                    id="serviceFee"
+                    placeholder="$"
+                  />
+                </div>
+                <div class="form-div">
+                  <label for="Narration">Narration</label>
+                  <input type="text" name="Narration" id="narration" />
+                </div>
+                <div id="proceed-button">
+                  <button id="procceed-btn">proceed to transfer</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div id="confirm-transfer">
+            <div class="title">
+              <h1>Bank Transfer</h1>
+              <button id="back-arrow">
+                <img src="image/arrow-left.svg" alt="" />
+              </button>
+            </div>
+            <div id="balance-box2">
+              <div id="review">
+                <p class="available">Review</p>
+              </div>
+              <div id="title3">
+                <div id="sender">
+                  <img src="image/arrow-up3.svg" alt="" />
+                  <div>
+                    <p>From</p>
+                    <p>0082261827831129</p>
+                  </div>
+                </div>
+                <div class="to">
+                  <p>To</p>
+                  <p>6748656367826367</p>
+                </div>
+              </div>
+            </div>
+            <div class="trasaction-details">
+              <h3>Transaction Details</h3>
+            </div>
+            <div id="form-output-container">
+              <form action="" id="form-output">
+                <div class="form-div">
+                 <p>Transaction Number</p>
+                 <p>#2849783</p>
+                </div>
+                <div class="form-div">
+                  <p>Transaction Date</p>
+                  <p>23/08/2024</p>
+                </div>
+                <div class="form-div">
+                  <p>Beneficiary</p>
+                  <p>Clare Thombson</p>
+                </div>
+                <div class="form-div">
+                  <p>Amount</p>
+                  <p>$18,500.00</p>
+                </div>
+                <div class="form-div">
+                  <p>Service fee</p>
+                  <p>$50</p>
+                </div>
+                <div class="form-div">
+                  <p>Total amount</p>
+                  <p>$18,550.00</p>
+                </div>
+                <div class="form-div">
+                  <p>Payment method</p>
+                  <p>Wire transfer</p>
+                </div>
+                <div id="transfer-button">
+                  <button id="transfer-btn">transfer</button>
+                </div>
+              </form>
+            </div>
+          </div>
+           <div class="pin-container">
+                  <div class="pin-title">
+                    <h1>Enter your secret password</h1>
+                    <button id="back-btn2">
+                      <img src="image/arrow-left2.svg" alt="" />
+                    </button>
+                  </div>
+                  <div class="pin-box">
+                    <input
+                      type="text"
+                      maxlength="1"
+                      class="pin-input"
+                      id="pin1"
+                      oninput="moveNext(1)"
+                    />
+                    <input
+                      type="text"
+                      maxlength="1"
+                      class="pin-input"
+                      id="pin2"
+                      oninput="moveNext(2)"
+                    />
+                    <input
+                      type="text"
+                      maxlength="1"
+                      class="pin-input"
+                      id="pin3"
+                      oninput="moveNext(3)"
+                    />
+                    <input
+                      type="text"
+                      maxlength="1"
+                      class="pin-input"
+                      id="pin4"
+                      oninput="moveNext(4)"
+                    />
+                  </div>
+                  <div id="final-btn">
+                    <button class="final-confirm-btn">Confirm</button>
+                  </div>
+                </div>
+        </div> -->
+        <!-- <div class="outer-div">
+          <div class="table" id="table">
+            <div class="innerflex">
+              <p>Recent Transactions</p>
+            </div>
+            <table>
+              <tr class="head head1">
+                <th class="type">TYPE</th>
+                <th>DETAILS</th>
+                <th class="amount">AMOUNT</th>
+                <th class="status">STATUS</th>
+                <th>METHOD</th>
+              </tr>
+              <tr class="head">
+                <td class="type">
+                  <img src="image/arrow-down.svg" alt="">
+                </td>
+                <td style="width: 140px; text-wrap: nowrap;">
+                  <h3>John Tyler</h3>
+                  <p>Sent - June 12, 2024</p>
+                </td>
+                <td class="amount-td" style="width: 130px;"> $826.00</td>
+                <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
+                <td>
+                  <div style="text-wrap: nowrap;">
+                    <h3>Bank Transfer</h3>
+                    <p>****2356</p>
+                  </div>
+                </td>
+              </tr>
+              <tr class="head">
+                <td class="type">
+                  <img src="image/Rss-Square--Streamline-Core.svg.svg" alt="">
+                </td>
+                <td style="width: 140px; text-wrap: nowrap;">
+                  <h3>Subscription</h3>
+                  <p>Sent - June 12, 2024</p>
+                </td>
+                <td class="amount-td" style="width: 130px;"> $826.00</td>
+                <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Pending</td>
+                <td>
+                  <div style="text-wrap: nowrap;">
+                    <h3>Bank Transfer</h3>
+                    <p>****2356</p>
+                  </div>
+                </td>
+              </tr>
+              <tr class="head">
+                <td class="type">
+                  <img src="image/arrow-down.svg" alt="">
+                </td>
+                <td style="width: 140px; text-wrap: nowrap;">
+                  <h3>John Tyler</h3>
+                  <p>Sent - June 12, 2024</p>
+                </td>
+                <td class="amount-td" style="width: 130px;"> $826.00</td>
+                <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
+                <td>
+                  <div style="text-wrap: nowrap;">
+                    <h3>Bank Transfer</h3>
+                    <p>****2356</p>
+                  </div>
+                </td>
+              </tr>
+              <tr class="head">
+                <td class="type">
+                  <img src="image/arrow-down.svg" alt="">
+                </td>
+                <td style="width: 140px; text-wrap: nowrap;">
+                  <h3>John Tyler</h3>
+                  <p>Sent - June 12, 2024</p>
+                </td>
+                <td class="amount-td" style="width: 130px;"> $826.00</td>
+                <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
+                <td>
+                  <div style="text-wrap: nowrap;">
+                    <h>Bank Transfer</h>
+                    <p>****2356</p>
+                  </div>
+                </td>
+              </tr>
+              <tr class="head">
+                <td class="type">
+                  <img src="image/arrow-down.svg" alt="">
+                </td>
+                <td style="width: 140px; text-wrap: nowrap;">
+                  <h3>John Tyler</h3>
+                  <p>Sent - June 12, 2024</p>
+                </td>
+                <td class="amount-td" style="width: 130px;"> $826.00</td>
+                <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
+                <td>
+                  <div style="text-wrap: nowrap;">
+                    <h3>Bank Transfer</h3>
+                    <p>****2356</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <img class="table-img" src="image/Group 4497.svg" alt="">
+        </div> -->
+        </div>
+      <div class="flex">
+        <div class="sideBar">
+          <div class="first-flex">
+            <div class="innerbox">
+              <a href="index.html"><img src="image/Frame 151.svg" alt="" /></a>
+              <a href="dashboard.html"><img src="image/Frame 152.svg" alt="" /></a>
+              <a href="#table"><img src="image/Frame 153.svg" alt="" /></a>
+              <a href=""><button id="dashboard-btn" style="background-color: transparent; cursor: pointer;"><img src="image/Frame 154.svg" alt="" /><button></button></a>
+              <a href="contact.html"><img src="image/Frame 155.svg" alt=""/></a>
+            </div>
+            <div class="btn-div">
+              <button class="Sign-out-btn" type="reset">Sign out</button>
+            </div>
+          </div>
+        </div>
+        <div class="second-flex">
+          <div class="title">
+            <div class="newupdate" style="position: relative;">
+              <div class="h1-box">
+                <h2>Hello, James</h3>
+                <p>This is your financial report</p>
+              </div>
+              <div class="boxes">
+                <div class="box1">
+                  <p>My balance</p>
+                  <h3>$282,626.36</h3>
+                  <div class="account-num">
+                    <p>0082 2618 2783 1129</p>
+                    <img src="image/Frame 161.svg" alt="" />
+                  </div>
+                  <div class="transaction-btn">
+                    <a class="send-btn" href="">Send Money</a>
+                  </div>
+                </div>
+                <div class="mobile-box">
+                  <div class="box2">
+                    <div>
+                      <img src="image/Bill-1--Streamline-Core.svg.svg" alt="" />
+                      <p>Monthly Income</p>
+                    </div>
+                    <h3>$35.250.00</h3>
+                  </div>
+                  <div class="box2">
+                    <div>
+                      <img src="image/Bill-2--Streamline-Core.svg" alt="" />
+                      <p>Savings Account</p>
+                    </div>
+                    <h3>$126,263.00</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="transfer-details-screen">
+                <div class="title">
+                  <h1>Bank Transfer</h1>
+                  <button id="cancel-transfer"><img src="image/x-circle.svg" alt="" /></button>
+                </div>
+                <div id="balance-box">
+                  <div id="balance">
+                    <p class="available">Available Balance:</p>
+                    <p class="figures">$282,626.36</p>
+                  </div>
+                  <div id="title2">
+                    <div id="send">
+                      <img src="image/arrow-up2.svg" alt="" />
+                      <p>Send money</p>
+                    </div>
+                    <p>23/08/2024</p>
+                  </div>
+                </div>
+                <h3>Beneficiary's Bank Details</h3>
+                <div id="form-container">
+                  <form action="" id="form-data">
+                    <div class="form-div">
+                      <label for="bankName">Bank Name</label>
+                      <input type="text" name="bankName" id="bankName" required />
+                    </div>
+                    <div class="form-div">
+                      <label for="accountName">Account Name</label>
+                      <input type="text" name="accountName" id="accountName" required />
+                    </div>
+                    <div class="form-div">
+                      <label for="accountNumber">Account Number</label>
+                      <input type="number" name="accountNumber" id="accountNumber" required />
+                    </div>
+                    <div class="form-div">
+                      <label for="amount">Amount</label>
+                      <input type="number" name="" id="amount" placeholder="$" required />
+                    </div>
+                    <div class="form-div">
+                      <label for="serviceFee">Service Fee</label>
+                      <input
+                        type="number"
+                        name="serviceFee"
+                        id="serviceFee"
+                        placeholder="$"
+                      />
+                    </div>
+                    <div class="form-div">
+                      <label for="Narration">Narration</label>
+                      <input type="text" name="Narration" id="narration" />
+                    </div>
+                    <div id="proceed-button">
+                      <button id="procceed-btn">proceed to transfer</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div id="confirm-transfer">
+                <div class="title">
+                  <h1>Bank Transfer</h1>
+                  <button id="back-arrow">
+                    <img src="image/arrow-left.svg" alt="" />
+                  </button>
+                </div>
+                <div id="balance-box2">
+                  <div id="review">
+                    <p class="available">Review</p>
+                  </div>
+                  <div id="title3">
+                    <div id="sender">
+                      <img src="image/arrow-up3.svg" alt="" />
+                      <div>
+                        <p>From</p>
+                        <p>0082261827831129</p>
+                      </div>
+                    </div>
+                    <div class="to">
+                      <p>To</p>
+                      <p>6748656367826367</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="trasaction-details">
+                  <h3 style="padding-top: 10px;">Transaction Details</h3>
+                </div>
+                <div id="form-output-container">
+                  <form action="" id="form-output">
+                    <div class="form-div">
+                     <p>Transaction Number</p>
+                     <p>#2849783</p>
+                    </div>
+                    <div class="form-div">
+                      <p>Transaction Date</p>
+                      <p>23/08/2024</p>
+                    </div>
+                    <div class="form-div">
+                      <p>Beneficiary</p>
+                      <p>Clare Thombson</p>
+                    </div>
+                    <div class="form-div">
+                      <p>Amount</p>
+                      <p>$18,500.00</p>
+                    </div>
+                    <div class="form-div">
+                      <p>Service fee</p>
+                      <p>$50</p>
+                    </div>
+                    <div class="form-div">
+                      <p>Total amount</p>
+                      <p>$18,550.00</p>
+                    </div>
+                    <div class="form-div">
+                      <p>Payment method</p>
+                      <p>Wire transfer</p>
+                    </div>
+                    <div id="transfer-button">
+                      <button id="transfer-btn">transfer</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="pin-container">
+                <div class="pin-title">
+                  <h1>Enter your secret password</h1>
+                  <button id="back-btn2">
+                    <img src="image/arrow-left2.svg" alt="" />
+                  </button>
+                </div>
+                <div class="pin-box">
+                  <input
+                    type="text"
+                    maxlength="1"
+                    class="pin-input"
+                    id="pin1"
+                    oninput="moveNext(1)"
+                  />
+                  <input
+                    type="text"
+                    maxlength="1"
+                    class="pin-input"
+                    id="pin2"
+                    oninput="moveNext(2)"
+                  />
+                  <input
+                    type="text"
+                    maxlength="1"
+                    class="pin-input"
+                    id="pin3"
+                    oninput="moveNext(3)"
+                  />
+                  <input
+                    type="text"
+                    maxlength="1"
+                    class="pin-input"
+                    id="pin4"
+                    oninput="moveNext(4)"
+                  />
+                </div>
+                <div id="final-btn">
+                  <button class="final-confirm-btn">Confirm</button>
+                </div>
+              </div> 
+              <div class="profile-details-screen">
+                <div id="title-button"><img src="image/x-circle.svg" alt=""></div>
+                <div class="profile-details">
+                  <div class="picture-container">
+                    <div class="profile-picture"><img src="image/Shape.svg" alt=""></div>
+                  </div>
+                  <div class="details-container">
+                    <div class="details">
+                      <p>Account Type</p>
+                      <div class="detail-box"><p>Savings Account</p></div>
+                    </div>
+                    <div class="details">
+                      <p>Account name</p>
+                      <div class="detail-box"><p>James Tyler John</p></div>
+                    </div>
+                    <div class="details">
+                      <p>Account Number</p>
+                      <div class="detail-box"><p>0082261827831129</p></div>
+                    </div>
+                    <div class="details">
+                      <p>Email</p>
+                      <div class="detail-box"><p>@Jamestyler.com</p></div>
+                    </div>
+                    <div class="details">
+                      <p>User name</p>
+                      <div class="detail-box"><p>James Tyler</p></div>
+                    </div>
+                    <div class="details">
+                      <p>Address</p>
+                      <div class="detail-box detail-box2"><p>In fringilla sapien velit adipiscing senectus in. yttgufftytytxrtxcxdxdrzree gdtrdtrdtr tyf ftyftyft fytyft</p></div>
+                    </div>
+                    <div class="details">
+                      <p>Country</p>
+                      <div class="detail-box"><p>USA</p></div>
+                    </div>
+                    <div class="details">
+                      <p>State</p>
+                      <div class="detail-box"><p>New York</p></div>
+                    </div>
+                    <div class="details">
+                      <p>DOB</p>
+                      <div class="detail-box"><p>01/12/1234</p></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="contact-edit">
+                  <a href="contact.html">Contact admin to edit <img src="image/edit.svg" alt=""></a>
+                </div>
+              </div>         
+            </div>
+            <div class="boxes2 box-none">
+              <div class="box3">
+                <a href=""
+                  ><img src="image/Phone--Streamline-Core.svg.svg" alt=""
+                /></a>
+                <a href=""
+                  ><img
+                    src="image/Mail-Send-Envelope--Streamline-Core.svg.svg"
+                    alt=""
+                /></a>
+                <a href=""
+                  ><img
+                    src="image/Alert-Bell-Notification-2--Streamline-Ultimate.svg.svg"
+                    alt=""
+                /></a>
+                <div><img src="image/Avatar.svg" alt="" /></div>
+                <div class="name-id">
+                    <h3>James tyler</h3>
+                    <p>@jamestyler</p>
+                </div>
+                <img src="image/chevron-down.svg" alt="">
+              </div>
+              <div class="box-relative">
+                <div class="box4">
+                    <div class="innerbox1">
+                        <p>UnlimitedSfunds Bank Premium</p>
+                        <img src="image/Chip--Streamline-Mynaui.svg.svg" alt="">
+                    </div>
+                    <p>0082 2618 2783 1129</p>
+                    <div class="innerbox1">
+                        <p>James Tyler</p>
+                        <img class="img2" src="image/Group 4495.svg" alt="">
+                    </div>
+                </div>
+                <div  class="box4 box5">
+                    <div class="innerbox1">
+                        <p>UnlimitedSfunds Bank Premium</p>
+                        <img src="image/Chip--Streamline-Mynaui.svg.svg" alt="">
+                    </div>
+                    <p>0082 2618 2783 1129</p>
+                    <div class="innerbox1">
+                        <p>James Tyler</p>
+                        <img class="img2" src="image/Group 4495.svg" alt="">
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="outer-div">
+            <div class="table" id="table">
+              <div class="innerflex">
+                <p>Recent Transactions</p>
+              </div>
+              <table>
+                <tr class="head head1">
+                  <th class="type">TYPE</th>
+                  <th>DETAILS</th>
+                  <th class="amount">AMOUNT</th>
+                  <th class="status">STATUS</th>
+                  <th>METHOD</th>
+                </tr>
+                <tr class="head">
+                  <td class="type">
+                    <img src="image/arrow-down.svg" alt="">
+                  </td>
+                  <td style="width: 140px; text-wrap: nowrap;">
+                    <h3>John Tyler</h3>
+                    <p>Sent - June 12, 2024</p>
+                  </td>
+                  <td class="amount-td" style="width: 130px;"> $826.00</td>
+                  <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
+                  <td>
+                    <div style="text-wrap: nowrap;">
+                      <h3>Bank Transfer</h3>
+                      <p>****2356</p>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="head">
+                  <td class="type">
+                    <img src="image/Rss-Square--Streamline-Core.svg.svg" alt="">
+                  </td>
+                  <td style="width: 140px; text-wrap: nowrap;">
+                    <h3>Subscription</h3>
+                    <p>Sent - June 12, 2024</p>
+                  </td>
+                  <td class="amount-td" style="width: 130px;"> $826.00</td>
+                  <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Pending</td>
+                  <td>
+                    <div style="text-wrap: nowrap;">
+                      <h3>Bank Transfer</h3>
+                      <p>****2356</p>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="head">
+                  <td class="type">
+                    <img src="image/arrow-down.svg" alt="">
+                  </td>
+                  <td style="width: 140px; text-wrap: nowrap;">
+                    <h3>John Tyler</h3>
+                    <p>Sent - June 12, 2024</p>
+                  </td>
+                  <td class="amount-td" style="width: 130px;"> $826.00</td>
+                  <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
+                  <td>
+                    <div style="text-wrap: nowrap;">
+                      <h3>Bank Transfer</h3>
+                      <p>****2356</p>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="head">
+                  <td class="type">
+                    <img src="image/arrow-down.svg" alt="">
+                  </td>
+                  <td style="width: 140px; text-wrap: nowrap;">
+                    <h3>John Tyler</h3>
+                    <p>Sent - June 12, 2024</p>
+                  </td>
+                  <td class="amount-td" style="width: 130px;"> $826.00</td>
+                  <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
+                  <td>
+                    <div style="text-wrap: nowrap;">
+                      <h>Bank Transfer</h>
+                      <p>****2356</p>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="head">
+                  <td class="type">
+                    <img src="image/arrow-down.svg" alt="">
+                  </td>
+                  <td style="width: 140px; text-wrap: nowrap;">
+                    <h3>John Tyler</h3>
+                    <p>Sent - June 12, 2024</p>
+                  </td>
+                  <td class="amount-td" style="width: 130px;"> $826.00</td>
+                  <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
+                  <td>
+                    <div style="text-wrap: nowrap;">
+                      <h3>Bank Transfer</h3>
+                      <p>****2356</p>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="background-img">
+              <div class="background-content">
+                <h1>24/7 Secured Banking</h1>
+              <p>“At Apexion Bank we give you the best banking experience, secured, reliable and easy to use”.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     </main>
+   
+     <script>
+      const sendButton = document.querySelector(".send-btn")
+      const transferScreen =document.querySelector(".transfer-details-screen")
+      const cancelTransferBtn = document.getElementById("cancel-transfer")
+      const proceedTransfer = document.getElementById ("procceed-btn")
+      const confirmTransfer = document.getElementById ("confirm-transfer")
+      const backToTransferDetails = document.getElementById("back-arrow")
+      const finalConfirmationBtn = document.getElementById("transfer-btn")
+      const pinBox = document.querySelector(".pin-container")
+      const backtoproceedTransferBtn = document.getElementById("back-btn2")
+      const profile = document.querySelector(".profile-details-screen")
+      const profileButton = document.getElementById("dashboard-btn")
+      const sideBarBtn = document.getElementById("sidebarbtn")
+      const sideBar = document.getElementById("first-flex")
+      const cancelSideBar = document.getElementById("cancel-sidebar")
+
+      
+
+      sideBarBtn.addEventListener("click", function(event){
+        event.preventDefault()
+        sideBar.classList.toggle("activebar")
+        console.log("clicked", sideBar)
+      })
+      cancelSideBar.addEventListener("click", function(event){
+        event.preventDefault()
+        sideBar.classList.toggle("activebar")
+      })
+      
+      profileButton.addEventListener("click", function(event){
+        event.preventDefault();
+        profile.classList.toggle("active2");
+      })
+
+
+
+      finalConfirmationBtn.addEventListener("click", function(event){
+        event.preventDefault()
+        pinBox.classList.toggle("activate3")
+        confirmTransfer.classList.toggle("activate2");
+      })
+
+      backtoproceedTransferBtn.addEventListener("click", function(event){
+        event.preventDefault()
+        confirmTransfer.classList.toggle("activate2");
+        pinBox.classList.toggle("activate3")
+      })
+      console.log (sendButton)
+      // form data.....................
+
+      sendButton.addEventListener("click", function(event){
+        event.preventDefault()
+        transferScreen.classList.toggle("activate1")
+        console.log("click", )
+      })
+
+      
+      // msendButton.addEventListener("click", function(event){
+      //   event.preventDefault()
+      //   transferScreen.classList.toggle("activate1")
+      // })
+      // console.log(sendButton)
+      
+
+      cancelTransferBtn.addEventListener("click", function(event){
+        event.preventDefault()
+        transferScreen.classList.toggle("activate1")
+
+      })
+
+      proceedTransfer.addEventListener("click", function(event) {
+     event.preventDefault();
+
+      // Retrieve and trim input values
+     const bankName = document.getElementById("bankName").value.trim();
+     const accountName = document.getElementById("accountName").value.trim();
+     const accountNumber = document.getElementById("accountNumber").value.trim();
+     const amount = document.getElementById("amount").value.trim();
+     const narration = document.getElementById("narration").value.trim();
+
+      // Validate for empty fields
+     if (
+      bankName === "" || 
+      accountName === "" || 
+      accountNumber === "" || 
+      amount === "" || 
+      narration === ""
+     ) {
+     alert("Incomplete form");
+     return;
+    }
+
+  // Toggle classes if validation passes
+  confirmTransfer.classList.toggle("activate2");
+  transferScreen.classList.toggle("activate1");
+})
+      
+backToTransferDetails.addEventListener("click", function(){
+  transferScreen.classList.toggle("activate1");
+  confirmTransfer.classList.toggle("activate2");
+})
+
+function moveNext(current) {
+        const currentInput = document.getElementById(`pin${current}`);
+        if (currentInput.value.length === 1 && current < 4) {
+          const nextInput = document.getElementById(`pin${current + 1}`);
+          nextInput.focus();
+        }
+      }
+    </script>
+  </body>
+</html>

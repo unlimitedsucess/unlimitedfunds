@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="signup.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <a href="index.html">
+        <div><img src="image/arrow-left.svg" alt="" /></div>
+      </a>
+      <div class="flex">
+        <div class="img-container">
+          <div class="first-div">
+            <h1>UnlimitedSfunds Bank</h1>
+            <img src="image/Frame 4578.svg" alt="" />
+            <h3>Let's set up your account</h3>
+            <p>
+              Ready to take control of your finances? Register with
+              UnlimitedSfunds bank today and experience the future of digital
+              banking.
+            </p>
+          </div>
+          <div class="second-div">
+            <h4>Easy and fast to to open an account</h4>
+            <span
+              >“The registration process is so smooth and in few minutes my
+              account was set up and instant transactions made so easily.
+              Definitely recommended!”</span
+            >
+            <div class="secondiv-box">
+              <div class="seconddiv-prof">
+                <img src="image/Shape.svg" alt="" />
+                <h6>Catherine Peter</h6>
+              </div>
+              <img src="image/rating.svg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="form-container">
+          <div class="line">
+            <span class="line1"></span>
+            <span class="line2"></span>
+            <span class="line2"></span>
+          </div>
+          <h3 class="title">CUSTOMERS INFORMATION</h3>
+          <div class="form-input">
+            <form action="">
+              <div class="first-detail">
+                <div class="input-div email">
+                  <label for="firstName">First Name</label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    class="names"
+                    id="firstName-input"
+                    required
+                  />
+                </div>
+                <div class="input-div">
+                  <label for="middleName">Middle Name</label>
+                  <input
+                    type="tex"
+                    name="middleName"
+                    id="middleName-input"
+                    class="names"
+                    required
+                  />
+                </div>
+                <div class="input-div">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" name="lastName" id="lastName" class="names" required />
+                </div>
+              </div>
+              <div class="second-detail input-div">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email-input" required />
+                <label for="userName"> User Name</label>
+                <input
+                  type="text"
+                  name="userName"
+                  id="userName-input"
+                  required
+                />
+              </div>
+              <div class="residence">
+                <div class="input-div">
+                  <label for="country">Country of residence</label>
+                  <input
+                    name="country"
+                    class="location"
+                    id="country-input"
+                    required
+                  />
+                </div>
+                <div class="input-div">
+                  <label for="state">State</label>
+                  <input
+                    name="state"
+                    class="location"
+                    id="state-input"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="contact-no">
+                <div class="input-div">
+                  <label for="phone-number">Phone Number:</label>
+                  <div class="phone-number-container">
+                    <select id="country-code" name="country-code"></select>
+                    <input
+                      type="tel"
+                      id="phone-number"
+                      name="phone-number"
+                      placeholder="Phone number"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="input-div address">
+                <label for="address">Address</label>
+                <input
+                  type="text"
+                  name="address"
+                  class="names"
+                  id="address-input"
+                  required
+                  autocomplete="new-password"
+                />
+                <div class="date-flex">
+                  <label for="dateOfBirth">Date of birth</label>
+                  <label for="dateFormat">DD/MM/YY</label>
+                </div>
+                <input type="date" name="dateOfBirth" id="dateOfBirth-input" class="names" />
+              </div>
+              <div class="password-div">
+                <div class="input-div">
+                  <label for="password">Password</label>
+                  <div class="password-container">
+                    <input
+                      type="password"
+                      name="password"
+                      class="password"
+                      id="password-input"
+                      required
+                      autocomplete="new-password"
+                    />
+                    <i class="fa fa-eye" id="eye-icon"></i>
+                    <div class="password-requirements"></div>
+                  </div>
+                </div>
+                <div class="input-div">
+                  <label for="confirm-password">confirm-password</label>
+                  <div class="password-container2">
+                    <input
+                      type="password"
+                      name="password"
+                      class="password"
+                      id="-confirm-password"
+                      required
+                      autocomplete="new-password"
+                    />
+                    <i class="fa fa-eye" id="eye-icon2"></i>
+                    <div class="password-requirements"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="next-btn">
+                <a type="submit" href="next.html">Next</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      const countryCodes = [
+        { code: "+1", country: "US" },
+        { code: "+91", country: "IN" },
+        { code: "+44", country: "GB" },
+        { code: "+86", country: "CN" },
+        { code: "+33", country: "FR" },
+        { code: "+49", country: "DE" },
+        { code: "+7", country: "RU" },
+        { code: "+81", country: "JP" },
+        { code: "+55", country: "BR" },
+        { code: "+61", country: "AU" },
+        { code: "+27", country: "ZA" },
+        { code: "+34", country: "ES" },
+        { code: "+39", country: "IT" },
+        { code: "+90", country: "TR" },
+        { code: "+20", country: "EG" },
+        { code: "+966", country: "SA" },
+        { code: "+971", country: "AE" },
+        { code: "+98", country: "IR" },
+        { code: "+92", country: "PK" },
+        { code: "+880", country: "BD" },
+        { code: "+66", country: "TH" },
+        { code: "+60", country: "MY" },
+        { code: "+65", country: "SG" },
+        { code: "+82", country: "KR" },
+        { code: "+84", country: "VN" },
+        { code: "+63", country: "PH" },
+        { code: "+64", country: "NZ" },
+        // Add more country codes as needed
+      ];
+
+      // Populate the country codes dropdown
+      const countryCodeDropdown = document.getElementById("country-code");
+      countryCodes.forEach((code) => {
+        const option = document.createElement("option");
+        option.value = code.code;
+        option.text = `${code.code} (${code.country})`;
+        countryCodeDropdown.appendChild(option);
+      });
+
+      const passwordInput = document.getElementById("password-input");
+      const confirmPasswordInput = document.getElementById("confirm-password");
+      const eyeIcon = document.getElementById("eye-icon");
+
+      eyeIcon.addEventListener("click", () => {
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          eyeIcon.classList.add("fa-eye-slash");
+        } else {
+          passwordInput.type = "password";
+          eyeIcon.classList.remove("fa-eye-slash");
+        }
+      });
+
+      passwordInput.addEventListener("input", () => {
+        const password = passwordInput.value;
+        const passwordRequirements = document.querySelector(
+          ".password-requirements ul"
+        );
+
+        // const hasMinLength = password.length >= 8;
+        // const hasCapitalLetter = /[A-Z]/.test(password);
+        // const hasNumber = /\d/.test(password);
+
+        if (hasMinLength && hasCapitalLetter && hasNumber) {
+          passwordInput.classList.add("valid");
+          passwordRequirements.classList.add("valid");
+        } else {
+          passwordInput.classList.remove("valid");
+          passwordRequirements.classList.remove("valid");
+        }
+      });
+
+      confirmPasswordInput.addEventListener("input", () => {
+        const password = passwordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+
+        if (password === confirmPassword) {
+          confirmPasswordInput.classList.add("valid");
+        } else {
+          confirmPasswordInput.classList.remove("valid");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Irish+Grover&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Irish+Grover&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+.login-div {
+  width: 100%;
+  background-image: url(image/unsplash_lZHLbe66yfI.svg);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.login-box {
+    width: 550px;
+    height: 600px;
+    border-radius: 24px;
+    opacity: 0;
+    transform: scale(0.9); /* Start slightly smaller */
+    background: linear-gradient(180deg, #afddfc 0%, #f2f9fb 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 52px;
+    animation: fadeInScale 1.2s ease-in forwards; /* Add animation */
+  }
+  
+  /* Define the animation */
+  @keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.9); /* Slightly smaller */
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1); /* Normal size */
+    }
+  }
+  
+
+.password-container {
+  position: relative;
+  width: 100%;
+  background-color: red;
+  box-sizing: border-box;
+}
+
+#eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.password-container input {
+  width: 100%;
+}
+.password-requirements {
+  font-size: 12px;
+  color: #666;
+}
+.input-div {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  box-sizing: border-box;
+}
+input {
+  width: 100%;
+  padding: 10px;
+}
+form {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.title {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+}
+.title h1 {
+  font-family: Inter;
+  font-size: 40px;
+  font-weight: 700;
+}
+.title p {
+  font-family: PT Serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+label,
+input {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: left;
+}
+label {
+  padding-bottom: 4px;
+}
+.submit{
+    padding-top: 20px;
+}
+button {
+    width: 120px;
+    padding: 10px;
+    background-color:#010101;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+button.loading {
+    cursor: not-allowed;
+    background: linear-gradient(180deg, #afddfc 0%, #f2f9fb 100%);
+}
+button.loading .spinner {
+    display: inline-block;
+}
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    display: none;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

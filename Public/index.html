@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>online banking</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" sizes="16x16"  href="images/Frame 112369.svg">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <!-- CSS
+        ============================================ -->
+
+    <!-- Font Family CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.0/css/all.min.css"/>
+
+    <!-- Vendor & Plugins CSS (Please remove the comment from below vendor.min.css & plugins.min.css for better website load performance and remove css files from avobe) -->
+    <link rel="stylesheet" href="service/css/vendor.mim.css">
+    <link rel="stylesheet" href="service/css/jquery.toast.min.css" />
+    <link rel="stylesheet" href="service/css/plugins.min.css">
+    <link rel="stylesheet" href="service/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="service/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="service/css/animate.css">
+    <link rel="stylesheet" href="service/css/vendor.mim.css">
+    <link rel="stylesheet" href="service/css/plugins.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
+     <!-- Swiper CSS -->
+     <link
+     rel="stylesheet"
+     href="https://unpkg.com/swiper/swiper-bundle.min.css"
+   />
+
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="swipper.css">
+
+   <!-- Font Awesome for Icons -->
+   <script
+     src="https://kit.fontawesome.com/a076d05399.js"
+     crossorigin="anonymous"
+   ></script>
+  </head>
+  <body>
+    <div class="preloader-activate preloader-active open_tm_preloader">
+      <div class="preloader-area-wrap">
+          <div class="spinner d-flex justify-content-center align-items-center h-100">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+          </div>
+      </div>
+  </div>
+    <main>
+      <!-- header area starts -->
+
+      <!-- Static Header -->
+     <header  class="static-header">
+   <div class="header-container">
+    <a href="index.html" class="logo"><img src="image/Frame 4577.svg" alt="" /></a>
+    <nav class="header-nav">
+      <ul>
+        <li><a class="navs" href="index.html">Home</a></li>
+        <li><a class="navs" href="#section3">About us</a></li>
+        <li> <a class="navs" href="#section5">Services</a></li>
+        <li><a class="navs" href="#section6">FaQ's</a></li>
+       <li><a class="navs" href="Contact.html"> Contact us</a></li>
+      </ul>
+    </nav>
+    <div class="logins-section">
+      <ul>
+        <i><a class="navs login" href="login.html">Log in</a></i>
+        <a class="navs signup" href="signup.html">Sign up</a>
+      </ul>
+    </div>
+  </div>
+    <!-- mobile view -->
+  <div class="mobile-view">
+    <div class="mobile-logo">
+      <img src="image/Frame 4579.svg" alt="">
+      </div>
+      <div class="nav-box">
+        <div class="nav-container">
+          <img src="image/container.svg" alt="">
+        </div>
+        <div class="signup-container">
+          <img src="image/Icon.svg" alt="">
+        </div>
+      </div>
+   </div>
+     </header>
+ 
+     <header class="fixed-header hidden">
+       <div class="header-container">
+        <a id="logo" href="index.html"><img src="image/Frame 4577.svg" alt="" /></a>
+        <nav class="header-nav">
+          <ul>
+            <li><a class="navs" href="index.html">Home</a></li>
+            <li><a class="navs" href="#section3">About us</a></li>
+            <li> <a class="navs" href="#section5">Services</a></li>
+            <li><a class="navs" href="#section6">FaQ's</a></li>
+           <li><a class="navs" href="Contact.html"> Contact us</a></li>
+          </ul>
+          
+        </nav>
+        <div class="logins-section">
+          <ul>
+            <i><a class="navs login" href="login.html">Log in</a></i>
+            <a class="navs signup" href="signup.html">Sign up</a>
+          </ul>
+        </div>
+       </div>
+        <!-- mobile view -->
+       <div class="mobile-view">
+    <div class="mobile-logo">
+      <img src="image/Frame 4579.svg" alt="">
+      </div>
+      <div class="nav-box">
+        <div class="nav-container">
+          <img src="image/container.svg" alt="">
+        </div>
+        <div class="signup-container">
+          <img src="image/Icon.svg" alt="">
+        </div>
+      </div>
+       </div>
+     </header>
+    
+      <!-- header mobile view -->
+      <div class="navbar">
+        <div class="drop-logo">
+          <img src="image/Frame 4579.svg" alt="">
+          <div id="nav-cancel">
+            <img src="image/x-circle.svg" alt="">
+          </div>
+        </div>
+        <ul id="mobile-listnav">
+          <li><a class="navs" href="index.html">Home</a></li>
+          <li><a class="navs" href="#section3">About us</a></li>
+          <li> <a class="navs" href="#section5">Services</a></li>
+          <li><a class="navs" href="#section6">FaQ's</a></li>
+         <li><a class="navs" href="Contact.html"> Contact us</a></li>
+        </ul>
+      </div>
+      <div class="newlogin">
+        <div class="logins-section">
+          <ul>
+            <i><a class="navs login" href="login.html">Log in</a></i>
+            <i><a class="navs signup" href="signup.html">Sign up</a></i>
+          </ul>
+        </div>
+      </div>
+      <!-- header area ends --> 
+      <!--hero page starts -->
+      <section class="section1">
+        <div class="section1-div">
+          <div class="sec1-image">
+            <img src="image/Group 4531.svg" alt="">
+          </div>
+          <div class="content-div">
+            <p class="content-p">BEST DIGITAL BANK</p>
+            <h3 class="content-h">A FUTURE OF BANKING WITH APEXION BANK</h3>
+            <p class="content-p2">
+              Bank smarter, not harder with Apexion Bank, manage your finances
+              effortlessly with our super intuitive digital platform
+            </p>
+            <div class="inner-div">
+              <a class="section1-btn" href="signup.html">Open account</a>
+              <div class="inner-div1">
+                <p class="icon-p">
+                  <img src="image/rating.png" alt="" />
+                  <span class="five">5.0</span>
+                </p>
+                <p class="icon-p">
+                  from <span class="number-of-raters">76</span>+
+                  <a class="review-btn" href="">review</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+     <section class="section2">
+        <div class="title">
+          <p>VALUES</p>
+          <h3>Make your spend, well spent</h3>
+          <p>
+            Remove all the friction that stands in the way of your many goals
+          </p>
+        </div>
+        <div class="flexbox">
+          <div class="boxes">
+            <div class="box">
+              <img src="image/Group 12.svg" alt="water bottle" />
+              <h3>Secure international transaction</h3>
+              <p>
+                Global transaction without stress and security hitches, our
+                servers are the most secure in the world.
+              </p>
+            </div>
+            <div class="box">
+              <img src="image/Group 12.svg" alt="water bottle" />
+              <h3>24/7 Support from the expert team</h3>
+              <p>
+                Our support is there 24/7 to attend to all your questions, feel
+                free to contact us today via email or live chat.
+              </p>
+            </div>
+            <div class="box">
+              <img src="image/Group 12.svg" alt="water bottle" />
+              <h3>Lowest processing fee than other bank's</h3>
+              <p>
+                Unlike other bank's who charge outrageous fees, we understand
+                the value of your money and help you eliminate excess fees.
+              </p>
+            </div>
+            <div class="box">
+              <img src="image/Group 12.svg" alt="water bottle" />
+              <h3>Less time in any loan's approval</h3>
+              <p>
+                This is available for customers who are interested in taking
+                loan's with any of the Bank's loan options.
+              </p>
+            </div>
+          </div>
+          <div class="boxes1">
+            <img src="image/Group14.png" alt="">
+          </div>
+        </div>
+      </section>
+      <!-- about us section starts -->
+
+      <section class="section3" id="section3">
+        <div class="title">
+          <p>ABOUT US</p>
+          <h3>Financial guidance for every stage of life</h3>
+          </p>
+        </div>
+        <div class="flexbox flexboxA">
+          <div class=" sec3-boxes">
+            <p class="bold-p">At Apexion bank, we believe that your bank should support your dreams and aspirations. That's why we have developed convenient mortgage solution's to help make your dream of owning your business a reality.</p>
+            <div class="inner-box">
+              <img src="image/dollar-coins.svg" alt="">
+              <div>
+                <h3>Solution Focused</h3>
+                <p>Whether you are a first time investor or thinking about property purchase as an investment; we have convenient mortgage solution's for you.</p>
+              </div>
+            </div>
+            <div class="inner-box">
+              <img src="image/Shield-Check.svg" alt="">
+              <div>
+                <h3>99.99% Success</h3>
+                <p>Whether you are a first time investor or thinking about property purchase as an investment; we have convenient mortgage solution's for you.</p>
+              </div>
+            </div>
+            <div class="inner-box">
+              <img src="image/Pathfinder-Divide.png" alt="">
+              <div>
+                <h3>Transparency</h3>
+                <p>Manages a diversified group of specializes private credit brands with efficient tech-enabled processes.</p>
+              </div>
+            </div>
+          </div>
+          <div class="sec3-boxes1">
+            <img class="sec3-img" src="image/unsplash_WaGMKmJ2F0Y.svg" alt="">
+          </div>
+        </div>
+      </section>
+       <section class="section4">
+        <div class="flexbox1">
+          <div class="flexbox2">
+            <div class="box1">
+              <h2>$<span>26B</span>+</h2>
+              <p>Funds and syndicates</p>
+            </div>
+            <div class="box1">
+              <h2><span>24000</span>+</h2>
+              <p>Happy clients</p>
+            </div>
+          </div>
+          <div class="box2">
+            <p>NUMBERS</p>
+            <h3>Market and build the solutions</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- about us section ends here -->
+      
+      <!-- our services starts here -->
+      <section id="section5" class="section5">
+        <div class="title">
+          <p>Our Services</p>
+          <h3>Online banking at your fingertips</h3>
+          </p>
+        </div>
+        <!-- Swiper Container -->
+    <div class="swiper-container">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide custom-swiper">
+            <img
+              src="image/bank--institution-saving-bank-payment-finance.png"
+              alt="Responsive Web Design"
+            />
+            <h1 class="myServices-h1">Digital Banking</h1>
+            <ul class="myServices-p">
+              <li>Bank and saving account</li>
+              <li>Credit cards</li>
+              <li>Personal loans</li>
+            </ul>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide custom-swiper">
+            <img src="image/Attribution--Streamline-Core.svg.svg" alt="" />
+            <h1 class="myServices-h1">Fixed Term Accounts</h1>
+            <ul class="myServices-p">
+              <li>Fixed rate cash</li>
+              <li>Transport insurance</li>
+              <li>Resume your current</li>
+            </ul>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide custom-swiper">
+            <img src="image/Wallet--Streamline-Core.svg.svg" alt="" />
+            <h1 class="myServices-h1">Insurance Policies</h1>
+            <ul class="myServices-p">
+              <li>Pet insurance</li>
+              <li>Transport insurance</li>
+              <li>Accident insurance</li>
+            </ul>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide custom-swiper">
+            <img
+              src="image/Warehouse-Thin--Streamline-Phosphor-Thin.svg.svg"
+              alt="Home & Property Loan"
+            />
+            <h1 class="myServices-h1">Home & Property Loan</h1>
+            <ul class="myServices-p">
+              <li>Residential mortgages</li>
+              <li>Buy-to-let mortgages</li>
+              <li>Building mortgages</li>
+            </ul>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="swiper-slide custom-swiper">
+            <img
+              src="image/Briefcase-Dollar--Streamline-Core.svg.svg"
+              alt="Private Banking"
+            />
+            <h1 class="myServices-h1">Private Banking</h1>
+            <ul class="myServices-p">
+              <li>Dedicated personal service</li>
+              <li>Specialist teams</li>
+              <li>Tailored products</li>
+            </ul>
+          </div>
+
+          <!-- Slide 6 -->
+          <div class="swiper-slide custom-swiper">
+            <img
+              src="image/Safe-Vault--Streamline-Core.svg.png"
+              alt="All Bank Accounts"
+            />
+            <h1 class="myServices-h1">All Bank Accounts</h1>
+            <ul class="myServices-p">
+              <li>Instant access savings</li>
+              <li>Instant access cash</li>
+              <li>Young savers account</li>
+            </ul>
+          </div>
+
+          <!-- Slide 7 -->
+          <div class="swiper-slide custom-swiper">
+            <img
+              src="image/Bag-Pound--Streamline-Core.svg.svg"
+              alt="Mobile & Web Banking"
+            />
+            <h1 class="myServices-h1">Mobile & Web Banking</h1>
+            <ul class="myServices-p">
+              <li>Instant access</li>
+              <li>Instant access</li>
+              <li>Savings instant</li>
+            </ul>
+          </div>
+          <!-- Slide 8 -->
+          <div class="swiper-slide custom-swiper">
+            <img
+              src="image/Briefcase-Dollar--Streamline-Core.svg.svg"
+              alt="Borrowing Accounts"
+            />
+            <h1 class="myServices-h1">Borrowing Accounts</h1>
+            <ul class="myServices-p">
+              <li>Bank credit card</li>
+              <li>Setter personal loan</li>
+              <li>Overdraft</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="navigationbtn">
+          <button class="custom-prev">
+            <i class="fa fa-angle-left"></i>
+          </button>
+          <button class="custom-next">
+            <i class="fa fa-angle-right"></i>
+          </button>
+        </div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+      </section>
+      <!-- our services ends here -->
+
+      <!-- frequently ask questions (FAQs) -->
+      <section id="section6" class="section6">
+        <div class="sec6-flex">
+          <div class="firstsec6">
+            <p>FAQ</p>
+            <h3>Frequently asked questions</h3>
+          </div>
+         <div class="secndsec6">
+          <div class="sec6box">
+            <div class="qtn1">
+              <p>How do i make a bank transfer?</p>
+              <h6 class="ans1">Login to your UnlimitedSfunds bank account, navigate to transfer option, enter the recipents details, enter the transfer amount, review the transfer details and proceed to transfer using your secret code.</h6>
+            </div>
+            <div class="qtn2" >
+              <p>What is the scheduled payment feature?</p>
+              <h6 class="ans2">The scheduled payments features allows you to manage all of your subscriptions or recurring payments in one place. This way, you can view details for every payment, which include the amount, frequency, payment dates etc.</h6>
+            </div>
+            <div class="qtn3">
+              <p>Can I use Apexion Online Bank when I travel?</p>
+              <h6 class="ans3">Yes, you can use yoer UnlimitedSfunds Online Bank from any part of the world.</h6>
+            </div>
+            <div class="qtn4">
+               <p >How do I reset my password?</p>
+               <h6 class="ans4">To reset your username/password successfully, you need to have access to the phone number/email linked to your account. If you do not, please update your account information by contacting our help desk from the login feature.</h6>
+            </div>
+            <div class="qtn5">
+              <p >How do i open Apexion bank account?</p>
+              <h6 class="ans5">Click on the signup button, fill out the form by providing the required details. In few seconds account setup will be done.</h6>
+            </div>
+          </div>
+          <div class="sec6box">
+            <button class="btn1"> <img src="image/plus.svg" alt=""></button>
+            <button class="btn2"><img src="image/plus.svg" alt=""></button>
+            <button class="btn3"><img src="image/plus.svg" alt=""></button>
+            <button class="btn4"><img src="image/plus.svg" alt=""></button>
+            <button class="btn5"><img src="image/plus.svg" alt=""></button>
+          </div>
+         </div>
+        </div>
+      </section>
+       <section class="section7">
+        <div class="sec7-flex">
+          <div class="sec7-box">
+            <h1>Change the way you use your money</h1>
+            <p>Join over million people who choose Apexion for fast and secured future banking.</p>
+            <a class="login" href="login.html">Get Started Now</a>
+          </div>
+          <div class="sec7-box1"><img src="image/Frame 103.svg" alt=""></div>
+        </div>
+      </section>
+
+
+      <!-- footer area -->
+       <footer>
+        <div class="footer-flex">
+          <div class="footerbox">
+            <img src="image/UnlimitedSfunds Bank Ltd..svg" alt="">
+            <p>Making the world a better place through constructive elegant hierarchies. Innovations enabled by Apexion bank results in products that assists workers.</p>
+          </div>
+          <div class="footernav">
+           <nav>
+              <h3>Bank</h3>
+              <ul>
+                <li><a class="calculation" href="index.html">Home</a></li>
+                <li><a href="#section3">About</a></li>
+                <li><a href="#section5">Services</a></li>
+                <li><a href="">FaQ's</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="footernav">
+            <nav>
+              <h3>customers</h3>
+              <ul>
+                <li><a href="login.html">Log in</a></li>
+                <li><a href="signup.html">Register</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="footernav">
+            <nav>
+              <h3>Contact Us</h3>
+              <a href="">Email: Info@Apexion Bank.com</a>
+              <div>
+                <a href=""><img src="image/Brand-Facebook--Streamline-Tabler.svg.svg" alt=""></a>
+                <a href=""><img src="image/Twitter--Streamline-Core-Remix.svg.svg" alt=""></a>
+                <a href=""><img src="image/X Logo.svg" alt=""></a>
+                <a href=""><img src="image/Logo Instagram.svg" alt=""></a>
+                
+              </div>
+            </nav>
+          </div>
+        </div>
+        <div class=" copywriter">
+          <p class="p">@2024 Apexion bank - All rights reserved.</p>
+          <div class="arrow-up">
+            <p>Backto top</p>
+            <img src="image/arrow-up.svg" alt="">
+          </div>
+        </div>
+      </footer>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="animation.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Custom Swiper Initialization -->
+    <script>
+      const swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+          delay: 7000,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: ".custom-next",
+          prevEl: ".custom-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+            centeredSlides: true,
+          },
+          768: {
+            slidesPerView: 2,
+            centeredSlides: false,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
+
+    <script>
+      // header area starts.....................
+      const staticHeader = document.querySelector('.static-header');
+      const fixedHeader = document.querySelector('.fixed-header');
+
+      window.addEventListener('scroll', () => {
+       const scrollY = window.scrollY;
+       if (scrollY > staticHeader.offsetHeight) {
+         fixedHeader.classList.remove('hidden');
+         fixedHeader.style.transform = 'translateY(0)';
+        } else {
+          fixedHeader.classList.add('hidden');
+          fixedHeader.style.transform = 'translateY(-100%)';
+        }
+      });
+        //header area ends here
+
+        //frequently ask question toggle button............
+        const button1 = document.querySelector(".btn1")
+        const button2 = document.querySelector(".btn2")
+        const button3 = document.querySelector(".btn3")
+        const button4 = document.querySelector(".btn4")
+        const button5 = document.querySelector(".btn5")
+        const answer1 = document.querySelector(".ans1")
+        const answer2 = document.querySelector(".ans2")
+        const answer3 = document.querySelector(".ans3")
+        const answer4 = document.querySelector(".ans4")
+        const answer5 = document.querySelector(".ans5")
+
+        button1.addEventListener("click", function(event){
+          event.preventDefault()
+          answer1.classList.toggle("activate1")
+          console.log("clicked",button1)
+        })
+        
+        button2.addEventListener("click", function(event){
+          event.preventDefault()
+          answer2.classList.toggle("activate2")
+          console.log("clicked",button1)
+        })
+
+        
+        button3.addEventListener("click", function(event){
+          event.preventDefault()
+          answer3.classList.toggle("activate3")
+          console.log("clicked",button1)
+        })
+
+        
+        button4.addEventListener("click", function(event){
+          event.preventDefault()
+          answer4.classList.toggle("activate4")
+          console.log("clicked",button1)
+        })
+
+        
+        button5.addEventListener("click", function(event){
+          event.preventDefault()
+          answer5.classList.toggle("activate5")
+          console.log("clicked",button5)
+        })
+
+    </script>
+    <script src="mobile.js"></script>
+  </body>
+</html>
