@@ -170,6 +170,7 @@ button {
   border-radius: 4px;
   text-decoration: none !important;
 }
+.view-new-user,
 .view-profile-div {
   position: absolute;
   top: 40px;
@@ -191,6 +192,9 @@ button {
 * {
   padding: 0;
   margin: 0;
+}
+.view-new-user.newUser-active {
+  display: block;
 }
 .flex-div {
   display: flex;
@@ -292,15 +296,15 @@ button {
   font-weight: 500;
   text-decoration-line: underline;
 }
-.edit-profile-screen{
-    position: absolute;
-    top: 40px;
-    display: none;
-    left: 50%;
-    transform: translateX(-50%);
+.edit-profile-screen {
+  position: absolute;
+  top: 40px;
+  display: none;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.edit-profile-screen.activate{
-    display: block;
+.edit-profile-screen.activate {
+  display: block;
 }
 .edit-profile {
   position: relative;
@@ -466,4 +470,368 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.table {
+  width: fit-content;
+  height: fit-content;
+  gap: 0px;
+  opacity: 0px;
+  padding-left: 10px;
+}
+.user-transactions {
+  position: absolute;
+  top: 0;
+  z-index: 5000000000;
+  display: none;
+
+}
+.user-transactions.userHistory-active{
+  display: block;
+}
+.user-transactions .innerflex {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.user-transactions .innerflex button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.user-transactions .outer-div {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  gap: 180px;
+  box-sizing: border-box;
+  height: 585px;
+  background-color: #e0eae8;
+  padding: 10px;
+  border-radius: 25px;
+  overflow-y: scroll;
+}
+.table-box1 {
+  display: flex;
+  flex-direction: row;
+  gap: 74px;
+}
+table {
+  width: 100%;
+  box-sizing: border-box;
+}
+.table-img {
+  width: 200px;
+}
+.background-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 200px;
+  align-items: center;
+  gap: 24px;
+  height: 360px;
+  gap: 0px;
+  margin-right: 24px;
+  border-radius: 6px;
+  opacity: 0.8px;
+  background-image: url(image/unsplash_gEu8u_cvi4A.svg);
+  background-size: cover;
+  text-align: center;
+  margin-top: 40px;
+}
+.background-content {
+  width: 90%;
+  height: fit-content;
+}
+.background-content h1 {
+  padding-bottom: 100px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 19.36px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.background-content p {
+  font-family: PT Serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 13.25px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+tr {
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #000000;
+  box-sizing: border-box;
+  align-items: center;
+}
+.head {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.head .type {
+  padding-right: 64px;
+  text-align: left;
+}
+.head .amount {
+  padding-left: 148px;
+}
+.head .status {
+  padding-left: 131px;
+  padding-right: 65px;
+}
+td img {
+  padding-right: 13px;
+}
+.head .amount-td {
+  padding-left: 78px;
+  padding-right: 75px;
+}
+.head .status-td {
+  margin-right: 40px;
+}
+table h3,
+td {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16.94px;
+  text-align: left;
+}
+table p {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.52px;
+  text-align: left;
+}
+.table {
+  width: fit-content;
+  height: fit-content;
+  gap: 0px;
+  opacity: 0px;
+  padding-left: 10px;
+}
+
+.update-transaction-history {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  display: none;
+}
+.update-transaction-history.updateHistory-active{
+  display: block;
+}
+.update-transaction-history .innerflex {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.update-transaction-history .innerflex button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.update-transaction-history .outer-div {
+  width: fit-content;
+  box-sizing: border-box;
+  height: 585px;
+  background-color: #e0eae8;
+  padding: 10px;
+  border-radius: 25px;
+  overflow-y: scroll;
+  position: relative;
+}
+.actionBar {
+  width: 150px;
+  text-align: right;
+}
+.actionBar button {
+  cursor: pointer;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  padding: 6px;
+  border: 1px solid #000000;
+}
+.change-update {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 10px;
+}
+.change-update button {
+  cursor: pointer;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14.4px;
+  padding: 6px;
+  border: 1px solid #000000;
+}
+.transaction-container{
+  position: relative;
+}
+.view-transaction-option{
+  position: absolute;
+  z-index: 999999999999;
+  top: 30px;
+  display: none;
+}
+.view-transaction-option.optionScreen-active{
+  display: block;
+}
+.transaction-option {
+  width: 620px;
+  height: 255.35px;
+  top: -5647px;
+  left: 31894px;
+  padding: 24px;
+  gap: 12px;
+  border-radius: 25px;
+  opacity: 0px;
+  background: #e0eae8;
+  overflow-y: scroll;
+}
+.option-title {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+.option-title h1 {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 28.8px;
+  text-align: left;
+}
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: left;
+}
+.userOpt-p {
+  display: flex;
+  gap: 80px;
+  justify-content: left;
+}
+.userOpt-p p {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 28.8px;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  color: #000000 !important;
+}
+.optionBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.optionButton {
+  display: flex;
+  gap: 18px;
+}
+.optionButton button {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  width: 92px;
+  height: 20px;
+  padding: 6px;
+  gap: 0px;
+  opacity: 0px;
+  display: flex;
+  align-items: center;
+  text-wrap: nowrap;
+  justify-content: center;
+  border: 1px solid #000000;
+}
+.create-screen{
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+}
+.create-screen.createScreen-active{
+  display: block;
+}
+.create-container {
+  width: 500px;
+  height: 540px;
+  padding: 12px 24px 12px 24px;
+  background: #e0eae8;
+  border: 2px solid #3E8076;
+}
+.cancelCreate {
+  display: flex;
+  justify-content: right;
+}
+.create-title h1 {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 28.8px;
+  text-align: left;
+  padding-bottom: 40px;
+}
+.input-details {
+  display: flex;
+  justify-content: space-between;
+}
+.input-details input {
+  width: 260px;
+  padding: 0;
+  padding: 10px;
+  border: 1px solid #000000;
+}
+.input-details select {
+  padding: 0;
+  margin: 0;
+  width: 282px;
+  padding: 10px;
+  gap: 10px;
+  border: 1px solid #000000;
+  opacity: 0px;
+}
+.create-history form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-content: center;
+}
+.creatbutton-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+.creatBtn {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  width: 130px;
+  height: 36px;
+  background: #3E8076;
+  color: #ffff;
+  border: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
 }

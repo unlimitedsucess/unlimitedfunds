@@ -43,6 +43,94 @@ main {
   justify-content: space-between;
   align-items: center;
   align-content: center;
+  position: relative;
+}
+.help-screen {
+  display: none;
+}
+.help-screen.help-active {
+  display: block;
+}
+.help-container button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.help-details {
+  width: 90px;
+  height: 115px;
+  padding: 10px;
+  border-radius: 6px;
+  opacity: 0px;
+  background-color: #e0eae8;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+.help-details a,
+p {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: PT Serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.55px;
+  text-align: left;
+  color: #0b0b0b;
+}
+.help-details a {
+  width: 90px;
+  justify-content: left;
+  gap: 6px;
+}
+.confirm-signOut {
+  position: absolute;
+  bottom: 50px;
+  left: 30px;
+  display: none;
+}
+.mainsignout {
+  background-color: #ffff;
+  display: flex;
+  flex-direction: column;
+  width: 212px;
+  height: 66px;
+  padding: 6px;
+  gap: 12px;
+  border-radius: 6px;
+  opacity: 0px;
+  align-items: center;
+  justify-content: center;
+}
+.confirm-signOut.sigout-active {
+  display: block;
+}
+.mainsignout h1 {
+  font-family: PT Serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.55px;
+  margin: 0;
+  text-align: left;
+}
+.signout-dv button {
+  font-family: PT Serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.55px;
+  text-align: left;
+  border: 1px solid #000000;
+  width: 30px;
+  height: 23px;
+  padding: 2px 6px 2px 6px;
+  gap: 10px;
+  border-radius: 4px;
+  opacity: 0px;
+  cursor: pointer;
 }
 .Sign-out-btn {
   color: #fff;
@@ -79,6 +167,135 @@ main {
   overflow-y: scroll;
   overflow-x: hidden;
   box-sizing: border-box;
+}
+.view-fullprofile {
+  position: relative;
+}
+.view-new-user,
+.view-profile-div {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  display: none;
+}
+.view-profile-div.active {
+  display: block;
+}
+.veiw-profile {
+  width: 790px;
+  height: 520px;
+  padding: 6px 24px 6px 24px;
+  gap: 0px;
+  border-radius: 12px;
+  opacity: 0px;
+  background: #e0eae8;
+  position: relative;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+.flex-div {
+  display: flex;
+  align-items: center;
+  padding-bottom: 12px;
+  gap: 10px;
+}
+.box {
+  width: 200px;
+  height: fit-content;
+  padding: 3px;
+  border: 1px solid #00000080;
+}
+.flex-div p {
+  width: 150px;
+}
+.proof-img {
+  display: flex;
+  flex-direction: column;
+}
+.box {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+.proof-img button {
+  background: transparent;
+  margin-top: 6px;
+  border: 0;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: italic;
+}
+.view-p-cancel-button {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.profile-title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 0px 10px;
+}
+.profile-inner {
+  width: 150px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0px;
+  background: #3e8076;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.profile-inner h2 {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
+  color: #ffffff;
+}
+.profile-inner p {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
+}
+.veiw-profile .profile-details {
+  display: flex;
+  justify-content: space-between;
+  background-color: red;
+  height: fit-content;
+}
+.delete-section {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  gap: 20px;
+}
+#delete-userbtn,
+#cancel-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 130px;
+  height: 30px;
+  padding: 3px;
+  gap: 6px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration-line: underline;
 }
 .title {
   display: flex;
@@ -798,17 +1015,17 @@ table p {
 }
 
 .profile-details-screen {
-  width: 900px;
-  height: 680px;
-  padding: 12px;
+  width: fit-content;
+  height: fit-content;
+  padding: 20px;
   gap: 0px;
   border-radius: 12px;
   opacity: 0px;
   background: #e0eae8;
   position: absolute;
-  top: 80px;
+  top: 60px;
   right: 0;
-  left: 0.5%;
+  left: 8%;
   z-index: 5000;
   display: none;
 }
@@ -819,10 +1036,12 @@ table p {
   width: 100%;
   display: flex;
   justify-content: end;
+  margin-bottom: 40px;
+  cursor: pointer;
 }
-.profile-details {
-  width: 850px;
-  height: 600px;
+.profile-details-screen .profile-details {
+  width: 620px;
+  height: 500px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -833,6 +1052,14 @@ table p {
   width: 418px;
   height: 564px;
   opacity: 0px;
+}
+.picture-container h1 {
+  font-family: Inter;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 57.6px;
+  text-align: left;
+  color: #FFFFFF;
 }
 .details {
   display: flex;
@@ -853,9 +1080,25 @@ table p {
   height: fit-content;
 }
 .picture-container {
-  width: 400px;
-  height: 400px;
-  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #3e8076;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box3 .picture-container{
+  width: 40px;
+  height: 40px;
+}
+.viewProfile{
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.box3 .picture-container h1{
+  font-size: 20px;
 }
 .camera-icon {
   position: absolute;
@@ -883,17 +1126,23 @@ table p {
   align-items: center;
   justify-content: center;
   font-family: Inter;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   color: #ffffff;
   background: #191919;
-  width: 259px;
-  height: 30px;
+  width: 180px;
+  height: 20px;
   padding: 10px;
   gap: 10px;
   border-radius: 25px;
   opacity: 0px;
   text-decoration: none;
+  text-wrap: nowrap;
+}
+.contact-edit a img{
+  width: 18px;
+  height: 18px;
+
 }
 #mobile-dashboard {
   display: none;
@@ -1027,7 +1276,6 @@ table p {
     color: #ffffff;
     padding-top: 6px;
   }
-
 }
 @media screen and (max-width: 1200px) {
   body {
@@ -1036,7 +1284,6 @@ table p {
     margin: 0;
     padding: 0;
     height: fit-content;
-   
   }
   .h1-box {
     display: none;

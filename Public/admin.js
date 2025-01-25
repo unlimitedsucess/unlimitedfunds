@@ -4,14 +4,107 @@ const cancelViewProfileBtn = document.querySelector(".view-p-cancel-button");
 const editButton = document.querySelectorAll(".editUser");
 const editProfileScreen = document.querySelector(".edit-profile-screen");
 const cancelEditScreen = document.querySelector(".view-p-cancel-button2");
+const viewNewUser = document.querySelector(".view-new-user");
+const viewNewUserButton =document.querySelectorAll(".review-button")
+const cancelNewProfileBtn = document.querySelector(".viewuserbtn")
+const  cancelDeleteUser = document.getElementById("cancel-delete")
 
+
+
+//view transaction section starts here
+const viewtransactionButton =document.querySelector(".transactionButton")
+const transactionOptionScreen = document.querySelector (".view-transaction-option");
+const cancelOption = document.querySelector(".calcelOptionScreen");
+const viewhistory = document.querySelector (".ViewHistoryBtn");
+const userTransactionHistory = document.querySelector(".user-transactions")
+const calcelUserTransactionHistory = document.querySelector(".cancelUserHistory")
+const updateHistoryScreen = document.querySelector(".update-transaction-history")
+const editHistoryButton = document.querySelector(".editHistoryBtn")
+const cancelUpdateHistoryScreen = document.querySelector(".calcelUpdateScreen")
+const CreateTransactionButton = document.querySelector (".createbtn")
+const createScreen = document.querySelector(".create-screen")
+const cancelCreateScreenBtn =document.querySelector(".cancelCreateBtn")
+
+viewtransactionButton.addEventListener("click", function(event){
+  event.preventDefault();
+  transactionOptionScreen.classList.toggle("optionScreen-active");
+})
+
+cancelOption.addEventListener("click", function(event){
+  event.preventDefault();
+  transactionOptionScreen.classList.toggle("optionScreen-active");
+})
+
+//to view transactionhistory table
+viewhistory.addEventListener("click", function(event){
+  event.preventDefault();
+  userTransactionHistory.classList.toggle("userHistory-active")
+  transactionOptionScreen.classList.toggle("optionScreen-active");
+})
+
+
+
+// close transaction History screen.........
+calcelUserTransactionHistory.addEventListener("click", function(event){
+  event.preventDefault();
+  userTransactionHistory.classList.toggle("userHistory-active")
+})
+
+
+// view edit history and create history screen section
+editHistoryButton.addEventListener("click", function(event){
+  event.preventDefault();
+  updateHistoryScreen.classList.toggle("updateHistory-active")
+  transactionOptionScreen.classList.toggle("optionScreen-active");
+})
+
+// close update screen
+cancelUpdateHistoryScreen.addEventListener("click", function(event){
+  event.preventDefault();
+  updateHistoryScreen.classList.toggle("updateHistory-active")
+})
+
+// create transaction screen active
+
+CreateTransactionButton.addEventListener("click", function(event){
+  event.preventDefault()
+  createScreen.classList.toggle("createScreen-active")
+})
+
+cancelCreateScreenBtn.addEventListener("click", function(event){
+  event.preventDefault();
+  createScreen.classList.toggle("createScreen-active")
+})
+
+//view transaction section ends here...........
+
+viewNewUserButton.forEach((viewBtn) =>{
+  viewBtn.addEventListener("click", function(event){
+    event.preventDefault()
+    viewNewUser.classList.toggle("newUser-active")
+  })
+})
+ 
+
+
+cancelNewProfileBtn.addEventListener("click", function(event){
+  event.preventDefault()
+  viewNewUser.classList.toggle("newUser-active")
+
+})
 viewVerifiedButton.forEach((button) => {
   button.addEventListener("click", function (event) {
     event.preventDefault();
     viewProfile.classList.toggle("active");
   });
 });
+
 cancelViewProfileBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  viewProfile.classList.toggle("active");
+});
+
+cancelDeleteUser.addEventListener("click", function (event) {
   event.preventDefault();
   viewProfile.classList.toggle("active");
 });
