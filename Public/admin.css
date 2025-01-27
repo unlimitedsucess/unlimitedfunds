@@ -1136,7 +1136,7 @@ footer {
     box-sizing: border-box;
   }
   #sideBar{
-    width: 80%;
+    width: 75%;
     height: 100vh;
   }
   .nav1{
@@ -1161,8 +1161,5 @@ footer {
   }
   .optionBox{
     gap: 20px;
-  }
-  .view-transaction-option{
-    
   }
 }
