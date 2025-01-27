@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Irish+Grover&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 body {
   width: 100%;
+  height: fit-content;
   padding: 0;
   border: 0;
   margin: 0;
@@ -23,12 +24,9 @@ main {
   gap: 36px;
   opacity: 0px;
   margin: auto;
-
 }
 
 .title {
-  width: 390px;
-  height: 177px;
   gap: 0px;
   opacity: 0px;
   margin: auto;
@@ -151,8 +149,9 @@ form {
 }
 .image-div {
   width: 100%;
-  display: flex;
-  justify-content: center;
+}
+.image-div img{
+  width: 100%;
 }
 @media screen and (max-width: 1300px) {
   body {
@@ -160,7 +159,6 @@ form {
   }
   main {
     width: 100%;
-    height: fit-content;
   }
   .login-cointainer {
     width: 100%;
@@ -200,20 +198,16 @@ form {
     padding: 0;
   }
   main{
+    height: fit-content;
     height: 100vh;
   }
   .image-div {
     width: 100%;
     padding: 0;
-    height: 350px;
-    display: flex;
-    align-items: center;
+    height: fit-content;
   }
   .image-div img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-
   }
   #login-btn {
     width: 80px;
@@ -228,9 +222,6 @@ form {
     align-items: center;
     justify-content: center;
     margin: auto;
-  }
-  input{
-    height: 18px !important;
   }
 
 }

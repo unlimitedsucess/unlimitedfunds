@@ -24,6 +24,7 @@ const cancelUpdateHistoryScreen = document.querySelector(".calcelUpdateScreen")
 const CreateTransactionButton = document.querySelector (".createbtn")
 const createScreen = document.querySelector(".create-screen")
 const cancelCreateScreenBtn =document.querySelector(".cancelCreateBtn")
+const transactfooterbutton = document.getElementById("transactfooterBtn")
 
 viewtransactionButton.addEventListener("click", function(event){
   event.preventDefault();
@@ -33,6 +34,12 @@ viewtransactionButton.addEventListener("click", function(event){
 cancelOption.addEventListener("click", function(event){
   event.preventDefault();
   transactionOptionScreen.classList.toggle("optionScreen-active");
+})
+
+transactfooterbutton.addEventListener("click", function(event){
+  event.preventDefault();
+  transactionOptionScreen.classList.toggle("optionScreen-active");
+  console.log("click", transactfooterbutton)
 })
 
 //to view transactionhistory table

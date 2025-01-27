@@ -105,7 +105,7 @@ button {
   width: 827px;
   height: 225px;
   opacity: 0px;
-  overflow: hidden;
+  overflow-y: scroll;
   padding: 0px 10px;
 }
 .user {
@@ -298,10 +298,12 @@ button {
 }
 .edit-profile-screen {
   position: absolute;
-  top: 40px;
+  height: 100%;
+  top: 0;
   display: none;
   left: 50%;
   transform: translateX(-50%);
+  overflow-y: scroll;
 }
 .edit-profile-screen.activate {
   display: block;
@@ -309,18 +311,18 @@ button {
 .edit-profile {
   position: relative;
   width: 900px;
-  height: 520px;
+  height: fit-content;
   padding: 12px 10px 10px 24px;
   gap: 0px;
   border-radius: 12px;
   opacity: 0px;
   background: #e0eae8;
+
 }
 .edit-form {
   width: calc(780px -10px);
-  height: 370px;
+  height: fit-content;
   padding: 20px;
-  overflow-y: scroll;
 }
 .view-p-cancel-button2 {
   position: absolute;
@@ -483,9 +485,8 @@ select {
   top: 0;
   z-index: 5000000000;
   display: none;
-
 }
-.user-transactions.userHistory-active{
+.user-transactions.userHistory-active {
   display: block;
 }
 .user-transactions .innerflex {
@@ -620,11 +621,13 @@ table p {
 
 .update-transaction-history {
   position: absolute;
-  top: 40px;
-  right: 0;
+  top: 0;
+  height: 100%;
+  left: 0;
   display: none;
+  overflow-y: scroll;
 }
-.update-transaction-history.updateHistory-active{
+.update-transaction-history.updateHistory-active {
   display: block;
 }
 .update-transaction-history .innerflex {
@@ -640,11 +643,10 @@ table p {
 .update-transaction-history .outer-div {
   width: fit-content;
   box-sizing: border-box;
-  height: 585px;
+  height: fit-content;
   background-color: #e0eae8;
   padding: 10px;
   border-radius: 25px;
-  overflow-y: scroll;
   position: relative;
 }
 .actionBar {
@@ -677,29 +679,28 @@ table p {
   padding: 6px;
   border: 1px solid #000000;
 }
-.transaction-container{
-  position: relative;
-}
-.view-transaction-option{
+
+.view-transaction-option {
+  width: 100%;
   position: absolute;
   z-index: 999999999999;
-  top: 30px;
   display: none;
+  top: 0;
+  height: 100%;
+  overflow: scroll;
+  left: 0;
 }
-.view-transaction-option.optionScreen-active{
+.view-transaction-option.optionScreen-active {
   display: block;
 }
 .transaction-option {
-  width: 620px;
-  height: 255.35px;
-  top: -5647px;
-  left: 31894px;
+  width: 100%;
+  height: fit-content;;
   padding: 24px;
   gap: 12px;
-  border-radius: 25px;
   opacity: 0px;
+  box-sizing: border-box;
   background: #e0eae8;
-  overflow-y: scroll;
 }
 .option-title {
   display: flex;
@@ -759,13 +760,13 @@ table p {
   justify-content: center;
   border: 1px solid #000000;
 }
-.create-screen{
+.create-screen {
   position: absolute;
   top: 0;
   right: 0;
   display: none;
 }
-.create-screen.createScreen-active{
+.create-screen.createScreen-active {
   display: block;
 }
 .create-container {
@@ -773,7 +774,7 @@ table p {
   height: 540px;
   padding: 12px 24px 12px 24px;
   background: #e0eae8;
-  border: 2px solid #3E8076;
+  border: 2px solid #3e8076;
 }
 .cancelCreate {
   display: flex;
@@ -826,7 +827,7 @@ table p {
   line-height: 20px;
   width: 130px;
   height: 36px;
-  background: #3E8076;
+  background: #3e8076;
   color: #ffff;
   border: 0;
   padding: 10px;
@@ -834,4 +835,294 @@ table p {
   justify-content: center;
   align-items: center;
   border-radius: 6px;
+}
+footer {
+  display: none;
+}
+.image-div {
+  display: none;
+}
+.sideBar-XBtn{
+  display: none;
+}
+.inner-header{
+  display: none;
+}
+@media screen and (max-width: 720px) {
+  #sideBar {
+    height: fit-content;
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    z-index: 999999;
+    gap: 80px;
+    padding: 10px;
+    top: 8px;
+    width: 50%;
+    display: none;
+  }
+  .sideBar-XBtn{
+    display: block;
+  }
+  #sideBar.sidebar-activate{
+    display: block;
+  }
+  .nav1{
+    height: 100%;
+    gap: 90px;
+
+  }
+  body {
+    height: fit-content;
+  }
+  .image-div {
+    width: 100%;
+    display: block;
+  }
+  .image-div img {
+    width: 100%;
+  }
+  .overall-div {
+    width: 100%;
+    justify-content: center;
+    height: fit-content;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    position: relative;
+  }
+  .transaction-option{
+    width: 100%;
+    height: fit-content;
+    border-radius: 0;
+    box-sizing: border-box;
+  }
+  .transaction-container{
+    height: fit-content;
+    width: 80%;
+  }
+  .all-users{
+    position: relative;
+  }
+  .view-transaction-option{
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+  .view-profile-div{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    left: 0;
+    top: 0;
+    border-radius: 0;
+  }
+  .profile-details{
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+  .veiw-profile{
+    border-radius: 0;
+  }
+  .edit-profile-screen{
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: translateX(0);
+    overflow-y: scroll;
+  }
+  .edit-form, .form-edit{
+    width: 100%;
+  }
+ 
+  .form-edit{
+    width: 100%;
+    height: 100%;
+  }
+  .edit-form{
+    padding: 0;
+    height: fit-content;
+  }
+  .user-names{
+    width: 100%;
+    flex-direction: column;
+  }
+  .form-box{
+    width: 100%;
+  }
+  .update-div{
+    width: 100%;
+    justify-content: center;
+  }
+  .input{
+    width: 100%;
+  }
+  .edit-profile{
+    width: 100%;
+    padding: 0;
+    padding: 10px;
+    border-radius: 0;
+    box-sizing: border-box;
+    height: fit-content;
+   
+  }
+  .profile-title{
+    width: 100%;
+  }
+  .flex-div{
+    width:100%;
+    box-sizing: border-box;
+   justify-content: space-between;
+  }
+  .option-title{
+    width: 100%
+  }
+  .option-title h1{
+    color: #000000;
+  }
+  .transaction-option{
+    width: calc(100% -20px);
+  }
+  .user-list{
+    width: 100%;
+  }
+  .user-transactions{
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    top: 0;
+    box-sizing: border-box;
+    left: 0;
+  }
+  .veiw-profile{
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    border-radius: 0;
+  }
+  .user-transactions .outer-div{
+   height: fit-content;
+    border-radius: 0;
+  }
+  .update-transaction-history{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: scroll;
+    box-sizing: border-box;
+  }
+ .update-transaction-history .outer-div{
+  width: fit-content;
+  height: fit-content;
+  border-radius: 0;
+ }
+.view-new-user{
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+  .header {
+    background-color: #3e8076;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 24px;
+  }
+  .inner-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .adminProfile img{
+    width: 24px;
+    height: 24px;
+  }
+  .adminProfile{
+    cursor: pointer;
+  }
+  .title-header p, h1{
+    color: #ffffff;
+    padding-left: 20px;
+  }
+
+  .sideBarBox{
+    display: flex;
+    text-wrap: nowrap;
+    justify-content: space-between;
+    padding-top: 30px;
+  }
+  .adminProfile{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .users-table {
+    width: 100%;
+    height: fit-content;
+    padding: 0;
+  }
+  main {
+    height: fit-content;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    align-content: space-between;
+    position: relative;
+  }
+  .user-section {
+    width: 100%;
+    height: fit-content;
+  }
+  .users {
+    grid-template-columns: auto auto;
+    height: fit-content;
+    width: 100%;
+    justify-content: space-between;
+  }
+  footer {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    display: block;
+  }
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% -20px);
+  }
+  .contentBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+  .contentBox img {
+    width: 24px;
+    height: 24px;
+  }
+  .contentBox p {
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 12px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    text-decoration: none;
+    color: #2D3648;
+  }
+  .pendding{
+    padding-top: 30px;
+  }
+  #see-allBtn{
+    padding-top: 30px;
+  }
+  .user-transactions{
+    
+  }
 }

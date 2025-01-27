@@ -23,6 +23,10 @@ cancelNav.addEventListener("click", function (event) {
   navScreen.classList.toggle("active");
 });
 
+
+
+//admin section starts here  
+
 // Select the headers
 // const defaultHeader = document.getElementById('default-header');
 // const scrollHeader = document.getElementById('scroll-header');
