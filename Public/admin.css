@@ -91,7 +91,7 @@ button {
 }
 .all-users {
   width: calc(100% -10px);
-  height: 70.5vh;
+  height: 90%;
   opacity: 0px;
   padding: 0px 20px 20px 20px;
 }
@@ -903,6 +903,8 @@ footer {
   }
   .all-users{
     position: relative;
+    padding: 0px;
+    padding: 10px;
   }
   .view-transaction-option{
     left: 0;
@@ -1075,12 +1077,14 @@ footer {
   }
   .user-section {
     width: 100%;
-    height: fit-content;
+    padding: 0;
   }
   .users {
+    overflow: hidden;
     grid-template-columns: auto auto;
     height: fit-content;
     width: 100%;
+    padding: 0;
     justify-content: space-between;
   }
   footer {
