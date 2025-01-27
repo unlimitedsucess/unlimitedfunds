@@ -1078,6 +1078,7 @@ footer {
   .user-section {
     width: 100%;
     padding: 0;
+    border-bottom: 4px solid #3e8076;
   }
   .users {
     overflow: hidden;
@@ -1126,8 +1127,7 @@ footer {
   #see-allBtn{
     padding-top: 30px;
   }
-  .user-transactions{ 
-  }
+ 
 }
 @media screen  and (max-width: 450px){
   .header{
