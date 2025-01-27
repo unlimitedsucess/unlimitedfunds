@@ -1126,7 +1126,43 @@ footer {
   #see-allBtn{
     padding-top: 30px;
   }
-  .user-transactions{
+  .user-transactions{ 
+  }
+}
+@media screen  and (max-width: 450px){
+  .header{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  #sideBar{
+    width: 80%;
+    height: 100vh;
+  }
+  .nav1{
+    height: 95%;
+    box-sizing: border-box;
+  }
+  .option-title h1{
+    font-size: 16px;
+  }
+  .userOpt-p p{
+    font-size: 14px;
+    text-wrap: nowrap;
+  }
+  .userOpt-p{
+    gap: 20px;
+  }
+  .transaction-option{
+    width: fit-content;
+    padding: 0;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .optionBox{
+    gap: 20px;
+  }
+  .view-transaction-option{
     
   }
 }
