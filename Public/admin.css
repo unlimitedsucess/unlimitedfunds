@@ -1036,7 +1036,7 @@ footer {
     color: #000000;
   }
   .transaction-option {
-    width: calc(100% -20px);
+    width: 100%;
   }
   .user-list {
     width: 100%;
@@ -1143,6 +1143,7 @@ footer {
   .user-section {
     width: 100%;
     padding: 0;
+    padding-bottom: 20px;
     border-bottom: 4px solid #3e8076;
   }
   .users {
