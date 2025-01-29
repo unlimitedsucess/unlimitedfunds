@@ -254,3 +254,23 @@ currencyInput.addEventListener("blur", () => {
 //     alert("Please enter a valid amount.");
 //   }
 // });
+
+// footer area
+const staticFooter = document.querySelector('.static-footer');
+const fixedFooter = document.querySelector('.fixed-footer');
+
+window.addEventListener('scroll', () => {
+ const scrollY = window.scrollY;
+ if (scrollY > staticFooter.offsetHeight) {
+   fixedFooter.classList.remove('hidden');
+   fixedFooter.style.transform = 'translateY(0)';
+  } else {
+    fixedFooter.classList.add('hidden');
+    fixedFooter.style.transform = 'translateY(-100%)';
+  }
+});
+
+
+
+
+

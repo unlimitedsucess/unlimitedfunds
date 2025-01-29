@@ -32,7 +32,7 @@ main {
   margin: auto;
 }
 .first-flex {
-  background-color: #3e8076;
+  background-color: #3E8076 ;
   width: 244px;
   height: 83vh;
   padding: 24px;
@@ -249,7 +249,7 @@ p {
   flex-direction: column;
   gap: 10px;
   opacity: 0px;
-  background: #3e8076;
+  background: #3E8076 ;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
@@ -363,13 +363,13 @@ p {
   gap: 18px;
 }
 .send-btn {
-  background: #3e8076;
+  background: #3E8076 ;
   color: #ffffff;
 }
 .recieve-btn {
   background: #eceaea;
   border: 1px solid #d1d1d1;
-  color: #3e8076;
+  color: #3E8076 ;
 }
 .box2 {
   display: flex;
@@ -420,7 +420,7 @@ p {
   padding: 12px;
   border-radius: 14px;
   opacity: 0px;
-  background: #3e8076;
+  background: #3E8076 ;
   color: #ffff;
   box-sizing: border-box;
   justify-content: space-between;
@@ -435,7 +435,7 @@ p {
   top: 83px;
   left: 50px;
   opacity: 80%;
-  background: radial-gradient(50% 50% at 50% 50%, #3e8076 9.5%, #54ada0 85.5%);
+  background: radial-gradient(50% 50% at 50% 50%, #3E8076  9.5%, #54ada0 85.5%);
 }
 .innerbox1 {
   width: 100%;
@@ -739,7 +739,7 @@ table p {
   cursor: pointer;
 }
 #cancel-transfer:hover {
-  color: #3e8076;
+  color: #3E8076 ;
 }
 #proceed-button {
   padding-top: 17px;
@@ -906,7 +906,7 @@ table p {
   cursor: pointer;
 }
 #cancel-transfer:hover {
-  color: #3e8076;
+  color: #3E8076 ;
 }
 #transfer-button {
   padding-top: 70px;
@@ -987,7 +987,7 @@ table p {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .pin-input:focus {
-  border-color: #3e8076;
+  border-color: #3E8076 ;
   outline: none;
   box-shadow: 0 0 5px rgba(62, 128, 118, 0.5);
 }
@@ -1083,7 +1083,7 @@ table p {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background-color: #3e8076;
+  background-color: #3E8076 ;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1228,7 +1228,7 @@ table p {
     height: 116px;
     border-radius: 12px 12px 0px 0px;
     opacity: 0px;
-    background: #3e8076;
+    background: #3E8076 ;
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -1353,7 +1353,7 @@ table p {
     height: 116px;
     border-radius: 12px 12px 0px 0px;
     opacity: 0px;
-    background: #3e8076;
+    background: #3E8076 ;
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -1543,7 +1543,7 @@ table p {
     padding: 12px;
     border-radius: 14px;
     opacity: 0px;
-    background: #3e8076;
+    background: #3E8076 ;
     color: #ffff;
     box-sizing: border-box;
     justify-content: space-between;
@@ -1708,4 +1708,12 @@ table p {
     height: fit-content;
     overflow: hidden;
   }
+  
+}
+@media screen and (max-width: 720px) {
+     .outer-div{
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+     }
 }

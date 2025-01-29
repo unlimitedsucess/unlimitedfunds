@@ -29,7 +29,7 @@ main {
 }
 .img-container {
   height: fit-content;
-  background-color: #3e8076;
+  background-color: #3E8076 ;
   width: 427px;
   height: 732px;
   padding: 24px;
@@ -83,7 +83,7 @@ main {
   gap: 12px;
   border-radius: 25px;
   opacity: 0px;
-  background-color: #1c3f3a;
+  background-color: #3E8076;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

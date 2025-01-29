@@ -74,6 +74,7 @@ button {
   width: 899px;
   height: calc(100%-10px);
   padding: 10px;
+  padding-top: 0;
   position: relative;
 }
 .title-header h1 {
@@ -91,19 +92,20 @@ button {
 }
 .all-users {
   width: calc(100% -10px);
-  height: 90%;
+  height: fit-content;
   opacity: 0px;
-  padding: 0px 20px 20px 20px;
+  padding: 0px 10px;
+  box-sizing: border-box;
 }
 #see-allBtn {
   font-family: Inter;
   font-size: 16px;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .user-section {
   width: 827px;
-  height: 225px;
+  height: fit-content;
   opacity: 0px;
   overflow-y: scroll;
   padding: 0px 10px;
@@ -113,14 +115,19 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 6px;
   width: 180px;
-  height: 100px;
+  height: fit-content;
 }
 .pendding h3 {
   font-family: Inter;
   font-size: 14px;
   font-weight: 500;
   color: #d61e1e;
+  padding-bottom: 10px;
+}
+.pendding {
+  padding-top: 15px;
 }
 .user h2 {
   font-family: Inter;
@@ -140,7 +147,7 @@ button {
 }
 .user p {
   font-family: Inter;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   padding-bottom: 6px;
 }
@@ -155,6 +162,8 @@ button {
   gap: 10px;
 }
 .users {
+  height: fit-content;
+  gap: 10px;
   display: grid;
   grid-template-columns: auto auto auto;
 }
@@ -173,7 +182,7 @@ button {
 .view-new-user,
 .view-profile-div {
   position: absolute;
-  top: 40px;
+  top: 0px;
   display: none;
 }
 .view-profile-div.active {
@@ -317,7 +326,6 @@ button {
   border-radius: 12px;
   opacity: 0px;
   background: #e0eae8;
-
 }
 .edit-form {
   width: calc(780px -10px);
@@ -502,10 +510,10 @@ select {
 .user-transactions .outer-div {
   width: fit-content;
   display: flex;
-  flex-direction: row;
-  gap: 180px;
+  flex-direction: column;
+  gap: 10px;
   box-sizing: border-box;
-  height: 585px;
+  height: 530px;
   background-color: #e0eae8;
   padding: 10px;
   border-radius: 25px;
@@ -576,22 +584,22 @@ tr {
   flex-direction: row;
 }
 .head .type {
-  padding-right: 64px;
+ width: 150px;
   text-align: left;
 }
 .head .amount {
-  padding-left: 148px;
+  padding-left: 100px;
 }
 .head .status {
-  padding-left: 131px;
+  padding-left: 111px;
   padding-right: 65px;
 }
 td img {
   padding-right: 13px;
 }
 .head .amount-td {
-  padding-left: 78px;
-  padding-right: 75px;
+  padding-left: 38px;
+  padding-right: 35px;
 }
 .head .status-td {
   margin-right: 40px;
@@ -650,10 +658,20 @@ table p {
   position: relative;
 }
 .actionBar {
-  width: 150px;
+  width: 110px;
+  margin-left: 20px;
+  text-align: center;
   text-align: right;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 .actionBar button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  height: 25px;
   cursor: pointer;
   font-family: Inter;
   font-size: 14px;
@@ -695,7 +713,7 @@ table p {
 }
 .transaction-option {
   width: 100%;
-  height: fit-content;;
+  height: fit-content;
   padding: 24px;
   gap: 12px;
   opacity: 0px;
@@ -811,8 +829,8 @@ table p {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  justify-content: center;
-  align-content: center;
+  /* justify-content: center;
+  align-content: center; */
 }
 .creatbutton-div {
   display: flex;
@@ -842,12 +860,13 @@ footer {
 .image-div {
   display: none;
 }
-.sideBar-XBtn{
+.sideBar-XBtn {
   display: none;
 }
-.inner-header{
+.inner-header {
   display: none;
 }
+
 @media screen and (max-width: 720px) {
   #sideBar {
     height: fit-content;
@@ -861,16 +880,15 @@ footer {
     width: 50%;
     display: none;
   }
-  .sideBar-XBtn{
+  .sideBar-XBtn {
     display: block;
   }
-  #sideBar.sidebar-activate{
+  #sideBar.sidebar-activate {
     display: block;
   }
-  .nav1{
+  .nav1 {
     height: 100%;
     gap: 90px;
-
   }
   body {
     height: fit-content;
@@ -891,29 +909,38 @@ footer {
     margin: 0;
     position: relative;
   }
-  .transaction-option{
-    width: 100%;
+  .transaction-option {
+    width: calc(100% -10px);
     height: fit-content;
     border-radius: 0;
     box-sizing: border-box;
   }
-  .transaction-container{
-    height: fit-content;
-    width: 80%;
+  .optionButton button {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
   }
-  .all-users{
+  .transaction-container {
+    height: fit-content;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .all-users {
     position: relative;
     padding: 0px;
     padding: 10px;
   }
-  .view-transaction-option{
+  .view-transaction-option {
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+
     overflow-y: scroll;
   }
-  .view-profile-div{
+  .view-profile-div {
     width: 100%;
     height: 100%;
     overflow-y: scroll;
@@ -921,15 +948,37 @@ footer {
     top: 0;
     border-radius: 0;
   }
-  .profile-details{
+  .profile-details {
     flex-direction: column;
     width: 100%;
     padding: 0;
   }
-  .veiw-profile{
+  .veiw-profile {
     border-radius: 0;
+    padding: 6px 10px;
   }
-  .edit-profile-screen{
+  .flex-div {
+    flex-direction: column;
+    width: calc(100% -10px);
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .flex-div p {
+    text-align: center;
+    padding-top: 15px;
+  }
+  .flex-div .box {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  .box p {
+    text-align: left;
+    padding: 6px;
+  }
+  .edit-profile-screen {
     width: 100%;
     height: 100%;
     left: 0;
@@ -937,127 +986,143 @@ footer {
     transform: translateX(0);
     overflow-y: scroll;
   }
-  .edit-form, .form-edit{
+  .edit-form,
+  .form-edit {
     width: 100%;
   }
- 
-  .form-edit{
+
+  .form-edit {
     width: 100%;
     height: 100%;
   }
-  .edit-form{
+  .edit-form {
     padding: 0;
     height: fit-content;
   }
-  .user-names{
+  .user-names {
     width: 100%;
     flex-direction: column;
   }
-  .form-box{
+  .form-box {
     width: 100%;
   }
-  .update-div{
+  .update-div {
     width: 100%;
     justify-content: center;
   }
-  .input{
+  .input {
     width: 100%;
   }
-  .edit-profile{
+  .edit-profile {
     width: 100%;
     padding: 0;
     padding: 10px;
     border-radius: 0;
     box-sizing: border-box;
     height: fit-content;
-   
   }
-  .profile-title{
+  .profile-title {
     width: 100%;
   }
-  .flex-div{
-    width:100%;
+  .flex-div {
+    width: 100%;
     box-sizing: border-box;
-   justify-content: space-between;
+    justify-content: space-between;
   }
-  .option-title{
-    width: 100%
+  .option-title {
+    width: 100%;
   }
-  .option-title h1{
+  .option-title h1 {
     color: #000000;
   }
-  .transaction-option{
+  .transaction-option {
     width: calc(100% -20px);
   }
-  .user-list{
+  .user-list {
     width: 100%;
   }
-  .user-transactions{
+  .user-transactions {
     width: 100%;
     height: 100%;
-    overflow: scroll;
+    overflow: hidden;
+    overflow-y: scroll;
     top: 0;
     box-sizing: border-box;
     left: 0;
   }
-  .veiw-profile{
+  .user-transactions .table {
+    width: 100%;
+    overflow: scroll;
+    box-sizing: border-box;
+  }
+  .veiw-profile {
     width: 100%;
     height: fit-content;
     box-sizing: border-box;
     border-radius: 0;
   }
-  .user-transactions .outer-div{
-   height: fit-content;
+  .user-transactions .outer-div {
+    width: 100%;
+    height: fit-content;
     border-radius: 0;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 10px;
   }
-  .update-transaction-history{
+  .update-transaction-history {
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    overflow: scroll;
+    overflow: hidden;
+    overflow-y: scroll;
     box-sizing: border-box;
   }
- .update-transaction-history .outer-div{
-  width: fit-content;
-  height: fit-content;
-  border-radius: 0;
- }
-.view-new-user{
-  width: 100%;
-  left: 0;
-  top: 0;
-}
+  .update-transaction-history .outer-div {
+    width: 100%;
+    height: fit-content;
+    border-radius: 0;
+    position: relative;
+  }
+  .update-transaction-history .table {
+    width: 100%;
+    overflow: scroll;
+  }
+  .view-new-user {
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
   .header {
     background-color: #3e8076;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+    border-radius: 0;
     padding: 24px;
   }
-  .inner-header{
+  .inner-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  .adminProfile img{
+  .adminProfile img {
     width: 24px;
     height: 24px;
   }
-  .adminProfile{
+  .adminProfile {
     cursor: pointer;
   }
-  .title-header p, h1{
+  .title-header p,
+  h1 {
     color: #ffffff;
     padding-left: 20px;
   }
 
-  .sideBarBox{
+  .sideBarBox {
     display: flex;
     text-wrap: nowrap;
     justify-content: space-between;
     padding-top: 30px;
   }
-  .adminProfile{
+  .adminProfile {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1119,47 +1184,124 @@ footer {
     letter-spacing: -0.01em;
     text-align: center;
     text-decoration: none;
-    color: #2D3648;
+    color: #2d3648;
   }
-  .pendding{
+  .fixed-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 9999999999999999999999999999999999999999999999999999;
+    transform: translateY(-100%);
+    transition: transform 1s ease;
+  }
+  .static-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 1;
+    padding: 1rem;
+    transition: opacity 0.3s ease-in-out;
+    background-color: #e0eae8;
+    transition: transform 1s ease;
+  }
+  .hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .pendding {
     padding-top: 30px;
   }
-  #see-allBtn{
+  #see-allBtn {
     padding-top: 30px;
   }
- 
+  .create-screen {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+  }
+  .create-container {
+    height: fit-content;
+  }
 }
-@media screen  and (max-width: 450px){
-  .header{
+@media screen and (max-width: 450px) {
+  .header {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
   }
-  #sideBar{
+  #sideBar {
     width: 75%;
     height: 100vh;
   }
-  .nav1{
+  .nav1 {
     height: 95%;
     box-sizing: border-box;
   }
-  .option-title h1{
+  .option-title h1 {
     font-size: 16px;
   }
-  .userOpt-p p{
+  .userOpt-p p {
     font-size: 14px;
     text-wrap: nowrap;
   }
-  .userOpt-p{
-    gap: 20px;
+  .userOpt-p {
+    gap: 6px;
   }
-  .transaction-option{
+  .transaction-option {
     width: fit-content;
     padding: 0;
     padding: 10px;
     box-sizing: border-box;
   }
-  .optionBox{
-    gap: 20px;
+  .optionBox {
+    gap: 10px;
+  }
+  .input-details {
+    flex-direction: column;
+    width: 100%;
+  }
+  .input-details input,
+  select {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  .create-title,
+  .create-history {
+    width: 100%;
+  }
+
+  .create-history {
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+  }
+  .create-history form {
+    width: 100%;
+    padding: 0;
+    
+  }
+  .create-container {
+    width: 100%;
+    padding: 0px;
+    padding: 10px;
+    margin: auto;
+    box-sizing: border-box;
+  }
+  .create-container h1 {
+    color: #000000;
+    text-align: left;
+    width: 100%;
+    font-size: 18px;
+    padding-right: 0;
+    margin-left: 0;
+  }
+  .create-screen {
+    left: 0;
+    padding: 0;
   }
 }

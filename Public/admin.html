@@ -114,8 +114,9 @@
                 </div>
               </div>
             </div>
-            <button id="see-allBtn">See all users</button>
-            <div class="approved user-section">.
+           
+            <div class="approved user-section">
+              <button id="see-allBtn">See all users</button>
               <div class="users">
                 <div class="user">
                   <div class="profie-dv">
@@ -808,13 +809,13 @@
             </div>
             <div class="user-transactions">
               <div class="outer-div">
+                <div class="innerflex">
+                  <p>User Transactions</p>
+                  <button class="cancelUserHistory">
+                    <img src="image/x-circle.svg" alt="" />
+                  </button>
+                </div>
                 <div class="table" id="table">
-                  <div class="innerflex">
-                    <p>User Transactions</p>
-                    <button class="cancelUserHistory">
-                      <img src="image/x-circle.svg" alt="" />
-                    </button>
-                  </div>
                   <table>
                     <tr class="head head1">
                       <th class="type">TYPE</th>
@@ -977,13 +978,13 @@
             </div>
             <div class="update-transaction-history">
               <div class="outer-div">
+                <div class="innerflex">
+                  <p>Update Transactions History</p>
+                  <button class="calcelUpdateScreen">
+                    <img src="image/x-circle.svg" alt="" />
+                  </button>
+                </div>
                 <div class="table" id="table">
-                  <div class="innerflex">
-                    <p>Update Transactions History</p>
-                    <button class="calcelUpdateScreen">
-                      <img src="image/x-circle.svg" alt="" />
-                    </button>
-                  </div>
                   <table>
                     <tr class="head head1">
                       <th class="type">TYPE</th>
@@ -1252,7 +1253,27 @@
       <div class="image-div">
         <img src="image/admin-div.svg" alt="" />
       </div>
-      <footer>
+      <footer class="static-footer">
+        <div class="footer-content">
+          <a href="admin.html" class="contentBox">
+            <img src="image/icon-home.svg" alt="" />
+            <p>Dashboard</p>
+          </a>
+          <button class="contentBox" id="transactfooterBtn">
+            <img src="image/Archive.svg" alt="" />
+            <p>Transactions</p>
+          </button>
+          <a href="#allUsers" class="contentBox">
+            <img src="image/Shape.svg" alt="" />
+            <p>Users</p>
+          </a>
+          <button class="contentBox">
+            <img src="image/Settings.svg" alt="" />
+            <p>Settings</p>
+          </button>
+        </div>
+      </footer>
+      <footer class="fixed-footer hidden">
         <div class="footer-content">
           <a href="admin.html" class="contentBox">
             <img src="image/icon-home.svg" alt="" />
