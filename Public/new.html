@@ -1,186 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Swiper Example</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Upload & Preview</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    img {
+      width: 150px;
+      border-radius: 5px;
+      display: block;
+      margin: 10px auto;
+    }
+    button, input {
+      margin-top: 10px;
+      padding: 8px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+    }
+    input {
+      border: 1px solid #ccc;
+    }
+    .preview {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease, visibility 0.3s;
+    }
+    .preview img {
+      width: 80%;
+      max-width: 500px;
+      border-radius: 10px;
+    }
+    .preview.show {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
 
-    <!-- Swiper CSS -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
+  <h2>Upload and Preview Image</h2>
+  
+  <input type="file" id="imageInput" accept="image/*">
+  <br>
+  <img id="thumbnail" src="https://via.placeholder.com/150" alt="Thumbnail">
+  <br>
+  <button id="previewBtn" disabled>Preview</button>
+  
+  <div id="previewContainer" class="preview">
+    <img id="previewImage" src="" alt="Preview">
+  </div>
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="new.css" />
+  <script>
+    const imageInput = document.getElementById("imageInput");
+    const thumbnail = document.getElementById("thumbnail");
+    const previewBtn = document.getElementById("previewBtn");
+    const previewContainer = document.getElementById("previewContainer");
+    const previewImage = document.getElementById("previewImage");
 
-    <!-- Font Awesome for Icons -->
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <!-- Swiper Container -->
-    <div class="swiper-container">
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-          <!-- Slide 1 -->
-          <div class="swiper-slide custom-swiper">
-            <img
-              src="image/bank--institution-saving-bank-payment-finance.png"
-              alt="Responsive Web Design"
-            />
-            <h1 class="myServices-h1">Digital Banking</h1>
-            <ul class="myServices-p">
-              <li>Bank and saving account</li>
-              <li>Credit cards</li>
-              <li>Personal loans</li>
-            </ul>
-          </div>
+    // Handle image upload
+    imageInput.addEventListener("change", function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          thumbnail.src = e.target.result;  // Update thumbnail with uploaded image
+          previewImage.src = e.target.result; // Update preview image
+          previewBtn.disabled = false;  // Enable preview button
+        };
+        reader.readAsDataURL(file);
+      }
+    });
 
-          <!-- Slide 2 -->
-          <div class="swiper-slide custom-swiper">
-            <img src="image/Attribution--Streamline-Core.svg.svg" alt="" />
-            <h1 class="myServices-h1">Fixed Term Accounts</h1>
-            <ul class="myServices-p">
-              <li>Fixed rate cash</li>
-              <li>Transport insurance</li>
-              <li>Resume your current</li>
-            </ul>
-          </div>
+    // Show preview on button click
+    previewBtn.addEventListener("click", () => {
+      previewContainer.classList.add("show");
+    });
 
-          <!-- Slide 3 -->
-          <div class="swiper-slide custom-swiper">
-            <img src="image/Wallet--Streamline-Core.svg.svg" alt="" />
-            <h1 class="myServices-h1">Insurance Policies</h1>
-            <ul class="myServices-p">
-              <li>Pet insurance</li>
-              <li>Transport insurance</li>
-              <li>Accident insurance</li>
-            </ul>
-          </div>
+    // Close preview when clicking on the image
+    previewContainer.addEventListener("click", () => {
+      previewContainer.classList.remove("show");
+    });
+  </script>
 
-          <!-- Slide 4 -->
-          <div class="swiper-slide custom-swiper">
-            <img
-              src="image/Warehouse-Thin--Streamline-Phosphor-Thin.svg.svg"
-              alt="Home & Property Loan"
-            />
-            <h1 class="myServices-h1">Home & Property Loan</h1>
-            <ul class="myServices-p">
-              <li>Residential mortgages</li>
-              <li>Buy-to-let mortgages</li>
-              <li>Building mortgages</li>
-            </ul>
-          </div>
-
-          <!-- Slide 5 -->
-          <div class="swiper-slide custom-swiper">
-            <img
-              src="image/Briefcase-Dollar--Streamline-Core.svg.svg"
-              alt="Private Banking"
-            />
-            <h1 class="myServices-h1">Private Banking</h1>
-            <ul class="myServices-p">
-              <li>Dedicated personal service</li>
-              <li>Specialist teams</li>
-              <li>Tailored products</li>
-            </ul>
-          </div>
-
-          <!-- Slide 6 -->
-          <div class="swiper-slide custom-swiper">
-            <img
-              src="image/Safe-Vault--Streamline-Core.svg.png"
-              alt="All Bank Accounts"
-            />
-            <h1 class="myServices-h1">All Bank Accounts</h1>
-            <ul class="myServices-p">
-              <li>Instant access savings</li>
-              <li>Instant access cash</li>
-              <li>Young savers account</li>
-            </ul>
-          </div>
-
-          <!-- Slide 7 -->
-          <div class="swiper-slide custom-swiper">
-            <img
-              src="image/Bag-Pound--Streamline-Core.svg.svg"
-              alt="Mobile & Web Banking"
-            />
-            <h1 class="myServices-h1">Mobile & Web Banking</h1>
-            <ul class="myServices-p">
-              <li>Instant access</li>
-              <li>Instant access</li>
-              <li>Savings instant</li>
-            </ul>
-          </div>
-          <!-- Slide 8 -->
-          <div class="swiper-slide custom-swiper">
-            <img
-              src="image/Briefcase-Dollar--Streamline-Core.svg.svg"
-              alt="Borrowing Accounts"
-            />
-            <h1 class="myServices-h1">Borrowing Accounts</h1>
-            <ul class="myServices-p">
-              <li>Bank credit card</li>
-              <li>Setter personal loan</li>
-              <li>Overdraft</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Navigation Buttons -->
-        <div class="navigationbtn">
-          <button class="custom-prev">
-            <i class="fa fa-angle-left"></i>
-          </button>
-          <button class="custom-next">
-            <i class="fa fa-angle-right"></i>
-          </button>
-        </div>
-
-        <!-- Pagination -->
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-    <!-- Custom Swiper Initialization -->
-    <script>
-      const swiper = new Swiper(".mySwiper", {
-        slidesPerView: 4,
-        spaceBetween: 30,
-        loop: true,
-        autoplay: {
-          delay: 7000,
-          disableOnInteraction: false,
-        },
-        navigation: {
-          nextEl: ".custom-next",
-          prevEl: ".custom-prev",
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        breakpoints: {
-          0: {
-            slidesPerView: 1,
-            centeredSlides: true,
-          },
-          768: {
-            slidesPerView: 2,
-            centeredSlides: false,
-          },
-          1024: {
-            slidesPerView: 4,
-          },
-        },
-      });
-    </script>
-  </body>
+</body>
 </html>

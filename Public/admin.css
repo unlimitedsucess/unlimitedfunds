@@ -129,16 +129,16 @@ button {
 .pendding {
   padding-top: 15px;
 }
-.user h2 {
-  font-family: Inter;
-  font-size: 18px;
-  font-weight: 400;
-  color: #ffffff;
+.user img{
+ height: 100%;
+ width: 100%;
+ background-color: red;
+ border-radius: 50%;
 }
 .profie-dv {
-  width: 35px;
-  height: 35px;
-  border-radius: 50px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
   opacity: 0px;
   background: #3e8076;
   display: flex;
@@ -185,6 +185,7 @@ button {
   top: 0px;
   display: none;
 }
+
 .view-profile-div.active {
   display: block;
 }
@@ -210,6 +211,13 @@ button {
   align-items: center;
   padding-bottom: 12px;
   gap: 10px;
+}
+.proof-img{
+  position: relative;
+}
+.proofAddress-ouput{
+  position: absolute;
+
 }
 .box {
   width: 200px;
@@ -250,25 +258,32 @@ button {
   display: flex;
   justify-content: center;
   text-align: center;
-  padding: 30px 0px 10px;
-}
-.profile-inner {
-  width: 150px;
-  height: 80px;
-  display: flex;
   flex-direction: column;
-  gap: 10px;
-  opacity: 0px;
-  background: #3e8076;
-  align-items: center;
+  padding: 30px 0px 10px;
   justify-content: center;
-  border-radius: 10px;
+  align-items: center;
+}
+.userImg{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
 }
 .profile-inner h2 {
   font-family: Inter;
   font-size: 24px;
   font-weight: 400;
   color: #ffffff;
+}
+.fullpicture{
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 20px;
+  display: none;
+  cursor: pointer;
+}
+.fullpicture.fullpictureActive{
+  display: block;
 }
 .profile-inner p {
   font-family: Inter;
@@ -314,7 +329,7 @@ button {
   transform: translateX(-50%);
   overflow-y: scroll;
 }
-.edit-profile-screen.activate {
+.edit-profile-screen.active{
   display: block;
 }
 .edit-profile {
@@ -340,23 +355,16 @@ button {
   border: 0;
   cursor: pointer;
 }
-.profile-title {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  padding: 30px 0px 10px;
-}
+
 .profile-inner {
-  width: 150px;
-  height: 80px;
+  width: fit-content;
+  height: fit-content;
   display: flex;
   gap: 10px;
   flex-direction: column;
   opacity: 0px;
-  background: #3e8076;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
 }
 .profile-inner h2 {
   font-family: Inter;
@@ -413,6 +421,7 @@ select {
   max-height: 150px;
   overflow-y: auto;
 }
+
 .dropdown div {
   padding: 8px;
   cursor: pointer;
@@ -434,6 +443,19 @@ select {
   align-items: center;
   gap: 80px;
   padding-top: 10px;
+}
+.proofAddress-div{
+  position: relative;
+}
+.proofAddress{
+  position: absolute;
+  bottom: 1%;
+  height: 200px;
+  width: 400px;
+  display: none;
+}
+.proofAddress.fullpictureActive2{
+  display: block;
 }
 .view-image {
   display: flex;
@@ -866,7 +888,9 @@ footer {
 .inner-header {
   display: none;
 }
-
+table td, tr{
+  font-family: inter;
+}
 @media screen and (max-width: 720px) {
   #sideBar {
     height: fit-content;
@@ -1021,9 +1045,7 @@ footer {
     box-sizing: border-box;
     height: fit-content;
   }
-  .profile-title {
-    width: 100%;
-  }
+  
   .flex-div {
     width: 100%;
     box-sizing: border-box;

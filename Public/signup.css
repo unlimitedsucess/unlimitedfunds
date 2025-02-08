@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Irish+Grover&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-body{
+body {
   width: 100%;
   padding: 0;
   border: 0;
@@ -7,8 +7,6 @@ body{
   background-color: #e0eae8;
   height: 100vh;
   justify-content: center;
-  overflow: hidden;
-
 }
 * {
   padding: 0;
@@ -34,7 +32,7 @@ main {
 }
 .img-container {
   height: fit-content;
-  background-color: #3E8076 ;
+  background-color: #3e8076;
   width: 427px;
   height: 732px;
   padding: 24px;
@@ -88,7 +86,7 @@ main {
   gap: 12px;
   border-radius: 25px;
   opacity: 0px;
-  background-color: #3E8076;
+  background-color: #3e8076;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -197,7 +195,7 @@ select {
   width: 100%;
   justify-content: space-between;
 }
-.password-container{
+.password-container {
   position: relative;
   width: 100%;
 }
@@ -209,11 +207,11 @@ select {
   transform: translateY(-50%);
   cursor: pointer;
 }
-.password-container2{
+.password-container2 {
   position: relative;
   width: 100%;
 }
-#eye-icon2{
+#eye-icon2 {
   position: absolute;
   top: 50%;
   right: 20px;
@@ -237,17 +235,16 @@ select {
 .first-detail .input-div {
   width: 30%;
 }
-
 .residence .input-div {
   width: 48%;
   height: 100%;
   box-sizing: border-box;
 }
-.names{
+.names {
   width: calc(100% - 10px);
   padding: 0px 4px;
 }
-.location{
+.location {
   width: calc(100% - 10px);
   padding: 0px 4px;
 }
@@ -257,28 +254,40 @@ select {
   justify-content: space-between;
   box-sizing: border-box;
 }
-.phone-number-container {
-  display: flex;
-  gap: 0;
-  align-items: center;
+.phone-input-container {
+  position: relative;
 }
-.phone-number-container select {
-  border: 1px solid #191919;
-}
-.phone-number-container #country-code {
-  border-radius: 0;
-  border-right: 0;
-}
-.phone-number-container select {
-  width: 80px;
-  border-radius: 0;
-}
-#phone-number {
+.phone-number-input {
   width: 100%;
-  border-left: 0;
- padding: 0px 5px;
+  padding: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+.dropdown {
+  width: fit-content;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  display: none;
+  max-height: 150px;
+  overflow-y: auto;
 }
 
+.dropdown div {
+  padding: 8px;
+  cursor: pointer;
+}
+.dropdown div:hover {
+  background-color: #f0f0f0;
+}
+.currency-input-container {
+  position: relative;
+  width: 100%;
+}
 .date-flex {
   display: flex;
   justify-content: space-between;
@@ -286,48 +295,255 @@ select {
 label {
   padding: 4px;
 }
-.password-div .input-div {
-  width: 48%;
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
 }
-.password{
-  width: calc(100% - 12px);
-  padding: 0px 4px;
+
+.password-container,
+.pin-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+.password-div,
+.pin-div {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+.password-div .input-div,
+.pin-div .input-div {
+  width: 50%;
+}
+
+.password-container i,
+.pin-container i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: gray;
+}
+
+input {
+  padding-right: 30px; /* Ensure space for the eye icon */
 }
 
 .next-btn {
-  width: 130px;
+  width: fit-content;
   height: 34px;
   opacity: 0px;
   text-align: center;
   margin: auto;
   margin-top: 30px;
   border-radius: 25px;
-  background-color: #191919;
   align-content: center;
+  display: flex;
+  gap: 10px;
 }
+
 .phone-number {
   width: 100%;
 }
-.next-btn a {
-  width: 150px;
-  padding: 10px;
-  font-family: Inter;
-  font-size: 20px;
-  font-weight: 400;
-  color: #ffffff;
-  align-items: center;
-  align-content: center;
-  cursor: pointer;
-  text-decoration: none;
-}
+
 .next-btn {
   box-sizing: border-box;
 }
 input {
   padding: 0px 5px;
 }
+/* Make the dropdown container hidden initially */
+.currency-dropdown {
+  display: none;
+  position: absolute; /* Adjust positioning as needed */
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 150px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+.currency-dropdown div {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.currency-dropdown div:hover {
+  background-color: #f1f1f1;
+}
+
+/* Style for the currency input field */
+.currency-input-container {
+  position: relative; /* To position dropdown relative to the input */
+  width: 200px; /* Set input width as required */
+}
+
 .mobile-view {
   display: none;
+}
+
+.step {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.active {
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+}
+.error {
+  border: 1px solid red;
+}
+.error-message {
+  color: red;
+  font-size: 12px;
+  display: block;
+}
+.progress-bar {
+  width: 100%;
+  background: #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.progress {
+  height: 10px;
+  width: 33%;
+  background: #3e8076;
+  border-radius: 5px;
+  transition: width 0.3s ease-in-out;
+}
+.next-btn button {
+  background: #000000;
+  color: #fff;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+  width: fit-content;
+  height: 34px;
+  padding: 20px;
+  gap: 10px;
+  border-radius: 25px;
+  opacity: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.currency-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.proofAddress {
+  display: flex;
+  justify-content: space-between;
+}
+.proofAddress input{
+  margin-bottom: 20px;
+}
+.agreement-checkbox{
+  display: flex;
+  align-items: center;
+}
+#agreeToTerms{
+  cursor: pointer;
+}
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin-left: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  height: 40px;
+}
+
+/* Toast */
+.toast {
+  font-family: inter;
+  position: relative;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show toast */
+.toast.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Toast icon */
+.toast-icon {
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+/* Success toast */
+.toast-success {
+  background-color: #28a745; /* Green */
+}
+
+/* Error toast */
+.toast-error {
+  background-color: #dc3545; /* Red */
+}
+
+/* Progress bar */
+/* Progress bar colors based on toast type */
+.toast-success .toast-progress {
+  background-color: rgba(0, 128, 0, 0.7);
+}
+
+.toast-error .toast-progress {
+  background-color: rgba(220, 53, 69, 0.7);
+}
+
+.proofAddress input{
+  height: fit-content;
+  width: fit-content;
+  border: none;
+}
+.prevbtn{
+  font-family: inter;
+  background: none;
+  font-style: italic;
+  text-decoration: underline;
+  cursor: pointer;
 }
 @media screen and (max-width: 1280px) {
   body {
@@ -377,17 +593,18 @@ input {
   .p2 {
     padding-top: 6px;
   }
+  
 }
 
 @media screen and (max-width: 600px) {
-  form{
+  form {
     box-sizing: border-box;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-  .first-detail{
+  .first-detail {
     flex-direction: column;
     width: 100%;
     justify-content: center;
@@ -396,20 +613,19 @@ input {
   .input-div {
     width: 95%;
   }
-  .residence{
+  .residence {
     flex-direction: column;
     gap: 0;
   }
   .first-detail .input-div {
     width: 100%;
     justify-content: center;
-
   }
- 
-  .residence .input-div{
+
+  .residence .input-div {
     width: 100%;
   }
-  input{
+  input {
     width: 100%;
   }
   .img-container {
@@ -440,11 +656,10 @@ input {
     line-height: 19.36px;
     text-align: left;
   }
-  .contact-no{
+  .contact-no {
     width: 100%;
-
   }
-  .password-div{
+  .password-div {
     flex-direction: column;
   }
   .password-div .input-div {
@@ -483,30 +698,62 @@ input {
     font-weight: 400;
     line-height: 7.76px;
   }
-  .input-div input{
+  .input-div input {
     width: calc(100% - 10px);
   }
-  .second-detail{
+  .second-detail {
     width: calc(100% - 2px);
   }
-  .address{
-    width: 100%
+  .address {
+    width: 100%;
   }
-}
-.contact-no{
-  width: 100%;
-  padding: 0;
-}
-.phone-number-container{
-  width: 100%;
-  height: 50px;
-}
-#phone-number{
-  width: 100%;
-  overflow: scroll;
-}
-.contact-no .input-div{
-  width: 100%;
+  #ssn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .currency-input{
+    box-sizing: border-box;
+  }
+
+  .contact-no {
+    width: 100%;
+    padding: 0;
+  }
+  .phone-number-container {
+    width: 100%;
+    height: 50px;
+  }
+  #phone-number {
+    width: 100%;
+    overflow: scroll;
+  }
+  .contact-no .input-div {
+    width: 100%;
+  }
+  .ssndv{
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .proofAddress{
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+
+
+  }
+  .proofAddress input{
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  #agreeToTerms{
+   width: 18px;
+   height: 18px;
+  }
+  .agreement-checkbox{
+    display: flex;
+    padding-top: 10px;
+    align-items: center;
+  }
 }
 @media screen and (max-width: 380px) {
   .first-div h3 {

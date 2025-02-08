@@ -11,6 +11,7 @@
     />
   </head>
   <body>
+    <div id="toast-container"></div>
     <main>
       <a href="index.html">
         <div><img src="image/arrow-left.svg" alt="" /></div>
@@ -50,219 +51,397 @@
             <span class="line2"></span>
           </div>
           <h3 class="title">CUSTOMERS INFORMATION</h3>
-          <div class="form-input">
-            <form action="">
-              <div class="first-detail">
-                <div class="input-div email">
-                  <label for="firstName">First Name</label>
+          <div class="form-container2">
+            <div class="progress-bar"><div class="progress" id="progress"></div></div>
+            <form id="multiStepForm">
+              <div class="step active" id="step1">
+                <div class="first-detail">
+                  <div class="input-div">
+                    <label for="firstName">First Name</label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      id="firstName-input"
+                      required
+                    />
+                    <span class="error-message" id="firstName-inputError"></span>
+                  </div>
+                  <div class="input-div">
+                    <label for="middleName">Middle Name</label>
+                    <input
+                      type="text"
+                      name="middleName"
+                      id="middleName-input"
+                      required
+                    />
+                    <span class="error-message" id="middleName-inputError"></span>
+                  </div>
+                  <div class="input-div">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" name="lastName" id="lastName" required />
+                    <span class="error-message" id="lastNameError"></span>
+                  </div>
+                </div>
+                <div class="second-detail input-div">
+                  <label for="email">Email</label>
+                  <input type="email" name="email" id="email-input" required />
+                  <span class="error-message" id="email-inputError"></span>
+                  <label for="userName">UserName</label>
+                  <input type="text" name="userName" id="userName-input" required />
+                  <span class="error-message" id="userName-inputError"></span>
+                </div>
+                <div class="residence">
+                  <div class="input-div">
+                    <label for="countryOfResidence">Country of residence</label>
+                    <input
+                      name="countryOfResidence"
+                      class="location"
+                      id="countryOfResidence"
+                      required
+                    />
+                    <span class="error-message" id="countryOfResidenceError"></span>
+                  </div>
+                  <div class="input-div">
+                    <label for="state">State</label>
+                    <input name="state" class="location" id="state-input" required />
+                    <span class="error-message" id="state-inputError"></span>
+                  </div>
+                </div>
+                <div class="phone-input-container form-box">
+                  <label for="phoneNumber">phone number</label>
+                  <input
+                    type="tel"
+                    id="phone-number"
+                    class="phone-number-input"
+                    value="US +1"
+                    style="cursor: pointer"
+                    placeholder="Enter phone number"
+                    name="phoneNumber"
+                  />
+                  <span class="error-message" id="phone-numberError"></span>
+                  <div class="dropdown" id="dropdown">
+                    <div data-value="US +1">US +1</div>
+                    <div data-value="UK +44">UK +44</div>
+                    <div data-value="IN +91">IN +91</div>
+                    <div data-value="AU +61">AU +61</div>
+                    <div data-value="CA +1">CA +1</div>
+                    <div data-value="DE +49">DE +49</div>
+                    <div data-value="FR +33">FR +33</div>
+                    <div data-value="IT +39">IT +39</div>
+                    <div data-value="JP +81">JP +81</div>
+                    <div data-value="CN +86">CN +86</div>
+                    <div data-value="KR +82">KR +82</div>
+                    <div data-value="BR +55">BR +55</div>
+                    <div data-value="MX +52">MX +52</div>
+                    <div data-value="RU +7">RU +7</div>
+                    <div data-value="ZA +27">ZA +27</div>
+                    <div data-value="NZ +64">NZ +64</div>
+                    <div data-value="ES +34">ES +34</div>
+                    <div data-value="SE +46">SE +46</div>
+                    <div data-value="CH +41">CH +41</div>
+                    <div data-value="TR +90">TR +90</div>
+                    <div data-value="NL +31">NL +31</div>
+                    <div data-value="AR +54">AR +54</div>
+                    <div data-value="FI +358">FI +358</div>
+                    <div data-value="NO +47">NO +47</div>
+                    <div data-value="DK +45">DK +45</div>
+                    <div data-value="PL +48">PL +48</div>
+                    <div data-value="BE +32">BE +32</div>
+                    <div data-value="PT +351">PT +351</div>
+                    <div data-value="GR +30">GR +30</div>
+                    <div data-value="IE +353">IE +353</div>
+                    <div data-value="AT +43">AT +43</div>
+                    <div data-value="SG +65">SG +65</div>
+                    <div data-value="MY +60">MY +60</div>
+                    <div data-value="PH +63">PH +63</div>
+                    <div data-value="ID +62">ID +62</div>
+                    <div data-value="TH +66">TH +66</div>
+                    <div data-value="PK +92">PK +92</div>
+                    <div data-value="EG +20">EG +20</div>
+                    <div data-value="KE +254">KE +254</div>
+                    <div data-value="NG +234">NG +234</div>
+                    <div data-value="VN +84">VN +84</div>
+                    <div data-value="BD +880">BD +880</div>
+                    <div data-value="UA +380">UA +380</div>
+                    <div data-value="KW +965">KW +965</div>
+                    <div data-value="QA +974">QA +974</div>
+                    <div data-value="KW +965">KW +965</div>
+                    <div data-value="AE +971">AE +971</div>
+                    <div data-value="SA +966">SA +966</div>
+                    <div data-value="OM +968">OM +968</div>
+                    <div data-value="BH +973">BH +973</div>
+                    <div data-value="JO +962">JO +962</div>
+                    <div data-value="LB +961">LB +961</div>
+                    <div data-value="IL +972">IL +972</div>
+                    <div data-value="MA +212">MA +212</div>
+                    <div data-value="DZ +213">DZ +213</div>
+                    <div data-value="TN +216">TN +216</div>
+                    <div data-value="LY +218">LY +218</div>
+                  </div>
+                </div>
+                <div class="input-div address">
+                  <label for="address">Address</label>
                   <input
                     type="text"
-                    name="firstName"
+                    name="address"
                     class="names"
-                    id="firstName-input"
+                    id="address-input"
                     required
+                    autocomplete="new-password"
                   />
-                </div>
-                <div class="input-div">
-                  <label for="middleName">Middle Name</label>
+                  <span class="error-message" id="address-inputError"></span>
+                  <div class="date-flex">
+                    <label for="dateOfBirth">Date of birth</label>
+                    <label for="dateFormat">DD/MM/YY</label>
+                  </div>
                   <input
-                    type="tex"
-                    name="middleName"
-                    id="middleName-input"
+                    type="date"
+                    name="dateOfBirth"
+                    id="dateOfBirth-input"
                     class="names"
-                    required
                   />
+                  <span class="error-message" id="dateOfBirth-inputError"></span>
                 </div>
-                <div class="input-div">
-                  <label for="lastName">Last Name</label>
-                  <input type="text" name="lastName" id="lastName" class="names" required />
-                </div>
-              </div>
-              <div class="second-detail input-div">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email-input" required />
-                <label for="userName"> User Name</label>
-                <input
-                  type="text"
-                  name="userName"
-                  id="userName-input"
-                  required
-                />
-              </div>
-              <div class="residence">
-                <div class="input-div">
-                  <label for="country">Country of residence</label>
-                  <input
-                    name="country"
-                    class="location"
-                    id="country-input"
-                    required
-                  />
-                </div>
-                <div class="input-div">
-                  <label for="state">State</label>
-                  <input
-                    name="state"
-                    class="location"
-                    id="state-input"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="contact-no">
-                <div class="input-div">
-                  <label for="phone-number">Phone Number:</label>
-                  <div class="phone-number-container">
-                    <select id="country-code" name="country-code"></select>
+                <div class="first-detail">
+                  <div class="input-div">
+                    <label for="occupation">Occupation</label>
                     <input
-                      type="tel"
-                      id="phone-number"
-                      name="phone-number"
-                      placeholder="Phone number"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="input-div address">
-                <label for="address">Address</label>
-                <input
-                  type="text"
-                  name="address"
-                  class="names"
-                  id="address-input"
-                  required
-                  autocomplete="new-password"
-                />
-                <div class="date-flex">
-                  <label for="dateOfBirth">Date of birth</label>
-                  <label for="dateFormat">DD/MM/YY</label>
-                </div>
-                <input type="date" name="dateOfBirth" id="dateOfBirth-input" class="names" />
-              </div>
-              <div class="password-div">
-                <div class="input-div">
-                  <label for="password">Password</label>
-                  <div class="password-container">
-                    <input
-                      type="password"
-                      name="password"
-                      class="password"
-                      id="password-input"
+                      type="text"
+                      name="occupation"
+                      id="occupation"
                       required
-                      autocomplete="new-password"
                     />
-                    <i class="fa fa-eye" id="eye-icon"></i>
-                    <div class="password-requirements"></div>
+                    <span class="error-message" id="occupationError"></span>
+                  </div>
+                  <div class="input-div">
+                    <label for="gender">Middle Name</label>
+                    <select name="gender" id="gender">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="others">Others</option>
+                    </select>
+                    <span class="error-message" id="genderError"></span>
+                  </div>
+                  <div class="input-div">
+                    <label for="maritalStatus">Marital status</label>
+                    <select name="maritalStatus" id="maritalStatus">
+                      <option value="Single">Single</option>
+                      <option value="Married">Married</option>
+                      <option value="Divorce">Divorce</option>
+                    </select>
+                    <span class="error-message" id="maritalStatusError"></span>
                   </div>
                 </div>
-                <div class="input-div">
-                  <label for="confirm-password">confirm-password</label>
-                  <div class="password-container2">
-                    <input
-                      type="password"
-                      name="password"
-                      class="password"
-                      id="-confirm-password"
-                      required
-                      autocomplete="new-password"
-                    />
-                    <i class="fa fa-eye" id="eye-icon2"></i>
-                    <div class="password-requirements"></div>
-                  </div>
+                <div class="input-div ssndv">
+                  <label for="ssn">SSN</label>
+                  <input type="text" name="ssn" id="ssn" required />
+                  <span class="error-message" id="ssnError"></span>
+                </div>
+                <div class="currency-input-container form-box">
+                  <label for="initialDeposit">Initial deposit</label>
+                  <input
+                  name="initialDeposit"
+                    type="text"
+                    id="currency-input"
+                    class="currency-input"
+                    value=""
+                    placeholder="Enter amount"
+                  />
+                  <span class="error-message" id="currency-inputError">
+                  <!-- <div class="dropdown" id="currency" name="currency">
+                    <div data-symbol="$">USD $</div>
+                    <div data-symbol="€">EUR €</div>
+                    <div data-symbol="¥">JPY ¥</div>
+                    <div data-symbol="£">GBP £</div>
+                    <div data-symbol="A$">AUD A$</div>
+                    <div data-symbol="C$">CAD C$</div>
+                    <div data-symbol="CHF">CHF CHF</div>
+                    <div data-symbol="¥">CNY ¥</div>
+                    <div data-symbol="kr">SEK kr</div>
+                    <div data-symbol="NZ$">NZD NZ$</div>
+                    <div data-symbol="₽">RUB ₽</div>
+                    <div data-symbol="₹">INR ₹</div>
+                    <div data-symbol="R$">BRL R$</div>
+                    <div data-symbol="₩">KRW ₩</div>
+                    <div data-symbol="RM">MYR RM</div>
+                    <div data-symbol="₫">VND ₫</div>
+                    <div data-symbol="฿">THB ฿</div>
+                    <div data-symbol="₪">ILS ₪</div>
+                    <div data-symbol="₱">PHP ₱</div>
+                    <div data-symbol="ZAR">ZAR ZAR</div>
+                    <div data-symbol="HK$">HKD HK$</div>
+                    <div data-symbol="SGD">SGD SGD</div>
+                    <div data-symbol="MX$">MXN MX$</div>
+                    <div data-symbol="NT$">TWD NT$</div>
+                    <div data-symbol="CLP">CLP CLP</div>
+                    <div data-symbol="COP">COP COP</div>
+                    <div data-symbol="ARS">ARS ARS</div>
+                    <div data-symbol="AED">AED AED</div>
+                    <div data-symbol="SAR">SAR SAR</div>
+                    <div data-symbol="EGP">EGP EGP</div>
+                    <div data-symbol="QAR">QAR QAR</div>
+                    <div data-symbol="KWD">KWD KWD</div>
+                    <div data-symbol="OMR">OMR OMR</div>
+                    <div data-symbol="BDT">BDT BDT</div>
+                    <div data-symbol="PKR">PKR PKR</div>
+                    <div data-symbol="LKR">LKR LKR</div>
+                    <div data-symbol="MYR">MYR MYR</div>
+                    <div data-symbol="BHD">BHD BHD</div>
+                    <div data-symbol="KES">KES KES</div>
+                    <div data-symbol="TZS">TZS TZS</div>
+                    <div data-symbol="UGX">UGX UGX</div>
+                    <div data-symbol="GHS">GHS GHS</div>
+                    <div data-symbol="NGN">NGN NGN</div>
+                    <div data-symbol="XOF">XOF XOF</div>
+                    <div data-symbol="XAF">XAF XAF</div>
+                  </div> -->
+                </div>
+                <div class="next-btn">
+                  <button type="button" onclick="validateStep(1, 2)">Next</button>
                 </div>
               </div>
-              <div class="next-btn">
-                <a type="submit" href="next.html">Next</a>
+              <div class="step" id="step2">
+                <div class="third-div proofAddress">
+                  <div>
+                    <p class="p2">Upload a State ID, showing your name.</p>
+                  </div>
+                
+                  <!-- File Upload Input -->
+                  <div>
+                    <div>
+                      <input name="proofOfAddress" type="file" id="proofOfAddress" accept="image/*" onchange="previewImage(event)" required />
+                      <button  class="prevbtn" type="button" onclick="resetImage('preview')">Preview</button>
+                      <span class="error-message" id="proofOfAddressError"></span>
+                    </div>
+                
+                    <!-- Initially Hidden Preview Image (Click to Toggle) -->
+                    <div>
+                      <img id="preview" src="" alt="Uploaded Image Preview" style="max-width: 200px; display: none; cursor: pointer;" />
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="third-div proofAddress">
+                  <div>
+                    <p class="p2">Upload your passport photo.</p>
+                  </div>
+                
+                  <!-- File Upload Input -->
+                  <div>
+                    <div>
+                      <input name="profilePicture" type="file" id="profilePicture" accept="image/*" onchange="previewImage(event)" required />
+                      <button class="prevbtn" type="button" onclick="resetImage('preview2')">Preview</button>
+                      <span class="error-message" id="profilePictureError"></span>
+                    </div>
+                
+                    <!-- Initially Hidden Preview Image (Click to Toggle) -->
+                    <div>
+                      <img id="preview2" src="" alt="Uploaded Image Preview" style="max-width: 200px; display: none; cursor: pointer;" />
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <label for="accountType">Account type</label>
+                <select name="accountType" id="accountType">
+                  <option value="Savings">Savings</option>
+                  <option value="Current">Current</option>
+                </select>
+                <label for="accountOwnership">Account ownership</label>
+                <select name="accountOwnership" id="accountOwnership">
+                  <option value="Company">Company</option>
+                  <option value="Personal">Personal</option>
+                  <option value="Joint">Joint</option>
+                </select>
+                <div class="password-div">
+                  <div class="input-div">
+                    <label for="password">Password</label>
+                    <div class="password-container">
+                      <input
+                        type="password"
+                        name="password"
+                        class="password"
+                        id="password-input"
+                        required
+                        autocomplete="new-password"
+                      />
+                      <span class="error-message" id="password-inputError"></span>
+                      <i class="fa fa-eye" id="eye-icon"></i>
+                      <div class="password-requirements"></div>
+                    </div>
+                  </div>
+                  <div class="input-div">
+                    <label for="confirmPassword">confirm-password</label>
+                    <div class="password-container">
+                      <input
+                        type="password"
+                        name="confirmPassword"
+                        class="password"
+                        id="confirm-password"
+                        required
+                        autocomplete="new-password"
+                      />
+                      <span class="error-message" id="confirm-passwordError"></span>
+                      <i class="fa fa-eye" id="eye-icon2"></i>
+                      <div class="password-requirements"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pin-div">
+                  <div class="input-div">
+                    <label for="transferPin">New Pin</label>
+                    <div class="password-container">
+                      <input
+                        type="password"
+                        name="transferPin"
+                        class="pin"
+                        id="pin-input"
+                        required
+                        autocomplete="new-pin"
+                      />
+                      <span class="error-message" id="pin-inputError"></span>
+                      <i class="fa fa-eye" id="eye-icon3"></i>
+                      <div class="password-requirements"></div>
+                    </div>
+                  </div>
+                  <div class="input-div">
+                    <label for="confirmTransferPin">Confirm pin</label>
+                    <div class="password-container">
+                      <input
+                        type="pin"
+                        name="confirmTransferPin"
+                        class="pin"
+                        id="confirm-pin"
+                        required
+                        autocomplete="new-password"
+                      />
+                      <span class="error-message" id="confirm-pinError"></span>
+                      <i class="fa fa-eye" id="eye-icon4"></i>
+                      <div class="pin-requirements"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="agreement-checkbox">
+                  <input type="checkbox" name="agreeToTerms" id="agreeToTerms" required />
+                  <label for="agreeToTerms">
+                    Agree to the terms & conditions of use
+                  </label>
+                  <span id="termsError" class="error-message" style="color: red;"></span> <!-- Error message placeholder -->
+                </div>
+                <div class="next-btn">
+                  <button type="button" onclick="prevStep(1)">Back</button>
+                  <button type="submit" id="submit-btn">
+                    <span id="submit-text">Submit</span>
+                    <span id="spinner" class="spinner hidden"></span>
+                  </button>
+                </div>
               </div>
             </form>
           </div>
         </div>
       </div>
     </main>
-    <script>
-      const countryCodes = [
-        { code: "+1", country: "US" },
-        { code: "+91", country: "IN" },
-        { code: "+44", country: "GB" },
-        { code: "+86", country: "CN" },
-        { code: "+33", country: "FR" },
-        { code: "+49", country: "DE" },
-        { code: "+7", country: "RU" },
-        { code: "+81", country: "JP" },
-        { code: "+55", country: "BR" },
-        { code: "+61", country: "AU" },
-        { code: "+27", country: "ZA" },
-        { code: "+34", country: "ES" },
-        { code: "+39", country: "IT" },
-        { code: "+90", country: "TR" },
-        { code: "+20", country: "EG" },
-        { code: "+966", country: "SA" },
-        { code: "+971", country: "AE" },
-        { code: "+98", country: "IR" },
-        { code: "+92", country: "PK" },
-        { code: "+880", country: "BD" },
-        { code: "+66", country: "TH" },
-        { code: "+60", country: "MY" },
-        { code: "+65", country: "SG" },
-        { code: "+82", country: "KR" },
-        { code: "+84", country: "VN" },
-        { code: "+63", country: "PH" },
-        { code: "+64", country: "NZ" },
-        // Add more country codes as needed
-      ];
-
-      // Populate the country codes dropdown
-      const countryCodeDropdown = document.getElementById("country-code");
-      countryCodes.forEach((code) => {
-        const option = document.createElement("option");
-        option.value = code.code;
-        option.text = `${code.code} (${code.country})`;
-        countryCodeDropdown.appendChild(option);
-      });
-
-      const passwordInput = document.getElementById("password-input");
-      const confirmPasswordInput = document.getElementById("confirm-password");
-      const eyeIcon = document.getElementById("eye-icon");
-
-      eyeIcon.addEventListener("click", () => {
-        if (passwordInput.type === "password") {
-          passwordInput.type = "text";
-          eyeIcon.classList.add("fa-eye-slash");
-        } else {
-          passwordInput.type = "password";
-          eyeIcon.classList.remove("fa-eye-slash");
-        }
-      });
-
-      passwordInput.addEventListener("input", () => {
-        const password = passwordInput.value;
-        const passwordRequirements = document.querySelector(
-          ".password-requirements ul"
-        );
-
-        // const hasMinLength = password.length >= 8;
-        // const hasCapitalLetter = /[A-Z]/.test(password);
-        // const hasNumber = /\d/.test(password);
-
-        if (hasMinLength && hasCapitalLetter && hasNumber) {
-          passwordInput.classList.add("valid");
-          passwordRequirements.classList.add("valid");
-        } else {
-          passwordInput.classList.remove("valid");
-          passwordRequirements.classList.remove("valid");
-        }
-      });
-
-      confirmPasswordInput.addEventListener("input", () => {
-        const password = passwordInput.value;
-        const confirmPassword = confirmPasswordInput.value;
-
-        if (password === confirmPassword) {
-          confirmPasswordInput.classList.add("valid");
-        } else {
-          confirmPasswordInput.classList.remove("valid");
-        }
-      });
-    </script>
+    <script src="signup.js"></script>
   </body>
 </html>
+

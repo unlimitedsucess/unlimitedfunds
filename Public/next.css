@@ -1,176 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Irish+Grover&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-body {
-  width: 100%;
-  padding: 0;
-  border: 0;
-  margin: 0;
-}
-* {
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-main {
-  width: 100%;
-  height: fit-content;
-  background-color: #e0eae8;
-  box-sizing: border-box;
-}
-.flex {
-  width: 100%;
-  height: fit-content;
-  padding: 18px;
-  opacity: 0px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 56px;
-  align-items: center;
-}
-.img-container {
-  height: fit-content;
-  background-color: #3E8076 ;
-  width: 427px;
-  height: 732px;
-  padding: 24px;
-  gap: 0px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.first-div {
-  width: 379px;
-  height: 226px;
-  opacity: 0px;
-  box-sizing: border-box;
-
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.first-div h1 {
-  font-family: Inter;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 24.05px;
-  text-align: left;
-  color: #ffffff;
-}
-.first-div img {
-  display: none;
-}
-.first-div h3 {
-  font-family: Inter;
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 48.41px;
-  text-align: left;
-  color: #ffffff;
-}
-.first-div p {
-  font-family: PT Sans;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 23.29px;
-  text-align: left;
-  color: #ffffff;
-}
-.second-div {
-  width: 379px;
-  height: 200px;
-  padding: 24px;
-  gap: 12px;
-  border-radius: 25px;
-  opacity: 0px;
-  background-color: #3E8076;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.second-div h4 {
-  font-family: Inter;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 24.2px;
-  text-align: left;
-  color: #ffffff;
-}
-.second-div span {
-  font-family: PT Sans;
-  font-size: 18px;
-  font-style: italic;
-  font-weight: 400;
-  line-height: 20.7px;
-  text-align: left;
-  color: #ffffff;
-}
-.seconddiv-prof {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.seconddiv-prof h6 {
-  color: #ffffff;
-  font-family: PT Sans;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 15.53px;
-  text-align: left;
-}
-.seconddiv-prof img {
-  width: 24px;
-  height: 24px;
-  gap: 0px;
-  border-radius: var(--sds-size-radius-full);
-  opacity: 0px;
-}
-.secondiv-box {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-.form-container {
-  width: 748px;
-  height: fit-content;
-  gap: 56px;
-  opacity: 0px;
-}
-.line {
-  width: 100%;
-  height: 12px;
-  gap: 4px;
-  opacity: 0px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color: #e0eae8;
-  padding-bottom: 56px;
-}
-.line1 {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: black;
-  border: 1px solid black;
-}
-.line2 {
-  width: 200px;
-  height: 0px;
-  gap: 0px;
-  border: 1px solid black;
-  background-color: black;
-  margin-right: 4px;
-}
-.title {
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 20px;
-  text-align: left;
-  padding-bottom: 24px;
-}
 .form-input {
   width: 100%;
   padding: 24px;
@@ -189,11 +17,39 @@ select {
   border: 1px solid black;
   padding: 10px;
 }
-#currency,
-option {
-  height: 48px !important;
-  width: 80px !important;
-  border-right: 0;
+.dropdown {
+  width: fit-content;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  display: none;
+  max-height: 150px;
+  overflow-y: auto;
+}
+#checkbox{
+  cursor: pointer;
+}
+#currency div {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 25px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.currency-input-container {
+  position: relative;
+  width: 100%;
+}
+.currency-input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
 }
 #amount {
   height: 46px;

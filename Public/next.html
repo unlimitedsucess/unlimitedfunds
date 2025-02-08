@@ -12,31 +12,35 @@
         <div><img src="image/arrow-left.svg" alt="" /></div>
       </a>
       <div class="flex">
-          <div class="img-container">
-            <div class="first-div">
-              <h1>UnlimitedSfunds Bank</h1>
-              <img src="image/Frame 4578.svg" alt="">
-              <h3>Let's set up your account</h3>
-              <p>
-                Ready to take control of your finances? Register with
-                UnlimitedSfunds bank today and experience the future of digital
-                banking.
-              </p>
-            </div>
-            <div class="second-div">
-              <h4>Easy and fast to to open an account</h4>
-              <span>“The registration process is so smooth and in few minutes my account was set up and instant transactions made so easily. Definitely recommended!”</span>
-              <div class="secondiv-box">
-                <div class="seconddiv-prof">
-                  <img src="image/Shape.svg" alt="">
-                  <h6>Catherine Peter</h6>
-                </div>
-                <img src="image/rating.svg" alt="">
+        <div class="img-container">
+          <div class="first-div">
+            <h1>UnlimitedSfunds Bank</h1>
+            <img src="image/Frame 4578.svg" alt="" />
+            <h3>Let's set up your account</h3>
+            <p>
+              Ready to take control of your finances? Register with
+              UnlimitedSfunds bank today and experience the future of digital
+              banking.
+            </p>
+          </div>
+          <div class="second-div">
+            <h4>Easy and fast to to open an account</h4>
+            <span
+              >“The registration process is so smooth and in few minutes my
+              account was set up and instant transactions made so easily.
+              Definitely recommended!”</span
+            >
+            <div class="secondiv-box">
+              <div class="seconddiv-prof">
+                <img src="image/Shape.svg" alt="" />
+                <h6>Catherine Peter</h6>
               </div>
+              <img src="image/rating.svg" alt="" />
             </div>
           </div>
-    
-         <div class="form-container">
+        </div>
+
+        <div class="form-container">
           <div class="line">
             <span class="line2"></span>
             <span class="line1"></span>
@@ -56,9 +60,8 @@
                 <option value="text">Personal</option>
                 <option value="text">joint</option>
                 <option value="text">Others</option>
-                </select>
-                <label for="initial-deposit">Initial deposit</label>
-                <div class="deposit-container">
+              </select>
+              <!-- <div class="deposit-container">
                 <select id="currency" name="currency">
                   <option value="AED">AED</option>
                   <option value="AFN">AFN</option>
@@ -141,7 +144,64 @@
                   <option value="LBP">LBP</option>
                 </select>
                 <input type="number" id="amount" name="amount" required placeholder="Amount"/>              
+                </div> -->
+              <div class="currency-input-container form-box">
+                <label for="initial-deposit">Initial deposit</label>
+                <input
+                  type="text"
+                  id="currency-input"
+                  class="currency-input"
+                  value="$ "
+                  placeholder="Enter amount"
+                />
+                <div class="dropdown" id="currency" name="currency">
+                  <div data-symbol="$">USD $</div>
+                  <div data-symbol="€">EUR €</div>
+                  <div data-symbol="¥">JPY ¥</div>
+                  <div data-symbol="£">GBP £</div>
+                  <div data-symbol="A$">AUD A$</div>
+                  <div data-symbol="C$">CAD C$</div>
+                  <div data-symbol="CHF">CHF CHF</div>
+                  <div data-symbol="¥">CNY ¥</div>
+                  <div data-symbol="kr">SEK kr</div>
+                  <div data-symbol="NZ$">NZD NZ$</div>
+                  <div data-symbol="₽">RUB ₽</div>
+                  <div data-symbol="₹">INR ₹</div>
+                  <div data-symbol="R$">BRL R$</div>
+                  <div data-symbol="₩">KRW ₩</div>
+                  <div data-symbol="RM">MYR RM</div>
+                  <div data-symbol="₫">VND ₫</div>
+                  <div data-symbol="฿">THB ฿</div>
+                  <div data-symbol="₪">ILS ₪</div>
+                  <div data-symbol="₱">PHP ₱</div>
+                  <div data-symbol="ZAR">ZAR ZAR</div>
+                  <div data-symbol="HK$">HKD HK$</div>
+                  <div data-symbol="SGD">SGD SGD</div>
+                  <div data-symbol="MX$">MXN MX$</div>
+                  <div data-symbol="NT$">TWD NT$</div>
+                  <div data-symbol="CLP">CLP CLP</div>
+                  <div data-symbol="COP">COP COP</div>
+                  <div data-symbol="ARS">ARS ARS</div>
+                  <div data-symbol="AED">AED AED</div>
+                  <div data-symbol="SAR">SAR SAR</div>
+                  <div data-symbol="EGP">EGP EGP</div>
+                  <div data-symbol="QAR">QAR QAR</div>
+                  <div data-symbol="KWD">KWD KWD</div>
+                  <div data-symbol="OMR">OMR OMR</div>
+                  <div data-symbol="BDT">BDT BDT</div>
+                  <div data-symbol="PKR">PKR PKR</div>
+                  <div data-symbol="LKR">LKR LKR</div>
+                  <div data-symbol="MYR">MYR MYR</div>
+                  <div data-symbol="BHD">BHD BHD</div>
+                  <div data-symbol="KES">KES KES</div>
+                  <div data-symbol="TZS">TZS TZS</div>
+                  <div data-symbol="UGX">UGX UGX</div>
+                  <div data-symbol="GHS">GHS GHS</div>
+                  <div data-symbol="NGN">NGN NGN</div>
+                  <div data-symbol="XOF">XOF XOF</div>
+                  <div data-symbol="XAF">XAF XAF</div>
                 </div>
+              </div>
               <div class="third-div">
                 <div>
                   <p>Proof of address</p>
@@ -161,7 +221,7 @@
               </div>
               <div class="agreement-checkbox">
                 <input type="checkbox" name="checkbox" id="checkbox" required />
-                <label for="checkbox" style="padding-left: 8px;"
+                <label for="checkbox" style="padding-left: 8px"
                   >Agree to the terms & conditions of use</label
                 >
               </div>
@@ -170,8 +230,65 @@
               </div>
             </form>
           </div>
-        </div> 
+        </div>
       </div>
     </main>
+    <script>
+      const currencyInput = document.getElementById("currency-input");
+      const currencydropdown = document.getElementById("currency");
+
+      // Default currency symbol
+      let currentCurrencySymbol = "$";
+
+      // Show dropdown when input is focused
+      currencyInput.addEventListener("focus", () => {
+        currencydropdown.style.display = "block";
+      });
+
+      // Hide dropdown when clicking outside
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".currency-input-container")) {
+          currencydropdown.style.display = "none";
+        }
+      });
+
+      // Update input value when dropdown option is clicked
+      currencydropdown.addEventListener("click", (event) => {
+        const targetDiv = event.target.closest("div");
+        if (targetDiv && targetDiv.dataset.symbol) {
+          currentCurrencySymbol = targetDiv.dataset.symbol;
+          currencyInput.value = `${currentCurrencySymbol} `;
+          currencydropdown.style.display = "none";
+        }
+      });
+
+      // Ensure input always starts with the currency symbol
+      currencyInput.addEventListener("input", () => {
+        const currentValue = currencyInput.value;
+        if (!currentValue.startsWith(currentCurrencySymbol)) {
+          currencyInput.value =
+            `${currentCurrencySymbol} ` +
+            currentValue
+              .replace(currentCurrencySymbol, "")
+              .replace(/[^0-9.]/g, "");
+        } else {
+          // Remove invalid characters
+          const numericValue = currentValue
+            .replace(currentCurrencySymbol, "")
+            .replace(/[^0-9.]/g, "");
+          currencyInput.value = `${currentCurrencySymbol} ${numericValue}`;
+        }
+      });
+
+      // Restore currency symbol if input is cleared
+      currencyInput.addEventListener("blur", () => {
+        if (
+          !currencyInput.value.trim() ||
+          currencyInput.value === `${currentCurrencySymbol} `
+        ) {
+          currencyInput.value = `${currentCurrencySymbol} `;
+        }
+      });
+    </script>
   </body>
 </html>

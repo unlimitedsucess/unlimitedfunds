@@ -132,11 +132,13 @@ form {
   padding: 0 10px;
 }
 #login-btn {
-  width: 163px;
-  height: 44px;
+  width: 120px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
   padding: 10px;
-  gap: 10px;
-  border-radius: 25px;
+  gap: 6px;
+  border-radius: 20px;
   opacity: 0px;
   background: #191919;
   color: #ffff;
@@ -146,6 +148,30 @@ form {
   line-height: 24.2px;
   text-align: center;
   cursor: pointer;
+  text-wrap: nowrap;
+  justify-content: center;
+}
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin-left: 8px;
+}
+
+.hidden {
+  display: none;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 .image-div {
   width: 100%;
@@ -153,6 +179,63 @@ form {
 .image-div img{
   width: 100%;
 }
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Toast */
+.toast {
+  font-family: inter;
+  position: relative;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show toast */
+.toast.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Toast icon */
+.toast-icon {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+/* Success toast */
+.toast-success {
+  background-color: #28a745; /* Green */
+}
+
+/* Error toast */
+.toast-error {
+  background-color: #dc3545; /* Red */
+}
+
+/* Progress bar */
+.toast-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: rgba(0, 128, 0, 0.7);
+  transition: width 5s linear; /* 5 seconds animation */
+}
+
 @media screen and (max-width: 1300px) {
   body {
     width: 100%;

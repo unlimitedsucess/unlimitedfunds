@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>online banking</title>
     <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
   <body>
     <main>
+
       <a href="index.html">
         <div><img src="image/arrow-left.svg" alt="" /></div>
       </a>
@@ -17,12 +19,12 @@
           <p>Login your account</p>
         </div>
         <div>
-          <form action="">
+          <form action="" id="loginForm">
             <div class="login-details">
               <label for="email">Email</label>
-              <input type="text" name="email" required />
+              <input type="text" name="email" id="email" required />
               <label for="password">Password</label>
-              <input type="text" name="password" required/>
+              <input type="text" name="password" id="password" required/>
             </div>
             <div>
               <div class="forgot-pasword">
@@ -33,7 +35,10 @@
                 <a href="" style="color: black;">Forgot password?</a>
               </div>
               <div class="submit-btn">
-                <button type="submit" id="login-btn">Login</button>
+                <button type="submit" id="login-btn">
+                  <span id="submit-text">Login</span>
+                  <span id="spinner" class="spinner hidden"></span>
+                </button>
                 <div class="signup">
                   <p>Don`t have an account?</p>
                   <a href="signup.html">Sign up now</a>
@@ -47,5 +52,6 @@
         <img src="image/unsplash_fCx7Na6jtuY.svg" alt="" />
       </div>
     </main>
+    <script src="login.js"></script>
   </body>
 </html>

@@ -1,79 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="new.css" />
-    <style>
-      .create-container {
-        width: 500px;
-        height: 540px;
-        padding: 12px 24px 12px 24px;
-        background: #e0eae8;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Toast container */
+    #toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    /* Toast */
+    .toast {
+      position: relative;
+      padding: 12px 20px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      color: white;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Show toast */
+    .toast.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Toast icon */
+    .toast-icon {
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    /* Success toast */
+    .toast-success {
+      background-color: #28a745; /* Green */
+    }
+
+    /* Error toast */
+    .toast-error {
+      background-color: #dc3545; /* Red */
+    }
+
+    /* Progress bar */
+    .toast-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 4px;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.3);
+      transition: width linear;
+    }
+  </style>
+</head>
+<body>
+  <form id="loginForm">
+    <div class="login-details">
+      <label for="email">Email</label>
+      <input type="text" name="email" id="email" required />
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required />
+    </div>
+    <div>
+      <div class="forgot-password">
+        <div class="checkbox-container">
+          <input type="checkbox" name="Remember" id="Remember" />
+          <label for="Remember">Remember me</label>
+        </div>
+        <a href="" style="color: black;">Forgot password?</a>
+      </div>
+      <div class="submit-btn">
+        <button type="submit" id="login-btn">
+          <span id="submit-text">Login</span>
+          <span id="spinner" class="spinner hidden"></span>
+        </button>
+        <div class="signup">
+          <p>Don't have an account?</p>
+          <a href="signup.html">Sign up now</a>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async (event) => {
+      event.preventDefault(); // Prevent the default form submission
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      // Validate inputs
+      if (!email || !password) {
+        showToast("Please fill in all fields.", "error");
+        return;
       }
-      .cancelCreate {
-        display: flex;
-        justify-content: right;
+
+      // Show spinner and disable the submit button
+      document.getElementById("spinner").classList.remove("hidden");
+      document.getElementById("login-btn").disabled = true;
+
+      try {
+        // Prepare the request body
+        const requestBody = {
+          email: email,
+          password: password,
+        };
+
+        // Debugging: Log the request details
+        console.log("Sending request to:", "https://unlimitedfunds.onrender.com/api/v1/signin");
+        console.log("Request body:", JSON.stringify(requestBody));
+
+        // Send the request to the API
+        const response = await fetch("https://unlimitedfunds.onrender.com/api/v1/signin", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestBody),
+        });
+
+        // Check if the response is OK (status code 200-299)
+        if (!response.ok) {
+          const errorData = await response.json(); // Parse the error response
+          console.log("Error Response:", errorData);
+          throw new Error(errorData.description || "Login failed. Please check your credentials.");
+        }
+
+        // Parse the successful response
+        const data = await response.json();
+        console.log("Login successful:", data);
+
+        // Show success toast with progress bar
+        showToast("Login successful! Redirecting...", "success", 3000);
+
+        // Redirect or handle successful login
+        setTimeout(() => {
+          window.location.href = "/dashboard"; // Example redirect
+        }, 3000); // Redirect after 3 seconds
+      } catch (error) {
+        console.error("Error:", error);
+
+        // Show error toast with progress bar
+        showToast(error.message || "Login failed. Please check your credentials and try again.", "error", 3000);
+      } finally {
+        // Hide spinner and re-enable the submit button
+        document.getElementById("spinner").classList.add("hidden");
+        document.getElementById("login-btn").disabled = false;
       }
-      .create-title h1 {
-        font-family: Inter;
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 28.8px;
-        text-align: left;
-      }
-      .input-details {
-        display: flex;
-        justify-content: space-between;
-      }
-      .input-details input {
-        width: 260px;
-        padding: 0;
-        padding: 10px;
-        border: 1px solid #000000;
-      }
-      .input-details select {
-        padding: 0;
-        margin: 0;
-        width: 282px;
-        padding: 10px;
-        gap: 10px;
-        border: 1px solid #000000;
-        opacity: 0px;
-      }
-      .create-history form {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        justify-content: center;
-        align-content: center;
-      }
-      .creatbutton-div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 40px;
-      }
-      .creatBtn {
-        font-family: Inter;
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 20px;
-        width: 130px;
-        height: 36px;
-        background: #3E8076 ;
-        color: #ffff;
-        border: 0;
-        padding: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 6px;
-      }
-    </style>
-  </head>
-  <body>
-    
-  </body>
+    });
+
+    // Function to show toast with progress bar
+    function showToast(message, type = "success") {
+      const toastContainer = document.getElementById("toast-container") || createToastContainer();
+      const toast = document.createElement("div");
+      const progressBar = document.createElement("div");
+
+      // Apply type-specific styles
+      const toastTypeClass = type === "success" ? "toast-success" : "toast-error";
+
+      // Set toast class and content
+      toast.className = `toast ${toastTypeClass}`;
+      toast.innerHTML = `
+        <span class="toast-icon">
+          ${type === "success" ? '<i class="fa-solid fa-check-circle"></i>' : '<i class="fa-solid fa-exclamation-circle"></i>'}
+        </span>
+        <span>${message}</span>
+      `;
+
+      // Configure progress bar
+      progressBar.className = "toast-progress";
+      toast.appendChild(progressBar);
+      toastContainer.appendChild(toast);
+
+      // Trigger reflow to enable CSS transitions
+      setTimeout(() => {
+        toast.classList.add("show");
+      }, 10);
+
+      // Animate progress bar
+      progressBar.style.width = "100%"; // Start at 100%
+      setTimeout(() => {
+        progressBar.style.width = "0%"; // Animate to 0%
+      }, 10);
+
+      // Remove toast after animation completes
+      setTimeout(() => {
+        toast.classList.remove("show");
+        setTimeout(() => toast.remove(), 300); // Wait for fade-out animation
+      }, 5000); // Toast duration
+    }
+
+    // Helper function to create the toast container if it doesn't exist
+    function createToastContainer() {
+      const container = document.createElement("div");
+      container.id = "toast-container";
+      document.body.appendChild(container);
+      return container;
+    }
+  </script>
+</body>
 </html>
