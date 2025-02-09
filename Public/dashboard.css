@@ -606,13 +606,13 @@ table p {
 }
 .transfer-details-screen {
   width: 460px;
-  height: 592px;
+  height: fit-content;
   gap: 0px;
   border-radius: 12px;
   opacity: 0px;
   background: #e0eae8;
   position: absolute;
-  top: 150px;
+  top: 0;
   left: 50%;
   transform: translateX(-40%);
   padding-top: 15px;

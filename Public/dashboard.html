@@ -508,16 +508,20 @@
                 <div id="form-container">
                   <form action="" id="form-data">
                     <div class="form-div">
-                      <label for="bankName">Bank Name</label>
+                      <label for="bankName">Bank name</label>
                       <input type="text" name="bankName" id="bankName" required />
                     </div>
                     <div class="form-div">
-                      <label for="accountName">Account Name</label>
+                      <label for="accountName">Beneficiary name</label>
                       <input type="text" name="accountName" id="accountName" required />
                     </div>
                     <div class="form-div">
-                      <label for="accountNumber">Account Number</label>
+                      <label for="accountNumber">Beneficiary account number</label>
                       <input type="number" name="accountNumber" id="accountNumber" required />
+                    </div>
+                    <div class="form-div">
+                      <label for="country">Beneficiary country</label>
+                      <input type="text" name="country" id="country" />
                     </div>
                     <div class="form-div">
                       <label for="amount">Amount</label>
@@ -535,6 +539,22 @@
                     <div class="form-div">
                       <label for="Narration">Narration</label>
                       <input type="text" name="Narration" id="narration" />
+                    </div>
+                    <div class="form-div">
+                      <label for="swiftCode">Swift code</label>
+                      <input type="text" name="swiftCode" id="swiftCode" />
+                    </div>
+                   
+                    <div class="form-div">
+                      <label for="routingNumber">Routing number</label>
+                      <input type="number" name="routingNumber" id="routingNumber" />
+                    </div>
+                    <div class="form-div">
+                      <label for="typeofAccnt">Select account type</label>
+                      <select name="typeofAccnt" id="typeofAccnt">
+                        <option value="current">Current</option>
+                        <option value="savings">Savings</option>
+                      </select>
                     </div>
                     <div id="proceed-button">
                       <button id="procceed-btn">proceed to transfer</button>
@@ -573,7 +593,7 @@
                 <div id="form-output-container">
                   <form action="" id="form-output">
                     <div class="form-div">
-                     <p>Transaction Number</p>
+                     <p>Beneficiary account number</p>
                      <p>#2849783</p>
                     </div>
                     <div class="form-div">
@@ -581,8 +601,12 @@
                       <p>23/08/2024</p>
                     </div>
                     <div class="form-div">
-                      <p>Beneficiary</p>
+                      <p>Beneficiary name</p>
                       <p>Clare Thombson</p>
+                    </div>
+                    <div class="form-div">
+                      <p>Select account type</p>
+                      <p>savings</p>
                     </div>
                     <div class="form-div">
                       <p>Amount</p>
@@ -597,8 +621,16 @@
                       <p>$18,550.00</p>
                     </div>
                     <div class="form-div">
-                      <p>Payment method</p>
-                      <p>Wire transfer</p>
+                      <p>Routing number</p>
+                      <p>5662772828</p>
+                    </div>
+                    <div class="form-div">
+                      <p>Beneficiary country</p>
+                      <p>China</p>
+                    </div>
+                    <div class="form-div">
+                      <p>Swift code</p>
+                      <p>reghhgdr</p>
                     </div>
                     <div id="transfer-button">
                       <button id="transfer-btn">transfer</button>

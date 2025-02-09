@@ -243,7 +243,7 @@ async function fetchPendingUsers() {
   const token = localStorage.getItem("authToken"); // Retrieve token
 
   if (!token) {
-    alert("No token found! Please log in.");
+    alert("login expired.....");
     window.location.href = "/adminlogin.html"; // Redirect to login
     return;
   }
@@ -359,14 +359,20 @@ function openReviewScreen(userId, users) {
     alert("User not found!");
     return;
   }
-
+ 
   document.querySelector(".view-new-user").classList.add("newUser-active");
 
-  document.querySelector(".userImg").src =
-    user.profilePicture || "default-avatar.png";
-  document.querySelector(".fullpicture").src =
-    user.profilePicture || "default-avatar.png";
 
+
+    const profilepic = document.querySelectorAll(".userImg")
+    profilepic.forEach((profilepicture) =>{
+      profilepicture.src =  user.profilePicture || "default-avatar.png";
+    })
+
+    const fullprofile = document.querySelectorAll(".fullpicture")
+    fullprofile.forEach((fullProfilep) =>{
+      fullProfilep.src = user.profilePicture  || "default-avatar.png";
+    })
   document.querySelector(
     ".user-names"
   ).innerText = `${user.firstName} ${user.lastName}`;
@@ -376,16 +382,21 @@ function openReviewScreen(userId, users) {
   document.querySelector(".state-output").innerText = user.state;
   document.querySelector(".phoneNumber-output").innerText = user.phoneNumber;
   document.querySelector(".address-output").innerText = user.address;
-  document.querySelector(".proofAddress-ouput").src =
-    user.proofOfAddress || "image/Image.svg";
+  const proofOfAddress = document.querySelectorAll(".proofAddress-ouput")
+  proofOfAddress.forEach((proofpic)=>{
+    proofpic.src=  user.proofOfAddress || "image/Image.svg";
+  })
+
+  
   document.querySelector(".accountNumber-output").innerText = user.accountNo;
   document.querySelector(".accountType-output").innerText = user.accountType;
   document.querySelector(".occupation-output").innerText = user.occupation;
   document.querySelector(".maritalStatus-output").innerText =
     user.maritalStatus;
+    document.querySelector(".accountBalance").innerText =`$${user.initialDeposit}`;
   document.querySelector(".gender-output").innerText = user.gender;
   document.querySelector(".dOb-output").innerText = user.dateOfBirth;
-  document.querySelector(".account-status").innerText = user.status;
+  document.querySelector(".acc-status").innerText = user.status;
   document.querySelector(".ssn-output").innerText = user.ssn;
 
   // Remove any existing event listeners before adding a new one
@@ -414,8 +425,8 @@ async function approveUser(userId) {
   const token = localStorage.getItem("authToken");
 
   if (!token) {
-    alert("No token found! Please log in.");
-    window.location.href = "/adminlogin.html";
+    alert("login expired.....");
+    window.location.href = "/adminlogin.html"; // Redirect to login
     return;
   }
 
@@ -673,9 +684,7 @@ function editUserScreen(userId, users) {
   }
   
 
-  document.querySelector(".userImg").src =
-    user.profilePicture || "default-avatar.png";
-  document.querySelector(".fullpicture").src =
+  document.querySelector(".edit-image").src =
     user.profilePicture || "default-avatar.png";
 
   document.querySelector(".edit-profile-screen").classList.add("active");
@@ -699,6 +708,10 @@ function editUserScreen(userId, users) {
 
   document.getElementById("update-button").onclick = async function () {
     await updateUser(userId);
+  };
+
+  document.querySelector(".view-p-cancel-button2").onclick = function () {
+    document.querySelector(".edit-profile-screen").classList.remove("active");
   };
 }
 
@@ -806,20 +819,26 @@ const fullpicture = document.querySelector(".fullpicture");
 viewProfilePicture.addEventListener("click", function (event) {
   event.preventDefault();
   fullpicture.classList.toggle("fullpictureActive");
+  console.log("click", fullpicture)
 });
 fullpicture.addEventListener("click", function (event) {
   event.preventDefault();
   fullpicture.classList.toggle("fullpictureActive");
 });
 
-const viewAddressProof = document.querySelector(".view-image");
+const viewAddressProof = document.querySelectorAll(".view-image");
 const addressProof = document.querySelector(".proofAddress");
 
-viewAddressProof.addEventListener("click", function (event) {
-  event.preventDefault();
-  addressProof.classList.toggle("fullpictureActive2");
-});
+
+viewAddressProof.forEach((viewImage) =>{
+  viewImage.addEventListener("click", function (event) {
+    event.preventDefault();
+    addressProof.classList.toggle("active");
+    console.log("click", addressProof)
+  });
+})
 addressProof.addEventListener("click", function (event) {
   event.preventDefault();
-  addressProof.classList.toggle("fullpictureActive2");
+  addressProof.classList.toggle("active");
+  console.log("click", addressProof)
 });

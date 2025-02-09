@@ -212,13 +212,6 @@ button {
   padding-bottom: 12px;
   gap: 10px;
 }
-.proof-img{
-  position: relative;
-}
-.proofAddress-ouput{
-  position: absolute;
-
-}
 .box {
   width: 200px;
   height: fit-content;
@@ -267,6 +260,7 @@ button {
   width: 80px;
   height: 80px;
   border-radius: 50%;
+  background: #d61e1e;
 }
 .profile-inner h2 {
   font-family: Inter;
@@ -281,9 +275,17 @@ button {
   top: 20px;
   display: none;
   cursor: pointer;
+ 
 }
 .fullpicture.fullpictureActive{
   display: block;
+  
+}
+.edit-image{
+  width: 80px;
+  height: 80px;
+  border: 2px solid #3e8076;
+  border-radius: 50%;
 }
 .profile-inner p {
   font-family: Inter;
@@ -446,15 +448,17 @@ select {
 }
 .proofAddress-div{
   position: relative;
+  width: 100%;
 }
 .proofAddress{
   position: absolute;
-  bottom: 1%;
+  top: 40%;
   height: 200px;
   width: 400px;
   display: none;
+  left: 0;
 }
-.proofAddress.fullpictureActive2{
+.proofAddress.active{
   display: block;
 }
 .view-image {
@@ -1026,6 +1030,7 @@ table td, tr{
   .user-names {
     width: 100%;
     flex-direction: column;
+    gap: 0;
   }
   .form-box {
     width: 100%;
@@ -1249,6 +1254,15 @@ table td, tr{
   }
   .create-container {
     height: fit-content;
+  }
+  input, select, label{
+    font-size: 14px !important;
+  }
+  label{
+    padding-top: 15px;
+  }
+  .proofAddress{
+    width: 100%;
   }
 }
 @media screen and (max-width: 450px) {
