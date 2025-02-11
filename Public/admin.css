@@ -36,7 +36,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #3e8076;
+  background: #3E8076;
 }
 .flexbox {
   display: flex;
@@ -129,18 +129,17 @@ button {
 .pendding {
   padding-top: 15px;
 }
-.user img{
- height: 100%;
- width: 100%;
- background-color: red;
- border-radius: 50%;
+.user img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
 }
 .profie-dv {
   width: 45px;
   height: 45px;
   border-radius: 50%;
   opacity: 0px;
-  background: #3e8076;
+  background: #3E8076;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -256,7 +255,7 @@ button {
   justify-content: center;
   align-items: center;
 }
-.userImg{
+.userImg {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -268,23 +267,21 @@ button {
   font-weight: 400;
   color: #ffffff;
 }
-.fullpicture{
+.fullpicture {
   position: absolute;
   width: 300px;
   height: 300px;
   top: 20px;
   display: none;
   cursor: pointer;
- 
 }
-.fullpicture.fullpictureActive{
+.fullpicture.fullpictureActive {
   display: block;
-  
 }
-.edit-image{
+.edit-image {
   width: 80px;
   height: 80px;
-  border: 2px solid #3e8076;
+  border: 2px solid #3E8076;
   border-radius: 50%;
 }
 .profile-inner p {
@@ -331,7 +328,7 @@ button {
   transform: translateX(-50%);
   overflow-y: scroll;
 }
-.edit-profile-screen.active{
+.edit-profile-screen.active {
   display: block;
 }
 .edit-profile {
@@ -446,21 +443,22 @@ select {
   gap: 80px;
   padding-top: 10px;
 }
-.proofAddress-div{
+.proofAddress-div {
   position: relative;
   width: 100%;
 }
-.proofAddress{
+.proofAddress {
   position: absolute;
-  top: 40%;
+  top: 0;
   height: 200px;
   width: 400px;
   display: none;
   left: 0;
 }
-.proofAddress.active{
+.proofAddress.active {
   display: block;
 }
+
 .view-image {
   display: flex;
   flex-direction: column;
@@ -610,7 +608,7 @@ tr {
   flex-direction: row;
 }
 .head .type {
- width: 150px;
+  width: 150px;
   text-align: left;
 }
 .head .amount {
@@ -818,7 +816,7 @@ table p {
   height: 540px;
   padding: 12px 24px 12px 24px;
   background: #e0eae8;
-  border: 2px solid #3e8076;
+  border: 2px solid #3E8076;
 }
 .cancelCreate {
   display: flex;
@@ -871,7 +869,7 @@ table p {
   line-height: 20px;
   width: 130px;
   height: 36px;
-  background: #3e8076;
+  background: #3E8076;
   color: #ffff;
   border: 0;
   padding: 10px;
@@ -892,9 +890,14 @@ footer {
 .inner-header {
   display: none;
 }
-table td, tr{
-  font-family: inter;
+table td,
+tr {
+   font-family: "Inter", sans-serif;;
 }
+.stateId{
+  top: 40%;
+}
+
 @media screen and (max-width: 720px) {
   #sideBar {
     height: fit-content;
@@ -1050,7 +1053,7 @@ table td, tr{
     box-sizing: border-box;
     height: fit-content;
   }
-  
+
   .flex-div {
     width: 100%;
     box-sizing: border-box;
@@ -1121,7 +1124,7 @@ table td, tr{
     top: 0;
   }
   .header {
-    background-color: #3e8076;
+    background-color: #3E8076;
     border-radius: 0;
     padding: 24px;
   }
@@ -1171,7 +1174,7 @@ table td, tr{
     width: 100%;
     padding: 0;
     padding-bottom: 20px;
-    border-bottom: 4px solid #3e8076;
+    border-bottom: 4px solid #3E8076;
   }
   .users {
     overflow: hidden;
@@ -1255,13 +1258,15 @@ table td, tr{
   .create-container {
     height: fit-content;
   }
-  input, select, label{
+  input,
+  select,
+  label {
     font-size: 14px !important;
   }
-  label{
+  label {
     padding-top: 15px;
   }
-  .proofAddress{
+  .proofAddress {
     width: 100%;
   }
 }
@@ -1320,7 +1325,6 @@ table td, tr{
   .create-history form {
     width: 100%;
     padding: 0;
-    
   }
   .create-container {
     width: 100%;

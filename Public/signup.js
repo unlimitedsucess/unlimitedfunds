@@ -49,58 +49,57 @@ document
     event.preventDefault();
   });
 
-  function previewImage(event) {
-    const input = event.target;
-    const file = input.files[0];
-  
-    if (!file) {
-      console.error("No file selected");
-      return;
-    }
-  
-    // Validate that the file is an image
-    if (!file.type.startsWith("image/")) {
-      console.error("Invalid type specified for image preview");
-      alert("Please upload a valid image file (JPEG, PNG, etc.).");
-      input.value = ""; // Reset the input field
-      return;
-    }
-  
-    const reader = new FileReader();
-  
-    reader.onload = function (e) {
-      let previewId = input.id === "proofOfAddress" ? "preview" : "preview2";
-      const imgPreview = document.getElementById(previewId);
-  
-      imgPreview.src = e.target.result;
-      imgPreview.style.display = "block"; // Make image visible
-      imgPreview.dataset.visible = "true"; // Store state in dataset
-  
-      imgPreview.onclick = function () {
-        toggleImage(imgPreview);
-      };
-    };
-  
-    reader.readAsDataURL(file);
+function previewImage(event) {
+  const input = event.target;
+  const file = input.files[0];
+
+  if (!file) {
+    console.error("No file selected");
+    return;
   }
-  
-  // Function to toggle image visibility (used for Reset button)
-  function toggleImage(image) {
-    if (image.dataset.visible === "true") {
-      image.style.display = "none";
-      image.dataset.visible = "false";
-    } else {
-      image.style.display = "block";
-      image.dataset.visible = "true";
-    }
+
+  // Validate that the file is an image
+  if (!file.type.startsWith("image/")) {
+    console.error("Invalid type specified for image preview");
+    alert("Please upload a valid image file (JPEG, PNG, etc.).");
+    input.value = ""; // Reset the input field
+    return;
   }
-  
-  // Function for Reset button to toggle visibility instead of clearing
-  function resetImage(previewId) {
+
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+    let previewId = input.id === "proofOfAddress" ? "preview" : "preview2";
     const imgPreview = document.getElementById(previewId);
-    toggleImage(imgPreview); // Just toggle visibility
+
+    imgPreview.src = e.target.result;
+    imgPreview.style.display = "block"; // Make image visible
+    imgPreview.dataset.visible = "true"; // Store state in dataset
+
+    imgPreview.onclick = function () {
+      toggleImage(imgPreview);
+    };
+  };
+
+  reader.readAsDataURL(file);
+}
+
+// Function to toggle image visibility (used for Reset button)
+function toggleImage(image) {
+  if (image.dataset.visible === "true") {
+    image.style.display = "none";
+    image.dataset.visible = "false";
+  } else {
+    image.style.display = "block";
+    image.dataset.visible = "true";
   }
-  
+}
+
+// Function for Reset button to toggle visibility instead of clearing
+function resetImage(previewId) {
+  const imgPreview = document.getElementById(previewId);
+  toggleImage(imgPreview); // Just toggle visibility
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   const passwordInput = document.getElementById("password-input");
@@ -376,18 +375,24 @@ document
           body: formData, // Send FormData
         }
       );
-
+      if (!response.ok) {
+        const errorData = await response.json(); // Parse the error response
+        showToast("Error Response:", errorData);
+        throw new Error(
+          errorData.description ||
+            "form submission fail please check your details."
+        );
+      }
       const data = await response.json(); // Parse response as JSON
 
       console.log(data);
-      if (data.success) {
         showToast("Form submitted successfully!", "success"); // Green success toast
-        form.reset(); // Reset the form after successful submission
-        showStep(1); // Return to the first step (if using multi-step form)
-      } else {
-        showToast(data.description, "error"); // Red error toast
-      }
-    } catch (error) {
+      
+        setTimeout(() => {
+          window.location.href = "/accountcreated.html";
+        }, 2000); // Small delay for smooth transition
+    
+      } catch (error) {
       console.error("Error:", error);
       showToast("Something went wrong! Please try again.", "error"); // Show error in red
     } finally {
@@ -400,7 +405,8 @@ document
 
 // Show toast notifications for success or error
 function showToast(message, type = "success") {
-  const toastContainer = document.getElementById("toast-container") || createToastContainer();
+  const toastContainer =
+    document.getElementById("toast-container") || createToastContainer();
   const toast = document.createElement("div");
   const progressBar = document.createElement("div");
 
@@ -411,17 +417,18 @@ function showToast(message, type = "success") {
   toast.className = `toast ${toastTypeClass}`;
   toast.innerHTML = `
     <span class="toast-icon"> ${
-        type === "success"
-          ? '<i class="fa-solid fa-check-circle"></i>'
-          : '<i class="fa-solid fa-exclamation-circle"></i>'
-      }</span>
+      type === "success"
+        ? '<i class="fa-solid fa-check-circle"></i>'
+        : '<i class="fa-solid fa-exclamation-circle"></i>'
+    }</span>
     <span>${message}</span>
   `;
 
   // Configure progress bar with dynamic color
   progressBar.className = "toast-progress";
-  progressBar.style.backgroundColor = type === "success" ? "rgba(0, 128, 0, 0.7)" : "rgba(220, 53, 69, 0.7)"; // Green for success, Red for error
-  
+  progressBar.style.backgroundColor =
+    type === "success" ? "rgba(0, 128, 0, 0.7)" : "rgba(220, 53, 69, 0.7)"; // Green for success, Red for error
+
   toast.appendChild(progressBar);
   toastContainer.appendChild(toast);
 
@@ -430,7 +437,6 @@ function showToast(message, type = "success") {
     toast.classList.add("show");
   }, 10);
 
-  
   // Animate progress bar
   progressBar.style.width = "100%"; // Start at 100%
   setTimeout(() => {
@@ -450,4 +456,3 @@ function createToastContainer() {
   document.body.appendChild(container);
   return container;
 }
-

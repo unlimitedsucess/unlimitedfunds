@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="dashboard.css" />
   </head>
   <body>
+    <div class="preloader" id="preloader">
+      <div class="spin"></div>
+    </div>
      <!-- mobile view -->
-     <main>
+     <main class="main-content">
       <div id="mobile-dashboard">
         <div id="first-flex">
           <div class="first-flex">
@@ -78,226 +81,6 @@
             <p>This is your financial report</p>
           </div>
         </header>
-        <!-- <div class="mobile-section1">
-          <div class="newbox">
-            <div class="box1">
-              <p>My balance</p>
-              <h3>$282,626.36</h3>
-              <div class="account-num">
-                <h3>0082 2618 2783 1129</h3>
-                <img src="image/Frame 161.svg" alt="" />
-              </div>
-              <div class="transaction-btn">
-                <a class="msend-btn" href="">Send Money</a>
-              </div>
-            </div>
-            <div class="box2-div">
-              <div class="box2">
-                <div>
-                  <img src="image/Bill-1--Streamline-Core.svg.svg" alt="" />
-                  <p>Monthly Income</p>
-                </div>
-                <h3>$35.250.00</h3>
-              </div>
-              <div class="box2">
-                <div>
-                  <img src="image/Bill-2--Streamline-Core.svg" alt="" />
-                  <p>Savings Account</p>
-                </div>
-                <h3>$126,263.00</h3>
-              </div>
-            </div>
-          </div>
-          <div class="box-absolute">
-            <h1>Account info</h1>
-            <div class="box-relative">
-              <div class="box4">
-                  <div class="innerbox1">
-                      <p>UnlimitedSfunds Bank Premium</p>
-                      <img src="image/Chip--Streamline-Mynaui.svg.svg" alt="">
-                  </div>
-                  <p>0082 2618 2783 1129</p>
-                  <div class="innerbox1">
-                      <p>James Tyler</p>
-                      <img class="img2" src="image/Group 4495.svg" alt="">
-                  </div>
-              </div>
-              <div  class="box4 box5">
-                  <div class="innerbox1">
-                      <p>UnlimitedSfunds Bank Premium</p>
-                      <img src="image/Chip--Streamline-Mynaui.svg.svg" alt="">
-                  </div>
-                  <p>0082 2618 2783 1129</p>
-                  <div class="innerbox1">
-                      <p>James Tyler</p>
-                      <img class="img2" src="image/Group 4495.svg" alt="">
-                  </div>
-              </div>
-            </div>
-          </div>
-          <div class="transfer-details-screen">
-            <div class="title">
-              <h1>Bank Transfer</h1>
-              <button id="cancel-transfer"><img src="image/x-circle.svg" alt="" /></button>
-            </div>
-            <div id="balance-box">
-              <div id="balance">
-                <p class="available">Available Balance:</p>
-                <p class="figures">$282,626.36</p>
-              </div>
-              <div id="title2">
-                <div id="send">
-                  <img src="image/arrow-up2.svg" alt="" />
-                  <p>Send money</p>
-                </div>
-                <p>23/08/2024</p>
-              </div>
-            </div>
-            <h3>Beneficiary's Bank Details</h3>
-            <div id="form-container">
-              <form action="" id="form-data">
-                <div class="form-div">
-                  <label for="bankName">Bank Name</label>
-                  <input type="text" name="bankName" id="bankName" required />
-                </div>
-                <div class="form-div">
-                  <label for="accountName">Account Name</label>
-                  <input type="text" name="accountName" id="accountName" required />
-                </div>
-                <div class="form-div">
-                  <label for="accountNumber">Account Number</label>
-                  <input type="number" name="accountNumber" id="accountNumber" required />
-                </div>
-                <div class="form-div">
-                  <label for="amount">Amount</label>
-                  <input type="number" name="" id="amount" placeholder="$" required />
-                </div>
-                <div class="form-div">
-                  <label for="serviceFee">Service Fee</label>
-                  <input
-                    type="number"
-                    name="serviceFee"
-                    id="serviceFee"
-                    placeholder="$"
-                  />
-                </div>
-                <div class="form-div">
-                  <label for="Narration">Narration</label>
-                  <input type="text" name="Narration" id="narration" />
-                </div>
-                <div id="proceed-button">
-                  <button id="procceed-btn">proceed to transfer</button>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div id="confirm-transfer">
-            <div class="title">
-              <h1>Bank Transfer</h1>
-              <button id="back-arrow">
-                <img src="image/arrow-left.svg" alt="" />
-              </button>
-            </div>
-            <div id="balance-box2">
-              <div id="review">
-                <p class="available">Review</p>
-              </div>
-              <div id="title3">
-                <div id="sender">
-                  <img src="image/arrow-up3.svg" alt="" />
-                  <div>
-                    <p>From</p>
-                    <p>0082261827831129</p>
-                  </div>
-                </div>
-                <div class="to">
-                  <p>To</p>
-                  <p>6748656367826367</p>
-                </div>
-              </div>
-            </div>
-            <div class="trasaction-details">
-              <h3>Transaction Details</h3>
-            </div>
-            <div id="form-output-container">
-              <form action="" id="form-output">
-                <div class="form-div">
-                 <p>Transaction Number</p>
-                 <p>#2849783</p>
-                </div>
-                <div class="form-div">
-                  <p>Transaction Date</p>
-                  <p>23/08/2024</p>
-                </div>
-                <div class="form-div">
-                  <p>Beneficiary</p>
-                  <p>Clare Thombson</p>
-                </div>
-                <div class="form-div">
-                  <p>Amount</p>
-                  <p>$18,500.00</p>
-                </div>
-                <div class="form-div">
-                  <p>Service fee</p>
-                  <p>$50</p>
-                </div>
-                <div class="form-div">
-                  <p>Total amount</p>
-                  <p>$18,550.00</p>
-                </div>
-                <div class="form-div">
-                  <p>Payment method</p>
-                  <p>Wire transfer</p>
-                </div>
-                <div id="transfer-button">
-                  <button id="transfer-btn">transfer</button>
-                </div>
-              </form>
-            </div>
-          </div>
-           <div class="pin-container">
-                  <div class="pin-title">
-                    <h1>Enter your secret password</h1>
-                    <button id="back-btn2">
-                      <img src="image/arrow-left2.svg" alt="" />
-                    </button>
-                  </div>
-                  <div class="pin-box">
-                    <input
-                      type="text"
-                      maxlength="1"
-                      class="pin-input"
-                      id="pin1"
-                      oninput="moveNext(1)"
-                    />
-                    <input
-                      type="text"
-                      maxlength="1"
-                      class="pin-input"
-                      id="pin2"
-                      oninput="moveNext(2)"
-                    />
-                    <input
-                      type="text"
-                      maxlength="1"
-                      class="pin-input"
-                      id="pin3"
-                      oninput="moveNext(3)"
-                    />
-                    <input
-                      type="text"
-                      maxlength="1"
-                      class="pin-input"
-                      id="pin4"
-                      oninput="moveNext(4)"
-                    />
-                  </div>
-                  <div id="final-btn">
-                    <button class="final-confirm-btn">Confirm</button>
-                  </div>
-                </div>
-        </div> -->
-        <!-- <div class="outer-div">
           <div class="table" id="table">
             <div class="innerflex">
               <p>Recent Transactions</p>
@@ -398,7 +181,7 @@
             </table>
           </div>
           <img class="table-img" src="image/Group 4497.svg" alt="">
-        </div> -->
+        </div>
         </div>
       <div class="flex">
         <div class="sideBar">
@@ -886,6 +669,7 @@
         </div>
       </div>
      </main>
+     <script src="animation.js"></script>
      <script src="dashboard.js"></script>
   </body>
 </html>

@@ -813,32 +813,50 @@ async function deleteUser(userId) {
 
 //toggling images
 
-const viewProfilePicture = document.querySelector(".view-image1");
-const fullpicture = document.querySelector(".fullpicture");
+const viewProfilePictures = document.querySelectorAll(".view-image1");
+const fullPictures = document.querySelectorAll(".fullpicture");
 
-viewProfilePicture.addEventListener("click", function (event) {
-  event.preventDefault();
-  fullpicture.classList.toggle("fullpictureActive");
-  console.log("click", fullpicture)
-});
-fullpicture.addEventListener("click", function (event) {
-  event.preventDefault();
-  fullpicture.classList.toggle("fullpictureActive");
-});
-
-const viewAddressProof = document.querySelectorAll(".view-image");
-const addressProof = document.querySelector(".proofAddress");
-
-
-viewAddressProof.forEach((viewImage) =>{
+viewProfilePictures.forEach((viewImage, index) => {
   viewImage.addEventListener("click", function (event) {
     event.preventDefault();
-    addressProof.classList.toggle("active");
-    console.log("click", addressProof)
+
+    // Toggle the corresponding fullpicture (same index)
+    if (fullPictures[index]) {
+      fullPictures[index].classList.toggle("fullpictureActive");
+      console.log("click", fullPictures[index]);
+    }
   });
-})
-addressProof.addEventListener("click", function (event) {
-  event.preventDefault();
-  addressProof.classList.toggle("active");
-  console.log("click", addressProof)
 });
+
+// Close only the corresponding fullpicture when clicking on it
+fullPictures.forEach((fullPicture) => {
+  fullPicture.addEventListener("click", function (event) {
+    event.preventDefault();
+    fullPicture.classList.remove("fullpictureActive"); // Always remove instead of toggle
+  });
+});
+
+
+const viewAddressProofs = document.querySelectorAll(".view-image");
+const addressProofs = document.querySelectorAll(".proofAddress");
+
+viewAddressProofs.forEach((viewImage, index) => {
+  viewImage.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    // Toggle only the corresponding proofAddress (same index)
+    if (addressProofs[index]) {
+      addressProofs[index].classList.toggle("active");
+      console.log("Toggled:", addressProofs[index]);
+    }
+  });
+});
+
+// Close only the corresponding proofAddress when clicking on it
+addressProofs.forEach((addressProof) => {
+  addressProof.addEventListener("click", function (event) {
+    event.preventDefault();
+    addressProof.classList.remove("active"); // Always remove instead of toggle
+  });
+});
+

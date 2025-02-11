@@ -11,6 +11,38 @@ body {
   margin: 0;
   border: 0;
 }
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #e0eae8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.5s ease-out;
+}
+
+/* Loader Animation */
+.spin {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(62, 128, 118, 0.3);
+  border-top: 5px solid #3E8076;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 main {
   width: 100%;
   height: 100vh;
@@ -32,7 +64,7 @@ main {
   margin: auto;
 }
 .first-flex {
-  background-color: #3E8076 ;
+  background-color: #3E8076;
   width: 244px;
   height: 83vh;
   padding: 24px;
@@ -249,7 +281,7 @@ p {
   flex-direction: column;
   gap: 10px;
   opacity: 0px;
-  background: #3E8076 ;
+  background: #3E8076;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
@@ -363,13 +395,13 @@ p {
   gap: 18px;
 }
 .send-btn {
-  background: #3E8076 ;
+  background: #3E8076;
   color: #ffffff;
 }
 .recieve-btn {
   background: #eceaea;
   border: 1px solid #d1d1d1;
-  color: #3E8076 ;
+  color: #3E8076;
 }
 .box2 {
   display: flex;
@@ -387,6 +419,7 @@ p {
   flex-direction: row;
   width: fit-content;
   opacity: 0px;
+ margin-top: -30px;
   gap: 10px;
   box-sizing: border-box;
   align-items: center;
@@ -420,7 +453,7 @@ p {
   padding: 12px;
   border-radius: 14px;
   opacity: 0px;
-  background: #3E8076 ;
+  background: #3E8076;
   color: #ffff;
   box-sizing: border-box;
   justify-content: space-between;
@@ -435,7 +468,7 @@ p {
   top: 83px;
   left: 50px;
   opacity: 80%;
-  background: radial-gradient(50% 50% at 50% 50%, #3E8076  9.5%, #54ada0 85.5%);
+  background: radial-gradient(50% 50% at 50% 50%, #3E80769.5%, #54ada0 85.5%);
 }
 .innerbox1 {
   width: 100%;
@@ -711,13 +744,13 @@ table p {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 2px solid #3E8076;
+  border: 2px solid#3E8076;
 }
 .profileImage{
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 2px solid #3E8076;
+  border: 2px solid#3E8076;
 }
 .copyAccount{
   background: none;
@@ -754,7 +787,7 @@ table p {
   cursor: pointer;
 }
 #cancel-transfer:hover {
-  color: #3E8076 ;
+  color: #3E8076;
 }
 #proceed-button {
   padding-top: 17px;
@@ -921,7 +954,7 @@ table p {
   cursor: pointer;
 }
 #cancel-transfer:hover {
-  color: #3E8076 ;
+  color: #3E8076;
 }
 #transfer-button {
   padding-top: 70px;
@@ -1002,7 +1035,7 @@ table p {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .pin-input:focus {
-  border-color: #3E8076 ;
+  border-color: #3E8076;
   outline: none;
   box-shadow: 0 0 5px rgba(62, 128, 118, 0.5);
 }
@@ -1103,7 +1136,7 @@ table p {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background-color: #3E8076 ;
+  background-color: #3E8076;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1172,7 +1205,7 @@ table p {
   gap: 18px;
 }
 table td, tr{
-  font-family: inter;
+   font-family: "Inter", sans-serif;;
 }
 @media screen and(max-width: 1200px) {
   body {
@@ -1249,9 +1282,8 @@ table td, tr{
   .mobile-head {
     width: 100%;
     height: 116px;
-    border-radius: 12px 12px 0px 0px;
     opacity: 0px;
-    background: #3E8076 ;
+    background: #3E8076;
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -1374,9 +1406,8 @@ table td, tr{
   .mobile-head {
     width: 100%;
     height: 116px;
-    border-radius: 12px 12px 0px 0px;
     opacity: 0px;
-    background: #3E8076 ;
+    background: #3E8076;
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -1566,7 +1597,7 @@ table td, tr{
     padding: 12px;
     border-radius: 14px;
     opacity: 0px;
-    background: #3E8076 ;
+    background: #3E8076;
     color: #ffff;
     box-sizing: border-box;
     justify-content: space-between;

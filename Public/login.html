@@ -5,53 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>online banking</title>
     <link rel="stylesheet" href="login.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
   <body>
-    <main>
-
-      <a href="index.html">
-        <div><img src="image/arrow-left.svg" alt="" /></div>
-      </a>
-      <div class="login-cointainer">
-        <div class="title">
-          <h1>Welcome to UnlimitedSfunds Bank</h1>
-          <p>Login your account</p>
-        </div>
-        <div>
-          <form action="" id="loginForm">
-            <div class="login-details">
-              <label for="email">Email</label>
-              <input type="text" name="email" id="email" required />
-              <label for="password">Password</label>
-              <input type="text" name="password" id="password" required/>
-            </div>
-            <div>
-              <div class="forgot-pasword">
-                <div class="checkbox-container">
-                  <input type="checkbox" name="Remember" id="Remember" />
-                  <label for="Remember">Remember me</label>
+     <!-- Preloader -->
+     <div class="preloader" id="preloader">
+      <div class="spin"></div>
+    </div>
+    <main class="main-content">
+      <div class="main-div">
+        <a href="index.html">
+          <div class="backArrow"><img src="image/arrow-left.svg" alt="" /></div>
+        </a>
+        <div class="login-cointainer">
+          <div class="title">
+            <h1>Welcome to UnlimitedSfunds Bank</h1>
+            <p>Login your account</p>
+          </div>
+          <div>
+            <form action="" id="loginForm">
+              <div class="login-details">
+                <div>
+                  <label for="email">Email</label>
+                  <input type="text" name="email" id="email" required />
                 </div>
-                <a href="" style="color: black;">Forgot password?</a>
-              </div>
-              <div class="submit-btn">
-                <button type="submit" id="login-btn">
-                  <span id="submit-text">Login</span>
-                  <span id="spinner" class="spinner hidden"></span>
-                </button>
-                <div class="signup">
-                  <p>Don`t have an account?</p>
-                  <a href="signup.html">Sign up now</a>
+                <div>
+                  <label for="password">Password</label>
+                  <input type="text" name="password" id="password" required />
                 </div>
               </div>
-            </div>
-          </form>
+              <div>
+                <div class="forgot-pasword">
+                  <div class="checkbox-container">
+                    <input type="checkbox" name="Remember" id="Remember" />
+                    <label for="Remember">Remember me</label>
+                  </div>
+                  <a href="forgetpassword.html" style="color: black">Forgot password?</a>
+                </div>
+                <div class="submit-btn">
+                  <button type="submit" id="login-btn">
+                    <span id="submit-text">Login</span>
+                    <span id="spinner" class="spinner hidden"></span>
+                  </button>
+                  <div class="signup">
+                    <p>Don`t have an account?</p>
+                    <a href="signup.html">Sign up now</a>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-      <div class="image-div">
-        <img src="image/unsplash_fCx7Na6jtuY.svg" alt="" />
       </div>
     </main>
     <script src="login.js"></script>
+    <script src="animation.js"></script>
   </body>
 </html>

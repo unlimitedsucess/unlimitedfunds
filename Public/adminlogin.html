@@ -11,7 +11,11 @@
     />
   </head>
   <body>
-    <main>
+     <!-- Preloader -->
+     <div class="preloader" id="preloader">
+      <div class="spin"></div>
+    </div>
+    <main class="main-content">
       <div class="login-div">
         <div class="login-box">
           <div class="title">
@@ -82,8 +86,6 @@
                 loginButton.classList.remove("loading");
                 spinner.style.display = "none";
                 buttonText.textContent = "Login";
-
-                alert("Login successful (simulated)!");
             }, 3000); // Adjust the timeout as needed
         });
 
@@ -99,7 +101,7 @@
 
           // Validate the inputs before making the API call
           if (!username || !password) {
-            alert("Please enter both username and password.");
+            ("Please enter both username and password.");
             return; // Stop further execution
           }
 

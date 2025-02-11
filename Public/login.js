@@ -76,7 +76,8 @@ document
       }, 3000); // Redirect after 5 seconds
     } catch (error) {
       console.error("Error:", error);
-
+      
+    
       // Show error toast with progress bar
       showToast(
         error.message ||
@@ -84,9 +85,14 @@ document
         "error",
         3000
       );
+      setTimeout(() => {
+        window.location.href = "/accountPending.html";
+      }, 2000); // Small delay for smooth transition
+  
     } finally {
       // Hide spinner and re-enable the submit button
       submitText.textContent = "Login";
+      document.getElementById("login-btn").style.backgroundColor= "green"
       spinner.hidden = true; // Hide the spinner
       submitBtn.disabled = false
       spinner.classList.add("hidden");

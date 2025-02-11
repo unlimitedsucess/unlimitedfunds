@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>online banking</title>
-    <link rel="stylesheet" href="style.css" />
     <link
       rel="icon"
       type="image/png"
@@ -54,92 +53,87 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
   </head>
   <body>
-    <div class="preloader-activate preloader-active open_tm_preloader">
-      <div class="preloader-area-wrap">
-        <div
-          class="spinner d-flex justify-content-center align-items-center h-100"
-        >
-          <div class="bounce1"></div>
-          <div class="bounce2"></div>
-          <div class="bounce3"></div>
-        </div>
-      </div>
+    <div class="preloader" id="preloader">
+      <div class="spin"></div>
     </div>
-    <main>
+    <main class="main-content">
       <!-- header area starts -->
 
       <!-- Static Header -->
-        <!-- Static Header -->
-     <header  class="static-header">
-      <div class="header-container">
-       <a href="index.html" class="logo"><img src="image/Frame 4577.svg" alt="" /></a>
-       <nav class="header-nav">
-         <ul>
-           <li><a class="navs" href="index.html">Home</a></li>
-           <li><a class="navs" href="#section3">About us</a></li>
-           <li> <a class="navs" href="#section5">Services</a></li>
-           <li><a class="navs" href="#section6">FaQ's</a></li>
-          <li><a class="navs" href="contact.html"> Contact us</a></li>
-         </ul>
-       </nav>
-       <div class="logins-section">
-         <ul>
-           <i><a class="navs login" href="login.html">Log in</a></i>
-           <a class="navs signup" href="signup.html">Sign up</a>
-         </ul>
-       </div>
-     </div>
-       <!-- mobile view -->
-     <div class="mobile-view">
-       <div class="mobile-logo">
-         <img src="image/Frame 4579.svg" alt="">
-         </div>
-         <div class="nav-box">
-           <div class="nav-container">
-             <img src="image/container.svg" alt="">
-           </div>
-           <div class="signup-container">
-             <img src="image/Icon.svg" alt="">
-           </div>
-         </div>
-      </div>
-        </header>
-    
-        <header class="fixed-header hidden">
-          <div class="header-container">
-           <a id="logo" href="index.html"><img src="image/Frame 4577.svg" alt="" /></a>
-           <nav class="header-nav">
-             <ul>
-               <li><a class="navs" href="index.html">Home</a></li>
-               <li><a class="navs" href="#section3">About us</a></li>
-               <li> <a class="navs" href="#section5">Services</a></li>
-               <li><a class="navs" href="#section6">FaQ's</a></li>
+      <!-- Static Header -->
+      <header class="static-header">
+        <div class="header-container">
+          <a href="index.html" class="logo"
+            ><img src="image/Frame 4577.svg" alt=""
+          /></a>
+          <nav class="header-nav">
+            <ul>
+              <li><a class="navs" href="index.html">Home</a></li>
+              <li><a class="navs" href="#section3">About us</a></li>
+              <li><a class="navs" href="#section5">Services</a></li>
+              <li><a class="navs" href="#section6">FaQ's</a></li>
               <li><a class="navs" href="contact.html"> Contact us</a></li>
-             </ul>
-             
-           </nav>
-           <div class="logins-section">
-             <ul>
-               <i><a class="navs login" href="login.html">Log in</a></i>
-               <a class="navs signup" href="signup.html">Sign up</a>
-             </ul>
-           </div>
+            </ul>
+          </nav>
+          <div class="logins-section">
+            <ul>
+              <i><a class="navs login" href="login.html">Log in</a></i>
+              <a class="navs signup" href="signup.html">Sign up</a>
+            </ul>
           </div>
-           <!-- mobile view -->
-          <div class="mobile-view">
-       <div class="mobile-logo">
-         <img src="image/Frame 4579.svg" alt="">
-         </div>
-         <div class="nav-box">
-           <div class="nav-container">
-             <img src="image/container.svg" alt="">
-           </div>
-           <div class="signup-container">
-             <img src="image/Icon.svg" alt="">
-           </div>
-         </div>
+        </div>
+        <!-- mobile view -->
+        <div class="mobile-view">
+          <div class="mobile-logo">
+            <img src="image/Frame 4579.svg" alt="" />
           </div>
-        </header>
+          <div class="nav-box">
+            <div class="nav-container">
+              <img src="image/container.svg" alt="" />
+            </div>
+            <div class="signup-container">
+              <img src="image/Icon.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <header class="fixed-header hidden">
+        <div class="header-container">
+          <a id="logo" href="index.html"
+            ><img src="image/Frame 4577.svg" alt=""
+          /></a>
+          <nav class="header-nav">
+            <ul>
+              <li><a class="navs" href="index.html">Home</a></li>
+              <li><a class="navs" href="#section3">About us</a></li>
+              <li><a class="navs" href="#section5">Services</a></li>
+              <li><a class="navs" href="#section6">FaQ's</a></li>
+              <li><a class="navs" href="contact.html"> Contact us</a></li>
+            </ul>
+          </nav>
+          <div class="logins-section">
+            <ul>
+              <i><a class="navs login" href="login.html">Log in</a></i>
+              <a class="navs signup" href="signup.html">Sign up</a>
+            </ul>
+          </div>
+        </div>
+        <!-- mobile view -->
+        <div class="mobile-view">
+          <div class="mobile-logo">
+            <img src="image/Frame 4579.svg" alt="" />
+          </div>
+          <div class="nav-box">
+            <div class="nav-container">
+              <img src="image/container.svg" alt="" />
+            </div>
+            <div class="signup-container">
+              <img src="image/Icon.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </header>
 
       <!-- mobile view header -->
       <div class="navbar">
@@ -176,162 +170,163 @@
             <img class="second-img" src="image/Group 4503a.svg" alt="" />
           </div>
           <div class="outerdiv">
-              <div class="form-container">
-                <div class="title">
-                  <h1>Contact us</h1>
-                  <p>
-                    Have questions or feedback? We are here to help, send us a
-                    message and we'll respond within the next 24hours or just
-                    reach us manually
-                    <span>
-                      <a
-                        href="@UnlimitedSfundsBank.gmail.com"
-                        style="text-decoration: none"
-                        >@UnlimitedSfundsBank.gmail.com</a
-                      ></span
-                    >
-                  </p>
-                </div>
-                <form action="" id="contact-form">
-                  <div class="name-info">
-                    <div class="inner-div2">
-                      <label for="firstName-input">First name</label>
-                      <input type="text" id="firstName-input" required />
-                    </div>
-                    <div class="inner-div2">
-                      <label for="lastName-input">Last name</label>
-                      <input
-                        type="text"
-                        name="lastName-input"
-                        id="lastName-input"
-                      />
-                    </div>
+            <div class="form-container">
+              <div class="title">
+                <h1>Contact us</h1>
+                <p>
+                  Have questions or feedback? We are here to help, send us a
+                  message and we'll respond within the next 24hours or just
+                  reach us manually
+                  <span>
+                    <a
+                      href="@UnlimitedSfundsBank.gmail.com"
+                      style="text-decoration: none"
+                      >@UnlimitedSfundsBank.gmail.com</a
+                    ></span
+                  >
+                </p>
+              </div>
+              <form action="" id="contact-form">
+                <div class="name-info">
+                  <div class="inner-div2">
+                    <label for="firstName-input">First name</label>
+                    <input type="text" id="firstName-input" required />
                   </div>
                   <div class="inner-div2">
-                    <label for="email-input">Email</label>
-                    <input type="text" name="email-input" id="email-input" />
-                  </div>
-                  <div class="phone-input-container form-box inner-div2">
-                    <label for="phone-number">phone number</label>
+                    <label for="lastName-input">Last name</label>
                     <input
-                      type="tel"
-                      id="phone-number"
-                      class="phone-number-input"
-                      value="US +1"
-                      style="cursor: pointer"
-                      placeholder="Enter phone number"
+                      type="text"
+                      name="lastName-input"
+                      id="lastName-input"
                     />
-                    <div class="dropdown" id="dropdown">
-                      <div data-value="US +1">US +1</div>
-                      <div data-value="UK +44">UK +44</div>
-                      <div data-value="IN +91">IN +91</div>
-                      <div data-value="AU +61">AU +61</div>
-                      <div data-value="CA +1">CA +1</div>
-                      <div data-value="DE +49">DE +49</div>
-                      <div data-value="FR +33">FR +33</div>
-                      <div data-value="IT +39">IT +39</div>
-                      <div data-value="JP +81">JP +81</div>
-                      <div data-value="CN +86">CN +86</div>
-                      <div data-value="KR +82">KR +82</div>
-                      <div data-value="BR +55">BR +55</div>
-                      <div data-value="MX +52">MX +52</div>
-                      <div data-value="RU +7">RU +7</div>
-                      <div data-value="ZA +27">ZA +27</div>
-                      <div data-value="NZ +64">NZ +64</div>
-                      <div data-value="ES +34">ES +34</div>
-                      <div data-value="SE +46">SE +46</div>
-                      <div data-value="CH +41">CH +41</div>
-                      <div data-value="TR +90">TR +90</div>
-                      <div data-value="NL +31">NL +31</div>
-                      <div data-value="AR +54">AR +54</div>
-                      <div data-value="FI +358">FI +358</div>
-                      <div data-value="NO +47">NO +47</div>
-                      <div data-value="DK +45">DK +45</div>
-                      <div data-value="PL +48">PL +48</div>
-                      <div data-value="BE +32">BE +32</div>
-                      <div data-value="PT +351">PT +351</div>
-                      <div data-value="GR +30">GR +30</div>
-                      <div data-value="IE +353">IE +353</div>
-                      <div data-value="AT +43">AT +43</div>
-                      <div data-value="SG +65">SG +65</div>
-                      <div data-value="MY +60">MY +60</div>
-                      <div data-value="PH +63">PH +63</div>
-                      <div data-value="ID +62">ID +62</div>
-                      <div data-value="TH +66">TH +66</div>
-                      <div data-value="PK +92">PK +92</div>
-                      <div data-value="EG +20">EG +20</div>
-                      <div data-value="KE +254">KE +254</div>
-                      <div data-value="NG +234">NG +234</div>
-                      <div data-value="VN +84">VN +84</div>
-                      <div data-value="BD +880">BD +880</div>
-                      <div data-value="UA +380">UA +380</div>
-                      <div data-value="KW +965">KW +965</div>
-                      <div data-value="QA +974">QA +974</div>
-                      <div data-value="KW +965">KW +965</div>
-                      <div data-value="AE +971">AE +971</div>
-                      <div data-value="SA +966">SA +966</div>
-                      <div data-value="OM +968">OM +968</div>
-                      <div data-value="BH +973">BH +973</div>
-                      <div data-value="JO +962">JO +962</div>
-                      <div data-value="LB +961">LB +961</div>
-                      <div data-value="IL +972">IL +972</div>
-                      <div data-value="MA +212">MA +212</div>
-                      <div data-value="DZ +213">DZ +213</div>
-                      <div data-value="TN +216">TN +216</div>
-                      <div data-value="LY +218">LY +218</div>
-                    </div>
                   </div>
-                  <div class="inner-div2">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message"></textarea>
-                  </div>
-                  <div>
-                    <div class="agreement-checkbox">
-                      <input
-                        type="checkbox"
-                        name="checkbox"
-                        id="checkbox"
-                        required
-                      />
-                      <label for="checkbox"
-                        >I agree to our friendly private policy</label
-                      >
-                    </div>
-                    <div class="submit-btn">
-                      <button>Submit form</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div class="reachout-div">
-                <div class="reach-out">
-                  <img
-                    class=" mobile-img"
-                    src="image/Mail-Send-Envelope--Streamline-Core.svg.svg"
-                    alt=""
-                    srcset=""
-                  />
-                  <img
-                    class="desktop-img"
-                    src="image/Mail-Send-Envelope--Streamline2-Core.svg"
-                    alt=""
-                  />
-                  <p>@UnlimitedSfundsbank.gmail.com</p>
                 </div>
-                <div  class="reach-out">
-                  <img
-                    class="mobile-img"
-                    src="image/Phone--Streamline-Core2.svg"
-                    alt=""
-                  />
-                  <img class="desktop-img" src="image/phoneicon.svg" alt="" />
-                  <p>@2839-9389-9398-6377</p>
+                <div class="inner-div2">
+                  <label for="email-input">Email</label>
+                  <input type="text" name="email-input" id="email-input" />
                 </div>
+                <div class="phone-input-container form-box inner-div2">
+                  <label for="phone-number">phone number</label>
+                  <input
+                    type="tel"
+                    id="phone-number"
+                    class="phone-number-input"
+                    value="US +1"
+                    style="cursor: pointer"
+                    placeholder="Enter phone number"
+                  />
+                  <div class="dropdown" id="dropdown">
+                    <div data-value="US +1">US +1</div>
+                    <div data-value="UK +44">UK +44</div>
+                    <div data-value="IN +91">IN +91</div>
+                    <div data-value="AU +61">AU +61</div>
+                    <div data-value="CA +1">CA +1</div>
+                    <div data-value="DE +49">DE +49</div>
+                    <div data-value="FR +33">FR +33</div>
+                    <div data-value="IT +39">IT +39</div>
+                    <div data-value="JP +81">JP +81</div>
+                    <div data-value="CN +86">CN +86</div>
+                    <div data-value="KR +82">KR +82</div>
+                    <div data-value="BR +55">BR +55</div>
+                    <div data-value="MX +52">MX +52</div>
+                    <div data-value="RU +7">RU +7</div>
+                    <div data-value="ZA +27">ZA +27</div>
+                    <div data-value="NZ +64">NZ +64</div>
+                    <div data-value="ES +34">ES +34</div>
+                    <div data-value="SE +46">SE +46</div>
+                    <div data-value="CH +41">CH +41</div>
+                    <div data-value="TR +90">TR +90</div>
+                    <div data-value="NL +31">NL +31</div>
+                    <div data-value="AR +54">AR +54</div>
+                    <div data-value="FI +358">FI +358</div>
+                    <div data-value="NO +47">NO +47</div>
+                    <div data-value="DK +45">DK +45</div>
+                    <div data-value="PL +48">PL +48</div>
+                    <div data-value="BE +32">BE +32</div>
+                    <div data-value="PT +351">PT +351</div>
+                    <div data-value="GR +30">GR +30</div>
+                    <div data-value="IE +353">IE +353</div>
+                    <div data-value="AT +43">AT +43</div>
+                    <div data-value="SG +65">SG +65</div>
+                    <div data-value="MY +60">MY +60</div>
+                    <div data-value="PH +63">PH +63</div>
+                    <div data-value="ID +62">ID +62</div>
+                    <div data-value="TH +66">TH +66</div>
+                    <div data-value="PK +92">PK +92</div>
+                    <div data-value="EG +20">EG +20</div>
+                    <div data-value="KE +254">KE +254</div>
+                    <div data-value="NG +234">NG +234</div>
+                    <div data-value="VN +84">VN +84</div>
+                    <div data-value="BD +880">BD +880</div>
+                    <div data-value="UA +380">UA +380</div>
+                    <div data-value="KW +965">KW +965</div>
+                    <div data-value="QA +974">QA +974</div>
+                    <div data-value="KW +965">KW +965</div>
+                    <div data-value="AE +971">AE +971</div>
+                    <div data-value="SA +966">SA +966</div>
+                    <div data-value="OM +968">OM +968</div>
+                    <div data-value="BH +973">BH +973</div>
+                    <div data-value="JO +962">JO +962</div>
+                    <div data-value="LB +961">LB +961</div>
+                    <div data-value="IL +972">IL +972</div>
+                    <div data-value="MA +212">MA +212</div>
+                    <div data-value="DZ +213">DZ +213</div>
+                    <div data-value="TN +216">TN +216</div>
+                    <div data-value="LY +218">LY +218</div>
+                  </div>
+                </div>
+                <div class="inner-div2">
+                  <label for="message">Message</label>
+                  <textarea name="message" id="message"></textarea>
+                </div>
+                <div>
+                  <div class="agreement-checkbox">
+                    <input
+                      type="checkbox"
+                      name="checkbox"
+                      id="checkbox"
+                      required
+                    />
+                    <label for="checkbox"
+                      >I agree to our friendly private policy</label
+                    >
+                  </div>
+                  <div class="submit-btn">
+                    <button>Submit form</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="reachout-div">
+              <div class="reach-out">
+                <img
+                  class="mobile-img"
+                  src="image/Mail-Send-Envelope--Streamline-Core.svg.svg"
+                  alt=""
+                  srcset=""
+                />
+                <img
+                  class="desktop-img"
+                  src="image/Mail-Send-Envelope--Streamline2-Core.svg"
+                  alt=""
+                />
+                <p>@UnlimitedSfundsbank.gmail.com</p>
               </div>
+              <div class="reach-out">
+                <img
+                  class="mobile-img"
+                  src="image/Phone--Streamline-Core2.svg"
+                  alt=""
+                />
+                <img class="desktop-img" src="image/phoneicon.svg" alt="" />
+                <p>@2839-9389-9398-6377</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </main>
+    <script src="animation.js"></script>
     <script src="mobile.js"></script>
     <script>
       // header area starts.....................
@@ -339,15 +334,13 @@
       const fixedHeader = document.querySelector(".fixed-header");
 
       window.addEventListener("scroll", () => {
-        const scrollY = window.scrollY;
-        if (scrollY > staticHeader.offsetHeight) {
-          fixedHeader.classList.remove("hidden");
-          fixedHeader.style.transform = "translateY(0)";
+        if (window.scrollY > staticHeader.offsetHeight) {
+          fixedHeader.classList.add("show");
         } else {
-          fixedHeader.classList.add("hidden");
-          fixedHeader.style.transform = "translateY(-100%)";
+          fixedHeader.classList.remove("show");
         }
       });
+
       //header area ends here
 
       //contact us form.....

@@ -10,8 +10,50 @@ body {
   margin: 0;
   border: 0;
 }
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #e0eae8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.5s ease-out;
+}
+
+/* Loader Animation */
+.spin {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(62, 128, 118, 0.3);
+  border-top: 5px solid #3E8076;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .newlogin {
   display: none;
+}
+@keyframes zoomIn {
+  0% {
+      opacity: 0;
+      transform: scale(0.1);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1);
+  }
 }
 header {
   width: 100%;
@@ -96,7 +138,7 @@ header nav {
   left: 0;
   width: 0;
   height: 5px;
-  background-color: #3E8076;
+  background-color:#3E8076;
   transition: width 0.3s ease;
 }
 
@@ -118,14 +160,14 @@ a {
   font-style: normal;
   padding: 10px;
   background-color: transparent;
-  color: #3E8076;
+  color:#3E8076;
 }
 .signup {
   width: fit-content;
   padding: 10px;
   border-radius: 18px;
   opacity: 0px;
-  background-color: #3E8076;
+  background-color:#3E8076;
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -166,6 +208,9 @@ a {
   opacity: 0;
   visibility: hidden;
 }
+.main-content {
+  display: none;
+}
 
 .section1 {
   margin-top: -30px;
@@ -178,12 +223,12 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  animation: 1s 1s infinite alternate;
   background-size: 100% 100%;
   background-attachment: fixed;
   box-sizing: border-box;
   overflow: hidden;
-  animation: fadeInScale 0.5s ease-in forwards; /* Add animation */
+  transform: scale(0.1);
+  animation: zoomIn 0.6s ease-out forwards;
 }
 /* Define the animation */
 @keyframes fadeInScale {
@@ -201,6 +246,8 @@ a {
   display: flex;
   justify-content: center;
   gap: 10px;
+  transform: scale(0.1);
+  animation: zoomIn 0.6s ease-out forwards;
 }
 /* .fixed-header {
   animation: fadeInDown 3s ease;
@@ -377,7 +424,7 @@ section.visible {
   gap: 24px;
   border-radius: 10px;
   opacity: 0px;
-  background: #3E8076;
+  background:#3E8076;
   text-align: center;
   transition: transform 1.2s ease-in, opacity 1.2s ease-in; /* Smooth transition */
 }
@@ -627,7 +674,7 @@ button {
 .ans5 {
   background-color: #ffffff;
   width: 460px;
-  border: 1px solid #3E8076;
+  border: 1px solid#3E8076;
   height: fit-content;
   padding: 10px;
   position: absolute;
@@ -677,7 +724,7 @@ button {
   opacity: 0px;
   display: flex;
   flex-direction: row;
-  background: #3E8076;
+  background:#3E8076;
   margin: auto;
   justify-content: space-between;
   align-items: center;
@@ -801,7 +848,7 @@ footer {
 }
 
 .footernav ul li a:hover {
-  color: #3E8076;
+  color:#3E8076;
 }
 
 /* Underline Effect */
@@ -930,7 +977,7 @@ footer {
     background-color: #fff;
   }
   .navbar {
-    background-color: #3E8076;
+    background-color:#3E8076;
     width: 30%;
     position: fixed;
     z-index: 9999999999999999999999999999999999999999999999999999999;
@@ -950,7 +997,7 @@ footer {
     height: 26px;
   }
   .navbar {
-    background-color: #3E8076;
+    background-color:#3E8076;
     width: 30%;
     position: fixed;
     z-index: 9999999999999999999999999999999999999999999999999999999;
@@ -985,7 +1032,7 @@ footer {
 
   .signup,
   .login {
-    color: #3E8076;
+    color:#3E8076;
     background: transparent !important;
     padding: 0 !important;
     text-align: left !important;
@@ -1370,7 +1417,7 @@ footer {
     padding-top: 30px;
   }
   .navbar {
-    background-color: #3E8076;
+    background-color:#3E8076;
     width: 60%;
     position: fixed;
     top: 0;
@@ -1611,7 +1658,7 @@ footer {
   }
   .signup,
   .login {
-    color: #3E8076;
+    color:#3E8076;
     background: transparent !important;
     padding: 10px !important;
     text-align: left !important;
@@ -1677,7 +1724,7 @@ footer {
     padding-top: 30px;
   }
   .navbar {
-    background-color: #3E8076;
+    background-color:#3E8076;
     width: 60%;
     position: fixed;
     top: 0;
@@ -1971,7 +2018,7 @@ footer {
   }
   .signup,
   .login {
-    color: #3E8076;
+    color:#3E8076;
     background: transparent !important;
     padding: 0 !important;
     text-align: left !important;
@@ -2161,7 +2208,7 @@ footer {
   }
   .signup,
   .login {
-    color: #3E8076;
+    color:#3E8076;
     background: transparent !important;
     padding: 0 !important;
     text-align: left !important;
