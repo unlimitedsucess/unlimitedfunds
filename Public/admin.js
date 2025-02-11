@@ -80,10 +80,10 @@ cancelCreateScreenBtn.addEventListener("click", function (event) {
 
 //view transaction section ends here...........
 
-cancelDeleteUser.addEventListener("click", function (event) {
-  event.preventDefault();
-  viewProfile.classList.toggle("active");
-});
+// cancelDeleteUser.addEventListener("click", function (event) {
+//   event.preventDefault();
+//   viewProfile.classList.toggle("active");
+// });
 
 // editButton.forEach((editBtn) => {
 //   editBtn.addEventListener("click", function (event) {
@@ -656,6 +656,7 @@ function openProfileScreen(userId, users) {
   document.querySelector(".dOb-output").innerText = user.dateOfBirth;
   document.querySelector(".account-status").innerText = user.status;
   document.querySelector(".ssn-output").innerText = user.ssn;
+  document.querySelector(".account-balance").innerText = user.initialDeposit || "";
 
   // Remove any existing event listeners before adding a new one
 

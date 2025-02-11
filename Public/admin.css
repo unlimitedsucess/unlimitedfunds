@@ -190,7 +190,7 @@ button {
 }
 .veiw-profile {
   width: 790px;
-  height: 520px;
+  height: fit-content;
   padding: 6px 24px 6px 24px;
   gap: 0px;
   border-radius: 12px;
@@ -994,11 +994,14 @@ tr {
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 0;
+    /* gap: 6px; */
   }
   .flex-div p {
-    text-align: center;
-    padding-top: 15px;
+    width: 100%;
+    text-align: left;
+    padding-top: 0px;
+    margin: 0;
   }
   .flex-div .box {
     width: 100%;
