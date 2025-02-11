@@ -65,9 +65,11 @@ header {
   justify-content: space-between;
   box-sizing: border-box;
   background-color: #ffffff;
+  padding: 10px;
 }
 .header-container {
   width: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -177,7 +179,6 @@ a {
   left: 0;
   width: 100%;
   color: #fff;
-  padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 9999999999999999999999999999999999999999999999999999;
   position: fixed;
@@ -190,7 +191,6 @@ a {
 }
 .static-header {
   color: #fff;
-  padding: 1rem;
 }
 .header-container {
   max-width: 100%;
@@ -208,13 +208,12 @@ a {
 }
 
 .section1 {
-  margin-top: -30px;
   justify-content: center;
   display: flex;
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-image: url(image/istockphoto-938516266-612x612\ 2.svg);
+  background-image: url(image/landing);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -237,12 +236,17 @@ a {
   }
 }
 .section1-div {
-  width: 90%;
+  width: fit-content;
   display: flex;
   justify-content: center;
   gap: 10px;
   transform: scale(0.1);
   animation: zoomIn 0.6s ease-out forwards;
+  background-color: rgba(224, 234, 232, 0.5); /* 0.5 is 50% transparency */
+  height: fit-content;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Example with more spread */
+  border-radius: 12px;
+  padding: 10px;
 }
 /* .fixed-header {
   animation: fadeInDown 3s ease;
@@ -281,7 +285,7 @@ a {
 }
 .content-div {
   width: 318px;
-  height: 378px;
+  height: fit-content;
   top: 130px;
   left: 391px;
   opacity: 0px;
@@ -913,6 +917,8 @@ footer {
   header{
     width: 100%;
     position: relative;
+    height: fit-content;
+    padding: 10px;
   }
   .header-container {
     display: none;
@@ -922,7 +928,17 @@ footer {
     display: block;
     display: flex;
     justify-content: space-between;
+    padding: 0px 6px;
   }
+ .nav-container, .signup-container {
+  height: 30px;
+  width: 30px;
+  border: 0;
+ }
+ .nav-container img, .signup-container img{
+  height: 36px;
+  width: 36px;
+ }
   .mobile-h {
     padding: 4px;
     display: flex;
@@ -934,6 +950,7 @@ footer {
   .nav-box {
     display: flex;
     align-items: center;
+    gap: 16px;
   }
   #mobile-listnav {
     height: 90vh;
@@ -1767,6 +1784,10 @@ footer {
     height: 236px;
     gap: 0px;
     opacity: 0px;
+  }
+  .static-header{
+    height: fit-content;
+    padding: 0;
   }
   .boxes {
     display: flex;
