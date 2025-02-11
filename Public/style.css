@@ -247,6 +247,7 @@ a {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Example with more spread */
   border-radius: 12px;
   padding: 10px;
+  box-sizing: border-box;
 }
 /* .fixed-header {
   animation: fadeInDown 3s ease;
@@ -284,16 +285,13 @@ a {
   }
 }
 .content-div {
-  width: 318px;
   height: fit-content;
-  top: 130px;
-  left: 391px;
   opacity: 0px;
   animation: fadeInScale 1.8s ease-in forwards; /* Add animation */
 }
 .content-p {
   width: 138px;
-  height: 27px;
+  height: fit-content;
   padding: 0;
   margin: 0;
   padding: 6px 10px 6px 10px;
@@ -318,12 +316,13 @@ a {
 }
 .content-p2 {
   font-family: "Inter", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 19.36px;
   text-align: left;
   padding-bottom: 56px;
+  color: #000000;
 }
 .inner-div {
   display: flex;
@@ -1078,7 +1077,7 @@ footer {
     text-align: center;
     align-content: center;
     font-family: "Inter", sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     text-wrap: nowrap;
   }
@@ -1086,10 +1085,10 @@ footer {
     padding: 0;
     padding-bottom: 20px;
     font-family: Inter;
-    font-size: 12px;
+    font-size: 14px;
     font-style: italic;
-    font-weight: 400;
-    line-height: 12.1px;
+    font-weight: 500;
+    line-height: 18.1px;
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
