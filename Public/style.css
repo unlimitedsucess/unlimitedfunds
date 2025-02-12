@@ -99,7 +99,10 @@ header {
   text-align: center;
   color: #000000;
 }
-
+#year{
+  font-size: 18px;
+  font-family: inter;
+}
 .header-nav ul {
   list-style: none;
   display: flex;
@@ -2269,6 +2272,7 @@ footer {
   .copywriter {
     gap: 0;
     padding: 0;
+    display: flex;
   }
   .copywriter .p {
     margin: 0;

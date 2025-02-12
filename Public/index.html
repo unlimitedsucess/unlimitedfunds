@@ -518,10 +518,10 @@
           </div>
         </div>
         <div class=" copywriter">
-          <p class="p">@2024 Unlimited funds bank - All rights reserved.</p>
+          <p class="p">© <span id="year"></span> Unlimited funds bank - All rights reserved.</p>
           <div class="arrow-up">
             <p>Backto top</p>
-            <img src="image/arrow-up.svg" alt="">
+            <a href="index.html"><img src="image/arrow-up.svg" alt=""></a>
           </div>
         </div>
       </footer>
@@ -612,7 +612,7 @@
           answer5.classList.toggle("activate5")
           console.log("clicked",button5)
         })
-
+        document.getElementById("year").textContent = new Date().getFullYear();
     </script>
     <script src="mobile.js"></script>
   </body>
