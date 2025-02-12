@@ -1087,15 +1087,13 @@ footer {
     background-position: center center;
   }
   .content-div {
-    width: 60%;
-    left: 0;
     align-items: center;
     height: 300px;
     top: 50%;
     transform: translateY(-40%);
-    padding: 24px;
     gap: 0;
     border-radius: 0;
+    box-sizing: border-box;
   }
   .content-h {
     font-family: Inter;
@@ -1131,19 +1129,17 @@ footer {
     font-weight: 500;
     line-height: 18.1px;
     text-align: left;
-    text-underline-position: from-font;
     text-decoration-skip-ink: none;
   }
   .section1-btn {
     width: 120px;
     height: 18px;
     font-family: Inter;
-    font-size: 10px;
+    font-size: 14px;
     text-wrap: nowrap;
     font-weight: 400;
     line-height: 9.68px;
     padding: 4px;
-    text-underline-position: from-font;
     text-decoration-skip-ink: none;
   }
   .inner-div {
@@ -1151,11 +1147,12 @@ footer {
   }
   .section1 .content-h,
   .content-p2 {
-    width: 80%;
+    max-width: 95%;
+    box-sizing: border-box;
     padding-bottom: 40px;
   }
   .inner-div {
-    width: 80%;
+    max-width: 95%;
   }
   .section2 {
     width: 100%;
@@ -1768,9 +1765,13 @@ footer {
   .navbar.active {
     display: block;
   }
+  .sec1-image{
+    width: fit-content;
+    height: fit-content;
+  }
   .sec1-image img {
-    width: 150px;
-    height: 200px;
+    width: 140px;
+    height: 180px;
   }
 
   #mobile-listnav ul,
@@ -1789,10 +1790,9 @@ footer {
   }
   .content-div {
     top: 80px;
-    width: 95%;
     height: fit-content;
-    padding: 10px;
     box-sizing: border-boxl;
+    border-radius: 0;
   }
   .ans1,
   .ans2,
@@ -1926,7 +1926,9 @@ footer {
   }
   .section1-div {
     width: 100%;
+    gap: 1px;
     box-sizing: border-box;
+    border-radius: 0;
   }
 }
 @media screen and (max-width: 600px) {
