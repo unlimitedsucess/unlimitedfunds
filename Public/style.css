@@ -29,7 +29,7 @@ body {
   width: 50px;
   height: 50px;
   border: 5px solid rgba(62, 128, 118, 0.3);
-  border-top: 5px solid #3E8076;
+  border-top: 5px solid #3e8076;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -47,12 +47,12 @@ body {
 }
 @keyframes zoomIn {
   0% {
-      opacity: 0;
-      transform: scale(0.1);
+    opacity: 0;
+    transform: scale(0.1);
   }
   100% {
-      opacity: 1;
-      transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
   }
 }
 header {
@@ -87,7 +87,6 @@ header {
   /* padding-left: 156px;
   padding-right: 336px; */
 }
-
 
 .navs {
   text-decoration: none;
@@ -124,7 +123,7 @@ header {
 }
 
 .header-nav ul li a:hover {
-  color: #3E8076;
+  color: #3e8076;
 }
 
 /* Underline Effect */
@@ -135,7 +134,7 @@ header {
   left: 0;
   width: 0;
   height: 5px;
-  background-color:#3E8076;
+  background-color: #3e8076;
   transition: width 0.3s ease;
 }
 
@@ -157,14 +156,14 @@ a {
   font-style: normal;
   padding: 10px;
   background-color: transparent;
-  color:#3E8076;
+  color: #3e8076;
 }
 .signup {
   width: fit-content;
   padding: 10px;
   border-radius: 18px;
   opacity: 0px;
-  background-color:#3E8076;
+  background-color: #3e8076;
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -422,7 +421,7 @@ section.visible {
   gap: 24px;
   border-radius: 10px;
   opacity: 0px;
-  background:#3E8076;
+  background: #3e8076;
   text-align: center;
   transition: transform 1.2s ease-in, opacity 1.2s ease-in; /* Smooth transition */
 }
@@ -722,7 +721,7 @@ button {
   opacity: 0px;
   display: flex;
   flex-direction: row;
-  background:#3E8076;
+  background: #3e8076;
   margin: auto;
   justify-content: space-between;
   align-items: center;
@@ -846,7 +845,7 @@ footer {
 }
 
 .footernav ul li a:hover {
-  color:#3E8076;
+  color: #3e8076;
 }
 
 /* Underline Effect */
@@ -902,7 +901,7 @@ footer {
 .navbar {
   display: none;
 }
-.mobile-view{
+.mobile-view {
   display: none;
 }
 
@@ -912,7 +911,7 @@ footer {
     width: 100%;
     position: relative;
   }
-  header{
+  header {
     width: 100%;
     position: relative;
     height: fit-content;
@@ -921,22 +920,24 @@ footer {
   .header-container {
     display: none;
   }
-  .mobile-view{
+  .mobile-view {
     width: 100%;
     display: block;
     display: flex;
     justify-content: space-between;
     padding: 0px 6px;
   }
- .nav-container, .signup-container {
-  height: 30px;
-  width: 30px;
-  border: 0;
- }
- .nav-container img, .signup-container img{
-  height: 36px;
-  width: 36px;
- }
+  .nav-container,
+  .signup-container {
+    height: 30px;
+    width: 30px;
+    border: 0;
+  }
+  .nav-container img,
+  .signup-container img {
+    height: 36px;
+    width: 36px;
+  }
   .mobile-h {
     padding: 4px;
     display: flex;
@@ -987,14 +988,53 @@ footer {
     background-color: #fff;
   }
   .navbar {
-    background-color:#3E8076;
+    background-color: #3E8076;
     width: 30%;
+    height: 100vh;
     position: fixed;
-    z-index: 9999999999999999999999999999999999999999999999999999999;
     top: 0;
+    right: -100%; /* Start hidden */
+    z-index: 9999;
+    opacity: 0;
+    animation: fadeOut 0.8s ease-in-out forwards;
+}
+
+/* When active, slide in and fade in */
+.navbar.active {
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+/* Keyframes for sliding in and fading in */
+@keyframes fadeIn {
+    from {
+        right: -100%;
+        opacity: 0;
+    }
+    to {
+        right: 0;
+        opacity: 1;
+    }
+}
+
+/* Keyframes for sliding out and fading out */
+@keyframes fadeOut {
+    from {
+        right: 0;
+        opacity: 1;
+    }
+    to {
+        right: -100%;
+        opacity: 0;
+    }
+}
+
+
+  /* Active class to show sidebar */
+  /* .navbar.active {
     right: 0;
-    display: none;
-  }
+    opacity: 1;
+  } */
+
   .newlogin.activate-signup {
     display: block;
   }
@@ -1007,9 +1047,9 @@ footer {
     width: 26px;
     height: 26px;
   }
-  .navbar.active {
+  /* .navbar.active {
     display: block;
-  }
+  } */
   .drop-logo {
     display: flex;
     justify-content: space-between;
@@ -1028,13 +1068,13 @@ footer {
     font-size: 24px;
     font-weight: 700;
   }
-  header{
+  header {
     z-index: 5000;
   }
 
   .signup,
   .login {
-    color:#3E8076;
+    color: #3e8076;
     background: transparent !important;
     padding: 0 !important;
     text-align: left !important;
@@ -1044,7 +1084,7 @@ footer {
   .section1 {
     width: 100% !important;
     background-size: contain; /* Resize to fit within the screen width */
-    background-position: center center; 
+    background-position: center center;
   }
   .content-div {
     width: 60%;
@@ -1055,6 +1095,7 @@ footer {
     transform: translateY(-40%);
     padding: 24px;
     gap: 0;
+    border-radius: 0;
   }
   .content-h {
     font-family: Inter;
@@ -1062,8 +1103,9 @@ footer {
     font-weight: 700;
     line-height: 23.36px;
     text-align: left;
-    padding-top: 10px;
     padding-top: 40px;
+    padding-left: 10px;
+    box-sizing: border-box;
   }
   .content-p {
     width: fit-content;
@@ -1404,7 +1446,6 @@ footer {
     width: 100%;
     position: relative;
   }
-  
 
   .nav-box {
     display: flex;
@@ -1419,7 +1460,7 @@ footer {
     padding-top: 30px;
   }
   .navbar {
-    background-color:#3E8076;
+    background-color: #3e8076;
     width: 60%;
     position: fixed;
     top: 0;
@@ -1651,7 +1692,7 @@ footer {
   }
   .signup,
   .login {
-    color:#3E8076;
+    color: #3e8076;
     background: transparent !important;
     padding: 10px !important;
     text-align: left !important;
@@ -1717,7 +1758,7 @@ footer {
     padding-top: 30px;
   }
   .navbar {
-    background-color:#3E8076;
+    background-color: #3e8076;
     width: 60%;
     position: fixed;
     top: 0;
@@ -1754,14 +1795,14 @@ footer {
     box-sizing: border-boxl;
   }
   .ans1,
-.ans2,
-.ans3,
-.ans4,
-.ans5 {
-  bottom: 80px;
-  right: -3gi0px !important;
-  top: 100% !important;
-}
+  .ans2,
+  .ans3,
+  .ans4,
+  .ans5 {
+    bottom: 80px;
+    right: -30px !important;
+    top: 100% !important;
+  }
   .content-h {
     font-size: 18px;
     width: 100% !important;
@@ -1783,7 +1824,7 @@ footer {
     gap: 0px;
     opacity: 0px;
   }
-  .static-header{
+  .static-header {
     height: fit-content;
     padding: 0;
   }
@@ -1819,7 +1860,7 @@ footer {
     gap: 30px;
     padding: 6px;
   }
- 
+
   .sec6box p {
     font-size: 24px;
     font-weight: 400;
@@ -1882,6 +1923,10 @@ footer {
     font-weight: 700;
     line-height: 16.94px;
     text-align: left;
+  }
+  .section1-div {
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 @media screen and (max-width: 600px) {
@@ -2004,7 +2049,7 @@ footer {
   }
   .signup,
   .login {
-    color:#3E8076;
+    color: #3e8076;
     background: transparent !important;
     padding: 0 !important;
     text-align: left !important;
@@ -2095,7 +2140,7 @@ footer {
     gap: 30px;
     padding: 6px;
   }
-  .sec6boximg{
+  .sec6boximg {
     gap: 50px;
   }
   .sec6box p {
@@ -2194,7 +2239,7 @@ footer {
   }
   .signup,
   .login {
-    color:#3E8076;
+    color: #3e8076;
     background: transparent !important;
     padding: 0 !important;
     text-align: left !important;

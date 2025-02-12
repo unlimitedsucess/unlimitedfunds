@@ -49,7 +49,7 @@ main {
   background-image: url(image/contactus.svg);
   overflow-y: scroll;
 }
-header {
+/* header {
   width: 100%;
   height: fit-content;
   display: flex;
@@ -77,7 +77,7 @@ header {
   display: flex;
   flex-direction: row;
   /* padding-left: 156px;
-  padding-right: 336px; */
+  padding-right: 336px; 
 }
 
 
@@ -120,9 +120,9 @@ header {
 
 .header-nav ul li a:hover {
   color: #3E8076;
-}
+}*/
 
-/* Underline Effect */
+/* Underline Effect
 .header-nav ul li::after {
   content: "";
   position: absolute;
@@ -225,7 +225,7 @@ a {
 }
 .navbar {
   display: none;
-}
+} */
 .main-content {
   display: none;
 }
@@ -612,81 +612,7 @@ section {
   .globe {
     top: 0;
   }
-  .header-container {
-    display: none;
-  }
-  .mobile-view {
-    width: 100%;
-    display: block;
-    display: flex;
-    justify-content: space-between;
-  }
-  input,
-  select {
-    padding: 10px;
-  }
-  body {
-    font-size: 18px;
-    width: 100%;
-  }
-
-  .nav-box {
-    display: flex;
-    align-items: center;
-  }
-  #mobile-listnav {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
-    padding-left: 30px;
-    padding-top: 30px;
-  }
-  .navbar {
-    background-color: #3E8076;
-    width: 60%;
-    position: fixed;
-    top: 0;
-    right: 0;
-    display: none;
-    z-index: 5000;
-  }
-  .navbar.active {
-    display: block;
-  }
-  .drop-logo {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #ffffff;
-    height: fit-content;
-  }
-  #mobile-listnav ul,
-  li,
-  .navs {
-    color: #ffffff;
-    text-decoration: none;
-    list-style: none;
-    font-size: 24px;
-  }
-  header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-  .signup,
-  .login {
-    color: #3E8076 !important;
-    background: transparent !important;
-    padding: 0 !important;
-    text-align: left !important;
-    font-size: 18px !important;
-  }
-  .newlogin {
-    top: 40px;
-  }
+  
 }
 @media screen and (max-width: 720px) {
   body {
@@ -741,12 +667,5 @@ section {
     width: 250px;
     top: 5%;
   }
-  .signup,
-  .login {
-    color: #3E8076 !important;
-    background: transparent !important;
-    padding: 0 !important;
-    text-align: left !important;
-    font-size: 16px !important;
-  }
+
 }

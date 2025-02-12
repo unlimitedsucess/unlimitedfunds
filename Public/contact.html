@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>online banking</title>
+    <title>UnlimitedFunds Bank</title>
+    <link rel="icon" type="image/svg+xml" href="image/fevicon.svg">
+    <link rel="stylesheet" href="style.css">
     <link
       rel="icon"
       type="image/png"
@@ -179,9 +181,9 @@
                   reach us manually
                   <span>
                     <a
-                      href="@UnlimitedSfundsBank.gmail.com"
+                      href="@UnlimitedfundsBank.gmail.com"
                       style="text-decoration: none"
-                      >@UnlimitedSfundsBank.gmail.com</a
+                      >@UnlimitedfundsBank.gmail.com</a
                     ></span
                   >
                 </p>
@@ -327,24 +329,10 @@
       </section>
     </main>
     <script src="animation.js"></script>
+    <script src="header.js"></script>
     <script src="mobile.js"></script>
     <script>
-      // header area starts.....................
-      const staticHeader = document.querySelector(".static-header");
-      const fixedHeader = document.querySelector(".fixed-header");
-
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > staticHeader.offsetHeight) {
-          fixedHeader.classList.add("show");
-        } else {
-          fixedHeader.classList.remove("show");
-        }
-      });
-
-      //header area ends here
-
       //contact us form.....
-
       const phoneNumberInput = document.getElementById("phone-number");
       const dropdown = document.getElementById("dropdown");
 

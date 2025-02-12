@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>online banking</title>
+    <title>UnlimitedFunds Bank</title>
+    <link rel="icon" type="image/svg+xml" href="image/fevicon.svg">
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" sizes="16x16"  href="images/Frame 112369.svg">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <!-- CSS
@@ -157,9 +157,9 @@
           </div>
           <div class="content-div">
             <p class="content-p">BEST DIGITAL BANK</p>
-            <h3 class="content-h">A FUTURE OF BANKING WITH UNLIMITED SUCCESS FUNDS BANK</h3>
+            <h3 class="content-h">A FUTURE OF BANKING WITH UNLIMITED FUNDS BANK</h3>
             <p class="content-p2">
-              Bank smarter, not harder with Unlimited Success funds Bank, manage your finances
+              Bank smarter, not harder with Unlimited funds Bank, manage your finances
               effortlessly with our super intuitive digital platform
             </p>
             <div class="inner-div">
@@ -179,6 +179,9 @@
         </div>
       </section>
 
+
+
+      <!-- about us page --> 
      <section class="section2">
         <div class="title">
           <p>VALUES</p>
@@ -190,7 +193,7 @@
         <div class="flexbox">
           <div class="boxes">
             <div class="box">
-              <img src="image/Group 12.svg" alt="water bottle" />
+              <img src="image/earth-airplane.svg" alt="water bottle" />
               <h3>Secure international transaction</h3>
               <p>
                 Global transaction without stress and security hitches, our
@@ -198,7 +201,7 @@
               </p>
             </div>
             <div class="box">
-              <img src="image/Group 12.svg" alt="water bottle" />
+              <img src="image/customer-support-1--customer-headset-help-microphone-phone-support.svg" alt="water bottle" />
               <h3>24/7 Support from the expert team</h3>
               <p>
                 Our support is there 24/7 to attend to all your questions, feel
@@ -206,7 +209,7 @@
               </p>
             </div>
             <div class="box">
-              <img src="image/Group 12.svg" alt="water bottle" />
+              <img src="image/Wallet-Purse--Streamline-Core.svg.svg" alt="water bottle" />
               <h3>Lowest processing fee than other bank's</h3>
               <p>
                 Unlike other bank's who charge outrageous fees, we understand
@@ -214,7 +217,7 @@
               </p>
             </div>
             <div class="box">
-              <img src="image/Group 12.svg" alt="water bottle" />
+              <img src="image/Desktop-Check--Streamline-Core.svg.svg" alt="water bottle" />
               <h3>Less time in any loan's approval</h3>
               <p>
                 This is available for customers who are interested in taking
@@ -563,24 +566,8 @@
     </script>
   </body>
 </html>
-
-    <script>
-      // header area starts.....................
-      const staticHeader = document.querySelector('.static-header');
-      const fixedHeader = document.querySelector('.fixed-header');
-
-      window.addEventListener('scroll', () => {
-       const scrollY = window.scrollY;
-       if (scrollY > staticHeader.offsetHeight) {
-         fixedHeader.classList.remove('hidden');
-         fixedHeader.style.transform = 'translateY(0)';
-        } else {
-          fixedHeader.classList.add('hidden');
-          fixedHeader.style.transform = 'translateY(-100%)';
-        }
-      });
-        //header area ends here
-
+<script src="header.js"></script>
+  <script>
         //frequently ask question toggle button............
         const button1 = document.querySelector(".btn1")
         const button2 = document.querySelector(".btn2")
