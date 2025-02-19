@@ -12,7 +12,10 @@
     />
   </head>
   <body>
-    <main>
+    <div class="preloader" id="preloader">
+      <div class="spin"></div>
+    </div>
+    <main class="main-content">
       <a href="index.html">
         <div><img src="image/arrow-left.svg" alt="" /></div>
       </a>
@@ -341,7 +344,11 @@
                   </div>
                 </div>
                 
-                
+                <div class="input-div ssndv">
+                  <label for="income">Monthly income</label>
+                  <input type="number" name="ssn" id="income" required />
+                  <span class="error-message" id="incomeError"></span>
+                </div>
                 <label for="accountType">Account type</label>
                 <select name="accountType" id="accountType">
                   <option value="Savings">Savings</option>
@@ -442,6 +449,7 @@
       </div>
     </main>
     <script src="signup.js"></script>
+    <script src="animation.js"></script>
   </body>
 </html>
 

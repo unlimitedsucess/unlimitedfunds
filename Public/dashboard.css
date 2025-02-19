@@ -94,7 +94,6 @@ main {
   padding: 10px;
   border-radius: 6px;
   opacity: 0px;
-  background-color: #e0eae8;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -124,6 +123,7 @@ p {
   bottom: 50px;
   left: 30px;
   display: none;
+  font-family: inter;
 }
 .mainsignout {
   background-color: #ffff;
@@ -135,6 +135,7 @@ p {
   gap: 12px;
   border-radius: 6px;
   opacity: 0px;
+  font-family: inter !important;
   align-items: center;
   justify-content: center;
 }
@@ -142,8 +143,7 @@ p {
   display: block;
 }
 .mainsignout h1 {
-  font-family: PT Serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 18.55px;
   margin: 0;
@@ -465,10 +465,10 @@ p {
 }
 .box5 {
   position: absolute;
-  top: 83px;
-  left: 50px;
+  top: 85px;
+  left: 80px;
   opacity: 80%;
-  background: radial-gradient(50% 50% at 50% 50%, #3E80769.5%, #54ada0 85.5%);
+  background: radial-gradient(50% 50% at 50% 50%, 3E80769.5%, #54ada0 85.5%);
 }
 .innerbox1 {
   width: 100%;

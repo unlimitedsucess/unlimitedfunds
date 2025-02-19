@@ -13,6 +13,7 @@ const cancelSideBar = document.getElementById("cancel-sidebar");
 const signOutBtn = document.querySelectorAll(".Sign-out-btn");
 const confirmSigntOut = document.querySelectorAll(".confirm-signOut");
 const calcelSignOut = document.querySelectorAll(".no-signOut");
+const confirmSigntOutbtn = document.querySelectorAll(".yes-signOut")
 const helpbutton = document.querySelectorAll(".help-btn");
 const helpDetails = document.querySelectorAll(".help-screen");
 
@@ -52,6 +53,14 @@ signOutBtn.forEach((signOut) => {
     });
   });
 });
+
+confirmSigntOutbtn.forEach((signOutBtn)=>{
+  signOutBtn.addEventListener("click", function(event){
+    event.preventDefault();
+    window.location.href ="login.html"
+
+  })
+})
 
 calcelSignOut.forEach((cancelSO) => {
   cancelSO.addEventListener("click", function (event) {
