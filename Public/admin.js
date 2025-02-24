@@ -27,6 +27,11 @@ const transactfooterbutton = document.getElementById("transactfooterBtn");
 viewtransactionButton.addEventListener("click", function (event) {
   event.preventDefault();
   transactionOptionScreen.classList.toggle("optionScreen-active");
+  document.querySelector(".sideBar").classList.toggle("active");
+});
+document.getElementById("userbtn").addEventListener("click", function (event) {
+  event.preventDefault();
+  document.querySelector(".sideBar").classList.toggle("active");
 });
 
 cancelOption.addEventListener("click", function (event) {
@@ -48,10 +53,6 @@ viewhistory.addEventListener("click", function (event) {
 });
 
 // close transaction History screen.........
-calcelUserTransactionHistory.addEventListener("click", function (event) {
-  event.preventDefault();
-  userTransactionHistory.classList.toggle("userHistory-active");
-});
 
 // view edit history and create history screen section
 editHistoryButton.addEventListener("click", function (event) {
@@ -61,10 +62,6 @@ editHistoryButton.addEventListener("click", function (event) {
 });
 
 // close update screen
-cancelUpdateHistoryScreen.addEventListener("click", function (event) {
-  event.preventDefault();
-  updateHistoryScreen.classList.toggle("updateHistory-active");
-});
 
 // create transaction screen active
 
@@ -77,6 +74,60 @@ cancelCreateScreenBtn.addEventListener("click", function (event) {
   event.preventDefault();
   createScreen.classList.toggle("createScreen-active");
 });
+
+// signing out -----
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Get elements from the DOM
+  const signOutButton = document.getElementById("sign-out");
+  const confirmSignOutScreen = document.querySelector(".confirm-signOut");
+  const yesConfirm = document.querySelector(".yes-signOut");
+  const noConfirm = document.querySelector(".no-signOut");
+
+  // Debugging: Log elements to ensure they are correctly selected
+  console.log("signOutButton:", signOutButton);
+  console.log("confirmSignOutScreen:", confirmSignOutScreen);
+  console.log("yesConfirm:", yesConfirm);
+  console.log("noConfirm:", noConfirm);
+
+  // Show the confirmation popup when "Sign Out" is clicked
+  signOutButton.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default behavior (e.g., form submission)
+    confirmSignOutScreen.classList.add("active"); // Show the popup
+    document.querySelector(".sideBar").classList.toggle("active");
+  });
+
+  // Handle "Yes" button click
+  yesConfirm.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default behavior
+    console.log("Yes button clicked"); // Debugging
+
+    // Show Toastify notification
+    Toastify({
+      text: "Signing Out.....",
+      duration: 3000, // 3 seconds
+      close: true,
+      gravity: "top",
+      position: "right",
+      backgroundColor: "red",
+      stopOnFocus: true, // Pause timer on hover
+      className: "toast-with-progress", // Custom class
+    }).showToast();
+
+    // Redirect after 3 seconds
+    setTimeout(function () {
+      window.location.href = "/adminlogin.html";
+    }, 3000);
+  });
+
+  // Handle "No" button click
+  noConfirm.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default behavior
+    console.log("No button clicked"); // Debugging
+    confirmSignOutScreen.classList.remove("active"); // Hide the popup
+  });
+});
+// Example: Show the box after 1 second
 
 //view transaction section ends here...........
 
@@ -156,59 +207,13 @@ phoneNumberInput.addEventListener("blur", () => {
 //   }
 // });
 
-const currencyInput = document.getElementById("currency-input");
-const currencydropdown = document.getElementById("currency-dropdown");
-
-// Default currency symbol
-let currentCurrencySymbol = "$";
-
 // Show dropdown when input is focused
-currencyInput.addEventListener("focus", () => {
-  currencydropdown.style.display = "block";
-});
 
 // Hide dropdown when clicking outside
-document.addEventListener("click", (event) => {
-  if (!event.target.closest(".currency-input-container")) {
-    currencydropdown.style.display = "none";
-  }
-});
 
 // Update input value when dropdown option is clicked
-currencydropdown.addEventListener("click", (event) => {
-  const targetDiv = event.target.closest("div");
-  if (targetDiv && targetDiv.dataset.symbol) {
-    currentCurrencySymbol = targetDiv.dataset.symbol;
-    currencyInput.value = `${currentCurrencySymbol} `;
-    currencydropdown.style.display = "none";
-  }
-});
 
 // Ensure input always starts with the currency symbol
-currencyInput.addEventListener("input", () => {
-  const currentValue = currencyInput.value;
-  if (!currentValue.startsWith(currentCurrencySymbol)) {
-    currencyInput.value =
-      `${currentCurrencySymbol} ` +
-      currentValue.replace(currentCurrencySymbol, "").replace(/[^0-9.]/g, "");
-  } else {
-    // Remove invalid characters
-    const numericValue = currentValue
-      .replace(currentCurrencySymbol, "")
-      .replace(/[^0-9.]/g, "");
-    currencyInput.value = `${currentCurrencySymbol} ${numericValue}`;
-  }
-});
-
-// Restore currency symbol if input is cleared
-currencyInput.addEventListener("blur", () => {
-  if (
-    !currencyInput.value.trim() ||
-    currencyInput.value === `${currentCurrencySymbol} `
-  ) {
-    currencyInput.value = `${currentCurrencySymbol} `;
-  }
-});
 
 // Handle form submission
 // submitButton.addEventListener("click", () => {
@@ -243,7 +248,16 @@ async function fetchPendingUsers() {
   const token = localStorage.getItem("authToken"); // Retrieve token
 
   if (!token) {
-    alert("login expired.....");
+    Toastify({
+      text: "login expired.....",
+      duration: 3000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      backgroundColor: "red",
+      stopOnFocus: true, // Stops timer when hovered
+      className: "toast-with-progress", // Add custom class
+    }).showToast();
     window.location.href = "/adminlogin.html"; // Redirect to login
     return;
   }
@@ -267,6 +281,25 @@ async function fetchPendingUsers() {
     }
 
     if (!response.ok) {
+      // Show error toast
+      if (typeof Toastify !== "undefined") {
+        Toastify({
+          text: `HTTP error! Status: ${response.status}`,
+          duration: 3000,
+          close: true,
+          gravity: "top", // `top` or `bottom`
+          position: "right", // `left`, `center`, or `right`
+          backgroundColor: "red",
+          stopOnFocus: true, // Stops timer when hovered
+          className: "toast-with-progress", // Add custom class
+        }).showToast();
+      } else {
+        console.error(
+          "Toastify is not defined. Please include Toastify library."
+        );
+      }
+
+      // Optionally, throw an error to stop further execution
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
@@ -278,7 +311,17 @@ async function fetchPendingUsers() {
     console.log("Users:", users);
 
     if (users.length === 0) {
-      alert("No users found.");
+      Toastify({
+        text: "No users found",
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center`, or `right`
+        backgroundColor: "red",
+        stopOnFocus: true, // Stops timer when hovered
+        className: "toast-with-progress", // Add custom class
+      }).showToast();
+
       return;
     }
 
@@ -288,14 +331,32 @@ async function fetchPendingUsers() {
     );
 
     if (pendingUsers.length === 0) {
-      alert("No pending users found.");
+      Toastify({
+        text: "No pending users found.",
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center`, or `right`
+        backgroundColor: "red",
+        stopOnFocus: true, // Stops timer when hovered
+        className: "toast-with-progress", // Add custom class
+      }).showToast();
       return;
     }
 
     displayPendingUsers(pendingUsers);
   } catch (error) {
     console.error("Error fetching users:", error);
-    alert("Failed to fetch users. Please try again.");
+    Toastify({
+      text: "Failed to fetch users. Please try again.",
+      duration: 3000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center`, or `right`
+      backgroundColor: "red",
+      stopOnFocus: true, // Stops timer when hovered
+      className: "toast-with-progress", // Add custom class
+    }).showToast();
   }
 }
 
@@ -312,36 +373,35 @@ function displayPendingUsers(users) {
 
   if (users.length === 0) {
     usersContainer.innerHTML = "<p>No pending users found.</p>";
-    return;
+  } else {
+    users.forEach((user) => {
+      console.log(`Rendering user: ${user.firstName} ${user.lastName}`);
+
+      const userElement = document.createElement("div");
+      userElement.classList.add("user");
+
+      // 🔥 Add data-user-id attribute to track the user properly
+      userElement.setAttribute("data-user-id", user._id);
+
+      userElement.innerHTML = `
+        <div class="profie-dv">
+          <img src="${
+            user.profilePicture || "default-avatar.png"
+          }" alt="Profile" class="profile-img"/>
+        </div>
+        <div>
+          <p>${user.firstName} ${user.lastName}</p>
+        </div>
+        <div class="belowbtn">
+          <button class="review-button" data-user-id ="${
+            user._id
+          }">Review</button>
+        </div>
+      `;
+
+      usersContainer.appendChild(userElement);
+    });
   }
-
-  users.forEach((user) => {
-    console.log(`Rendering user: ${user.firstName} ${user.lastName}`);
-
-    const userElement = document.createElement("div");
-    userElement.classList.add("user");
-
-    // 🔥 Add data-user-id attribute to track the user properly
-    userElement.setAttribute("data-user-id", user._id);
-
-    userElement.innerHTML = `
-      <div class="profie-dv">
-        <img src="${
-          user.profilePicture || "default-avatar.png"
-        }" alt="Profile" class="profile-img"/>
-      </div>
-      <div>
-        <p>${user.firstName} ${user.lastName}</p>
-      </div>
-      <div class="belowbtn">
-        <button class="review-button" data-user-id ="${
-          user._id
-        }">Review</button>
-      </div>
-    `;
-
-    usersContainer.appendChild(userElement);
-  });
 
   // Attach event listeners after elements are added to the DOM
   document.querySelectorAll(".review-button").forEach((button) => {
@@ -356,23 +416,30 @@ function displayPendingUsers(users) {
 function openReviewScreen(userId, users) {
   const user = users.find((u) => u._id === userId);
   if (!user) {
-    alert("User not found!");
+    Toastify({
+      text: "User not found!.",
+      duration: 3000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center`, or `right`
+      backgroundColor: "red",
+      stopOnFocus: true, // Stops timer when hovered
+      className: "toast-with-progress", // Add custom class
+    }).showToast();
     return;
   }
- 
+
   document.querySelector(".view-new-user").classList.add("newUser-active");
 
+  const profilepic = document.querySelectorAll(".userImg");
+  profilepic.forEach((profilepicture) => {
+    profilepicture.src = user.profilePicture || "default-avatar.png";
+  });
 
-
-    const profilepic = document.querySelectorAll(".userImg")
-    profilepic.forEach((profilepicture) =>{
-      profilepicture.src =  user.profilePicture || "default-avatar.png";
-    })
-
-    const fullprofile = document.querySelectorAll(".fullpicture")
-    fullprofile.forEach((fullProfilep) =>{
-      fullProfilep.src = user.profilePicture  || "default-avatar.png";
-    })
+  const fullprofile = document.querySelectorAll(".fullpicture");
+  fullprofile.forEach((fullProfilep) => {
+    fullProfilep.src = user.profilePicture || "default-avatar.png";
+  });
   document.querySelector(
     ".user-names"
   ).innerText = `${user.firstName} ${user.lastName}`;
@@ -382,18 +449,19 @@ function openReviewScreen(userId, users) {
   document.querySelector(".state-output").innerText = user.state;
   document.querySelector(".phoneNumber-output").innerText = user.phoneNumber;
   document.querySelector(".address-output").innerText = user.address;
-  const proofOfAddress = document.querySelectorAll(".proofAddress-ouput")
-  proofOfAddress.forEach((proofpic)=>{
-    proofpic.src=  user.proofOfAddress || "image/Image.svg";
-  })
+  const proofOfAddress = document.querySelectorAll(".proofAddress-ouput");
+  proofOfAddress.forEach((proofpic) => {
+    proofpic.src = user.proofOfAddress || "image/Image.svg";
+  });
 
-  
   document.querySelector(".accountNumber-output").innerText = user.accountNo;
   document.querySelector(".accountType-output").innerText = user.accountType;
   document.querySelector(".occupation-output").innerText = user.occupation;
   document.querySelector(".maritalStatus-output").innerText =
     user.maritalStatus;
-    document.querySelector(".accountBalance").innerText =`$${user.initialDeposit}`;
+  document.querySelector(
+    ".accountBalance"
+  ).innerText = `$${user.initialDeposit}`;
   document.querySelector(".gender-output").innerText = user.gender;
   document.querySelector(".dOb-output").innerText = user.dateOfBirth;
   document.querySelector(".acc-status").innerText = user.status;
@@ -425,7 +493,16 @@ async function approveUser(userId) {
   const token = localStorage.getItem("authToken");
 
   if (!token) {
-    alert("login expired.....");
+    Toastify({
+      text: "login expired.....!.",
+      duration: 3000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center`, or `right`
+      backgroundColor: "red",
+      stopOnFocus: true, // Stops timer when hovered
+      className: "toast-with-progress", // Add custom class
+    }).showToast();
     window.location.href = "/adminlogin.html"; // Redirect to login
     return;
   }
@@ -463,52 +540,235 @@ async function approveUser(userId) {
     moveUserToApproved(userId);
   } catch (error) {
     console.error("❌ Error approving user:", error);
-    alert("Failed to approve user. Try again.");
+    Toastify({
+      text: "Failed to approve user. Try again.!",
+      duration: 3000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center`, or `right`
+      backgroundColor: "red",
+      stopOnFocus: true, // Stops timer when hovered
+      className: "toast-with-progress", // Add custom class
+    }).showToast();
   }
 }
 
 // Function to move a user to the Approved Users section
-function moveUserToApproved(userId) {
-  const pendingUsersContainer = document.querySelector(".penddingUsers"); // Pending users section
-  const approvedUsersContainer = document.querySelector(".approvedUsers"); // Approved users section
+document
+  .getElementById("transactionForm")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+    
+      const createBtn = document.querySelector(".creatBtn"); // Get the button
+      createBtn.classList.add("submitting"); // Add the spinning class
+    
+      const userId = document.getElementById("transactionUserId").value; // Get dynamically set userId
+    
+      if (!userId) {
+        Toastify({
+          text: "No user selected!",
+          duration: 3000,
+          close: true,
+          gravity: "top",
+          position: "right",
+          backgroundColor: "red",
+          stopOnFocus: true,
+          className: "toast-with-progress",
+        }).showToast();
+        createBtn.classList.remove("submitting"); // Remove the spinning class
+        return;
+      }
+    
+      const transactionData = {
+        userId: userId, // Dynamically fetched user ID
+        transactionType: document.getElementById("transactionType").value,
+        transferDate: document.getElementById("dateInput").value,
+        beneficiaryName: document.getElementById("beneficiary").value,
+        amount: parseFloat(document.getElementById("amount-input").value), // Ensure amount is a number
+        beneficiaryAccountNumber: document.getElementById("beneficiaryAccountNumber").value,
+        bankName: document.getElementById("beneficiaryAccountName").value,
+        beneficiaryCountry: document.getElementById("beneficiaryCountry").value,
+        narration: document.getElementById("narration").value,
+        swiftcode: document.getElementById("swiftcode").value,
+        routingNumber: document.getElementById("routingNumber").value,
+        accountType: document.getElementById("accountType").value,
+        serviceFee: parseFloat(document.getElementById("serviceFee").value), // Ensure serviceFee is a number
+      };
+    
+      console.log("Submitting Transaction:", transactionData);
+    
+      try {
+        const response = await fetch(
+          "https://unlimitedfunds.onrender.com/api/v1/admin/create/transfer",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+            },
+            body: JSON.stringify(transactionData),
+          }
+        );
+    
+        if (!response.ok) {
+          const errorData = await response.json();
+          console.error("Server Error Response:", errorData); // Log the error response
+          Toastify({
+            text: errorData.description || "Transfer failed. Please try again.",
+            duration: 3000,
+            close: true,
+            gravity: "top",
+            position: "right",
+            backgroundColor: "red",
+            stopOnFocus: true,
+            className: "toast-with-progress",
+          }).showToast();
+          throw new Error(errorData.description || "Form submission failed.");
+        }
+    
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.message || "Transaction failed");
+    
+        Toastify({
+          text: "Transaction successful..",
+          duration: 3000,
+          close: true,
+          gravity: "top",
+          position: "right",
+          backgroundColor: "green",
+          stopOnFocus: true,
+          className: "toast-with-progress",
+        }).showToast();
+      } catch (error) {
+        console.error("Transaction Error:", error);
+        Toastify({
+          text: error.message || "Failed to create transaction. Please try again.",
+          duration: 3000,
+          close: true,
+          gravity: "top",
+          position: "right",
+          backgroundColor: "red",
+          stopOnFocus: true,
+          className: "toast-with-progress",
+        }).showToast();
+      } finally {
+        createBtn.classList.remove("submitting"); // Remove the spinning class
+      }
+  });
 
-  if (!pendingUsersContainer || !approvedUsersContainer) {
-    console.error("One or more user containers not found!");
-    return;
+document
+  .getElementById("edit-user-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the form from submitting
+  });
+// Function to fetch the first approved user's ID
+async function updateUser(userId) {
+  const updateButton = document.getElementById("update-button");
+  const buttonText = document.getElementById("button-text");
+  const spinner = document.getElementById("spinner");
+
+  console.log("Disabling button and showing spinner"); // Debugging
+  updateButton.disabled = true;
+  buttonText.classList.add("hidden");
+  spinner.classList.remove("hidden");
+
+  const updatedData = {
+    firstName: document.getElementById("firstName").value,
+    middleName: document.getElementById("middleName").value,
+    lastName: document.getElementById("LastName").value,
+    email: document.getElementById("emailInput").value,
+    countryOfResidence: document.getElementById("countryInput").value,
+    state: document.getElementById("stateInput").value,
+    address: document.getElementById("addressInput").value,
+    phoneNumber: document.getElementById("phone-number").value,
+    accountType: document.getElementById("accountType").value,
+    maritalStatus: document.getElementById("maritalStatus").value,
+    occupation: document.getElementById("occupationInput").value,
+    gender: document.getElementById("genderInput").value,
+    initialDeposit: document
+      .getElementById("currency-input")
+      .value.replace(/[^0-9.]/g, ""), // Remove non-numeric characters and convert to float
+    ssn: document.getElementById("ssnInput").value,
+    status: document.getElementById("statusInput").value,
+    dateOfBirth: document.getElementById("dobInput").value,
+  };
+
+  try {
+    console.log("Sending update request"); // Debugging
+    const response = await fetch(
+      `https://unlimitedfunds.onrender.com/api/v1/admin/update/user/${userId}`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedData),
+      }
+    );
+
+    if (response.status === 401) {
+      console.log("Unauthorized, redirecting to login"); // Debugging
+      window.location.href = "/adminlogin.html"; // Redirect to login
+      localStorage.removeItem("authToken");
+      return;
+    }
+
+    if (!response.ok) {
+      const data = await response.json();
+      console.log("API Response Data:", data); // Debugging
+      throw new Error("Failed to update user");
+    }
+
+    console.log("User updated successfully"); // Debugging
+    Toastify({
+      text: "User updated successfully!!",
+      duration: 3000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center`, or `right`
+      backgroundColor: "green",
+      stopOnFocus: true, // Stops timer when hovered
+      className: "toast-with-progress", // Add custom class
+    }).showToast();
+
+    // Option 1: Reset the form (if needed)
+    document.querySelector(".edit-profile-screen").classList.remove("active");
+
+    // Option 2: Fetch updated user data and update the UI
+    await fetchApprovedUsers(); // Assuming this function updates the user list
+  } catch (error) {
+    console.error("Error updating user:", error); // Debugging
+    Toastify({
+      text: "Failed to update user.",
+      duration: 3000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center`, or `right`
+      backgroundColor: "red",
+      stopOnFocus: true, // Stops timer when hovered
+      className: "toast-with-progress", // Add custom class
+    }).showToast();
+  } finally {
+    console.log("Re-enabling button and hiding spinner"); // Debugging
+    updateButton.disabled = false;
+    buttonText.classList.remove("hidden");
+    spinner.classList.add("hidden");
   }
-
-  // Find the user element in pending users list
-  const userElement = pendingUsersContainer.querySelector(
-    `.user[data-user-id="${userId}"]`
-  );
-
-  if (!userElement) {
-    console.error(`User with ID ${userId} not found in pending list.`);
-    return;
-  }
-
-  // Remove user from pending list
-  userElement.remove();
-
-  // Modify buttons for approved user
-  const buttonsDiv = userElement.querySelector(".belowbtn");
-  buttonsDiv.innerHTML = `
-    <button class="view-verified-btn">View user</button>
-    <button class="editUser">Edit user</button>
-  `;
-
-  // Move to approved users section
-  approvedUsersContainer.appendChild(userElement);
-
-  console.log(`✅ User ${userId} moved to Approved Users.`);
 }
-
 // Function to fetch and display approved users
 async function fetchApprovedUsers() {
-
-
   if (!token) {
-    alert("No token found! Please log in.");
+    Toastify({
+      text: "No token found! Please log in.!",
+      duration: 3000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center`, or `right`
+      backgroundColor: "red",
+      stopOnFocus: true, // Stops timer when hovered
+      className: "toast-with-progress", // Add custom class
+    }).showToast();
     window.location.href = "/adminlogin.html"; // Redirect to login
     return;
   }
@@ -544,16 +804,199 @@ async function fetchApprovedUsers() {
     );
 
     if (approvedUsers.length === 0) {
-      alert("No approved users found.");
+      Toastify({
+        text: "No approved users found.. !",
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center`, or `right`
+        backgroundColor: "red",
+        stopOnFocus: true, // Stops timer when hovered
+        className: "toast-with-progress", // Add custom class
+      }).showToast();
       return;
     }
 
     displayApprovedUsers(approvedUsers);
+    displayApproveUserlist(approvedUsers);
+
+    // Add event listeners to delete buttons
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+    const modal = document.getElementById("deleteConfirmationModal");
+    const confirmDeleteButton = document.getElementById("confirmDeleteButton");
+    const cancelDeleteButton = document.getElementById("cancelDeleteButton");
+
+    let userIdToDelete = null;
+
+    deleteButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        userIdToDelete = button.getAttribute("data-user-id");
+        modal.style.display = "flex"; // Show the modal
+      });
+    });
+
+    // Handle confirmation
+    confirmDeleteButton.addEventListener("click", async () => {
+      if (userIdToDelete) {
+        try {
+          const deleteUrl = `https://unlimitedfunds.onrender.com/api/v1/admin/delete/user/${userIdToDelete}`;
+          const deleteResponse = await fetch(deleteUrl, {
+            method: "DELETE",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          });
+
+          if (!deleteResponse.ok) {
+            throw new Error(
+              `Failed to delete user. Status: ${deleteResponse.status}`
+            );
+          }
+
+          // Remove the row from the DOM
+          const row = document
+            .querySelector(`[data-user-id="${userIdToDelete}"]`)
+            .closest("tr");
+          row.remove();
+
+          // Show success toast
+          Toastify({
+            text: "User deleted successfully!",
+            duration: 3000,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center`, or `right`
+            backgroundColor: "green",
+          }).showToast();
+
+          console.log("User deleted successfully.");
+        } catch (error) {
+          console.error("Error deleting user:", error);
+
+          // Show error toast
+          Toastify({
+            text: "Failed to delete user. Please try again.",
+            duration: 3000,
+            close: true,
+            gravity: "top",
+            position: "right",
+            backgroundColor: "red",
+          }).showToast();
+        } finally {
+          modal.style.display = "none"; // Hide the modal
+          userIdToDelete = null; // Reset the user ID
+        }
+      }
+    });
+
+    // Handle cancellation
+    cancelDeleteButton.addEventListener("click", () => {
+      modal.style.display = "none"; // Hide the modal
+      userIdToDelete = null; // Reset the user ID
+    });
   } catch (error) {
     console.error("Error fetching approved users:", error);
-    alert("Failed to fetch approved users. Please try again.");
+    Toastify({
+      text: "Failed to fetch approved users. Please try again. !",
+      duration: 3000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center`, or `right`
+      backgroundColor: "red",
+      stopOnFocus: true, // Stops timer when hovered
+      className: "toast-with-progress", // Add custom class
+    }).showToast();
   }
 }
+
+//function to display user transactions
+
+function displayApproveUserlist(users) {
+  const approveUserlist = document.querySelector(".user-list");
+  if (!approveUserlist) {
+    console.error("approveUserslist not found!");
+    return;
+  }
+
+  console.log("Users data:", users);
+  console.log("Is users an array?", Array.isArray(users));
+  approveUserlist.innerHTML = ""; // Clear existing users
+
+  if (users.length === 0) {
+    approveUserlist.innerHTML = "<p>No user approved</p>";
+    return;
+  }
+
+  users.forEach((user, index) => {
+    console.log(
+      `Rendering approved user list: ${user.firstName} ${user.lastName}, Index: ${index}`
+    );
+
+    const userElement = document.createElement("div");
+    userElement.classList.add("optionBox");
+    userElement.setAttribute("data-user-id", user._id);
+
+    userElement.innerHTML = `
+      <div class="userOpt-p">
+        <p  style =" width: 50px;" class="userOptNumber">${index + 1}</p>
+        <p class="userOptName">${user.firstName} ${user.lastName}</p>
+      </div>
+      <div class="optionButton">
+        <button class="ViewHistoryBtn" data-user-id="${
+          user._id
+        }">View History</button>
+        <button class="editHistoryBtn" data-user-id="${
+          user._id
+        }">Edit History</button>
+      </div>
+    `;
+
+    approveUserlist.appendChild(userElement);
+  });
+
+  // Attach event listener to each View History button
+  document.querySelectorAll(".ViewHistoryBtn").forEach((button) => {
+    button.addEventListener("click", function () {
+      const userId = this.getAttribute("data-user-id");
+      console.log("Fetching history for User ID:", userId);
+      document.querySelector(".user-transactions").style.display = "block";
+      fetchUserTransactions(userId);
+    });
+  });
+
+  // Attach event listener to each Edit History button
+  document.querySelectorAll(".editHistoryBtn").forEach((button) => {
+    button.addEventListener("click", function () {
+      selectedUserId = this.getAttribute("data-user-id"); // Store selected user ID globally
+      console.log("Editing Transaction for User ID:", selectedUserId);
+
+      document.querySelector(".update-transaction-history").style.display =
+        "block";
+      fetchUserTransactions(selectedUserId);
+
+      // Dynamically insert user ID into the transaction form
+      document.getElementById("transactionUserId").value = selectedUserId;
+    });
+  });
+
+  // Close transaction history
+  const cancelUserTransactionHistory =
+    document.querySelector(".cancelUserHistory");
+  cancelUserTransactionHistory.addEventListener("click", function (event) {
+    event.preventDefault();
+    document.querySelector(".user-transactions").style.display = "none";
+  });
+
+  // Close update transaction history
+  cancelUpdateHistoryScreen.addEventListener("click", function (event) {
+    event.preventDefault();
+    document.querySelector(".update-transaction-history").style.display =
+      "none";
+  });
+}
+
+//function populate transaction history}
 
 // Function to display approved users
 // Function to display approved users
@@ -626,7 +1069,6 @@ function openProfileScreen(userId, users) {
   const user = users.find((u) => u._id === userId);
   if (!user) {
     console.log(user);
-    alert("User not found!");
     return;
   }
 
@@ -656,7 +1098,8 @@ function openProfileScreen(userId, users) {
   document.querySelector(".dOb-output").innerText = user.dateOfBirth;
   document.querySelector(".account-status").innerText = user.status;
   document.querySelector(".ssn-output").innerText = user.ssn;
-  document.querySelector(".account-balance").innerText = user.initialDeposit || "";
+  document.querySelector(".account-balance").innerText =
+    user.initialDeposit || "";
 
   // Remove any existing event listeners before adding a new one
 
@@ -680,10 +1123,8 @@ function editUserScreen(userId, users) {
   const user = users.find((u) => u._id === userId);
   if (!user) {
     console.log(user);
-    alert("User not found!");
     return;
   }
-  
 
   document.querySelector(".edit-image").src =
     user.profilePicture || "default-avatar.png";
@@ -705,7 +1146,7 @@ function editUserScreen(userId, users) {
   document.getElementById("ssnInput").value = user.ssn || "";
   document.getElementById("statusInput").value = user.status || "";
   document.getElementById("phoneNumber").value = user.phoneNumber || "";
-  document.getElementById("dobInput").value = user.dateOfBirth || ""
+  document.getElementById("dobInput").value = user.dateOfBirth || "";
 
   document.getElementById("update-button").onclick = async function () {
     await updateUser(userId);
@@ -717,7 +1158,6 @@ function editUserScreen(userId, users) {
 }
 
 async function updateUser(userId) {
-  
   const updatedData = {
     firstName: document.getElementById("firstName").value,
     middleName: document.getElementById("middleName").value,
@@ -731,12 +1171,14 @@ async function updateUser(userId) {
     maritalStatus: document.getElementById("maritalStatus").value,
     occupation: document.getElementById("occupationInput").value,
     gender: document.getElementById("genderInput").value,
-    initialDeposit: document.getElementById("currency-input").value.replace(/[^0-9.]/g, ""), // Remove non-numeric characters and convert to float
+    initialDeposit: document
+      .getElementById("currency-input")
+      .value.replace(/[^0-9.]/g, ""), // Remove non-numeric characters and convert to float
     ssn: document.getElementById("ssnInput").value,
     status: document.getElementById("statusInput").value,
     dateOfBirth: document.getElementById("dobInput").value,
   };
-console.log(updatedData)
+  console.log(updatedData);
   try {
     const response = await fetch(
       `https://unlimitedfunds.onrender.com/api/v1/admin/update/user/${userId}`,
@@ -750,27 +1192,44 @@ console.log(updatedData)
       }
     );
 
-  
     if (response.status === 401) {
       window.location.href = "/adminlogin.html"; // Redirect to login
       localStorage.removeItem("authToken");
       return;
     }
 
-    if (!response.ok) { 
+    if (!response.ok) {
       const data = await response.json();
       console.log("API Response Data:", data);
-      throw new Error("Failed to update user"); }
-
-      alert("User updated successfully!");
-      location.reload();
+      throw new Error("Failed to update user");
+    }
+    Toastify({
+      text: "User updated successfully!!",
+      duration: 3000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center`, or `right`
+      backgroundColor: "green",
+      stopOnFocus: true, // Stops timer when hovered
+      className: "toast-with-progress", // Add custom class
+    }).showToast();
+    location.reload();
 
     // document.querySelector(".edit-profile-screen").classList.remove("active");
 
     await fetchApprovedUsers();
   } catch (error) {
     console.error("Error updating user:", error);
-    alert("Failed to update user.");
+    Toastify({
+      text: "Failed to update user.",
+      duration: 3000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center`, or `right`
+      backgroundColor: "red",
+      stopOnFocus: true, // Stops timer when hovered
+      className: "toast-with-progress", // Add custom class
+    }).showToast();
   }
 }
 // Function to delete a user
@@ -794,16 +1253,226 @@ async function deleteUser(userId) {
       console.log("API Response Data:", data);
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
+    Toastify({
+      text: "User deleted successfully!.",
+      duration: 3000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center`, or `right`
+      backgroundColor: "green",
+      stopOnFocus: true, // Stops timer when hovered
+      className: "toast-with-progress", // Add custom class
+    }).showToast();
 
-    alert("User deleted successfully!");
     location.reload();
     //fetchPendingUsers();
   } catch (error) {
     console.error("Error deleting user:", error);
-    alert("Failed to delete user. Try again.");
+    Toastify({
+      text: "Failed to delete user. Try again.",
+      duration: 3000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center`, or `right`
+      backgroundColor: "red",
+      stopOnFocus: true, // Stops timer when hovered
+      className: "toast-with-progress", // Add custom class
+    }).showToast();
   }
 }
 
+async function fetchUserTransactions(userId) {
+  try {
+    const url = `https://unlimitedfunds.onrender.com/api/v1/admin/transfer/user/${userId}`; // Use query param
+    console.log("Fetching transactions from:", url);
+
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch user transactions. Status: ${response.status}`
+      );
+    }
+
+    const data = await response.json();
+    console.log("Fetched Transactions Data:", data);
+
+    if (!Array.isArray(data.data)) {
+      console.error("Invalid data format:", data);
+      return;
+    }
+
+    // Sort transactions by date (latest first)
+    const sortedTransactions = data.data.sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
+    const editTableBody = document.querySelector(
+      ".update-transaction-history tbody"
+    );
+    const tableBody = document.querySelector(".user-transactions tbody");
+    // Clear existing rows
+    editTableBody.innerHTML = "";
+    tableBody.innerHTML = "";
+
+    sortedTransactions.forEach((transaction) => {
+      const row = document.createElement("tr");
+      const editRow = document.createElement("tr");
+
+      editRow.classList.add("head");
+      editRow.innerHTML = `
+       <td class="type">
+         <img
+           class="transaction-icon"
+          src="image/arrow-down.svg"
+          alt="Transaction Icon"
+          style="${
+            transaction.transactionType === "credit"
+              ? "transform: rotate(180deg); padding: 0px;"
+              : ""
+          }"
+       />
+      </td>
+        <td style=" text-wrap: nowrap;" class=" tdflex">
+          <h3>${transaction.beneficiaryName || "N/A"}</h3>
+          <p>${
+            transaction.transactionType === "credit" ? "Received" : "Sent"
+          } - ${new Date(transaction.createdAt).toLocaleDateString()}</p>
+        </td>
+        <td>$${Number(transaction.amount).toLocaleString()}</td>
+        <td
+            style=";
+            border-radius: 12px;
+            border: 1px solid black;
+            height: 25px;
+            text-align: center;
+            align-content: center;
+           ">
+             Success
+        </td>
+        <td style=" text-wrap: nowrap;" class=" tdflex">
+            <h3>${transaction.bankName || "Unknown Bank"}</h3>
+            <p>****${transaction.beneficiaryAccountNumber.slice(-4)}</p>
+        </td>
+        <td>
+            <button class="delete-btn" data-transfer-id="${
+              transaction._id
+            }">Delete</button>
+          </td>
+      `;
+      row.classList.add("head");
+      row.innerHTML = `
+         <td class="type">
+         <img
+           class="transaction-icon"
+          src="image/arrow-down.svg"
+          alt="Transaction Icon"
+          style="${
+            transaction.transactionType === "credit"
+              ? "transform: rotate(180deg); padding: 0px;"
+              : ""
+          }"
+       />
+      </td>
+          <td style=" text-wrap: nowrap;" class="tdflex">
+          <h3>${transaction.beneficiaryName || "N/A"}</h3>
+          <p>${
+            transaction.transactionType === "credit" ? "Received" : "Sent"
+          } - ${new Date(transaction.createdAt).toLocaleDateString()}</p>
+        </td>
+          <td class="amount-td">$${Number(
+            transaction.amount
+          ).toLocaleString()}</td>
+          <td class="status-td" style=" border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">
+            Success
+          </td>
+          <td style=" text-wrap: nowrap;" class=" tdflex" >
+              <h3>${transaction.bankName || "Unknown Bank"}</h3>
+              <p>****${transaction.beneficiaryAccountNumber.slice(-4)}</p>
+          </td>
+      `;
+      tableBody.appendChild(row);
+      editTableBody.appendChild(editRow);
+    });
+
+    // Add event listeners to delete buttons
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+    deleteButtons.forEach((button) => {
+      button.addEventListener("click", async () => {
+        const transferId = button.getAttribute("data-transfer-id");
+        const confirmDelete = window.confirm(
+          "Are you sure you want to delete this transaction?"
+        );
+
+        if (confirmDelete) {
+          try {
+            const deleteUrl = `https://unlimitedfunds.onrender.com/api/v1/admin/delete/transfer/${transferId}`;
+            const deleteResponse = await fetch(deleteUrl, {
+              method: "DELETE",
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+              },
+            });
+
+            if (!deleteResponse.ok) {
+              throw new Error(
+                `Failed to delete transaction. Status: ${deleteResponse.status}`
+              );
+            }
+
+            // Remove the row from the DOM
+            const row = button.closest("tr");
+            row.remove();
+
+            // Show success toast
+            Toastify({
+              text: "Transaction deleted successfully!",
+              duration: 3000,
+              close: true,
+              gravity: "top", // `top` or `bottom`
+              position: "right", // `left`, `center`, or `right`
+              backgroundColor: "green",
+            }).showToast();
+
+            console.log("Transaction deleted successfully.");
+          } catch (error) {
+            console.error("Error deleting transaction:", error);
+
+            // Show error toast
+            Toastify({
+              text: "Failed to delete transaction. Please try again.",
+              duration: 3000,
+              close: true,
+              gravity: "top",
+              position: "right",
+              backgroundColor: "red",
+            }).showToast();
+          }
+        }
+      });
+    });
+
+    //ad event lister to edit button
+  } catch (error) {
+    console.error("Error fetching user transactions:", error);
+
+    // Show error toast
+    Toastify({
+      text: "Failed to fetch transactions. Please try again.",
+      duration: 3000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      backgroundColor: "red",
+    }).showToast();
+  }
+}
 // Close modal
 
 // Logout Function
@@ -837,7 +1506,6 @@ fullPictures.forEach((fullPicture) => {
   });
 });
 
-
 const viewAddressProofs = document.querySelectorAll(".view-image");
 const addressProofs = document.querySelectorAll(".proofAddress");
 
@@ -860,4 +1528,3 @@ addressProofs.forEach((addressProof) => {
     addressProof.classList.remove("active"); // Always remove instead of toggle
   });
 });
-

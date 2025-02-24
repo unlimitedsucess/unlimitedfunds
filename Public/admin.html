@@ -4,12 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UnlimitedFunds Bank</title>
-    <link rel="icon" type="image/svg+xml" href="image/fevicon.svg">
+    <link rel="icon" type="image/svg+xml" href="image/fevicon.svg" />
     <link rel="stylesheet" href="admin.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    
+    />
+    <!-- Add this to the <head> of your HTML file -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+/>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   </head>
   <body>
     <main>
+      <div class="confirm-signOut">
+        <div class="mainsignout">
+          <h1>Are you sure you want sign out?</h1>
+          <div class="signout-dv">
+            <button class="yes-signOut">Yes</button>
+            <button class="no-signOut">No</button>
+          </div>
+        </div>
+      </div>
       <div class="overall-div">
+       <div class="sideBar">
         <div id="sideBar">
           <div class="nav1">
             <div class="sideBarBox">
@@ -44,18 +65,13 @@
               />
               <p>Users</p>
             </a>
-            <button class="flexbox">
-              <img
-                src="image/customer-support-1--customer-headset-help-microphone-phone-support.svg"
-                alt=""
-              />
-              <p>Settings</p>
-            </button>
+            
           </div>
           <div class="sign-out">
-            <button>Sign out</button>
+            <button id="sign-out">Sign out</button>
           </div>
         </div>
+       </div>
         <div class="users-table">
           <div class="header">
             <div class="inner-header">
@@ -92,30 +108,10 @@
                       <button class="editHistoryBtn">Edit History</button>
                     </div>
                   </div>
-                  <div class="optionBox">
-                    <div class="userOpt-p">
-                      <p class="userOptNumber">2</p>
-                      <p class="userOptName">Sam Justice</p>
-                    </div>
-                    <div class="optionButton">
-                      <button class="ViewHistoryBtn">View History</button>
-                      <button class="editHistoryBtn">Edit History</button>
-                    </div>
-                  </div>
-                  <div class="optionBox">
-                    <div class="userOpt-p">
-                      <p class="userOptNumber">3</p>
-                      <p class="userOptName">Michael Smith</p>
-                    </div>
-                    <div class="optionButton">
-                      <button class="ViewHistoryBtn">View History</button>
-                      <button class="editHistoryBtn">Edit History</button>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
-           
+
             <div class="approved user-section" id="approved">
               <button id="see-allBtn">See all users</button>
               <div class="users approvedUsers">
@@ -135,8 +131,7 @@
             </div>
             <div class="pendding user-section" id="penddingUsers">
               <h3>Pending users</h3>
-              <div class="users penddingUsers">
-              </div>
+              <div class="users penddingUsers"></div>
             </div>
             <div class="view-profile-div">
               <div class="veiw-profile">
@@ -146,8 +141,8 @@
                 <div>
                   <div class="profile-title">
                     <div class="profile-inner">
-                      <img class="userImg" src="" alt="">
-                      <img class="fullpicture " src="" alt="">
+                      <img class="userImg" src="" alt="" />
+                      <img class="fullpicture" src="" alt="" />
                     </div>
                     <button class="view-image1">View Image</button>
                   </div>
@@ -184,13 +179,13 @@
                         </div>
                       </div>
                       <div class="flex-div">
-                        <p >Phone Number</p>
+                        <p>Phone Number</p>
                         <div class="box">
                           <p class="phoneNumber-output">+134 2648 3684</p>
                         </div>
                       </div>
                       <div class="flex-div">
-                        <p>Account  balance</p>
+                        <p>Account balance</p>
                         <div class="box">
                           <p class="account-balance">$ 500,000.00</p>
                         </div>
@@ -204,7 +199,11 @@
                       <div class="flex-div">
                         <div class="proof-img">
                           <img class="fixed-img" src="image/Image.svg" alt="" />
-                          <img  class="proofAddress-ouput proofAddress stateId" src="" alt="">
+                          <img
+                            class="proofAddress-ouput proofAddress stateId"
+                            src=""
+                            alt=""
+                          />
                         </div>
                         <button class="view-image">View Image</button>
                       </div>
@@ -279,8 +278,8 @@
                 <div>
                   <div class="profile-title">
                     <div class="profile-inner">
-                      <img class="userImg" src="" alt="">
-                      <img class="fullpicture " src="" alt="">
+                      <img class="userImg" src="" alt="" />
+                      <img class="fullpicture" src="" alt="" />
                     </div>
                     <button class="view-image1">View Image</button>
                   </div>
@@ -293,7 +292,7 @@
                         </div>
                       </div>
                       <div class="flex-div">
-                        <p >Email</p>
+                        <p>Email</p>
                         <div class="box">
                           <p class="user-email">Zhangweixiuying@gmail.com</p>
                         </div>
@@ -332,7 +331,11 @@
                         <p>Proof of Address</p>
                         <div class="proof-img">
                           <img class="fixed-img" src="image/Image.svg" alt="" />
-                          <img  class="proofAddress-ouput proofAddress newUserStateId" src="" alt="">
+                          <img
+                            class="proofAddress-ouput proofAddress newUserStateId"
+                            src=""
+                            alt=""
+                          />
                         </div>
                         <button class="view-image">View Image</button>
                       </div>
@@ -375,7 +378,7 @@
                         </div>
                       </div>
                       <div class="flex-div">
-                        <p>Account  balance</p>
+                        <p>Account balance</p>
                         <div class="box">
                           <p class="accountBalance"></p>
                         </div>
@@ -389,7 +392,7 @@
                       <div class="flex-div">
                         <p>SSN</p>
                         <div class="box">
-                          <p  class="ssn-output">879534w2479976</p>
+                          <p class="ssn-output">879534w2479976</p>
                         </div>
                       </div>
                     </div>
@@ -414,12 +417,12 @@
                   <div class="profile-title">
                     <div class="profile-title">
                       <div class="profile-inner">
-                        <img class="edit-image" src="" alt="">
+                        <img class="edit-image" src="" alt="" />
                       </div>
                     </div>
                   </div>
                   <div class="edit-form">
-                    <form action="" class="form-edit">
+                    <form action="" class="form-edit" id="edit-user-form">
                       <div class="user-names">
                         <div class="form-box">
                           <label for="firstName">First name</label>
@@ -607,62 +610,14 @@
                           <option value="Others">Others</option>
                         </select>
                       </div>
-                      <div class="currency-input-container form-box">
+                      <div class="form-box">
                         <label for="currency-input">Initial deposit</label>
                         <input
                           type="text"
                           id="currency-input"
                           class="currency-input"
-                          value="$ "
                           placeholder="Enter amount"
                         />
-                        <div class="dropdown" id="currency-dropdown">
-                          <div data-symbol="$">USD $</div>
-                          <div data-symbol="€">EUR €</div>
-                          <div data-symbol="¥">JPY ¥</div>
-                          <div data-symbol="£">GBP £</div>
-                          <div data-symbol="A$">AUD A$</div>
-                          <div data-symbol="C$">CAD C$</div>
-                          <div data-symbol="CHF">CHF CHF</div>
-                          <div data-symbol="¥">CNY ¥</div>
-                          <div data-symbol="kr">SEK kr</div>
-                          <div data-symbol="NZ$">NZD NZ$</div>
-                          <div data-symbol="₽">RUB ₽</div>
-                          <div data-symbol="₹">INR ₹</div>
-                          <div data-symbol="R$">BRL R$</div>
-                          <div data-symbol="₩">KRW ₩</div>
-                          <div data-symbol="RM">MYR RM</div>
-                          <div data-symbol="₫">VND ₫</div>
-                          <div data-symbol="฿">THB ฿</div>
-                          <div data-symbol="₪">ILS ₪</div>
-                          <div data-symbol="₱">PHP ₱</div>
-                          <div data-symbol="ZAR">ZAR ZAR</div>
-                          <div data-symbol="HK$">HKD HK$</div>
-                          <div data-symbol="SGD">SGD SGD</div>
-                          <div data-symbol="MX$">MXN MX$</div>
-                          <div data-symbol="NT$">TWD NT$</div>
-                          <div data-symbol="CLP">CLP CLP</div>
-                          <div data-symbol="COP">COP COP</div>
-                          <div data-symbol="ARS">ARS ARS</div>
-                          <div data-symbol="AED">AED AED</div>
-                          <div data-symbol="SAR">SAR SAR</div>
-                          <div data-symbol="EGP">EGP EGP</div>
-                          <div data-symbol="QAR">QAR QAR</div>
-                          <div data-symbol="KWD">KWD KWD</div>
-                          <div data-symbol="OMR">OMR OMR</div>
-                          <div data-symbol="BDT">BDT BDT</div>
-                          <div data-symbol="PKR">PKR PKR</div>
-                          <div data-symbol="LKR">LKR LKR</div>
-                          <div data-symbol="MYR">MYR MYR</div>
-                          <div data-symbol="BHD">BHD BHD</div>
-                          <div data-symbol="KES">KES KES</div>
-                          <div data-symbol="TZS">TZS TZS</div>
-                          <div data-symbol="UGX">UGX UGX</div>
-                          <div data-symbol="GHS">GHS GHS</div>
-                          <div data-symbol="NGN">NGN NGN</div>
-                          <div data-symbol="XOF">XOF XOF</div>
-                          <div data-symbol="XAF">XAF XAF</div>
-                        </div>
                       </div>
                       <div class="form-box">
                         <label for="ssnInput">SSN</label>
@@ -681,7 +636,12 @@
                         </select>
                       </div>
                       <div class="update-div">
-                        <button type="button" id="update-button">Update</button>
+                        <button id="update-button" type="button">
+                          <span id="button-text">Update</span>
+                          <span id="spinner" class="hidden">
+                            <i class="fas fa-spinner fa-spin"></i> <!-- Font Awesome spinner -->
+                          </span>
+                        </button>
                       </div>
                     </form>
                   </div>
@@ -698,161 +658,16 @@
                 </div>
                 <div class="table" id="table">
                   <table>
-                    <tr class="head head1">
-                      <th class="type">TYPE</th>
-                      <th>DETAILS</th>
-                      <th class="amount">AMOUNT</th>
-                      <th class="status">STATUS</th>
-                      <th>METHOD</th>
-                    </tr>
-                    <tr class="head">
-                      <td class="type">
-                        <img src="image/arrow-down.svg" alt="" />
-                      </td>
-                      <td style="width: 140px; text-wrap: nowrap">
-                        <h3>John Tyler</h3>
-                        <p>Sent - June 12, 2024</p>
-                      </td>
-                      <td class="amount-td" style="width: 130px">$826.00</td>
-                      <td
-                        class="status-td"
-                        style="
-                          width: 80px;
-                          border-radius: 12px;
-                          border: 1px solid black;
-                          height: 25px;
-                          text-align: center;
-                          align-content: center;
-                        "
-                      >
-                        Success
-                      </td>
-                      <td>
-                        <div style="text-wrap: nowrap">
-                          <h3>Bank Transfer</h3>
-                          <p>****2356</p>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="head">
-                      <td class="type">
-                        <img
-                          src="image/Rss-Square--Streamline-Core.svg.svg"
-                          alt=""
-                        />
-                      </td>
-                      <td style="width: 140px; text-wrap: nowrap">
-                        <h3>Subscription</h3>
-                        <p>Sent - June 12, 2024</p>
-                      </td>
-                      <td class="amount-td" style="width: 130px">$826.00</td>
-                      <td
-                        class="status-td"
-                        style="
-                          width: 80px;
-                          border-radius: 12px;
-                          border: 1px solid black;
-                          height: 25px;
-                          text-align: center;
-                          align-content: center;
-                        "
-                      >
-                        Pending
-                      </td>
-                      <td>
-                        <div style="text-wrap: nowrap">
-                          <h3>Bank Transfer</h3>
-                          <p>****2356</p>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="head">
-                      <td class="type">
-                        <img src="image/arrow-down.svg" alt="" />
-                      </td>
-                      <td style="width: 140px; text-wrap: nowrap">
-                        <h3>John Tyler</h3>
-                        <p>Sent - June 12, 2024</p>
-                      </td>
-                      <td class="amount-td" style="width: 130px">$826.00</td>
-                      <td
-                        class="status-td"
-                        style="
-                          width: 80px;
-                          border-radius: 12px;
-                          border: 1px solid black;
-                          height: 25px;
-                          text-align: center;
-                          align-content: center;
-                        "
-                      >
-                        Success
-                      </td>
-                      <td>
-                        <div style="text-wrap: nowrap">
-                          <h3>Bank Transfer</h3>
-                          <p>****2356</p>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="head">
-                      <td class="type">
-                        <img src="image/arrow-down.svg" alt="" />
-                      </td>
-                      <td style="width: 140px; text-wrap: nowrap">
-                        <h3>John Tyler</h3>
-                        <p>Sent - June 12, 2024</p>
-                      </td>
-                      <td class="amount-td" style="width: 130px">$826.00</td>
-                      <td
-                        class="status-td"
-                        style="
-                          width: 80px;
-                          border-radius: 12px;
-                          border: 1px solid black;
-                          height: 25px;
-                          text-align: center;
-                          align-content: center;
-                        "
-                      >
-                        Success
-                      </td>
-                      <td>
-                        <div style="text-wrap: nowrap">
-                          <h>Bank Transfer</h>
-                          <p>****2356</p>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="head">
-                      <td class="type">
-                        <img src="image/arrow-down.svg" alt="" />
-                      </td>
-                      <td style="width: 140px; text-wrap: nowrap">
-                        <h3>John Tyler</h3>
-                        <p>Sent - June 12, 2024</p>
-                      </td>
-                      <td class="amount-td" style="width: 130px">$826.00</td>
-                      <td
-                        class="status-td"
-                        style="
-                          width: 80px;
-                          border-radius: 12px;
-                          border: 1px solid black;
-                          height: 25px;
-                          text-align: center;
-                          align-content: center;
-                        "
-                      >
-                        Success
-                      </td>
-                      <td>
-                        <div style="text-wrap: nowrap">
-                          <h3>Bank Transfer</h3>
-                          <p>****2356</p>
-                        </div>
-                      </td>
-                    </tr>
+                    <thead>
+                      <tr class="head head1">
+                        <th class="type">TYPE</th>
+                        <th>DETAILS</th>
+                        <th class="amount">AMOUNT</th>
+                        <th class="status">STATUS</th>
+                        <th>METHOD</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
                   </table>
                 </div>
               </div>
@@ -865,188 +680,73 @@
                     <img src="image/x-circle.svg" alt="" />
                   </button>
                 </div>
-                <div class="table" id="table">
+                <div class="table">
                   <table>
-                    <tr class="head head1">
-                      <th class="type">TYPE</th>
-                      <th>DETAILS</th>
-                      <th class="amount">AMOUNT</th>
-                      <th class="status">STATUS</th>
-                      <th>METHOD</th>
-                      <th class="actionBar">Action</th>
-                    </tr>
-                    <tr class="head">
-                      <td class="type">
-                        <img src="image/arrow-down.svg" alt="" />
-                      </td>
-                      <td style="width: 140px; text-wrap: nowrap">
-                        <h3>John Tyler</h3>
-                        <p>Sent - June 12, 2024</p>
-                      </td>
-                      <td class="amount-td" style="width: 130px">$826.00</td>
-                      <td
-                        class="status-td"
-                        style="
-                          width: 80px;
-                          border-radius: 12px;
-                          border: 1px solid black;
-                          height: 25px;
-                          text-align: center;
-                          align-content: center;
-                        "
-                      >
-                        Success
-                      </td>
-                      <td>
-                        <div style="text-wrap: nowrap">
+                    <thead>
+                      <tr class="head head1">
+                        <th>TYPE</th>
+                        <th>DETAILS</th>
+                        <th>AMOUNT</th>
+                        <th>STATUS</th>
+                        <th>Bank details</th>
+                        <th>Action bar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="head">
+                        <td class="type">
+                          <img src="image/arrow-down.svg" alt="" />
+                        </td>
+                        <td
+                          class="tdflex"
+                          style="text-wrap: nowrap; text-align: center"
+                        >
+                          <h3>John Tyler</h3>
+                          <p>Sent - June 12, 2024</p>
+                        </td>
+                        <td class="amount-td">$826.00</td>
+                        <td
+                          class="status-td"
+                          style="
+                            border-radius: 12px;
+                            border: 1px solid black;
+                            height: 25px;
+                            text-align: center;
+                            align-content: center;
+                          "
+                        >
+                          Success
+                        </td>
+                        <td
+                          class="tdflex"
+                          style="text-wrap: nowrap; text-align: center"
+                        >
                           <h3>Bank Transfer</h3>
                           <p>****2356</p>
-                        </div>
-                      </td>
-                      <td class="actionBar">
-                        <button>Delete</button>
-                        <button>Edit</button>
-                      </td>
-                    </tr>
-                    <tr class="head">
-                      <td class="type">
-                        <img
-                          src="image/Rss-Square--Streamline-Core.svg.svg"
-                          alt=""
-                        />
-                      </td>
-                      <td style="width: 140px; text-wrap: nowrap">
-                        <h3>Subscription</h3>
-                        <p>Sent - June 12, 2024</p>
-                      </td>
-                      <td class="amount-td" style="width: 130px">$826.00</td>
-                      <td
-                        class="status-td"
-                        style="
-                          width: 80px;
-                          border-radius: 12px;
-                          border: 1px solid black;
-                          height: 25px;
-                          text-align: center;
-                          align-content: center;
-                        "
-                      >
-                        Pending
-                      </td>
-                      <td>
-                        <div style="text-wrap: nowrap">
-                          <h3>Bank Transfer</h3>
-                          <p>****2356</p>
-                        </div>
-                      </td>
-                      <td class="actionBar">
-                        <button>Delete</button>
-                        <button>Edit</button>
-                      </td>
-                    </tr>
-                    <tr class="head">
-                      <td class="type">
-                        <img src="image/arrow-down.svg" alt="" />
-                      </td>
-                      <td style="width: 140px; text-wrap: nowrap">
-                        <h3>John Tyler</h3>
-                        <p>Sent - June 12, 2024</p>
-                      </td>
-                      <td class="amount-td" style="width: 130px">$826.00</td>
-                      <td
-                        class="status-td"
-                        style="
-                          width: 80px;
-                          border-radius: 12px;
-                          border: 1px solid black;
-                          height: 25px;
-                          text-align: center;
-                          align-content: center;
-                        "
-                      >
-                        Success
-                      </td>
-                      <td>
-                        <div style="text-wrap: nowrap">
-                          <h3>Bank Transfer</h3>
-                          <p>****2356</p>
-                        </div>
-                      </td>
-                      <td class="actionBar">
-                        <button>Delete</button>
-                        <button>Edit</button>
-                      </td>
-                    </tr>
-                    <tr class="head">
-                      <td class="type">
-                        <img src="image/arrow-down.svg" alt="" />
-                      </td>
-                      <td style="width: 140px; text-wrap: nowrap">
-                        <h3>John Tyler</h3>
-                        <p>Sent - June 12, 2024</p>
-                      </td>
-                      <td class="amount-td" style="width: 130px">$826.00</td>
-                      <td
-                        class="status-td"
-                        style="
-                          width: 80px;
-                          border-radius: 12px;
-                          border: 1px solid black;
-                          height: 25px;
-                          text-align: center;
-                          align-content: center;
-                        "
-                      >
-                        Success
-                      </td>
-                      <td>
-                        <div style="text-wrap: nowrap">
-                          <h>Bank Transfer</h>
-                          <p>****2356</p>
-                        </div>
-                      </td>
-                      <td class="actionBar">
-                        <button>Delete</button>
-                        <button>Edit</button>
-                      </td>
-                    </tr>
-                    <tr class="head">
-                      <td class="type">
-                        <img src="image/arrow-down.svg" alt="" />
-                      </td>
-                      <td style="width: 140px; text-wrap: nowrap">
-                        <h3>John Tyler</h3>
-                        <p>Sent - June 12, 2024</p>
-                      </td>
-                      <td class="amount-td" style="width: 130px">$826.00</td>
-                      <td
-                        class="status-td"
-                        style="
-                          width: 80px;
-                          border-radius: 12px;
-                          border: 1px solid black;
-                          height: 25px;
-                          text-align: center;
-                          align-content: center;
-                        "
-                      >
-                        Success
-                      </td>
-                      <td>
-                        <div style="text-wrap: nowrap">
-                          <h3>Bank Transfer</h3>
-                          <p>****2356</p>
-                        </div>
-                      </td>
-                      <td class="actionBar">
-                        <button>Delete</button>
-                        <button>Edit</button>
-                      </td>
-                    </tr>
+                        </td>
+                        <td class="actionBar">
+                          <!-- Modal for Delete Confirmation -->
+                          <div id="deleteConfirmationModal" class="modal">
+                            <div class="modal-content">
+                              <p>
+                                Are you sure you want to delete this
+                                transaction?
+                              </p>
+                              <div class="modal-buttons">
+                                <button id="confirmDeleteButton">Yes</button>
+                                <button id="cancelDeleteButton">No</button>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <button>Edit</button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
                   </table>
                 </div>
                 <div class="change-update">
-                  <button class="update-btn">Save Update</button>
                   <button class="createbtn">Create Transaction</button>
                 </div>
                 <div class="create-screen">
@@ -1059,21 +759,46 @@
                     <div class="create-title">
                       <h1>Create Transaction History</h1>
                       <div class="create-history">
-                        <form action="">
+                        <form id="transactionForm">
+                          <input
+                            type="hidden"
+                            id="transactionUserId"
+                            name="userId"
+                          />
                           <div class="input-details">
                             <label for="transactionType"
                               >Select transaction type</label
                             >
-                            <select name="transactionType" id="transactionType">
-                              <option value="">Debit Transaction</option>
-                              <option value="">Credit Transaction</option>
-                              <option value="">Bills Transaction</option>
-                              <option value="">Gift Transaction</option>
+                            <select
+                              name="transactionType"
+                              id="transactionType"
+                              required
+                            >
+                              <option value="debit">Debit Transaction</option>
+                              <option value="credit">Credit Transaction</option>
                             </select>
                           </div>
+
                           <div class="input-details">
                             <label for="dateInput">Date of transaction</label>
-                            <input type="date" name="dateInput" id="dateInput" />
+                            <input
+                              type="datetime-local"
+                              name="dateInput"
+                              id="dateInput"
+                              required
+                            />
+                          </div>
+
+                          <div class="input-details">
+                            <label for="beneficiaryAccountName"
+                              >Bank Name</label
+                            >
+                            <input
+                              type="text"
+                              name="beneficiaryAccountName"
+                              id="beneficiaryAccountName"
+                              required
+                            />
                           </div>
                           <div class="input-details">
                             <label for="beneficiary">Beneficiary's Name</label>
@@ -1081,45 +806,104 @@
                               type="text"
                               name="beneficiary"
                               id="beneficiary"
+                              required
                             />
                           </div>
+
+                          <div class="input-details">
+                            <label for="beneficiaryAccountNumber"
+                              >Beneficiary Account Number</label
+                            >
+                            <input
+                              type="text"
+                              name="beneficiaryAccountNumber"
+                              id="beneficiaryAccountNumber"
+                              required
+                            />
+                          </div>
+
+                          <div class="input-details">
+                            <label for="beneficiaryCountry"
+                              >Beneficiary Country</label
+                            >
+                            <input
+                              type="text"
+                              name="beneficiaryCountry"
+                              id="beneficiaryCountry"
+                              required
+                            />
+                          </div>
+
                           <div class="input-details">
                             <label for="amount-input">Amount</label>
                             <input
-                              type="text"
+                              type="number"
                               name="amount-input"
                               id="amount-input"
+                              required
                             />
                           </div>
+
                           <div class="input-details">
-                            <label for="transactionstatus"
-                              >Transaction status</label
-                            >
-                            <select name="transactionstatus" id="transactionstatus">
-                              <option value="">successful</option>
-                              <option value="">Decline</option>
-                              <option value="">pendding</option>
-                            </select>
-                          </div>
-                          <div class="input-details">
-                            <label for="transactionMethod"
-                              >Transaction method</label
-                            >
-                            <select name="transactionMethod" id="transactionMethod">
-                              <option value="">Bank transfer</option>
-                              <option value="">Bank Deposit</option>
-                            </select>
-                          </div>
-                          <div class="input-details">
-                            <label for="accountNumber">accountNumber</label>
+                            <label for="narration">Narration</label>
                             <input
                               type="text"
-                              name="accountNumber"
-                              id="accountNumber"
+                              name="narration"
+                              id="narration"
+                              required
+                            />
+                          </div>
+
+                          <div class="input-details">
+                            <label for="swiftcode">SWIFT Code</label>
+                            <input
+                              type="text"
+                              name="swiftcode"
+                              id="swiftcode"
+                              value="BOFAUS3NXXX"
+                              required
+                            />
+                          </div>
+
+                          <div class="input-details">
+                            <label for="routingNumber">Routing Number</label>
+                            <input
+                              type="text"
+                              name="routingNumber"
+                              id="routingNumber"
+                              value="026009593"
+                              required
+                            />
+                          </div>
+
+                          <div class="input-details">
+                            <label for="accountType">Account Type</label>
+                            <select
+                              name="accountType"
+                              id="accountType"
+                              required
+                            >
+                              <option value="savings">Savings</option>
+                              <option value="current">Current</option>
+                            </select>
+                          </div>
+
+                          <div class="input-details">
+                            <label for="serviceFee">Service Fee</label>
+                            <input
+                              type="number"
+                              name="serviceFee"
+                              id="serviceFee"
+                              value="100"
+                              required
                             />
                           </div>
                           <div class="creatbutton-div">
-                            <button class="creatBtn">Create</button>
+                            <button type="submit" class="creatBtn">
+                              <span class="button-text">Create</span>
+                              <span class="spinner"></span> <!-- Spinner element -->
+                            </button>
+                          </div>
                           </div>
                         </form>
                       </div>
@@ -1164,7 +948,7 @@
             <img src="image/Archive.svg" alt="" />
             <p>Transactions</p>
           </button>
-          <a href="#allUsers" class="contentBox">
+          <a href="#allUsers" class="contentBox" id="userbtn">
             <img src="image/Shape.svg" alt="" />
             <p>Users</p>
           </a>
@@ -1177,18 +961,18 @@
     </main>
     <script src="admin.js"></script>
     <script>
-      const adminSideBar = document.getElementById("sideBar");
+      const adminSideBar = document.querySelector(".sideBar");
       const cancelAdminSB = document.querySelector(".sideBar-XBtn");
       const displayButton = document.querySelector(".sidebar-button");
 
       displayButton.addEventListener("click", function (event) {
         event.preventDefault();
-        adminSideBar.classList.toggle("sidebar-activate");
+        adminSideBar.classList.toggle("active");
       });
 
       cancelAdminSB.addEventListener("click", function (event) {
         event.preventDefault();
-        adminSideBar.classList.toggle("sidebar-activate");
+        adminSideBar.classList.toggle("active");
       });
     </script>
   </body>

@@ -4,6 +4,67 @@ body {
   border: 0;
   padding: 0;
   margin: 0;
+  font-family: inter;
+  position: relative;
+}
+.confirm-signOut {
+  z-index: 800000;
+  height: fit-content;
+  width: fit-content;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8); /* Start slightly smaller */
+  opacity: 0; /* Start invisible */
+  display: none;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+.signout-dv{
+  display: flex;
+  gap: 10px;
+}
+.yes-signOut, .no-signOut {
+  cursor: pointer;
+  border: 1px solid #000000;
+  padding: 5px 10px; /* Add padding for better clickability */
+  border-radius: 4px; /* Add rounded corners */
+}
+
+.yes-signOut:hover,
+.no-signOut:hover {
+  background-color: #f0f0f0; /* Light gray background on hover */
+  transition: background-color 0.2s ease; /* Smooth transition */
+}
+/* Class to trigger the animation */
+.confirm-signOut.active {
+  opacity: 1; /* Fully visible */
+  transform: translate(-50%, -50%) scale(1); /* Scale to normal size */
+  display: block;
+}
+.mainsignout {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px; /* Adjust as needed */
+  min-height: 100px; /* Adjust as needed */
+  padding: 20px; /* Increase padding for better spacing */
+  gap: 12px;
+  border-radius: 6px;
+  font-family: Inter, sans-serif; /* Use fallback font */
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Center-align text */
+
+}
+.mainsignout h1 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.55px;
+  margin: 0;
+  text-align: left;
 }
 * {
   border: 0;
@@ -28,15 +89,20 @@ main {
   box-sizing: border-box;
   background-color: #ffffff;
 }
+.sideBar {
+  width: fit-content;
+}
 #sideBar {
-  width: 244px;
-  height: calc(100%-10px);
+  width: 260px;
+  height: 100%;
   padding: 24px;
   border-radius: 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #3E8076;
+  background: #3e8076;
+  box-sizing: border-box;
+  text-wrap: nowrap;
 }
 .flexbox {
   display: flex;
@@ -140,7 +206,7 @@ button {
   height: 45px;
   border-radius: 50%;
   opacity: 0px;
-  background: #3E8076;
+  background: #3e8076;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -282,7 +348,7 @@ button {
 .edit-image {
   width: 80px;
   height: 80px;
-  border: 2px solid #3E8076;
+  border: 2px solid #3e8076;
   border-radius: 50%;
 }
 .profile-inner p {
@@ -459,6 +525,40 @@ select {
 .proofAddress.active {
   display: block;
 }
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+/* Ensure it's above other elements */
+}
+.toastify {
+  position: fixed;
+  z-index: 99999999999999999999999999999999999999999999999999999999999999999999 !important; /* Ensure it's higher than other elements */
+}
+.toast-with-progress {
+  position: relative;
+  overflow: hidden;
+}
+
+.toast-with-progress::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px; /* Progress bar height */
+  background-color: rgba(255, 255, 255, 0.7); /* White progress bar */
+  animation: toast-progress 3s linear forwards;
+}
+
+@keyframes toast-progress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
 
 .view-image {
   display: flex;
@@ -480,6 +580,17 @@ select {
   display: flex;
   justify-content: center;
   padding-top: 48px;
+}
+.confirmation-dialog {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 .form-edit label {
   font-family: Inter;
@@ -507,18 +618,31 @@ select {
   align-items: center;
 }
 .table {
-  width: fit-content;
+  width: 100%;
   height: fit-content;
   gap: 0px;
   opacity: 0px;
   padding-left: 10px;
+  box-sizing: border-box;
+  overflow: scroll;
 }
 .user-transactions {
+  width: 100%;
   position: absolute;
   top: 0;
-  z-index: 5000000000;
+  z-index: 50000;
   display: none;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
 }
+.credit {
+  width: 32px;
+  height: 18px;
+  padding-left: 0;
+  margin: 0;
+}
+
 .user-transactions.userHistory-active {
   display: block;
 }
@@ -533,25 +657,20 @@ select {
   cursor: pointer;
 }
 .user-transactions .outer-div {
-  width: fit-content;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
   box-sizing: border-box;
-  height: 530px;
+  height: fit-content;
   background-color: #e0eae8;
-  padding: 10px;
-  border-radius: 25px;
-  overflow-y: scroll;
+  height: fit-content;
+  padding: 20px;
 }
 .table-box1 {
   display: flex;
   flex-direction: row;
   gap: 74px;
-}
-table {
-  width: 100%;
-  box-sizing: border-box;
 }
 .table-img {
   width: 200px;
@@ -603,12 +722,12 @@ tr {
   box-sizing: border-box;
   align-items: center;
 }
-.head {
+/* .head {
   width: 100%;
   display: flex;
   flex-direction: row;
-}
-.head .type {
+} */
+/* .head .type {
   width: 150px;
   text-align: left;
 }
@@ -628,7 +747,7 @@ td img {
 }
 .head .status-td {
   margin-right: 40px;
-}
+} */
 table h3,
 td {
   font-family: Inter;
@@ -644,14 +763,6 @@ table p {
   line-height: 14.52px;
   text-align: left;
 }
-.table {
-  width: fit-content;
-  height: fit-content;
-  gap: 0px;
-  opacity: 0px;
-  padding-left: 10px;
-}
-
 .update-transaction-history {
   position: absolute;
   top: 0;
@@ -659,6 +770,7 @@ table p {
   left: 0;
   display: none;
   overflow-y: scroll;
+  z-index: 5000;
 }
 .update-transaction-history.updateHistory-active {
   display: block;
@@ -674,21 +786,51 @@ table p {
   cursor: pointer;
 }
 .update-transaction-history .outer-div {
-  width: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   box-sizing: border-box;
   height: fit-content;
   background-color: #e0eae8;
+  height: fit-content;
   padding: 10px;
-  border-radius: 25px;
-  position: relative;
+}
+.delete-btn,
+.editbutton {
+  background-color: #3e8076;
+  width: fit-content;
+  padding: 6px 10px;
+  height: fit-content;
+  margin: 0;
+  border: 0;
+  border-radius: 4px;
+  color: white; /* Ensure text is visible */
+  font-size: 14px; /* Adjust font size as needed */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover Animation */
+.delete-btn:hover,
+.editbutton:hover {
+  background-color: #2c5c55; /* Darker shade for hover */
+  transform: scale(1.05); /* Slightly enlarge the button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow */
+}
+
+/* Click Animation */
+.delete-btn:active,
+.editbutton:active {
+  transform: scale(0.95); /* Slightly shrink the button */
+  background-color: #1e403a; /* Even darker shade for click */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on click */
 }
 .actionBar {
-  width: 110px;
-  margin-left: 20px;
   text-align: center;
   text-align: right;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 10px;
 }
 .actionBar button {
@@ -705,6 +847,80 @@ table p {
   padding: 0;
   padding: 6px;
   border: 1px solid #000000;
+}
+.tdflex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+td,
+th {
+  width: 150px;
+  padding: 0;
+  align-items: center !important;
+  text-wrap: nowrap;
+  text-align: center;
+}
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top */
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#confirmDeleteButton {
+  background-color: #007bff;
+  color: #fff;
+}
+
+#confirmDeleteButton:hover {
+  background-color: #0056b3;
+}
+
+#cancelDeleteButton {
+  background-color: #ccc;
+  color: #000;
+}
+
+#cancelDeleteButton:hover {
+  background-color: #bbb;
+}
+.head1,
+tr {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
 }
 .change-update {
   display: flex;
@@ -726,7 +942,7 @@ table p {
 .view-transaction-option {
   width: 100%;
   position: absolute;
-  z-index: 999999999999;
+  z-index: 2000;
   display: none;
   top: 0;
   height: 100%;
@@ -768,9 +984,12 @@ table p {
   gap: 80px;
   justify-content: left;
 }
+#transactionForm select{
+font-size: 14px;
+}
 .userOpt-p p {
   font-family: Inter;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 28.8px;
   text-align: left;
@@ -817,7 +1036,8 @@ table p {
   height: 540px;
   padding: 12px 24px 12px 24px;
   background: #e0eae8;
-  border: 2px solid #3E8076;
+  border: 2px solid #3e8076;
+  overflow-y: scroll;
 }
 .cancelCreate {
   display: flex;
@@ -863,6 +1083,10 @@ table p {
   align-items: center;
   margin-top: 40px;
 }
+
+/* Button Styles */
+
+/* Button Styles */
 .creatBtn {
   font-family: Inter;
   font-size: 20px;
@@ -870,7 +1094,7 @@ table p {
   line-height: 20px;
   width: 130px;
   height: 36px;
-  background: #3E8076;
+  background: #3e8076;
   color: #ffff;
   border: 0;
   padding: 10px;
@@ -878,6 +1102,120 @@ table p {
   justify-content: center;
   align-items: center;
   border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative; /* Required for spinner positioning */
+}
+
+/* Button Text */
+.button-text {
+  display: inline-block; /* Ensure the text is inline with the spinner */
+}
+
+
+/* Hide the spinner by default */
+/* Hide the spinner by default */
+.hidden {
+  display: none;
+}
+
+/* Spinner styling */
+#spinner {
+  margin-left: 8px; /* Add spacing between text and spinner */
+}
+
+/* Font Awesome spinner */
+.fa-spinner {
+  font-size: 16px; /* Adjust size as needed */
+}
+
+/* Spinner Styles */
+.spinner {
+  display: none; /* Hide the spinner by default */
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite; /* Apply the spin animation to the spinner */
+  margin-left: 8px; /* Add spacing between text and spinner */
+}
+
+/* Spinner Animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Show Spinner When Submitting */
+.creatBtn.submitting .button-text {
+  display: none; /* Hide the text when submitting */
+}
+
+.creatBtn.submitting .spinner {
+  display: inline-block; /* Show the spinner when submitting */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.createbtn {
+  font-family: inter;
+  width: fit-content;
+  height: fit-content;
+  background-color: #2c5c55;
+  padding: 10px;
+  color: #ffff;
+  font-size: 14px; /* Adjust font size as needed */
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+
+/* Click Animation */
+.createbtn:active {
+  transform: scale(0.95); /* Slightly shrink the button */
+  background-color: #0f2a25; /* Even darker shade for click */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on click */
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.createbtn:hover {
+  animation: pulse 1s infinite; /* Apply the pulse animation */
 }
 footer {
   display: none;
@@ -893,34 +1231,38 @@ footer {
 }
 table td,
 tr {
-   font-family: "Inter", sans-serif;;
+  font-family: "Inter", sans-serif;
 }
-.stateId{
+.stateId {
   top: 40%;
 }
 
-@media screen and (max-width: 720px) {
-  #sideBar {
-    height: fit-content;
-    position: absolute;
-    right: 0;
+@media screen and (max-width: 900px) {
+  .sideBar {
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: fit-content; /* Covers half the screen */
     height: 100vh;
-    z-index: 999999;
-    gap: 80px;
-    padding: 10px;
-    top: 8px;
-    width: 50%;
-    display: none;
+    transform: translateX(-100%); /* Start off-screen */
+    transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+    z-index: 9999999;
+  }
+  #sideBar {
+    width: 100%;
   }
   .sideBar-XBtn {
     display: block;
   }
-  #sideBar.sidebar-activate {
-    display: block;
+  .sideBar.active {
+    transform: translateX(0); /* Slide into view */
+    opacity: 1;
   }
   .nav1 {
-    height: 100%;
-    gap: 90px;
+    height: fit-content;
+    gap: 70px;
   }
   body {
     height: fit-content;
@@ -1085,7 +1427,6 @@ tr {
     left: 0;
   }
   .user-transactions .table {
-    width: 100%;
     overflow: scroll;
     box-sizing: border-box;
   }
@@ -1097,7 +1438,7 @@ tr {
   }
   .user-transactions .outer-div {
     width: 100%;
-    height: fit-content;
+    height: 100%;
     border-radius: 0;
     flex-direction: column;
     overflow: hidden;
@@ -1112,12 +1453,7 @@ tr {
     overflow-y: scroll;
     box-sizing: border-box;
   }
-  .update-transaction-history .outer-div {
-    width: 100%;
-    height: fit-content;
-    border-radius: 0;
-    position: relative;
-  }
+
   .update-transaction-history .table {
     width: 100%;
     overflow: scroll;
@@ -1128,7 +1464,7 @@ tr {
     top: 0;
   }
   .header {
-    background-color: #3E8076;
+    background-color: #3e8076;
     border-radius: 0;
     padding: 24px;
   }
@@ -1178,7 +1514,7 @@ tr {
     width: 100%;
     padding: 0;
     padding-bottom: 20px;
-    border-bottom: 4px solid #3E8076;
+    border-bottom: 4px solid #3e8076;
   }
   .users {
     overflow: hidden;
@@ -1281,11 +1617,9 @@ tr {
     box-sizing: border-box;
   }
   #sideBar {
-    width: 75%;
     height: 100vh;
   }
   .nav1 {
-    height: 95%;
     box-sizing: border-box;
   }
   .option-title h1 {
@@ -1298,14 +1632,21 @@ tr {
   .userOpt-p {
     gap: 6px;
   }
-  .transaction-option {
-    width: 100%;
+  .view-transaction-option{
     padding: 0;
-    padding: 10px;
+    overflow-x: scroll;
+    
+    height: fit-content;
     box-sizing: border-box;
   }
+  .transaction-option {
+    width: fit-content;
+    padding: 10px;
+    box-sizing: border-box;
+   
+  }
   .optionBox {
-    gap: 10px;
+   gap: 10px;
   }
   .input-details {
     flex-direction: column;
@@ -1315,6 +1656,10 @@ tr {
   select {
     width: 100% !important;
     box-sizing: border-box;
+  }
+  .sideBarBox{
+    display: flex;
+    gap: 20px;
   }
   .create-title,
   .create-history {

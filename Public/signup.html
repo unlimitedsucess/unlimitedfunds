@@ -116,7 +116,7 @@
                     type="tel"
                     id="phone-number"
                     class="phone-number-input"
-                    value="US +1"
+                    value="+1"
                     style="cursor: pointer"
                     placeholder="Enter phone number"
                     name="phoneNumber"
@@ -237,7 +237,7 @@
                 </div>
                 <div class="input-div ssndv">
                   <label for="ssn">SSN</label>
-                  <input type="text" name="ssn" id="ssn" required />
+                  <input type="number" name="ssn" id="ssn" required />
                   <span class="error-message" id="ssnError"></span>
                 </div>
                 <div class="currency-input-container form-box">
@@ -251,53 +251,6 @@
                     placeholder="Enter amount"
                   />
                   <span class="error-message" id="currency-inputError">
-                  <!-- <div class="dropdown" id="currency" name="currency">
-                    <div data-symbol="$">USD $</div>
-                    <div data-symbol="€">EUR €</div>
-                    <div data-symbol="¥">JPY ¥</div>
-                    <div data-symbol="£">GBP £</div>
-                    <div data-symbol="A$">AUD A$</div>
-                    <div data-symbol="C$">CAD C$</div>
-                    <div data-symbol="CHF">CHF CHF</div>
-                    <div data-symbol="¥">CNY ¥</div>
-                    <div data-symbol="kr">SEK kr</div>
-                    <div data-symbol="NZ$">NZD NZ$</div>
-                    <div data-symbol="₽">RUB ₽</div>
-                    <div data-symbol="₹">INR ₹</div>
-                    <div data-symbol="R$">BRL R$</div>
-                    <div data-symbol="₩">KRW ₩</div>
-                    <div data-symbol="RM">MYR RM</div>
-                    <div data-symbol="₫">VND ₫</div>
-                    <div data-symbol="฿">THB ฿</div>
-                    <div data-symbol="₪">ILS ₪</div>
-                    <div data-symbol="₱">PHP ₱</div>
-                    <div data-symbol="ZAR">ZAR ZAR</div>
-                    <div data-symbol="HK$">HKD HK$</div>
-                    <div data-symbol="SGD">SGD SGD</div>
-                    <div data-symbol="MX$">MXN MX$</div>
-                    <div data-symbol="NT$">TWD NT$</div>
-                    <div data-symbol="CLP">CLP CLP</div>
-                    <div data-symbol="COP">COP COP</div>
-                    <div data-symbol="ARS">ARS ARS</div>
-                    <div data-symbol="AED">AED AED</div>
-                    <div data-symbol="SAR">SAR SAR</div>
-                    <div data-symbol="EGP">EGP EGP</div>
-                    <div data-symbol="QAR">QAR QAR</div>
-                    <div data-symbol="KWD">KWD KWD</div>
-                    <div data-symbol="OMR">OMR OMR</div>
-                    <div data-symbol="BDT">BDT BDT</div>
-                    <div data-symbol="PKR">PKR PKR</div>
-                    <div data-symbol="LKR">LKR LKR</div>
-                    <div data-symbol="MYR">MYR MYR</div>
-                    <div data-symbol="BHD">BHD BHD</div>
-                    <div data-symbol="KES">KES KES</div>
-                    <div data-symbol="TZS">TZS TZS</div>
-                    <div data-symbol="UGX">UGX UGX</div>
-                    <div data-symbol="GHS">GHS GHS</div>
-                    <div data-symbol="NGN">NGN NGN</div>
-                    <div data-symbol="XOF">XOF XOF</div>
-                    <div data-symbol="XAF">XAF XAF</div>
-                  </div> -->
                 </div>
                 <div class="next-btn">
                   <button type="button" onclick="validateStep(1, 2)">Next</button>
@@ -345,9 +298,9 @@
                 </div>
                 
                 <div class="input-div ssndv">
-                  <label for="income">Monthly income</label>
-                  <input type="number" name="ssn" id="income" required />
-                  <span class="error-message" id="incomeError"></span>
+                  <label for="monthlyIncome">Monthly income</label>
+                  <input type="number" name="monthlyIncome" id="monthlyIncome" required />
+                  <span class="error-message" id="monthlyIncomeError"></span>
                 </div>
                 <label for="accountType">Account type</label>
                 <select name="accountType" id="accountType">

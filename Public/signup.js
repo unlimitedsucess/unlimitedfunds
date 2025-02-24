@@ -207,10 +207,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const phoneNumberInput = document.getElementById("phone-number");
 const dropdown = document.getElementById("dropdown");
-
 // Default country code (US +1)
 let currentCountryCode = "+1";
-phoneNumberInput.value = currentCountryCode + " "; // Ensure default formatting
+phoneNumberInput.value = currentCountryCode; // Ensure default formatting
 
 // Show dropdown when input is focused
 phoneNumberInput.addEventListener("focus", () => {
@@ -237,7 +236,7 @@ dropdown.addEventListener("click", (event) => {
     }
 
     // Update input field with correct format
-    phoneNumberInput.value = currentCountryCode + " ";
+    phoneNumberInput.value = currentCountryCode;
     phoneNumberInput.focus(); // Keep focus on input for user typing
     dropdown.style.display = "none"; // Hide dropdown after selection
   }
@@ -250,7 +249,7 @@ phoneNumberInput.addEventListener("input", () => {
   // Ensure phone number starts with the selected country code
   if (!currentValue.startsWith(currentCountryCode)) {
     phoneNumberInput.value =
-      currentCountryCode + currentValue.replace(/^\+\d+\s*/, ""); // Remove any incorrect country code
+      currentCountryCode + currentValue.replace(/^\+\d+\s*/); // Remove any incorrect country code
   }
 });
 
@@ -260,7 +259,7 @@ phoneNumberInput.addEventListener("blur", () => {
 
   // Only restore the country code if input is empty
   if (!currentValue.startsWith(currentCountryCode)) {
-    phoneNumberInput.value = currentCountryCode + " ";
+    phoneNumberInput.value = currentCountryCode;
   }
 });
 
@@ -377,7 +376,7 @@ document
       );
       if (!response.ok) {
         const errorData = await response.json(); // Parse the error response
-        showToast("Error Response:", errorData);
+        // showToast("Error Response:", errorData);
         throw new Error(
           errorData.description ||
             "form submission fail please check your details."
@@ -386,15 +385,14 @@ document
       const data = await response.json(); // Parse response as JSON
 
       console.log(data);
-        showToast("Form submitted successfully!", "success"); // Green success toast
-      
-        setTimeout(() => {
-          window.location.href = "/accountcreated.html";
-        }, 2000); // Small delay for smooth transition
-    
-      } catch (error) {
+      showToast("Form submitted successfully!", "success"); // Green success toast
+
+      setTimeout(() => {
+        window.location.href = "/accountcreated.html";
+      }, 2000); // Small delay for smooth transition
+    } catch (error) {
       console.error("Error:", error);
-      showToast("Something went wrong! Please try again.", "error"); // Show error in red
+      showToast(error.message, "error"); // Show error in red
     } finally {
       // Reset button state
       submitText.textContent = "Submit";

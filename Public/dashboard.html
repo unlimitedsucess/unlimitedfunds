@@ -6,13 +6,243 @@
     <title>UnlimitedFunds Bank</title>
     <link rel="icon" type="image/svg+xml" href="image/fevicon.svg">
     <link rel="stylesheet" href="dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+  
+  />
   </head>
   <body>
+   
     <div class="preloader" id="preloader">
       <div class="spin"></div>
     </div>
      <!-- mobile view -->
      <main class="main-content">
+       <div id="success-screen-div">
+            <div class="success-screen">
+              <div class="success">
+                <p>Transfer Successful</p>
+                <img id="check2" src="image/Vector 3969 (Stroke).svg" alt="Check Icon" />
+                <img id="check3" src="image/Vector 3969 (Stroke).svg" alt="Check Icon" />
+              </div>
+              <button id="go-back-btn">Back to Dashboard</button>
+            </div>
+           </div>
+           <div id="transaction-failed">
+            <div class="failure-screen">
+              <div class="failure">
+                <p>Transaction Failed</p>
+                <img id="x1" src="image/tryAgain.jpeg" alt="X Icon" />
+                <img id="x2" src="image/tryAgain.jpeg" alt="X Icon" />
+                <img id="x3" src="image/tryAgain.jpeg" alt="X Icon" />
+              </div>
+              <button id="try-again-btn">Try Again</button>
+            </div>
+           </div>
+      <div class="transfer">
+        <div class="transfer-details-screen step" id="step-1">
+          <div class="title">
+            <h1>Bank Transfer</h1>
+            <button id="cancel-transfer">
+              <img src="image/x-circle.svg" alt="Cancel" />
+            </button>
+          </div>
+          <div id="balance-box">
+            <div id="balance">
+              <p class="available">Available balance:</p>
+              <p class="figures">$282,626.36</p>
+            </div>
+            <div id="title2">
+              <div id="send">
+                <img src="image/arrow-down.svg" alt="Send" />
+                <p>Send money</p>
+              </div>
+              <p class="titlep">23/08/2024</p>
+            </div>
+          </div>
+          <h3>Beneficiary's bank details</h3>
+          <div id="form-container">
+            <form id="form-data">
+              <div class="form-div">
+                <label for="bankName">Bank name</label>
+                <input type="text" name="bankName" id="bankName" required />
+              </div>
+              <div class="form-div">
+                <label for="beneficiaryName">Beneficiary name</label>
+                <input
+                  type="text"
+                  name="beneficiaryName"
+                  id="beneficiaryName"
+                  required
+                />
+              </div>
+              <div class="form-div">
+                <label for="beneficiaryAccountNumber"
+                  >Beneficiary account number</label
+                >
+                <input
+                  type="number"
+                  name="beneficiaryAccountNumber"
+                  id="beneficiaryAccountNumber"
+                  required
+                />
+              </div>
+              <div class="form-div">
+                <label for="amount">Amount</label>
+                <input
+                  type="number"
+                  name="amount"
+                  id="amount"
+                  placeholder="$"
+                  required
+                />
+              </div>
+              <div class="form-div">
+                <label for="serviceFee">Service Fee</label>
+                <p id="serviceFee"></p>
+              </div>
+              <div class="form-div">
+                <label for="narration">Narration</label>
+                <input type="text" name="narration" id="narration" />
+              </div>
+              <div class="form-div">
+                <label for="swiftcode">Swift code</label>
+                <input type="text" name="swiftcode" id="swiftCode" />
+              </div>
+              <div class="form-div">
+                <label for="beneficiaryCountry">Beneficiary country</label>
+                <input type="text" name="beneficiaryCountry" id="beneficiaryCountry" />
+              </div>
+              <div class="form-div">
+                <label for="routingNumber">Routing number</label>
+                 <input type="text" name="routingNumber" id="routingNumber" required 
+                    pattern="\d{9}" maxlength="9" inputmode="numeric"/>
+                  <small id="routingError" style="color: red; display: none;">Routing number must be exactly 9 digits.</small>
+              </div>
+              <div class="form-div">
+                <label for="typeofAccnt">Select account type</label>
+                <select name="typeofAccnt" id="typeofAccnt">
+                  <option value="Current">Current</option>
+                  <option value="Savings">Savings</option>
+                </select>
+              </div>
+              <button type="button" class="next-btn" data-next="step-2">
+                Next
+              </button>
+            </form>
+          </div>
+        </div>
+    
+        <!-- Step 2 -->
+        <div id="step-2" class="step" style="display: none">
+          <div class="title">
+            <h1>Bank Transfer</h1>
+          </div>
+          <div id="balance-box2">
+            <div id="review">
+              <p class="available">Review</p>
+            </div>
+            <div id="title3">
+              <div id="sender">
+                <img src="image/arrow-down.svg" alt="From" />
+                <div>
+                  <p>From</p>
+                  <p class="userAccount">0082261827831129</p>
+                </div>
+              </div>
+              <div class="to">
+                <p>To</p>
+                <p class="confirm-account-number">6748656367826367</p>
+              </div>
+            </div>
+          </div>
+          <div class="trasaction-details">
+            <h3>Transaction Details</h3>
+          </div>
+          <div id="form-output-container">
+            <form action="" id="form-output">
+              <div class="form-div">
+                <p>Beneficiary account number</p>
+                <p class="confirm-account-number">#2849783</p>
+              </div>
+              <div class="form-div">
+                <p>Beneficiary bank name</p>
+                <p id="confirm-bank-name">#2849783</p>
+              </div>
+              <div class="form-div">
+                <p>Transaction Date</p>
+                <p class="titlep">23/08/2024</p>
+              </div>
+              <div class="form-div">
+                <p>Beneficiary name</p>
+                <p id="confirm-beneficiary-name">Clare Thombson</p>
+              </div>
+              <div class="form-div">
+                <p>Select account type</p>
+                <p id="beneficiaryAccountType">savings</p>
+              </div>
+              <div class="form-div">
+                <p>Amount</p>
+                <p id="confirm-amount">$18,500.00</p>
+              </div>
+              <div class="form-div">
+                <p>Service fee</p>
+                <p id="confirm-service-fee"></p>
+              </div>
+              <div class="form-div">
+                <p>Total amount</p>
+                <p id="confirm-total-amount"></p>
+              </div>
+              <div class="form-div">
+                <p>Routing number</p>
+                <p id="confirm-routing">5662772828</p>
+              </div>
+              <div class="form-div">
+                <p>Beneficiary country</p>
+                <p id="confirm-country">China</p>
+              </div>
+              <div class="form-div">
+                <p>Swift code</p>
+                <p id="confirmSwift">reghhgdr</p>
+              </div>
+              <div class="form-div">
+                <p>Narration</p>
+                <p id="confirm-narration">reghhgdr</p>
+              </div>
+              <div class="button-container">
+                <button type="button" class="back-btn" data-prev="step-1">
+                  Previous
+                </button>
+                <button type="button" class="next-btn" data-next="step-3">
+                  Next
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+    
+        <!-- Step 3 -->
+        <div class="pin-container step" id="step-3" style="display: none">
+          <h1>Enter your secret pin</h1>
+          <div class="pin-box">
+            <input type="text" maxlength="1" class="pin-input" id="pin1" />
+            <input type="text" maxlength="1" class="pin-input" id="pin2" />
+            <input type="text" maxlength="1" class="pin-input" id="pin3" />
+            <input type="text" maxlength="1" class="pin-input" id="pin4" />
+          </div>
+          <div class="final">
+            <button type="button" class="back-btn" data-prev="step-2">Back</button>
+            <button type="submit" id="final-confirm-btn">
+              <span class="button-text">Confirm</span>
+              <span class="spinner" id="spinner"></span>
+            </button>
+            
+          </div>
+        </div>
+       </div>
       <div id="mobile-dashboard">
         <div id="first-flex">
           <div class="first-flex">
@@ -82,106 +312,6 @@
             <p>This is your financial report</p>
           </div>
         </header>
-          <div class="table" id="table">
-            <div class="innerflex">
-              <p>Recent Transactions</p>
-            </div>
-            <table>
-              <tr class="head head1">
-                <th class="type">TYPE</th>
-                <th>DETAILS</th>
-                <th class="amount">AMOUNT</th>
-                <th class="status">STATUS</th>
-                <th>METHOD</th>
-              </tr>
-              <tr class="head">
-                <td class="type">
-                  <img src="image/arrow-down.svg" alt="">
-                </td>
-                <td style="width: 140px; text-wrap: nowrap;">
-                  <h3>John Tyler</h3>
-                  <p>Sent - June 12, 2024</p>
-                </td>
-                <td class="amount-td" style="width: 130px;"> $826.00</td>
-                <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
-                <td>
-                  <div style="text-wrap: nowrap;">
-                    <h3>Bank Transfer</h3>
-                    <p>****2356</p>
-                  </div>
-                </td>
-              </tr>
-              <tr class="head">
-                <td class="type">
-                  <img src="image/Rss-Square--Streamline-Core.svg.svg" alt="">
-                </td>
-                <td style="width: 140px; text-wrap: nowrap;">
-                  <h3>Subscription</h3>
-                  <p>Sent - June 12, 2024</p>
-                </td>
-                <td class="amount-td" style="width: 130px;"> $826.00</td>
-                <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Pending</td>
-                <td>
-                  <div style="text-wrap: nowrap;">
-                    <h3>Bank Transfer</h3>
-                    <p>****2356</p>
-                  </div>
-                </td>
-              </tr>
-              <tr class="head">
-                <td class="type">
-                  <img src="image/arrow-down.svg" alt="">
-                </td>
-                <td style="width: 140px; text-wrap: nowrap;">
-                  <h3>John Tyler</h3>
-                  <p>Sent - June 12, 2024</p>
-                </td>
-                <td class="amount-td" style="width: 130px;"> $826.00</td>
-                <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
-                <td>
-                  <div style="text-wrap: nowrap;">
-                    <h3>Bank Transfer</h3>
-                    <p>****2356</p>
-                  </div>
-                </td>
-              </tr>
-              <tr class="head">
-                <td class="type">
-                  <img src="image/arrow-down.svg" alt="">
-                </td>
-                <td style="width: 140px; text-wrap: nowrap;">
-                  <h3>John Tyler</h3>
-                  <p>Sent - June 12, 2024</p>
-                </td>
-                <td class="amount-td" style="width: 130px;"> $826.00</td>
-                <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
-                <td>
-                  <div style="text-wrap: nowrap;">
-                    <h>Bank Transfer</h>
-                    <p>****2356</p>
-                  </div>
-                </td>
-              </tr>
-              <tr class="head">
-                <td class="type">
-                  <img src="image/arrow-down.svg" alt="">
-                </td>
-                <td style="width: 140px; text-wrap: nowrap;">
-                  <h3>John Tyler</h3>
-                  <p>Sent - June 12, 2024</p>
-                </td>
-                <td class="amount-td" style="width: 130px;"> $826.00</td>
-                <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
-                <td>
-                  <div style="text-wrap: nowrap;">
-                    <h3>Bank Transfer</h3>
-                    <p>****2356</p>
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </div>
-          <img class="table-img" src="image/Group 4497.svg" alt="">
         </div>
         </div>
       <div class="flex">
@@ -236,7 +366,7 @@
         </div>
         <div class="second-flex">
           <div class="title">
-            <div class="newupdate" style="position: relative;">
+            <div class="newupdate">
               <div class="h1-box">
                 <h2 id="greetingUser">Hello, James</h3>
                 <p>This is your financial report</p>
@@ -244,7 +374,7 @@
               <div class="boxes">
                 <div class="box1">
                   <p>My balance</p>
-                  <h3 id="accountBalance">$282,626.36</h3>
+                  <h3 id="accountBalance" class="figures">$282,626.36</h3>
                   <div class="account-num">
                     <p id="accounNumber">0082 2618 2783 1129</p>
                     <button class="copyAccount"><img src="image/Frame 161.svg" alt="" /></button>
@@ -259,211 +389,19 @@
                       <img src="image/Bill-1--Streamline-Core.svg.svg" alt="" />
                       <p>Monthly Income</p>
                     </div>
-                    <h3>$35.250.00</h3>
+                    <h3 class="monthlyIncome">$35.250.00</h3>
                   </div>
                   <div class="box2">
                     <div>
                       <img src="image/Bill-2--Streamline-Core.svg" alt="" />
                       <p class="accountType">Savings Account</p>
                     </div>
-                    <h3 id="balance">$126,263.00</h3>
+                    <h3 id="balance" class="figures">$126,263.00</h3>
                   </div>
                 </div>
               </div>
-              <div class="transfer-details-screen">
-                <div class="title">
-                  <h1>Bank Transfer</h1>
-                  <button id="cancel-transfer"><img src="image/x-circle.svg" alt="" /></button>
-                </div>
-                <div id="balance-box">
-                  <div id="balance">
-                    <p class="available">Available Balance:</p>
-                    <p class="figures">$282,626.36</p>
-                  </div>
-                  <div id="title2">
-                    <div id="send">
-                      <img src="image/arrow-up2.svg" alt="" />
-                      <p>Send money</p>
-                    </div>
-                    <p>23/08/2024</p>
-                  </div>
-                </div>
-                <h3>Beneficiary's Bank Details</h3>
-                <div id="form-container">
-                  <form action="" id="form-data">
-                    <div class="form-div">
-                      <label for="bankName">Bank name</label>
-                      <input type="text" name="bankName" id="bankName" required />
-                    </div>
-                    <div class="form-div">
-                      <label for="accountName">Beneficiary name</label>
-                      <input type="text" name="accountName" id="accountName" required />
-                    </div>
-                    <div class="form-div">
-                      <label for="accountNumber">Beneficiary account number</label>
-                      <input type="number" name="accountNumber" id="accountNumber" required />
-                    </div>
-                    <div class="form-div">
-                      <label for="country">Beneficiary country</label>
-                      <input type="text" name="country" id="country" />
-                    </div>
-                    <div class="form-div">
-                      <label for="amount">Amount</label>
-                      <input type="number" name="" id="amount" placeholder="$" required />
-                    </div>
-                    <div class="form-div">
-                      <label for="serviceFee">Service Fee</label>
-                      <input
-                        type="number"
-                        name="serviceFee"
-                        id="serviceFee"
-                        placeholder="$"
-                      />
-                    </div>
-                    <div class="form-div">
-                      <label for="Narration">Narration</label>
-                      <input type="text" name="Narration" id="narration" />
-                    </div>
-                    <div class="form-div">
-                      <label for="swiftCode">Swift code</label>
-                      <input type="text" name="swiftCode" id="swiftCode" />
-                    </div>
-                   
-                    <div class="form-div">
-                      <label for="routingNumber">Routing number</label>
-                      <input type="number" name="routingNumber" id="routingNumber" />
-                    </div>
-                    <div class="form-div">
-                      <label for="typeofAccnt">Select account type</label>
-                      <select name="typeofAccnt" id="typeofAccnt">
-                        <option value="current">Current</option>
-                        <option value="savings">Savings</option>
-                      </select>
-                    </div>
-                    <div id="proceed-button">
-                      <button id="procceed-btn">proceed to transfer</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-              <div id="confirm-transfer">
-                <div class="title">
-                  <h1>Bank Transfer</h1>
-                  <button id="back-arrow">
-                    <img src="image/arrow-left.svg" alt="" />
-                  </button>
-                </div>
-                <div id="balance-box2">
-                  <div id="review">
-                    <p class="available">Review</p>
-                  </div>
-                  <div id="title3">
-                    <div id="sender">
-                      <img src="image/arrow-up3.svg" alt="" />
-                      <div>
-                        <p>From</p>
-                        <p class="">0082261827831129</p>
-                      </div>
-                    </div>
-                    <div class="to">
-                      <p>To</p>
-                      <p>6748656367826367</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="trasaction-details">
-                  <h3 style="padding-top: 10px;">Transaction Details</h3>
-                </div>
-                <div id="form-output-container">
-                  <form action="" id="form-output">
-                    <div class="form-div">
-                     <p>Beneficiary account number</p>
-                     <p>#2849783</p>
-                    </div>
-                    <div class="form-div">
-                      <p>Transaction Date</p>
-                      <p>23/08/2024</p>
-                    </div>
-                    <div class="form-div">
-                      <p>Beneficiary name</p>
-                      <p>Clare Thombson</p>
-                    </div>
-                    <div class="form-div">
-                      <p>Select account type</p>
-                      <p>savings</p>
-                    </div>
-                    <div class="form-div">
-                      <p>Amount</p>
-                      <p>$18,500.00</p>
-                    </div>
-                    <div class="form-div">
-                      <p>Service fee</p>
-                      <p>$50</p>
-                    </div>
-                    <div class="form-div">
-                      <p>Total amount</p>
-                      <p>$18,550.00</p>
-                    </div>
-                    <div class="form-div">
-                      <p>Routing number</p>
-                      <p>5662772828</p>
-                    </div>
-                    <div class="form-div">
-                      <p>Beneficiary country</p>
-                      <p>China</p>
-                    </div>
-                    <div class="form-div">
-                      <p>Swift code</p>
-                      <p>reghhgdr</p>
-                    </div>
-                    <div id="transfer-button">
-                      <button id="transfer-btn">transfer</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-              <div class="pin-container">
-                <div class="pin-title">
-                  <h1>Enter your secret password</h1>
-                  <button id="back-btn2">
-                    <img src="image/arrow-left2.svg" alt="" />
-                  </button>
-                </div>
-                <div class="pin-box">
-                  <input
-                    type="text"
-                    maxlength="1"
-                    class="pin-input"
-                    id="pin1"
-                    oninput="moveNext(1)"
-                  />
-                  <input
-                    type="text"
-                    maxlength="1"
-                    class="pin-input"
-                    id="pin2"
-                    oninput="moveNext(2)"
-                  />
-                  <input
-                    type="text"
-                    maxlength="1"
-                    class="pin-input"
-                    id="pin3"
-                    oninput="moveNext(3)"
-                  />
-                  <input
-                    type="text"
-                    maxlength="1"
-                    class="pin-input"
-                    id="pin4"
-                    oninput="moveNext(4)"
-                  />
-                </div>
-                <div id="final-btn">
-                  <button class="final-confirm-btn">Confirm</button>
-                </div>
-              </div> 
-              <div class="profile-details-screen">
+          
+           <div class="profile-details-screen">
                 <div id="title-button"><img src="image/x-circle.svg" alt=""></div>
                 <div class="profile-details">
                   <div class="picture-container">
@@ -566,98 +504,32 @@
                 <p>Recent Transactions</p>
               </div>
               <table>
+               <thead>
                 <tr class="head head1">
-                  <th class="type">TYPE</th>
+                  <th>TYPE</th>
                   <th>DETAILS</th>
-                  <th class="amount">AMOUNT</th>
-                  <th class="status">STATUS</th>
-                  <th>METHOD</th>
+                  <th>AMOUNT</th>
+                  <th>STATUS</th>
+                  <th>Bank details</th>
                 </tr>
-                <tr class="head">
-                  <td class="type">
-                    <img src="image/arrow-down.svg" alt="">
-                  </td>
-                  <td style="width: 140px; text-wrap: nowrap;">
-                    <h3>John Tyler</h3>
-                    <p>Sent - June 12, 2024</p>
-                  </td>
-                  <td class="amount-td" style="width: 130px;"> $826.00</td>
-                  <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
-                  <td>
-                    <div style="text-wrap: nowrap;">
-                      <h3>Bank Transfer</h3>
-                      <p>****2356</p>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="head">
-                  <td class="type">
-                    <img src="image/Rss-Square--Streamline-Core.svg.svg" alt="">
-                  </td>
-                  <td style="width: 140px; text-wrap: nowrap;">
-                    <h3>Subscription</h3>
-                    <p>Sent - June 12, 2024</p>
-                  </td>
-                  <td class="amount-td" style="width: 130px;"> $826.00</td>
-                  <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Pending</td>
-                  <td>
-                    <div style="text-wrap: nowrap;">
-                      <h3>Bank Transfer</h3>
-                      <p>****2356</p>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="head">
-                  <td class="type">
-                    <img src="image/arrow-down.svg" alt="">
-                  </td>
-                  <td style="width: 140px; text-wrap: nowrap;">
-                    <h3>John Tyler</h3>
-                    <p>Sent - June 12, 2024</p>
-                  </td>
-                  <td class="amount-td" style="width: 130px;"> $826.00</td>
-                  <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
-                  <td>
-                    <div style="text-wrap: nowrap;">
-                      <h3>Bank Transfer</h3>
-                      <p>****2356</p>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="head">
-                  <td class="type">
-                    <img src="image/arrow-down.svg" alt="">
-                  </td>
-                  <td style="width: 140px; text-wrap: nowrap;">
-                    <h3>John Tyler</h3>
-                    <p>Sent - June 12, 2024</p>
-                  </td>
-                  <td class="amount-td" style="width: 130px;"> $826.00</td>
-                  <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
-                  <td>
-                    <div style="text-wrap: nowrap;">
-                      <h>Bank Transfer</h>
-                      <p>****2356</p>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="head">
-                  <td class="type">
-                    <img src="image/arrow-down.svg" alt="">
-                  </td>
-                  <td style="width: 140px; text-wrap: nowrap;">
-                    <h3>John Tyler</h3>
-                    <p>Sent - June 12, 2024</p>
-                  </td>
-                  <td class="amount-td" style="width: 130px;"> $826.00</td>
-                  <td class="status-td" style="width: 80px; border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
-                  <td>
-                    <div style="text-wrap: nowrap;">
-                      <h3>Bank Transfer</h3>
-                      <p>****2356</p>
-                    </div>
-                  </td>
-                </tr>
+               </thead>
+                <tbody>
+                  <tr class="head">
+                    <td class="type">
+                      <img src="image/arrow-down.svg" alt="">
+                    </td>
+                    <td class="tdflex" style="text-wrap: nowrap; text-align: center;">
+                      <h3>John Tyler</h3>
+                      <p>Sent - June 12, 2024</p>
+                    </td>
+                    <td class="amount-td"> $826.00</td>
+                    <td class="status-td" style=" border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">Success</td>
+                    <td class="tdflex" style="text-wrap: nowrap; text-align: center;">
+                        <h3>Bank Transfer</h3>
+                        <p>****2356</p>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </div>
             <div class="background-img">
@@ -670,7 +542,11 @@
         </div>
       </div>
      </main>
+     <input type="hidden" id="stored-form-data">
      <script src="animation.js"></script>
      <script src="dashboard.js"></script>
+     <script>
+      
+    </script>
   </body>
 </html>

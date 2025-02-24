@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UnlimitedFunds Bank</title>
-    <link rel="icon" type="image/svg+xml" href="image/fevicon.svg">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="image/fevicon.svg" />
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="icon"
       type="image/png"
@@ -31,6 +31,15 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <!-- Toastify CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+
+    <!-- Toastify JS -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.0/css/all.min.css"
@@ -207,76 +216,7 @@
                   <label for="email-input">Email</label>
                   <input type="text" name="email-input" id="email-input" />
                 </div>
-                <div class="phone-input-container form-box inner-div2">
-                  <label for="phone-number">phone number</label>
-                  <input
-                    type="tel"
-                    id="phone-number"
-                    class="phone-number-input"
-                    value="US +1"
-                    style="cursor: pointer"
-                    placeholder="Enter phone number"
-                  />
-                  <div class="dropdown" id="dropdown">
-                    <div data-value="US +1">US +1</div>
-                    <div data-value="UK +44">UK +44</div>
-                    <div data-value="IN +91">IN +91</div>
-                    <div data-value="AU +61">AU +61</div>
-                    <div data-value="CA +1">CA +1</div>
-                    <div data-value="DE +49">DE +49</div>
-                    <div data-value="FR +33">FR +33</div>
-                    <div data-value="IT +39">IT +39</div>
-                    <div data-value="JP +81">JP +81</div>
-                    <div data-value="CN +86">CN +86</div>
-                    <div data-value="KR +82">KR +82</div>
-                    <div data-value="BR +55">BR +55</div>
-                    <div data-value="MX +52">MX +52</div>
-                    <div data-value="RU +7">RU +7</div>
-                    <div data-value="ZA +27">ZA +27</div>
-                    <div data-value="NZ +64">NZ +64</div>
-                    <div data-value="ES +34">ES +34</div>
-                    <div data-value="SE +46">SE +46</div>
-                    <div data-value="CH +41">CH +41</div>
-                    <div data-value="TR +90">TR +90</div>
-                    <div data-value="NL +31">NL +31</div>
-                    <div data-value="AR +54">AR +54</div>
-                    <div data-value="FI +358">FI +358</div>
-                    <div data-value="NO +47">NO +47</div>
-                    <div data-value="DK +45">DK +45</div>
-                    <div data-value="PL +48">PL +48</div>
-                    <div data-value="BE +32">BE +32</div>
-                    <div data-value="PT +351">PT +351</div>
-                    <div data-value="GR +30">GR +30</div>
-                    <div data-value="IE +353">IE +353</div>
-                    <div data-value="AT +43">AT +43</div>
-                    <div data-value="SG +65">SG +65</div>
-                    <div data-value="MY +60">MY +60</div>
-                    <div data-value="PH +63">PH +63</div>
-                    <div data-value="ID +62">ID +62</div>
-                    <div data-value="TH +66">TH +66</div>
-                    <div data-value="PK +92">PK +92</div>
-                    <div data-value="EG +20">EG +20</div>
-                    <div data-value="KE +254">KE +254</div>
-                    <div data-value="NG +234">NG +234</div>
-                    <div data-value="VN +84">VN +84</div>
-                    <div data-value="BD +880">BD +880</div>
-                    <div data-value="UA +380">UA +380</div>
-                    <div data-value="KW +965">KW +965</div>
-                    <div data-value="QA +974">QA +974</div>
-                    <div data-value="KW +965">KW +965</div>
-                    <div data-value="AE +971">AE +971</div>
-                    <div data-value="SA +966">SA +966</div>
-                    <div data-value="OM +968">OM +968</div>
-                    <div data-value="BH +973">BH +973</div>
-                    <div data-value="JO +962">JO +962</div>
-                    <div data-value="LB +961">LB +961</div>
-                    <div data-value="IL +972">IL +972</div>
-                    <div data-value="MA +212">MA +212</div>
-                    <div data-value="DZ +213">DZ +213</div>
-                    <div data-value="TN +216">TN +216</div>
-                    <div data-value="LY +218">LY +218</div>
-                  </div>
-                </div>
+          
                 <div class="inner-div2">
                   <label for="message">Message</label>
                   <textarea name="message" id="message"></textarea>
@@ -293,9 +233,14 @@
                       >I agree to our friendly private policy</label
                     >
                   </div>
-                  <div class="submit-btn">
-                    <button>Submit form</button>
-                  </div>
+                  <button type="submit" id="submit-btn">
+                    <span id="submit-text">Submit form</span>
+                    <span
+                      id="spinner"
+                      class="spinner"
+                      style="display: none"
+                    ></span></button
+                  >
                 </div>
               </form>
             </div>
@@ -332,60 +277,80 @@
     <script src="header.js"></script>
     <script src="mobile.js"></script>
     <script>
-      //contact us form.....
-      const phoneNumberInput = document.getElementById("phone-number");
-      const dropdown = document.getElementById("dropdown");
+      // Get the contact form element
+const contactForm = document.getElementById("contact-form");
 
-      // Default country code
-      const defaultCountryCode = "US +1 ";
+// Add event listener for form submission
+contactForm.addEventListener("submit", async (e) => {
+  e.preventDefault(); // Prevent the default form submission
 
-      // Show dropdown when input is focused
-      phoneNumberInput.addEventListener("focus", () => {
-        dropdown.style.display = "block";
-      });
+  // Get form data
+  const formData = {
+    senderEmail: document.getElementById("email-input").value,
+    firstName: document.getElementById("firstName-input").value,
+    lastName: document.getElementById("lastName-input").value,
+    message: document.getElementById("message").value,
+  };
 
-      // Hide dropdown when clicking outside
-      document.addEventListener("click", (event) => {
-        if (!event.target.closest(".phone-input-container")) {
-          dropdown.style.display = "none";
-        }
-      });
+  // Show loading spinner and disable the submit button
+  const submitText = document.getElementById("submit-text");
+  const spinner = document.getElementById("spinner");
+  submitText.style.display = "none";
+  spinner.style.display = "inline-block";
+  document.getElementById("submit-btn").disabled = true;
 
-      // Update input value when dropdown option is clicked
-      dropdown.addEventListener("click", (event) => {
-        const targetDiv = event.target.closest("div");
-        if (targetDiv && targetDiv.dataset.value) {
-          phoneNumberInput.value = targetDiv.dataset.value + " ";
-          dropdown.style.display = "none";
-        }
-      });
+  try {
+    // Send a POST request to the contact-us endpoint
+    const response = await fetch("https://unlimitedfunds.onrender.com/api/v1/contact-us", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
 
-      // Ensure the input always starts with the country code
-      phoneNumberInput.addEventListener("input", () => {
-        let currentValue = phoneNumberInput.value;
+    // Check if the request was successful
+    if (!response.ok) {
+      const data = await response.json();
+      console.log("API Response Data:", data);
+      throw new Error(`Failed to submit contact form. Status: ${response.status}`);
+    }
 
-        // Ensure the input starts with the default country code (US +1)
-        if (!currentValue.startsWith(defaultCountryCode)) {
-          phoneNumberInput.value =
-            defaultCountryCode + currentValue.replace(defaultCountryCode, "");
-        }
+    // Parse the response
+    const data = await response.json();
+    console.log("Contact form submitted successfully:", data);
 
-        // Only allow numbers after the country code
-        const countryCode = defaultCountryCode;
-        const phoneNumberPattern = /^[0-9]*$/; // Only digits allowed
+    // Show success message
+    Toastify({
+      text: "Thank you for contacting us! We will get back to you soon.",
+      duration: 3000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      backgroundColor: "green",
+    }).showToast();
 
-        const phoneNumber = currentValue.replace(countryCode, "");
-        if (!phoneNumberPattern.test(phoneNumber)) {
-          phoneNumberInput.value = countryCode + phoneNumber.slice(0, -1);
-        }
-      });
+    // Reset the form
+    contactForm.reset();
+  } catch (error) {
+    console.error("Error submitting contact form:", error);
 
-      // Ensure country code is always present when the input loses focus
-      phoneNumberInput.addEventListener("blur", () => {
-        if (!phoneNumberInput.value.trim()) {
-          phoneNumberInput.value = defaultCountryCode; // Keep default country code if input is empty
-        }
-      });
+    // Show error message
+    Toastify({
+      text: "Failed to submit the contact form. Please try again later.",
+      duration: 3000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      backgroundColor: "red",
+    }).showToast();
+  } finally {
+    // Hide loading spinner and re-enable the submit button
+    submitText.style.display = "inline-block";
+    spinner.style.display = "none";
+    document.getElementById("submit-btn").disabled = false;
+  }
+});
     </script>
   </body>
 </html>

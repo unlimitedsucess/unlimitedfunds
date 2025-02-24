@@ -11,6 +11,7 @@ body {
   background-attachment: fixed;
   height: 100vh;
   overflow-y: hidden;
+  font-family: inter;
 }
 .preloader {
   position: fixed;
@@ -452,6 +453,27 @@ section {
 }
 .submit-btn {
   padding-top: 10px;
+}
+/* Spinner animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Spinner class */
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
 }
 .reach-out {
   display: flex;
