@@ -675,7 +675,7 @@ button {
 .ans5 {
   background-color: #ffffff;
   width: 460px;
-  border: 1px solid#3E8076;
+  border: 1px solid#4361EE;
   height: fit-content;
   padding: 10px;
   position: absolute;
@@ -992,7 +992,7 @@ footer {
     background-color: #fff;
   }
   .navbar {
-    background-color: #3E8076;
+    background-color: #4361EE;
     width: 30%;
     height: 100vh;
     position: fixed;

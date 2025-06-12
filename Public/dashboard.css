@@ -1033,13 +1033,13 @@ table p {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 2px solid#3E8076;
+  border: 2px solid#4361EE;
 }
 .profileImage {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 2px solid#3E8076;
+  border: 2px solid#4361EE;
 }
 .copyAccount {
   background: none;
@@ -1786,7 +1786,7 @@ tr {
     padding: 12px;
     border-radius: 14px;
     opacity: 0px;
-    background: #3E8076;
+    background: #4361EE;
     color: #ffff;
     box-sizing: border-box;
     justify-content: space-between;

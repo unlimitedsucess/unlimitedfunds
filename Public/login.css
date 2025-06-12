@@ -32,8 +32,8 @@ body {
 .spin {
   width: 50px;
   height: 50px;
-  border: 5px solid rgba(62, 128, 118, 0.3);
-  border-top: 5px solid #3E8076;
+  border: 5px solid rgba(29, 15, 228, 0.3);
+  border-top: 5px solid #4361EE;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -101,17 +101,16 @@ main {
 }
 .title h1 {
   font-family: "Inter", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 400;
   line-height: 28.41px;
   text-align: center;
   padding-bottom: 16px;
 }
 .title p {
-  font-family: "PT Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 18px;
-  font-weight: 700;
-  line-height: 31.8px;
+  font-weight: 400;
   text-align: center;
   padding-bottom: 10px;
 }
@@ -143,6 +142,7 @@ form {
   border: 1px solid #000000;
   display: flex;
   box-sizing: border-box;
+  outline: none;
 }
 .checkbox-container label {
   font-family: "Inter", sans-serif;
@@ -201,15 +201,15 @@ form {
   padding: 0 10px;
 }
 #login-btn {
-  width: 120px;
+  width: 100%;
   height: fit-content;
   display: flex;
   align-items: center;
   padding: 6px;
   gap: 6px;
-  border-radius: 12px;
+  border-radius: 2px;
   opacity: 0px;
-  background: #191919;
+  background: #4361EE;
   color: #ffff;
   font-family: Inter;
   font-size: 20px;

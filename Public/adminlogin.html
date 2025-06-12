@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UnlimitedFunds Bank</title>
-    <link rel="icon" type="image/svg+xml" href="image/fevicon.svg">
+    <link rel="icon" type="image/svg+xml" href="image/fevicon.svg" />
     <link rel="stylesheet" href="adminlogin.css" />
     <link
       rel="stylesheet"
@@ -12,8 +12,8 @@
     />
   </head>
   <body>
-     <!-- Preloader -->
-     <div class="preloader" id="preloader">
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
       <div class="spin"></div>
     </div>
     <main class="main-content">
@@ -23,32 +23,32 @@
             <h1>Welcome back, Admin</h1>
             <p>Sign in with your email</p>
           </div>
-          <form  id="login-form">
+          <form id="login-form">
             <div class="input-div">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" />
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" />
+            </div>
+            <div class="input-div">
+              <label for="password">Password</label>
+              <div class="password-container">
+                <input
+                  type="password"
+                  name="password"
+                  class="password"
+                  id="password-input"
+                  required
+                  autocomplete="new-password"
+                />
+                <i class="fa fa-eye" id="eye-icon"></i>
+                <div class="password-requirements"></div>
               </div>
-              <div class="input-div">
-                <label for="password">Password</label>
-                <div class="password-container">
-                  <input
-                    type="password"
-                    name="password"
-                    class="password"
-                    id="password-input"
-                    required
-                    autocomplete="new-password"
-                  />
-                  <i class="fa fa-eye" id="eye-icon"></i>
-                  <div class="password-requirements"></div>
-                </div>
-              </div>
-             <div class="submit">
-                <button type="submit" id="login-button">
-                    <span class="button-text">Login</span>
-                    <div class="spinner"></div>
-                </button>
-             </div>
+            </div>
+            <div class="submit">
+              <button type="submit" id="login-button">
+                <span class="button-text">Login</span>
+                <div class="spinner"></div>
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -56,41 +56,40 @@
     <script src="animation.js"></script>
     <script>
       const passwordInput = document.getElementById("password-input");
-        const eyeIcon = document.getElementById("eye-icon");
-        const loginForm = document.getElementById("login-form");
-        const loginButton = document.getElementById("login-button");
-        const buttonText = loginButton.querySelector(".button-text");
-        const spinner = loginButton.querySelector(".spinner");
+      const eyeIcon = document.getElementById("eye-icon");
+      const loginForm = document.getElementById("login-form");
+      const loginButton = document.getElementById("login-button");
+      const buttonText = loginButton.querySelector(".button-text");
+      const spinner = loginButton.querySelector(".spinner");
 
-        // Toggle password visibility
-        eyeIcon.addEventListener("click", () => {
-            const type = passwordInput.type === "password" ? "text" : "password";
-            passwordInput.type = type;
+      // Toggle password visibility
+      eyeIcon.addEventListener("click", () => {
+        const type = passwordInput.type === "password" ? "text" : "password";
+        passwordInput.type = type;
 
-            // Toggle the eye icon
-            eyeIcon.classList.toggle("fa-eye");
-            eyeIcon.classList.toggle("fa-eye-slash");
-        });
+        // Toggle the eye icon
+        eyeIcon.classList.toggle("fa-eye");
+        eyeIcon.classList.toggle("fa-eye-slash");
+      });
 
-        // Simulate loading state on form submit
-        loginForm.addEventListener("submit", (e) => {
-            e.preventDefault(); // Prevent actual form submission for demo purposes
+      // Simulate loading state on form submit
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault(); // Prevent actual form submission for demo purposes
 
-            // Start loading state
-            loginButton.classList.add("loading");
-            spinner.style.display = "inline-block";
-            buttonText.textContent = "Logging in...";
+        // Start loading state
+        loginButton.classList.add("loading");
+        spinner.style.display = "inline-block";
+        buttonText.textContent = "Logging in...";
 
-            // Simulate a delay (e.g., server response)
-            setTimeout(() => {
-                // Stop loading state (in real use, stop after server response)
-                loginButton.classList.remove("loading");
-                spinner.style.display = "none";
-                buttonText.textContent = "Login";
-            }, 3000); // Adjust the timeout as needed
-        });
+        // Simulate a delay (e.g., server response)
+        setTimeout(() => {
+          // Stop loading state (in real use, stop after server response)
+          loginButton.classList.remove("loading");
+          spinner.style.display = "none";
+          buttonText.textContent = "Login";
+        }, 3000); // Adjust the timeout as needed
+      });
 
-        
       // Handle form submission and login API call
       document
         .getElementById("login-form")
@@ -110,8 +109,9 @@
           await adminLogin(username, password);
         });
 
-        async function adminLogin(username, password) {
-        const apiUrl = "https://unlimitedfunds.onrender.com/api/v1/admin/signin";
+      async function adminLogin(username, password) {
+        const apiUrl =
+          "https://unlimitedfunds.onrender.com/api/v1/admin/signin";
         document.getElementById("login-button").innerHTML = "Please wait...";
         document.getElementById("login-button").disabled = true;
         const loginData = {

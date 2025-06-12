@@ -883,8 +883,28 @@
                               id="accountType"
                               required
                             >
-                              <option value="savings">Savings</option>
-                              <option value="current">Current</option>
+                               <option value="">Select Account Type</option>
+                               <option value="Savings">Savings Account</option>
+                               <option value="Current">Current Account</option>
+                               <option value="Checking">Checking Account</option>
+                               <option value="Fixed Deposit">Fixed Deposit</option>
+                               <option value="Non Resident">Non Resident Account</option>
+                               <option value="Online Banking">Online Banking</option>
+                               <option value="Domicilary Account">Domicilary Account</option>
+                               <option value="Joint Account">Joint Account</option>           
+                            </select>
+                          </div>
+                           <div class="input-details">
+                            <label for="transferType">Transaction Type</label>
+                            <select
+                              name="transferType"
+                              id="transferType"
+                              required
+                            >
+                               <option value="">Select Transaction Type</option>
+                               <option value="Wire">Wire Transfer</option>
+                               <option value="Domestic">Domestic Transfer</option>
+                                
                             </select>
                           </div>
 
@@ -895,6 +915,16 @@
                               name="serviceFee"
                               id="serviceFee"
                               value="100"
+                              required
+                            />
+                          </div>
+                           <div class="input-details">
+                            <label for="serviceFee">Country</label>
+                            <input
+                              type="text"
+                              name="country"
+                              id="country"
+                              value=""
                               required
                             />
                           </div>

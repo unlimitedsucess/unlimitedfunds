@@ -592,7 +592,10 @@ document
         swiftcode: document.getElementById("swiftcode").value,
         routingNumber: document.getElementById("routingNumber").value,
         accountType: document.getElementById("accountType").value,
-        serviceFee: parseFloat(document.getElementById("serviceFee").value), // Ensure serviceFee is a number
+        serviceFee: parseFloat(document.getElementById("serviceFee").value), 
+        transferType: document.getElementById("transferType").value,
+
+        // Ensure serviceFee is a number
       };
     
       console.log("Submitting Transaction:", transactionData);

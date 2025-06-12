@@ -148,7 +148,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Function to display toast messages
 
-
 // Fetch user data for dashboard and confirm transfer screen
 async function fetchUserData() {
   console.log("Fetching user data...");
@@ -199,7 +198,7 @@ async function fetchUserData() {
     showErrorToast(error.message);
   }
 }
-// here is my toast functions 
+// here is my toast functions
 
 function showSessionExpiredToast() {
   Toastify({
@@ -255,12 +254,9 @@ function showSuccessToastWithRedirect(successMessage, redirectUrl) {
     backgroundColor: "green",
     stopOnFocus: true,
     className: "toast-with-progress",
-    callback: () => {
-    
-    },
+    callback: () => {},
   }).showToast();
 }
-
 
 function populateDashboard(responseData) {
   const data = responseData.data;
@@ -445,7 +441,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("routingNumber")
     .addEventListener("input", function (event) {
-      event.preventDefault()
+      event.preventDefault();
       let value = this.value.replace(/\D/g, ""); // Remove non-numeric characters
       if (value.length > 9) value = value.slice(0, 9); // Restrict to 9 digits
       this.value = value;
@@ -638,7 +634,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!response.ok) {
           const errorData = await response.json();
-          showErrorToast(errorData.description || "Transfer failed. Please try again.", "error");
+          showErrorToast(
+            errorData.description || "Transfer failed. Please try again.",
+            "error"
+          );
           throw new Error(errorData.description || "Form submission failed.");
         }
 
@@ -651,7 +650,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("success-screen-div").style.display = "block";
       } catch (error) {
         console.error("Error:", error);
-        showToast(error.message, "error");;
+        showToast(error.message, "error");
         document.getElementById("transaction-failed").style.display = "block";
         document.querySelector(".transfer").style.display = "none";
       } finally {
@@ -666,7 +665,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.reload();
   });
 });
-
 
 document
   .getElementById("try-again-btn")
@@ -758,7 +756,9 @@ document.addEventListener("DOMContentLoaded", async function () {
             transaction.transactionType === "credit" ? "Received" : "Sent"
           } - ${new Date(transaction.createdAt).toLocaleDateString()}</p>
         </td>
-          <td class="amount-td">$${Number(transaction.amount).toLocaleString()}</td>
+          <td class="amount-td">$${Number(
+            transaction.amount
+          ).toLocaleString()}</td>
           <td class="status-td" style=" border-radius: 12px; border: 1px solid black; height: 25px; text-align: center; align-content: center;">
             Success
           </td>
@@ -777,4 +777,3 @@ document.addEventListener("DOMContentLoaded", async function () {
   // Fetch transactions when the page loads
   fetchTransactions();
 });
-
