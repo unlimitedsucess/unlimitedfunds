@@ -127,8 +127,6 @@ function populateDashboard(responseData) {
   const swiftCode = document.querySelectorAll(".swiftCode");
   const accountType = document.querySelectorAll(".accountType");
 
-
-
   accountType.forEach((accouunt) => {
     if (accouunt) {
       accouunt.textContent = data.accountType;
@@ -172,8 +170,6 @@ function populateDashboard(responseData) {
       swift.placeholder = data.swiftcode;
     }
   });
-  
- 
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -202,55 +198,145 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
 
       const data = await response.json();
-
-      console.log("Fetched Transactions Data:", data);
+      console.log("transaction history:", data);
 
       if (!Array.isArray(data.data)) {
         console.error("Invalid data format:", data);
         return;
       }
 
-      // Sort transactions by date (latest first)
       const sortedTransactions = data.data.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
 
-      // Clear existing rows
+      // Clear table
       tableBody.innerHTML = "";
 
       sortedTransactions.forEach((txn, index) => {
-        const updatedAt = new Date(txn.updatedAt);
-        const date = updatedAt.toLocaleDateString(); // e.g., "6/12/2025"
-        const time = updatedAt.toLocaleTimeString(); // e.g., "12:38:18 PM"
+        const createdAt = new Date(txn.createdAt); // Use createdAt here
+
+        const date = createdAt.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          timeZone: "UTC",
+        });
+
+        const time = createdAt.toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: true,
+          timeZone: "UTC",
+        });
+
         const row = document.createElement("tr");
         row.innerHTML = `
-      <td>${index + 1}</td>
-      <td><div class="td-content product-invoice">$${txn.amount}</div></td>
-      <td><div class="td-content product-brand text-primary">
-        <span class='text-${
-          txn.transactionType === "credit" ? "success" : "danger"
-        }'>${txn.transactionType}</span>
-      </div></td>
-      <td><div class="td-content product-invoice">${
-        txn.beneficiaryName
-      }</div></td>
-      <td><div class="td-content product-brand">${txn.narration}</div></td>
-      <td><div class="td-content product-invoice">${date}</div></td>
-      <td><div class="td-content pricing"><span>${time}</span></div></td>
+    <td>${index + 1}</td>
+    <td><div class="td-content product-invoice">$${txn.amount}</div></td>
+    <td><div class="td-content product-brand text-primary">
+      <span class='text-${
+        txn.transactionType === "credit" ? "success" : "danger"
+      }'>
+        ${txn.transactionType}
+      </span>
+    </div></td>
+    <td><div class="td-content product-invoice">${
+      txn.beneficiaryName
+    }</div></td>
+    <td><div class="td-content product-brand">${txn.narration}</div></td>
+    <td><div class="td-content product-invoice">${date}</div></td>
+    <td><div class="td-content pricing"><span>${time}</span></div></td>
     <td><div class="td-content">
-  <span class="badge outline-badge-primary shadow-none col-md-12">
-    Completed
-  </span>
-</div></td>
-    `;
-
+      <span class="badge outline-badge-primary shadow-none col-md-12">Completed</span>
+    </div></td>
+  `;
         tableBody.appendChild(row);
       });
+
+      // Notifications (last 3)
+      const notificationContainer = document.querySelector(
+        ".dropdown-menu .notification-scroll"
+      );
+      if (notificationContainer) {
+        notificationContainer.innerHTML = "";
+
+        const recentTransactions = sortedTransactions.slice(0, 3);
+        recentTransactions.forEach((txn) => {
+          const typeClass =
+            txn.transactionType === "credit" ? "text-success" : "text-danger";
+          const icon =
+            txn.transactionType === "credit"
+              ? `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>`
+              : `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="feather feather-x-circle text-danger">
+                 <circle cx="12" cy="12" r="10"></circle>
+                 <line x1="15" y1="9" x2="9" y2="15"></line>
+                 <line x1="9" y1="9" x2="15" y2="15"></line>
+               </svg>`;
+
+          notificationContainer.innerHTML += `
+            <div class="dropdown-item">
+              <div class="media">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="feather feather-activity">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+                <div class="media-body">
+                  <div class="data-info">
+                    <h6 class=""><span class="${typeClass}">
+                      ${
+                        txn.transactionType === "credit"
+                          ? "Credit [Alert]"
+                          : "Debit [Alert]"
+                      }
+                    </span></h6>
+                    <p class="">$${Number(txn.amount).toLocaleString()}</p>
+                  </div>
+                  <div class="icon-status">${icon}</div>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      // Today’s total debit subtraction from 50,000
+      const today = new Date().toISOString().split("T")[0];
+      const todaysTransactions = sortedTransactions.filter(
+        (txn) =>
+          new Date(txn.createdAt).toISOString().split("T")[0] === today &&
+          txn.transactionType === "debit"
+      );
+      const totalDebits = todaysTransactions.reduce(
+        (sum, txn) => sum + Number(txn.amount),
+        0
+      );
+      const remaining = 50000 - totalDebits;
+
+      const limitEl = document.querySelector(".limitRemain");
+      if (limitEl) {
+        limitEl.textContent = `$${remaining.toLocaleString()}`;
+      }
+
+      // Last transaction amount
+      const lastTransaction = sortedTransactions[0];
+      const lastEl = document.querySelector(".lastTransaction");
+      if (lastTransaction && lastEl) {
+        lastEl.textContent = `$${Number(
+          lastTransaction.amount
+        ).toLocaleString()}`;
+      }
     } catch (error) {
       console.error("Error fetching transactions:", error);
     }
   }
 
-  // Fetch transactions when the page loads
   fetchTransactions();
 });

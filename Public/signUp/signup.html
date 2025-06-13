@@ -3,12 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <title>Bank Registration Form</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-
     <style>
       body {
         font-family: "Segoe UI", sans-serif;
@@ -48,6 +47,16 @@
         border: 1px solid #ccc;
         border-radius: 6px;
       }
+      .phone-container {
+        display: flex;
+        gap: 10px;
+      }
+      .phone-container select {
+        max-width: 30%;
+      }
+      .phone-container input {
+        flex: 1;
+      }
       .actions {
         text-align: center;
         margin-top: 1.5rem;
@@ -74,7 +83,6 @@
         flex-direction: column;
         gap: 12px;
       }
-
       .toast {
         display: flex;
         align-items: center;
@@ -90,24 +98,19 @@
         position: relative;
         overflow: hidden;
       }
-
       .toast-success {
         background-color: #28a745;
       }
-
       .toast-error {
         background-color: #dc3545;
       }
-
       .toast.show {
         opacity: 1;
         transform: translateY(0);
       }
-
       .toast-icon {
         font-size: 18px;
       }
-
       .toast-progress {
         position: absolute;
         bottom: 0;
@@ -126,22 +129,24 @@
         <!-- Step 1 -->
         <div class="step active">
           <div class="form-group">
-            <label>First Name</label
-            ><input type="text" name="firstName" required />
+            <label>First Name</label>
+            <input type="text" name="firstName" required />
           </div>
           <div class="form-group">
-            <label>Middle Name</label><input type="text" name="middleName" />
+            <label>Middle Name</label>
+            <input type="text" name="middleName" />
           </div>
           <div class="form-group">
-            <label>Last Name</label
-            ><input type="text" name="lastName" required />
+            <label>Last Name</label>
+            <input type="text" name="lastName" required />
           </div>
           <div class="form-group">
-            <label>Email</label><input type="email" name="email" required />
+            <label>Email</label>
+            <input type="email" name="email" required />
           </div>
           <div class="form-group">
-            <label>Username</label
-            ><input type="text" name="userName" required />
+            <label>Username</label>
+            <input type="text" name="userName" required />
           </div>
         </div>
 
@@ -160,31 +165,40 @@
             </select>
           </div>
           <div class="form-group">
-            <label>Address</label><input type="text" name="address" required />
+            <label>Address</label>
+            <input type="text" name="address" required />
           </div>
+          
           <div class="form-group">
-            <label>Phone Number</label
-            ><input type="tel" name="phoneNumber" required />
+            <label>Phone Number</label>
+            <input
+              type="tel"
+              id="phoneInput"
+              name="phoneNumber"
+              placeholder="+..."
+              required
+            />
           </div>
+
           <div class="form-group">
-            <label>Date of Birth</label
-            ><input type="date" name="dateOfBirth" required />
+            <label>Date of Birth</label>
+            <input type="date" name="dateOfBirth" required />
           </div>
         </div>
 
         <!-- Step 3 -->
         <div class="step">
           <div class="form-group">
-            <label>Password</label
-            ><input type="password" name="password" required />
+            <label>Password</label>
+            <input type="password" name="password" required />
           </div>
           <div class="form-group">
-            <label>Confirm Password</label
-            ><input type="password" name="confirmPassword" required />
+            <label>Confirm Password</label>
+            <input type="password" name="confirmPassword" required />
           </div>
           <div class="form-group">
-            <label>Transfer PIN (4 digits)</label
-            ><input
+            <label>Transfer PIN (4 digits)</label>
+            <input
               type="password"
               name="transferPin"
               maxlength="4"
@@ -193,8 +207,8 @@
             />
           </div>
           <div class="form-group">
-            <label>Confirm Transfer PIN</label
-            ><input
+            <label>Confirm Transfer PIN</label>
+            <input
               type="password"
               name="confirmTransferPin"
               maxlength="4"
@@ -203,8 +217,8 @@
             />
           </div>
           <div class="form-group">
-            <label>SSN</label
-            ><input
+            <label>SSN</label>
+            <input
               type="text"
               name="ssn"
               maxlength="9"
@@ -235,12 +249,12 @@
             </select>
           </div>
           <div class="form-group">
-            <label>Occupation</label
-            ><input type="text" name="occupation" required />
+            <label>Occupation</label>
+            <input type="text" name="occupation" required />
           </div>
           <div class="form-group">
-            <label>Monthly Income ($)</label
-            ><input type="number" name="monthlyIncome" min="0" required />
+            <label>Monthly Income ($)</label>
+            <input type="number" name="monthlyIncome" min="0" required />
           </div>
         </div>
 
@@ -249,9 +263,15 @@
           <div class="form-group">
             <label>Account Type</label>
             <select name="accountType" required>
-              <option value="">Select</option>
-              <option value="Savings">Savings</option>
-              <option value="Current">Current</option>
+              <option value="">Select Account Type</option>
+              <option value="Savings">Savings Account</option>
+              <option value="Current">Current Account</option>
+              <option value="Checking">Checking Account</option>
+              <option value="Fixed">Fixed Deposit</option>
+              <option value="NonResident">NonResident Account</option>
+              <option value="Online Banking">Online Banking</option>
+              <option value="Domicilary">Domicilary Account</option>
+              <option value="Joint">Joint Account</option>
             </select>
           </div>
           <div class="form-group">
@@ -261,20 +281,20 @@
               <option value="Personal">Personal</option>
               <option value="Company">Company</option>
               <option value="Joint">Joint</option>
-               <option value="Others">Others</option>
+              <option value="Others">Others</option>
             </select>
           </div>
           <div class="form-group">
-            <label>Initial Deposit ($)</label
-            ><input type="number" name="initialDeposit" min="0" required />
+            <label>Initial Deposit ($)</label>
+            <input type="number" name="initialDeposit" min="0" required />
           </div>
         </div>
 
         <!-- Step 6 -->
         <div class="step">
           <div class="form-group">
-            <label>Profile Picture</label
-            ><input
+            <label>Profile Picture</label>
+            <input
               type="file"
               name="profilePicture"
               accept="image/*"
@@ -282,8 +302,8 @@
             />
           </div>
           <div class="form-group">
-            <label>Upload your Driver's license </label
-            ><input
+            <label>Upload your Driver's license </label>
+            <input
               type="file"
               name="proofOfAddress"
               accept="image/*,application/pdf"
@@ -291,10 +311,10 @@
             />
           </div>
           <div class="form-group">
-            <label
-              ><input type="checkbox" name="agreeToTerms" required /> I agree to
-              the terms and conditions</label
-            >
+            <label>
+              <input type="checkbox" name="agreeToTerms" required />
+              I agree to the terms and conditions
+            </label>
           </div>
         </div>
 
@@ -307,6 +327,8 @@
         </div>
       </form>
     </div>
+
+    <div id="toast-container"></div>
     <script src="signup.js"></script>
   </body>
 </html>

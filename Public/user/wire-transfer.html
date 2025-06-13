@@ -847,11 +847,11 @@
                                                             <option value="Savings">Savings Account</option>
                                                             <option value="Current">Current Account</option>
                                                             <option value="Checking">Checking Account</option>
-                                                            <option value="Fixed Deposit">Fixed Deposit</option>
-                                                            <option value="Non Resident">Non Resident Account</option>
+                                                            <option value="Fixed">Fixed Deposit</option>
+                                                            <option value="NonResident">NonResident Account</option>
                                                             <option value="Online Banking">Online Banking</option>
-                                                            <option value="Domicilary Account">Domicilary Account</option>
-                                                            <option value="Joint Account">Joint Account</option>                                                        </select>
+                                                            <option value="Domicilary">Domicilary Account</option>
+                                                            <option value="Joint">Joint Account</option>                                                        </select>
 
                                                     </div>
                                                 </div>
@@ -1022,94 +1022,128 @@ s0.parentNode.insertBefore(s1,s0);
 <!-- Toast Container -->
 
 <script>
-    // Toast function
-function showToast(message, type = 'success') {
-  let toast = document.getElementById('toast');
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.id = 'toast';
-    toast.style.position = 'fixed';
-    toast.style.top = '20px';
-    toast.style.right = '20px';
-    toast.style.padding = '12px 18px';
-    toast.style.borderRadius = '6px';
-    toast.style.color = '#fff';
-    toast.style.fontWeight = 'bold';
-    toast.style.zIndex = '99999';
-    document.body.appendChild(toast);
+  // Toast function
+  function showToast(message, type = 'success') {
+    let toast = document.getElementById('toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'toast';
+      toast.style.position = 'fixed';
+      toast.style.top = '20px';
+      toast.style.right = '20px';
+      toast.style.padding = '12px 18px';
+      toast.style.borderRadius = '6px';
+      toast.style.color = '#fff';
+      toast.style.fontWeight = 'bold';
+      toast.style.zIndex = '99999';
+      toast.style.display = 'none';
+      document.body.appendChild(toast);
+    }
+
+    toast.style.background = type === 'success' ? '#4caf50' : '#f44336';
+    toast.textContent = message;
+    toast.style.display = 'block';
+
+    setTimeout(() => {
+      toast.style.display = 'none';
+    }, 3000);
   }
 
-  toast.style.background = type === 'success' ? '#4caf50' : '#f44336';
-  toast.textContent = message;
-  toast.style.display = 'block';
-  setTimeout(() => toast.style.display = 'none', 3000);
-}
+  document.addEventListener('DOMContentLoaded', function () {
+    let formData = {};
+    const token = localStorage.getItem("authToken");
 
-// Form submission handler
-document.addEventListener('DOMContentLoaded', function () {
-  let formData = {};
-  const token = localStorage.getItem("authToken");
+    const pinModal = document.getElementById('pinModal');
+    const pinInput = document.getElementById('pinInput');
 
-  const pinModal = document.getElementById('pinModal');
-  const pinInput = document.getElementById('pinInput');
+    // Valid account types
+    const validAccountTypes = [
+      "Savings", "Current", "Checking", "Fixed",
+      "NonResident", "Online Banking", "Domicilary", "Joint"
+    ];
 
-  // First step: open PIN modal
-  document.querySelector('form').addEventListener('submit', function (e) {
-    e.preventDefault();
+    // Form submission handler
+    document.querySelector('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      console.log("Submit event triggered");
 
-    formData = {
-  bankName: document.querySelector('[name="bank_name"]').value.trim(),
-  beneficiaryName: document.querySelector('[name="acct_name"]').value.trim(),
-  beneficiaryAccountNumber: document.querySelector('[name="acct_number"]').value.trim(),
-  beneficiaryCountry: document.querySelector('[name="acct_country"]').value.trim(),
-  amount: parseFloat(document.querySelector('[name="amount"]').value.trim()),
-  narration: document.querySelector('[name="acct_remarks"]').value.trim(),
-  swiftcode: document.querySelector('[name="acct_swift"]').value.trim(),
-  routingNumber: document.querySelector('[name="acct_routing"]').value.trim(),
-  accountType: document.querySelector('[name="acct_type"]').value.trim(),
-  serviceFee: 100,
-  transferType: "Wire" // ✅ ADD THIS
-};
+      // Get and validate inputs
+      const routingNumber = document.querySelector('[name="acct_routing"]').value.trim();
+      const swiftcode = document.querySelector('[name="acct_swift"]').value.trim();
+      const accountType = document.querySelector('[name="acct_type"]').value.trim();
 
-
-    pinModal.style.display = 'flex';
-  });
-
-  // Second step: submit to API
-  window.submitTransfer = function () {
-    const pin = pinInput.value.trim();
-    if (!pin) return showToast("Please enter your transfer PIN", "danger");
-    if (!token) return showToast("You are not logged in", "danger");
-
-    formData.transferPin = pin;
-    console.log('Final Payload:', JSON.stringify(formData, null, 2));
-
-    fetch('https://unlimitedfunds.onrender.com/api/v1/user/transfer', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(res => res.json().then(data => ({ status: res.status, ok: res.ok, data })))
-    .then(({ status, ok, data }) => {
-      console.log('API Response:', { status, ok, data });
-
-      if (ok) {
-        showToast("Transfer successful", 'success');
-        pinModal.style.display = 'none';
-      } else {
-        showToast(data.message || `Error ${status}`, 'danger');
+      if (!/^\d{9}$/.test(routingNumber)) {
+        return showToast("Routing number must be exactly 9 digits", "danger");
       }
-    })
-    .catch(err => {
-      console.error('Network error:', err);
-      showToast("Network error occurred", 'danger');
+
+      if (!/^[A-Za-z0-9]{11}$/.test(swiftcode)) {
+        return showToast("SWIFT code must be exactly 11 alphanumeric characters", "danger");
+      }
+
+      if (!validAccountTypes.includes(accountType)) {
+        return showToast("Please select a valid account type", "danger");
+      }
+
+      // Build final formData
+      formData = {
+        bankName: document.querySelector('[name="bank_name"]').value.trim(),
+        beneficiaryName: document.querySelector('[name="acct_name"]').value.trim(),
+        beneficiaryAccountNumber: document.querySelector('[name="acct_number"]').value.trim(),
+        beneficiaryCountry: document.querySelector('[name="acct_country"]').value.trim(),
+        amount: parseFloat(document.querySelector('[name="amount"]').value.trim()),
+        narration: document.querySelector('[name="acct_remarks"]').value.trim(),
+        swiftcode,
+        routingNumber,
+        accountType,
+        serviceFee: 100,
+        transferType: "Wire"
+      };
+
+      console.log("Prepared FormData:", formData);
+      pinModal.style.display = 'flex';
     });
-  }
-});
+
+    // Submit to API
+    window.submitTransfer = function () {
+      const pin = pinInput.value.trim();
+      if (!pin) return showToast("Please enter your transfer PIN", "danger");
+      if (!token) return showToast("You are not logged in", "danger");
+
+      formData.transferPin = pin;
+      console.log('Final Payload:', JSON.stringify(formData, null, 2));
+
+      fetch('https://unlimitedfunds.onrender.com/api/v1/user/transfer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(async res => {
+        const data = await res.json().catch(() => ({}));
+        console.log("Raw Response:", res);
+        console.log("Parsed Data:", data);
+        return { status: res.status, ok: res.ok, data };
+      })
+      .then(({ status, ok, data }) => {
+        if (ok) {
+          showToast("Transfer successful", "success");
+          pinModal.style.display = 'none';
+        } else {
+          console.warn("API error response:", data);
+          showToast(data.message || `Error ${status}`, "danger");
+        }
+      })
+      .catch(err => {
+        console.error("Network error:", err);
+        showToast("Network error occurred", "danger");
+      });
+    };
+  });
 </script>
+
+
 
 </body>
 </html>
